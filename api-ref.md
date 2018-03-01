@@ -1,0 +1,121 @@
+API ref
+=====
+
+COURSES - /api/courses
+-----
+Show all the COURSES
+
+```javascript
+[
+  {
+    'title': 'Edge',
+    'nid': '1998'
+  },
+  {
+    // ...more COURSEs
+  }
+]
+```
+
+COURSE - /api/course/[nid]
+-----
+Show a specific COURSE's fields and it's MODULE's ids
+
+```javascript
+  [
+    {
+      'title': 'Edge',
+      'nid': '1998',
+      'field_introduction': 'Welcome to the Cambridge Audio online training course for Edge.',
+      'field_modules': ['2000', ...]
+    }
+  ]
+```
+MODULES - /api/modules
+-----
+Show all MODULES and their fields ids
+
+```javascript
+[
+  {
+    "title":"Key Technology",
+    "nid": "2000",
+    "field_assessment":["1839"],
+    "field_lessons":["1838","1840"]
+  },
+  {
+    // ... more MODULES 
+  }
+]
+```
+
+MODULE - /api/module/[nid]
+-----
+Show a specific MODULE and it's LESSONS and ASSESSMENT ids
+
+```javascript
+[
+  {
+    "title":"Key Technology",
+    "nid": "2000",
+    "field_assessment":["1839"],
+    "field_lessons":["1838","1840"]
+  }
+]
+```
+
+LESSONS - /api/lessons
+-----
+Show all the LESSONs
+
+```javascript
+[
+  {
+    'id': '1838',
+    'field_headline': 'DC Servo',
+    'field_body': '<p><span>A clean Alternating Current … </span></p>',
+    'field_youtube_id': '',
+  },
+  {
+    // ...more LESSONS
+  }
+]
+```
+
+LESSON - /api/lesson/[pid]
+-----
+Show the fields for a specific LESSON
+
+```javascript
+[
+  {
+    'id': '1838',
+    'field_headline': 'DC Servo',
+    'field_body': '<p><span>A clean Alternating Current … </span></p>',
+    'field_youtube_id': ',
+  }
+]
+```
+
+ASSESSMENTS - /api/assessments
+-----
+Show all the ASSESSMENTS
+
+```javascript
+[
+  {
+    "id":"1839",
+    "type":"Multiple-Choice Question",
+    "field_question":"Why doesn\u2019t Edge use capacitors?",
+    "field_correct_choice":"Capacitors significantly change sound characteristics",
+    "field_incorrect_choices": [
+      "Capacitors are old technology", 
+      "Capacitors reduce modulation in an AC signal"
+    ],
+  },
+  {
+    // ... more ASSESSMENTS
+  }
+]
+```
+  
