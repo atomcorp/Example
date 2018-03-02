@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Courses } from './components/Courses/Courses.js';
 import { Course } from './components/Course/Course.js';
+import { Lessons } from './components/Lessons/Lessons.js';
 import { store } from './store/store.js';
 class App extends Component {
 
@@ -35,6 +36,11 @@ class App extends Component {
         <Courses courses={this.state.courses} />
         <Course state={
           Object.assign({}, this.state, { id: '1998'})
+        } />
+        <Lessons state={
+          Object.assign({}, this.state, { lessons: [
+            '1838', '1842', '1840'
+          ] })
         } />
       </div>
     );
