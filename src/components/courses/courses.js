@@ -1,29 +1,22 @@
 import React from 'react';
 import Page from '../../containers/page/page.js';
-import { coursesJson } from '../../config/config.js';
 
-const data = fetch(coursesJson).then(res => res.json()).catch(err => console.log(err));
-data.then(res => {
-  var arr = Object.keys(res).map(course => Course(res[course]))
-  console.log(arr)
-  return arr;
-})
-
-const Course = (courseData) => {
+const Course = ({title}) => {
   return (
     <div>
-      { courseData.title }
+      { title }
     </div>
   );
 };
 
-export const Courses = () => {
-
+export const Courses = ({courses}) => {
   return (
     <Page>
-      <h1>Data here</h1>
+      <h1>Courses</h1>
       {
-        
+        Object.keys(courses).map((key, index) => {
+          return <Course key={index} title={courses[key].title} />
+        })
       }
     </Page>
   );

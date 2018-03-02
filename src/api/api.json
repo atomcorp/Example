@@ -44,7 +44,7 @@
       "field_question": "Where is the Sun?"
     }
   },
-  "assessment": {
+  "assessments": {
     "1839": {
       "id": "1839",
       "type": "Multiple-Choice Question",
