@@ -1,9 +1,9 @@
 import React from 'react';
 import Page from '../../containers/page/page.js';
 
-const Course = ({title}) => {
+const CourseButton = ({ title, id }) => {
   return (
-    <div>
+    <div data-course-id={id}>
       { title }
     </div>
   );
@@ -15,7 +15,7 @@ export const Courses = ({courses}) => {
       <h1>Courses</h1>
       {
         Object.keys(courses).map((key, index) => {
-          return <Course key={index} title={courses[key].title} />
+          return <CourseButton key={index} id={courses[key].nid} title={courses[key].title} />
         })
       }
     </Page>

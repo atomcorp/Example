@@ -9,6 +9,7 @@ class Page extends Component {
   render() {
     return (
       <div className="page">
+        <div> Header </div>
         { this.props.children }
       </div>
     );
