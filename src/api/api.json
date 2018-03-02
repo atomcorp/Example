@@ -1,0 +1,59 @@
+{
+  "courses": {
+    "1998": {
+      "title": "Edge",
+      "nid": "1998",
+      "modules": ["2000"],
+      "assessment": ["1839"]
+    }
+  },
+  "modules": {
+    "2000": {
+      "title": "Key Technology",
+      "nid": "2000",
+      "field_lesson": [
+        "1838",
+        "1842",
+        "1840"
+      ]
+    }
+  },
+  "lessons": {
+    "1838": {
+      "id": "1838",
+      "type": "Lesson",
+      "field_headline": "DC Servo",
+      "field_body": "\u003Cp\u003E\u003Cspan\u003EA clean Alternating Current signal is key to delivering Great British Sound from the amplifier to the speakers. Direct Current generated\u2026 \u003C\/span\u003E\u003C\/p\u003E",
+      "field_youtube_id": ""
+    }, 
+    "1840": {
+      "id": "1840",
+      "type": "Lesson",
+      "field_headline": "Digital Inputs",
+      "field_body": "\u003Cp\u003EBoth Edge A and Edge NQ have a fully featured selection of digital and analogue inputs...\u003C\/p\u003E",
+      "field_youtube_id": ""
+    },
+    "1842": {
+      "id": "1842",
+      "type": "Multiple-Choice Question",
+      "field_correct_choice": "In space!",
+      "field_incorrect_choices": [
+        "On the ceiling",
+        "Australia"
+      ],
+      "field_question": "Where is the Sun?"
+    }
+  },
+  "assessment": {
+    "1839": {
+      "id": "1839",
+      "type": "Multiple-Choice Question",
+      "field_correct_choice": "Capacitors significantly change sound characteristics",
+      "field_incorrect_choices": [
+        "Capacitors are old technology",
+        "Capacitors reduce modulation in an AC signal"
+      ],
+      "field_question": "Why doesn\u2019t Edge use capacitors?"
+    }
+  }
+}

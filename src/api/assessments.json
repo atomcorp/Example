@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1839",
+    "type": "Multiple-Choice Question",
+    "field_correct_choice": "Capacitors significantly change sound characteristics",
+    "field_incorrect_choices": [
+      "Capacitors are old technology",
+      "Capacitors reduce modulation in an AC signal"
+    ],
+    "field_question": "Why doesn\u2019t Edge use capacitors?"
+  }
+]

@@ -40,8 +40,7 @@ Show all MODULES and their fields ids
   {
     "title":"Key Technology",
     "nid": "2000",
-    "field_assessment":["1839"],
-    "field_lessons":["1838","1840"]
+    "field_structure":["1838","1839","1840"]
   },
   {
     // ... more MODULES 
