@@ -29,7 +29,7 @@ export const Assessment = ({ state, route }) => {
       {
         courseData.assessment.map((assessmentId: string, i: number) => 
           /**
-           * THis is not a perm solution,
+           * TODO: This is not a perm solution,
            * doesn't check for different test etc
            */
           <MultipleChoice

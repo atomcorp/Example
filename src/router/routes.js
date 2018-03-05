@@ -15,9 +15,9 @@ const Routes = ({state}) => {
         <h1>eLearning routes</h1>
         <ul>
           <li><Link to="/courses">Courses</Link></li>
-          <li><Link to="/course">Course</Link></li>
-          <li><Link to="/module">Module</Link></li>
-          <li><Link to="/assessment">Assessment</Link></li>
+          <li><Link to="/course/1998">Course</Link></li>
+          <li><Link to="/module/2000">Module</Link></li>
+          <li><Link to="/assessment/1998">Assessment</Link></li>
           <li><Link to="/home">Home</Link></li>
         </ul>
         <Route path="/courses" component={() => (
