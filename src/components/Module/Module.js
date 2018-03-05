@@ -33,14 +33,15 @@ export class Module extends Component {
           this.props.state,
           {
             moduleComponentCount: this.props.state.modules[this.route.match.params.moduleId].field_lesson.length,
-            visibleModuleComponent: 1
+            visibleModuleComponent: 1,
+            nextButtonDisabled: false
           }
         )
       ); 
     }
   }
 
-  incrementVisibleModuleComponent() {
+  incrementVisible() {
     if (this.state.visibleModuleComponent < this.state.moduleComponentCount) {
       this.setState({
         visibleModuleComponent: ++this.state.visibleModuleComponent
@@ -48,10 +49,18 @@ export class Module extends Component {
     }
   }
 
-  decrementVisibleModuleComponent() {
+  decrementVisible() {
     if (this.state.visibleModuleComponent > 1) {
       this.setState({
         visibleModuleComponent: --this.state.visibleModuleComponent
+      })
+    }
+  }
+  
+  handleDisableButton(willDisable) {
+    if (willDisable !== this.state.nextButtonDisabled) {
+      this.setState({
+        nextButtonDisabled: willDisable
       })
     }
   }
@@ -68,19 +77,33 @@ export class Module extends Component {
     return (
       <Page>
         <h1>{moduleData.title}</h1>
+        <div>
+          Progress {this.state.visibleModuleComponent} / {this.state.moduleComponentCount}
+        </div>
         {
-          // TODO: not use .field_lesson
+          // TODO: might not use .field_lesson
           moduleData.field_lesson.map((moduleComponentId, i) => {
             return <ModuleComponent
               key={i}
               moduleComponent={this.state.moduleComponents[moduleComponentId]}
-              thisComponent={i + 1}
-              isVisibleComponent={this.state.visibleModuleComponent} />
+              isVisible={{
+                thisId: i + 1,
+                visibleId: this.state.visibleModuleComponent,
+              }}
+              disableNextButton={willDisable => this.handleDisableButton(willDisable)} />
           })
         }
-        <button onClick={() => this.decrementVisibleModuleComponent()}>Prev</button>
-        <button onClick={() => this.incrementVisibleModuleComponent()}>Next</button>
-    </Page>
+        { 
+          this.state.visibleModuleComponent > 1
+          && <button onClick={() => this.decrementVisible()}>Prev</button>
+        }
+        {
+          this.state.visibleModuleComponent < this.state.moduleComponentCount
+          && <button 
+            disabled={this.state.nextButtonDisabled} 
+            onClick={() => this.incrementVisible()}>Next</button>
+        }
+      </Page>
     )
   }
 
