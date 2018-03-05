@@ -5,6 +5,7 @@
 import React from 'react';
 
 export const Lesson = ({ data }) => {
+
   return (
     <div className="lesson">
       <h2>{data.field_headline}</h2>
