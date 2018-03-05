@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Courses } from './components/Courses/Courses.js';
-import { Course } from './components/Course/Course.js';
-import { Module } from './components/Module/Module.js';
-import { Assessment } from './components/Assessment/Assessment.js';
+import Routes from './router/routes.js';
 
 import { store } from './store/store.js';
 class App extends Component {
@@ -35,16 +32,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Courses courses={ this.state.courses } />
-        <Course 
+        <Routes 
           state={ this.state } 
-          courseId="1998" />
-        <Module 
-          state={ this.state } 
-          moduleId="2000" />
-        <Assessment 
-          state={this.state}
-          courseId="1998" />
+          temp={{
+            courseId: '1998',
+            moduleId: '2000'
+          }} />
       </div>
     );
   }
