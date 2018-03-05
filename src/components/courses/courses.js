@@ -1,10 +1,11 @@
 import React from 'react';
 import Page from '../../containers/page/page.js';
+import { Link } from 'react-router-dom';
 
 const CourseButton = ({ title, id }) => {
   return (
-    <div data-course-id={id}>
-      { title }
+    <div>
+      <Link to={`/course/${id}`}>{title}</Link>
     </div>
   );
 };

@@ -7,6 +7,7 @@
  */
 import React from 'react';
 import Page from '../../containers/page/page.js';
+import { Link } from 'react-router-dom';
 
 const TitleElement = ({title}) => {
   return (
@@ -14,7 +15,7 @@ const TitleElement = ({title}) => {
   );
 };
 
-const CourseModuleElement = ({title, moduleComponents}) => {
+const CourseModuleElement = ({title, id, moduleComponents}) => {
   return (
     <div className="module">
       <h2>{title} Module</h2>
@@ -22,16 +23,19 @@ const CourseModuleElement = ({title, moduleComponents}) => {
         <ul>
           {
             moduleComponents.map((moduleComponent, i) => 
-              <ModuleLessonElement key={i} title={moduleComponent.field_headline} />
+              <ModuleComponentElement key={i} title={moduleComponent.field_headline} />
             )
           }
         </ul>
+        {
+          <Link to={`/module/${id}`}>Go to module</Link>
+        }
       </div>
     </div>
   );
 };
 
-const ModuleLessonElement = ({title}) => {
+const ModuleComponentElement = ({title}) => {
   if (!title) {
     return <li>Test</li>;
   }
@@ -49,7 +53,7 @@ export const Course = ({ state, route }) => {
   const courseId = route.match.params.courseId;
   const courseData = state.courses[courseId];
   if (!courseData) {
-    return <div>Course ID is not found</div>;
+    return <div>Can't find course [invalid course ID]</div>;
   }
   return (
     <Page>
@@ -63,6 +67,7 @@ export const Course = ({ state, route }) => {
             <CourseModuleElement 
               key={i} 
               title={state.modules[moduleId].title}
+              id={moduleId}
               moduleComponents={
                 state.modules[moduleId].field_lesson.map(
                   lessonId => state.moduleComponents[lessonId]
@@ -72,8 +77,7 @@ export const Course = ({ state, route }) => {
           )
         }
       </div>
-      {/* TODO: Only show when all Modules done */}
-      <div>Take assessment [IDs: {courseData.assessment.map(id => id)}]</div>
+      <Link to={`/assessment/${courseId}`}>Go to Assessment</Link>
     </Page>
   );
 };
