@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Courses } from './components/Courses/Courses.js';
 import { Course } from './components/Course/Course.js';
-import { Lessons } from './components/Lessons/Lessons.js';
+import { Module } from './components/Module/Module.js';
 import { store } from './store/store.js';
 class App extends Component {
 
@@ -10,7 +10,7 @@ class App extends Component {
     this.state = {
       assessments: {},
       courses: {},
-      lessons: {},
+      moduleComponents: {},
       modules: {},
       loaded: false
     }
@@ -18,11 +18,11 @@ class App extends Component {
 
   componentDidMount() {
     store.fetchState().then(
-      ({ assessments, courses, lessons, modules }) => {
+      ({ assessments, courses, moduleComponents, modules }) => {
         this.setState({ 
           assessments, 
           courses, 
-          lessons, 
+          moduleComponents, 
           modules,
           loaded: true 
         })
@@ -33,16 +33,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Courses courses={this.state.courses} />
+        <Courses courses={ this.state.courses } />
         <Course 
-          state={this.state } 
-          courseId="1998"
-        />
-        <Lessons state={
-          Object.assign({}, this.state, { lessons: [
+          state={ this.state } 
+          courseId="1998" />
+        <Module 
+          state={ this.state } 
+          moduleComponentIds={[
             '1838', '1842', '1840'
-          ] })
-        } />
+          ]} />
       </div>
     );
   }

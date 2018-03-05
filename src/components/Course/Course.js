@@ -14,15 +14,15 @@ const TitleElement = ({title}) => {
   );
 };
 
-const CourseModuleElement = ({title, lessons}) => {
+const CourseModuleElement = ({title, moduleComponents}) => {
   return (
     <div className="module">
       <h2>{title} Module</h2>
       <div>
         <ul>
           {
-            lessons.map((lesson, i) => 
-              <ModuleLessonElement key={i} title={lesson.field_headline} />
+            moduleComponents.map((moduleComponent, i) => 
+              <ModuleLessonElement key={i} title={moduleComponent.field_headline} />
             )
           }
         </ul>
@@ -56,9 +56,9 @@ export const Course = ({ state, courseId }) => {
             <CourseModuleElement 
               key={i} 
               title={state.modules[moduleId].title}
-              lessons={
+              moduleComponents={
                 state.modules[moduleId].field_lesson.map(
-                  lessonId => state.lessons[lessonId]
+                  lessonId => state.moduleComponents[lessonId]
                 )
               }
             />
