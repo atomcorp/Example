@@ -4,7 +4,8 @@
       "title": "Edge",
       "nid": "1998",
       "modules": ["2000"],
-      "assessment": ["1839"]
+      "assessment": ["1839"],
+      "field_introduction": "Welcome to the Cambridge Audio online training course for Edge."
     }
   },
   "modules": {
@@ -18,7 +19,7 @@
       ]
     }
   },
-  "lessons": {
+  "moduleComponents": {
     "1838": {
       "id": "1838",
       "type": "Lesson",

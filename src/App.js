@@ -34,9 +34,10 @@ class App extends Component {
     return (
       <div className="App">
         <Courses courses={this.state.courses} />
-        <Course state={
-          Object.assign({}, this.state, { id: '1998'})
-        } />
+        <Course 
+          state={this.state } 
+          courseId="1998"
+        />
         <Lessons state={
           Object.assign({}, this.state, { lessons: [
             '1838', '1842', '1840'

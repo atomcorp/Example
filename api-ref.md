@@ -9,15 +9,15 @@ Show all the COURSES
 [
   {
     'title': 'Edge',
-    'nid': '1998'
-  },
-  {
-    // ...more COURSEs
+    'nid': '1998',
+    'field_introduction': 'Welcome to the Cambridge Audio online training course for Edge.',
+    'field_modules': ['2000', ...],
+    "field_assessment":["1844"]
   }
 ]
 ```
 
-COURSE - /api/course/[nid]
+COURSE [IGNORE] - /api/course/[nid]
 -----
 Show a specific COURSE's fields and it's MODULE's ids
 
@@ -27,7 +27,8 @@ Show a specific COURSE's fields and it's MODULE's ids
       'title': 'Edge',
       'nid': '1998',
       'field_introduction': 'Welcome to the Cambridge Audio online training course for Edge.',
-      'field_modules': ['2000', ...]
+      'field_modules': ['2000', ...],
+      "field_assessment":["1844"]
     }
   ]
 ```
@@ -48,7 +49,7 @@ Show all MODULES and their fields ids
 ]
 ```
 
-MODULE - /api/module/[nid]
+MODULE [IGNORE] - /api/module/[nid]
 -----
 Show a specific MODULE and it's LESSONS and ASSESSMENT ids
 
@@ -63,9 +64,9 @@ Show a specific MODULE and it's LESSONS and ASSESSMENT ids
 ]
 ```
 
-LESSONS - /api/lessons
+MODULE COMPONENTS - /api/module-components
 -----
-Show all the LESSONs
+Show all the MODULE COMPONENTS, can contain lessons or tests
 
 ```javascript
 [
@@ -81,7 +82,7 @@ Show all the LESSONs
 ]
 ```
 
-LESSON - /api/lesson/[pid]
+LESSON [IGNORE] - /api/lesson/[pid]
 -----
 Show the fields for a specific LESSON
 
@@ -98,7 +99,7 @@ Show the fields for a specific LESSON
 
 ASSESSMENTS - /api/assessments
 -----
-Show all the ASSESSMENTS
+Show all the ASSESSMENTS, these are used at the end of the COURSE
 
 ```javascript
 [

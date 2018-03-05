@@ -40,19 +40,19 @@ const ModuleLessonElement = ({title}) => {
       { title }
     </li>
   );
-}
+};
 
-export const Course = ({state}) => {
+export const Course = ({ state, courseId }) => {
   if (!state.loaded) {
     return 'Loading...';
   }
-  const thisCourse = state.courses[state.id];
+  const courseData = state.courses[courseId];
   return (
     <Page>
-      <TitleElement title={thisCourse.title} />
+      <TitleElement title={courseData.title} />
       <div>
         {
-          thisCourse.modules.map((moduleId, i) => 
+          courseData.modules.map((moduleId, i) => 
             <CourseModuleElement 
               key={i} 
               title={state.modules[moduleId].title}

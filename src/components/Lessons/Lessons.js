@@ -19,4 +19,4 @@ export const Lessons = ({ state }) => {
       </div>
     </Page>
   );
-}
+};
