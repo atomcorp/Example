@@ -1,18 +1,31 @@
 /**
  * Given an ID,
  * Holds all the lessons and tests, 
- * these get printed on sepearate pages
+ * each get printed on sepearate pages
  */
 import React from 'react';
+import Page from '../../containers/page/page.js';
 
-export const Module = ({ state, moduleComponents }) => {
+const ModuleComponent = ({type}) => {
+  return <div>{type}</div>
+}
+
+export const Module = ({ state, moduleId }) => {
   if (!state.loaded) {
     return 'Loading...';
   }
-  console.log(state, moduleComponents);
+  const moduleData = state.modules[moduleId];
   return (
-    <div>
-      Module
-    </div>
+    <Page>
+      <h1>{moduleData.title}</h1>
+      {
+        // TODO: not use .field_lesson
+        moduleData.field_lesson.map((moduleComponentId, i) => {
+          return <ModuleComponent 
+            key={ i }
+            type={ state.moduleComponents[moduleComponentId].type } />
+        })
+      }
+    </Page>
   )
-}
+};

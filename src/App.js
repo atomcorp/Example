@@ -39,9 +39,7 @@ class App extends Component {
           courseId="1998" />
         <Module 
           state={ this.state } 
-          moduleComponentIds={[
-            '1838', '1842', '1840'
-          ]} />
+          moduleId="2000" />
       </div>
     );
   }
