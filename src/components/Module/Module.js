@@ -5,11 +5,13 @@
  */
 import React from 'react';
 import Page from '../../containers/page/page.js';
+import { ModuleComponent } from '../ModuleComponent/ModuleComponent.js'
 
-const ModuleComponent = ({type}) => {
-  return <div>{type}</div>
-}
-
+/**
+ * Module will need to be stateful, 
+ * use prev and next buttons to keep state of progress
+ * will be passed down to Module COmponents
+ */
 export const Module = ({ state, moduleId }) => {
   if (!state.loaded) {
     return 'Loading...';
@@ -23,9 +25,10 @@ export const Module = ({ state, moduleId }) => {
         moduleData.field_lesson.map((moduleComponentId, i) => {
           return <ModuleComponent 
             key={ i }
-            type={ state.moduleComponents[moduleComponentId].type } />
+            moduleComponent={ state.moduleComponents[moduleComponentId] } />
         })
       }
+      Prev - Next
     </Page>
   )
 };
