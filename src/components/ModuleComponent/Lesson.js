@@ -3,7 +3,6 @@
  */
 
 import React from 'react';
-import Page from '../../containers/page/page.js';
 
 export const Lesson = ({ data }) => {
   return (
@@ -17,7 +16,7 @@ export const Lesson = ({ data }) => {
       }
       <div dangerouslySetInnerHTML={{
         __html: data.field_body
-      }}></div>
+      }} />
     </div>
   );
 };

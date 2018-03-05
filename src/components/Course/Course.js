@@ -50,6 +50,9 @@ export const Course = ({ state, courseId }) => {
   return (
     <Page>
       <TitleElement title={courseData.title} />
+      <div dangerouslySetInnerHTML={{
+        __html: courseData.field_introduction
+      }} />
       <div>
         {
           courseData.modules.map((moduleId, i) => 

@@ -28,6 +28,7 @@ export const MultipleChoice = ({ data }) => {
             ].map(
             (choiceData: string, i: number) => {
               return <Choice 
+                key={i}
                 text={choiceData}
                 isCorrect={i === 0 ? true : false} />
             }
