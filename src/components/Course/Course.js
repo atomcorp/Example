@@ -68,6 +68,8 @@ export const Course = ({ state, courseId }) => {
           )
         }
       </div>
+      {/* TODO: Only show when all Modules done */}
+      <div>Take assessment [IDs: {courseData.assessment.map(id => id)}]</div>
     </Page>
   );
 };

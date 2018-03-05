@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Courses } from './components/Courses/Courses.js';
 import { Course } from './components/Course/Course.js';
 import { Module } from './components/Module/Module.js';
+import { Assessment } from './components/Assessment/Assessment.js';
+
 import { store } from './store/store.js';
 class App extends Component {
 
@@ -40,6 +42,9 @@ class App extends Component {
         <Module 
           state={ this.state } 
           moduleId="2000" />
+        <Assessment 
+          state={this.state}
+          courseId="1998" />
       </div>
     );
   }
