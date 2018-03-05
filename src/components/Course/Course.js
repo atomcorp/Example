@@ -42,11 +42,15 @@ const ModuleLessonElement = ({title}) => {
   );
 };
 
-export const Course = ({ state, courseId }) => {
+export const Course = ({ state, route }) => {
   if (!state.loaded) {
     return 'Loading...';
   }
+  const courseId = route.match.params.courseId;
   const courseData = state.courses[courseId];
+  if (!courseData) {
+    return <div>Course ID is not found</div>;
+  }
   return (
     <Page>
       <TitleElement title={courseData.title} />

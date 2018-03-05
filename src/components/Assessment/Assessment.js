@@ -14,12 +14,15 @@ const TitleElement = ({ title }) => {
   );
 };
 
-export const Assessment = ({ state, courseId }) => {
+export const Assessment = ({ state, route }) => {
   if (!state.loaded) {
     return 'Loading...';
   }
+  const courseId = route.match.params.courseId;
   const courseData = state.courses[courseId];
-  console.log(courseData.assessment)
+  if (!courseData) {
+    return <div>Course ID is not found</div>;
+  }
   return (
     <Page>
       <TitleElement title={courseData.title} />

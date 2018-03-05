@@ -32,12 +32,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Routes 
-          state={ this.state } 
-          temp={{
-            courseId: '1998',
-            moduleId: '2000'
-          }} />
+        <Routes state={ this.state } />
       </div>
     );
   }

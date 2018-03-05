@@ -8,7 +8,7 @@ import { Assessment } from '../components/Assessment/Assessment.js';
 
 const Home = () => <div> HOME </div>;
 
-const Routes = ({state, temp}) => {
+const Routes = ({state}) => {
   return (
     <Router>
       <div>
@@ -23,14 +23,14 @@ const Routes = ({state, temp}) => {
         <Route path="/courses" component={() => (
           <Courses courses={state.courses} />
         )} />
-        <Route path="/course" component={() => (
-          <Course state={state} courseId={ temp.courseId } />
+        <Route path="/course/:courseId" component={route => (
+          <Course route={route} state={state} />
+         )} />
+        <Route path="/module/:moduleId" component={route => (
+          <Module route={route} state={state} />
         )} />
-        <Route path="/module" component={() => (
-          <Module state={state} moduleId={temp.moduleId} />
-        )} />
-        <Route path="/assessment" component={() => (
-          <Assessment state={state} courseId={temp.courseId} />
+        <Route path="/assessment/:courseId" component={route => (
+          <Assessment route={route} state={state} />
         )} />
         <Route path="/home" component={Home} />
       </div>

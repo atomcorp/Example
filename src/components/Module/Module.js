@@ -12,11 +12,15 @@ import { ModuleComponent } from '../ModuleComponent/ModuleComponent.js'
  * use prev and next buttons to keep state of progress
  * will be passed down to Module COmponents
  */
-export const Module = ({ state, moduleId }) => {
+export const Module = ({ state, route }) => {
   if (!state.loaded) {
     return 'Loading...';
   }
+  const moduleId = route.match.params.moduleId;
   const moduleData = state.modules[moduleId];
+  if (!moduleData) {
+    return <div>Module ID is not found</div>;
+  }
   return (
     <Page>
       <h1>{moduleData.title}</h1>
