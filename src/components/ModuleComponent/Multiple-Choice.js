@@ -12,6 +12,10 @@ const Choice = ({ text, isCorrect, handleClick}) => {
   );
 };
 
+export const MultipleChoiceElement = () => {
+  
+}
+
 /**
  * Will need to add state to this
  * Add click handler
