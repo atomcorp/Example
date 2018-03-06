@@ -7,10 +7,10 @@ import React from 'react';
 import type { Node } from 'react';
 import type { LessonType } from '../../types.js';
 
-export const Lesson = ({ data }: LessonType): Node => {
+export const Lesson = ({ field_headline, field_body, ...data }: LessonType): Node => {
   return (
     <div className="lesson">
-      <h2>{ data.field_headline }</h2>
+      <h2>{ field_headline }</h2>
       { 
         /* 
         * dangerouslySetInnerHTML is React's equivilant for .innerHTML
@@ -18,7 +18,7 @@ export const Lesson = ({ data }: LessonType): Node => {
         */ 
       }
       <div dangerouslySetInnerHTML={{
-        __html: data.field_body
+        __html: field_body
       }} />
     </div>
   );

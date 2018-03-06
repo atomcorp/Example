@@ -24,12 +24,16 @@ const Choice = ({ text, isCorrect }: ChoiceType) => {
  * If correct choice is clicked
  * pass callback to enable 'Next' button to be pressed
  */
-export const MultipleChoice = ({ data }: MultiChoiceType) => {
+export const MultipleChoice = ({ 
+  field_question, 
+  field_correct_choice, 
+  field_incorrect_choices, 
+  ...data }: MultiChoiceType) => {
 
   return (
     <div className="multiple-question">
       <div className="question">
-        <h2>{data.field_question}</h2>
+        <h2>{ field_question }</h2>
       </div>
       <ul className="choices">
         {
@@ -39,8 +43,8 @@ export const MultipleChoice = ({ data }: MultiChoiceType) => {
           */
           shuffle(
             [
-              data.field_correct_choice,
-              ...data.field_incorrect_choices
+              field_correct_choice,
+              ...field_incorrect_choices
             ].map(
               (choiceData: string, i: number) => {
                 const isCorrect = i === 0 ? true : false;

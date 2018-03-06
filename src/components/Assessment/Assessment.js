@@ -27,6 +27,37 @@ type AssessmentType = {
   }
 }
 
+const TempChoice = ({ text, isCorrect }: ChoiceType) => {
+  return (
+    <div>
+      {text} <span>{isCorrect ? '✅' : '❎'}</span>
+    </div>
+  );
+};
+
+const TempChoices = ({ field_question, field_correct_choice, field_incorrect_choices}) => {
+  return (
+    <div className="multiple-question">
+      <div className="question">
+        <h2>{field_question}</h2>
+      </div>
+      <ul className="choices">
+        {
+          [field_correct_choice, ...field_incorrect_choices].map(
+            (choiceData: string, i: number) => {
+              const isCorrect = i === 0 ? true : false;
+              return <TempChoice
+                key={i}
+                text={choiceData}
+                isCorrect={isCorrect} />
+            }
+          )
+        }
+      </ul>
+    </div>
+  )
+}
+
 export const Assessment = ({ state, route }: AssessmentType) => {
   if (!state.loaded) {
     return <div>Loading...</div>;
@@ -40,14 +71,15 @@ export const Assessment = ({ state, route }: AssessmentType) => {
     <Page>
       <TitleElement title={courseData.title} />
       {
-        courseData.assessment.map((assessmentId: string, i: number) => 
+        courseData.assessment.map((assessmentId: string, i: number) =>
           /**
            * TODO: This is not a perm solution,
            * doesn't check for different test etc
            */
-          <MultipleChoice
+        
+          <TempChoices
             key={i}
-            data={state.assessments[assessmentId]} />
+            {...state.assessments[assessmentId]} />
         )
       }
     </Page>

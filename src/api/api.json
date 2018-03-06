@@ -6,6 +6,18 @@
       "modules": ["2000"],
       "assessment": ["1839"],
       "field_introduction": "Welcome to the Cambridge Audio online training course for Edge."
+    },
+    "nid001": {
+      "title": "CX",
+      "nid": "nid001",
+      "modules": [
+        "modules001",
+        "modules002"
+      ],
+      "assessment": [
+        "assessment001"
+      ],
+      "field_introduction": "Welcome to a completely made up introduction thingy for the CX."
     }
   },
   "modules": {
@@ -16,6 +28,24 @@
         "1838",
         "1842",
         "1840"
+      ]
+    },
+    "modules001": {
+      "title": "CX Remote",
+      "nid": "modules001",
+      "field_lesson": [
+        "1840",
+        "1838",
+        "1842",
+        "field_lesson_001"
+      ]
+    },
+    "modules002": {
+      "title": "CX Thingy 002",
+      "nid": "modules002",
+      "field_lesson": [
+        "1842",
+        "field_lesson_001"
       ]
     }
   },
@@ -33,6 +63,16 @@
       "field_headline": "Digital Inputs",
       "field_body": "\u003Cp\u003EBoth Edge A and Edge NQ have a fully featured selection of digital and analogue inputs...\u003C\/p\u003E",
       "field_youtube_id": ""
+    },
+    "field_lesson_001": {
+      "id": "field_lesson_001",
+      "type": "Multiple-Choice Question",
+      "field_correct_choice": "True",
+      "field_incorrect_choices": [
+        "False",
+        "!True"
+      ],
+      "field_question": "True === True?"
     },
     "1842": {
       "id": "1842",
@@ -55,6 +95,16 @@
         "Capacitors reduce modulation in an AC signal"
       ],
       "field_question": "Why doesn\u2019t Edge use capacitors?"
+    },
+    "assessment001": {
+      "id": "assessment001",
+      "type": "Multiple-Choice Question",
+      "field_correct_choice": "Capacitors significantly change sound characteristics",
+      "field_incorrect_choices": [
+        "Capacitors are old technology",
+        "Capacitors reduce modulation in an AC signal"
+      ],
+      "field_question": "CX Question"
     }
   }
 }

@@ -21,6 +21,7 @@ export const ModuleComponent = ({ moduleComponent, isVisible }: ModuleComponentC
   if (isVisible.thisId !== isVisible.visibleId) {
     return <div></div>;
   }
+  console.log(moduleComponent);
   switch (moduleComponent.type) {
     case 'Lesson':
       return <Lesson {...moduleComponent} />;
