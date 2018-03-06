@@ -8,7 +8,7 @@ export type MultiChoiceType = {
     "id": string, 
     "type": 'Multiple-Choice Question' 
   } 
-}
+};
 
 export type LessonType = { 
   [id: string]: { 
@@ -18,7 +18,7 @@ export type LessonType = {
     "id": string, 
     "type": 'Lesson' 
   }
-}
+};
 
 export type ModuleComponentType = MultiChoiceType | LessonType;
 
@@ -30,7 +30,7 @@ export type CourseType = {
     "nid": string, 
     "title": string 
   } 
-}
+};
 
 export type ModuleType = {
   [id: string]: { 
@@ -38,7 +38,7 @@ export type ModuleType = {
     "nid": string, 
     "title": string
   } 
-}
+};
 
 export type StateType = {
   assessments: {} | MultiChoiceType,
@@ -46,7 +46,7 @@ export type StateType = {
   moduleComponents: {} | LessonType | MultiChoiceType,
   modules: {} | ModuleType,
   loaded: boolean
-}
+};
 
 export type ModuleStateType = {
   assessments: {} | MultiChoiceType,
@@ -57,4 +57,4 @@ export type ModuleStateType = {
   moduleComponentCount: ?number,
   visibleModuleComponent: ?number,
   nextButtonDisabled: ?boolean
-}
+};
