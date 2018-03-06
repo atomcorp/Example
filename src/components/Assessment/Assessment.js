@@ -1,22 +1,35 @@
+// @flow
 /**
  * Recieves an array of aquestion/test ids
  * they get printed on one page
  * need to get x% correct 
  */
 import React from 'react';
+import type { StateType } from '../../types.js';
 import Page from '../../containers/page/page.js';
 // TODO: something more reusable for tests
 import { MultipleChoice } from '../ModuleComponent/Multiple-Choice';
 
-const TitleElement = ({ title }) => {
+const TitleElement = ({ title }: { title: string }) => {
   return (
     <h1>{title} Assessment</h1>
   );
 };
 
-export const Assessment = ({ state, route }) => {
+type AssessmentType = {
+  state: StateType,
+  route: {
+    match: {
+      params: {
+        courseId: string
+      }
+    }
+  }
+}
+
+export const Assessment = ({ state, route }: AssessmentType) => {
   if (!state.loaded) {
-    return 'Loading...';
+    return <div>Loading...</div>;
   }
   const courseId = route.match.params.courseId;
   const courseData = state.courses[courseId];

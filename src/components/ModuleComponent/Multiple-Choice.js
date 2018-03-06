@@ -1,20 +1,22 @@
+// @flow
 /**
  * Shows a Multiple-Choice Question
  */
-import React, { Component } from 'react';
+import React from 'react';
+import type { MultiChoiceType } from '../../types.js';
 
-const Choice = ({ text, isCorrect, handleClick}) => {
+type ChoiceType = {
+  text: string,
+  isCorrect: boolean
+}
+
+const Choice = ({ text, isCorrect }: ChoiceType) => {
   return (
-    <div 
-      onClick={() => handleClick(isCorrect)}>
-      {text} ({ isCorrect ? 'correct' : 'incorrect' })
+    <div>
+      {text} <span>{isCorrect ? '✅' : '❎' }</span>
     </div>
   );
 };
-
-export const MultipleChoiceElement = () => {
-  
-}
 
 /**
  * Will need to add state to this
@@ -22,66 +24,40 @@ export const MultipleChoiceElement = () => {
  * If correct choice is clicked
  * pass callback to enable 'Next' button to be pressed
  */
-export class MultipleChoice extends Component {
+export const MultipleChoice = ({ data }: MultiChoiceType) => {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      correctChoice: false
-    }
-    this.disableNextButton = props.disableNextButton;
-    this.data = props.data;
-    this.disableNextButton(true);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(isCorrect) {
-    if (isCorrect) {
-      this.disableNextButton(false);
-      this.setState({
-        correctChoice: true
-      })
-    }
-  }
-
-  render() {
-    return (
-      <div className="multiple-question">
-        <div className="question">
-          <h2>{this.data.field_question}</h2>
-        </div>
-        <ul className="choices">
-        {
-          this.state.correctChoice && 'Correct choice'
-        }
-          {
-            /* 
-             * First choice is always correct,
-             * the we just shuffle choices 
-            */
-            shuffle(
-              [
-                this.data.field_correct_choice,
-                ...this.data.field_incorrect_choices
-              ].map(
-                (choiceData: string, i: number) => {
-                  const isCorrect = i === 0 ? true : false;
-                  return <Choice
-                    key={ i }
-                    text={ choiceData }
-                    isCorrect={ isCorrect }
-                    handleClick={ this.handleClick } />
-                }
-              ))
-          }
-        </ul>
+  return (
+    <div className="multiple-question">
+      <div className="question">
+        <h2>{data.field_question}</h2>
       </div>
-    );
-  }
+      <ul className="choices">
+        {
+          /* 
+           * First choice is always correct,
+           * then we just shuffle choices 
+          */
+          shuffle(
+            [
+              data.field_correct_choice,
+              ...data.field_incorrect_choices
+            ].map(
+              (choiceData: string, i: number) => {
+                const isCorrect = i === 0 ? true : false;
+                return <Choice
+                  key={i}
+                  text={choiceData}
+                  isCorrect={isCorrect} />
+              }
+            ))
+        }
+      </ul>
+    </div>
+  );
 }
 
 // https://stackoverflow.com/a/6274381/2368141
-function shuffle(a) {
+function shuffle(a: Array<any>) {
   var j, x, i;
   for (i = a.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i + 1));

@@ -1,3 +1,4 @@
+// @flow
 /**
  * Depending on type passed to it shows 
  * a type of lesson or test
@@ -5,16 +6,26 @@
 import React from 'react';
 import { Lesson } from './Lesson.js';
 import { MultipleChoice } from './Multiple-Choice.js';
+import type { ModuleComponentType } from '../../types.js';
 
-export const ModuleComponent = ({ moduleComponent, isVisible, disableNextButton}) => {
+type ModuleComponentContainerType = {
+  moduleComponent: ModuleComponentType,
+  isVisible: {
+    thisId: string,
+    visibleId: string
+  }
+}
+
+export const ModuleComponent = ({ moduleComponent, isVisible }: ModuleComponentContainerType) => {
+  // TODO: 
   if (isVisible.thisId !== isVisible.visibleId) {
     return <div></div>;
   }
   switch (moduleComponent.type) {
     case 'Lesson':
-      return <Lesson data={moduleComponent} disableNextButton={disableNextButton} />;
+      return <Lesson {...moduleComponent} />;
     case 'Multiple-Choice Question': 
-      return <MultipleChoice data={moduleComponent} disableNextButton={disableNextButton} />;
+      return <MultipleChoice {...moduleComponent} />;
     default:
       return <div>Error - Check ModuleComponent Types</div>;
   }

@@ -1,3 +1,4 @@
+// @flow
 /**
  * Course
  * -----
@@ -6,23 +7,30 @@
  * And lessons and tests within
  */
 import React from 'react';
+import type { StateType, ModuleComponentType } from '../../types.js';
 import Page from '../../containers/page/page.js';
 import { Link } from 'react-router-dom';
 
-const TitleElement = ({title}) => {
+const TitleElement = ({title}: {title: string}) => {
   return (
     <h1>{title} Course</h1>
   );
 };
 
-const CourseModuleElement = ({title, id, moduleComponents}) => {
+type CourseModuleElementType = {
+  title: string, 
+  id: string, 
+  moduleComponents: Array<ModuleComponentType | {}>
+}
+
+const CourseModuleElement = ({ title, id, moduleComponents }: CourseModuleElementType) => {
   return (
     <div className="module">
       <h2>{title} Module</h2>
       <div>
         <ul>
           {
-            moduleComponents.map((moduleComponent, i) => 
+            moduleComponents.map((moduleComponent: any, i: number) => 
               <ModuleComponentElement key={i} title={moduleComponent.field_headline} />
             )
           }
@@ -46,7 +54,19 @@ const ModuleComponentElement = ({title}) => {
   );
 };
 
-export const Course = ({ state, route }) => {
+type CourseType = {
+  state: StateType,
+  route: {
+    match: {
+      params: {
+        courseId: string
+      }
+    }
+  }
+
+}
+
+export const Course = ({ state, route }: CourseType) => {
   if (!state.loaded) {
     return 'Loading...';
   }
@@ -63,9 +83,9 @@ export const Course = ({ state, route }) => {
       }} />
       <div>
         {
-          courseData.modules.map((moduleId, i) => 
+          courseData.modules.map((moduleId: string, i: number) => 
             <CourseModuleElement 
-              key={i} 
+              key={i}
               title={state.modules[moduleId].title}
               id={moduleId}
               moduleComponents={
