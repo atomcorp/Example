@@ -23,7 +23,7 @@ export class MultipleChoice extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // has selected correct answer && isDirty
+      correctChoice: false
     }
     this.disableNextButton = props.disableNextButton;
     this.data = props.data;
@@ -34,8 +34,10 @@ export class MultipleChoice extends Component {
   handleClick(isCorrect) {
     if (isCorrect) {
       this.disableNextButton(false);
+      this.setState({
+        correctChoice: true
+      })
     }
-    
   }
 
   render() {
@@ -46,8 +48,7 @@ export class MultipleChoice extends Component {
         </div>
         <ul className="choices">
         {
-          this.state.correctChoice && 
-          'Correct choice'
+          this.state.correctChoice && 'Correct choice'
         }
           {
             /* 

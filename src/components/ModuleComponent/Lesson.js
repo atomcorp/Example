@@ -4,8 +4,8 @@
 
 import React from 'react';
 
-export const Lesson = ({ data }) => {
-
+export const Lesson = ({ data, disableNextButton }) => {
+  disableNextButton(false);
   return (
     <div className="lesson">
       <h2>{data.field_headline}</h2>
