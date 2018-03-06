@@ -45,17 +45,17 @@ export class Module extends Component {
 
   incrementVisible() {
     if (this.state.visibleModuleComponent < this.state.moduleComponentCount) {
-      this.setState({
-        visibleModuleComponent: ++this.state.visibleModuleComponent
-      })
+      this.setState(prevState => ({
+        visibleModuleComponent: ++prevState.visibleModuleComponent
+      }));
     }
   }
 
   decrementVisible() {
     if (this.state.visibleModuleComponent > 1) {
-      this.setState({
-        visibleModuleComponent: --this.state.visibleModuleComponent
-      })
+      this.setState(prevState => ({
+        visibleModuleComponent: --prevState.visibleModuleComponent
+      }));
     }
   }
   
@@ -109,4 +109,5 @@ export class Module extends Component {
     )
   }
 
-};
+}
+

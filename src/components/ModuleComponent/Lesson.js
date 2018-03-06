@@ -7,7 +7,7 @@ import React from 'react';
 import type { Node } from 'react';
 import type { LessonType } from '../../types.js';
 
-export const Lesson = ({ field_headline, field_body, ...data }: LessonType): Node => {
+export const Lesson = ({ field_headline, field_body }: LessonType): Node => {
   return (
     <div className="lesson">
       <h2>{ field_headline }</h2>

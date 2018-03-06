@@ -7,30 +7,31 @@
  * And lessons and tests within
  */
 import React from 'react';
+import type { Node } from 'react';
 import type { StateType, ModuleComponentType } from '../../types.js';
 import Page from '../../containers/page/page.js';
 import { Link } from 'react-router-dom';
-
-const TitleElement = ({title}: {title: string}) => {
-  return (
-    <h1>{title} Course</h1>
-  );
-};
 
 type CourseModuleElementType = {
   title: string, 
   id: string, 
   moduleComponents: Array<ModuleComponentType | {}>
-}
+};
 
-const CourseModuleElement = ({ title, id, moduleComponents }: CourseModuleElementType) => {
+const TitleElement = ({title}: {title: string}): Node => {
+  return (
+    <h1>{title} Course</h1>
+  );
+};
+
+const CourseModuleElement = ({ title, id, moduleComponents }: CourseModuleElementType): Node => {
   return (
     <div className="module">
       <h2>{title} Module</h2>
       <div>
         <ul>
           {
-            moduleComponents.map((moduleComponent: any, i: number) => 
+            moduleComponents.map((moduleComponent: ModuleComponentType | {}, i: number): Array<Node> => 
               <ModuleComponentElement key={i} title={moduleComponent.field_headline} />
             )
           }
@@ -43,7 +44,7 @@ const CourseModuleElement = ({ title, id, moduleComponents }: CourseModuleElemen
   );
 };
 
-const ModuleComponentElement = ({title}) => {
+const ModuleComponentElement = ({ title }: { title: string }): Node => {
   if (!title) {
     return <li>Test</li>;
   }
@@ -63,17 +64,16 @@ type CourseType = {
       }
     }
   }
+};
 
-}
-
-export const Course = ({ state, route }: CourseType) => {
+export const Course = ({ state, route }: CourseType): Node => {
   if (!state.loaded) {
     return 'Loading...';
   }
   const courseId = route.match.params.courseId;
   const courseData = state.courses[courseId];
   if (!courseData) {
-    return <div>Can't find course [invalid course ID]</div>;
+    return <div>Can not find course [invalid course ID]</div>;
   }
   return (
     <Page>
@@ -83,17 +83,16 @@ export const Course = ({ state, route }: CourseType) => {
       }} />
       <div>
         {
-          courseData.modules.map((moduleId: string, i: number) => 
+          courseData.modules.map((moduleId: string, i: number): Node => 
             <CourseModuleElement 
               key={i}
               title={state.modules[moduleId].title}
               id={moduleId}
               moduleComponents={
                 state.modules[moduleId].field_lesson.map(
-                  lessonId => state.moduleComponents[lessonId]
+                  (lessonId: string): Node => state.moduleComponents[lessonId]
                 )
-              }
-            />
+              } />
           )
         }
       </div>

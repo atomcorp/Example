@@ -16,5 +16,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "flow": "flow"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.18.2",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-react": "^7.7.0"
   }
 }

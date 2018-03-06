@@ -3,14 +3,15 @@
  * Shows a Multiple-Choice Question
  */
 import React from 'react';
+import type { Node } from 'react'
 import type { MultiChoiceType } from '../../types.js';
 
 type ChoiceType = {
   text: string,
   isCorrect: boolean
-}
+};
 
-const Choice = ({ text, isCorrect }: ChoiceType) => {
+const Choice = ({ text, isCorrect }: ChoiceType): Node => {
   return (
     <div>
       {text} <span>{isCorrect ? '✅' : '❎' }</span>
@@ -27,8 +28,8 @@ const Choice = ({ text, isCorrect }: ChoiceType) => {
 export const MultipleChoice = ({ 
   field_question, 
   field_correct_choice, 
-  field_incorrect_choices, 
-  ...data }: MultiChoiceType) => {
+  field_incorrect_choices
+}: MultiChoiceType): Node => {
 
   return (
     <div className="multiple-question">
@@ -46,7 +47,7 @@ export const MultipleChoice = ({
               field_correct_choice,
               ...field_incorrect_choices
             ].map(
-              (choiceData: string, i: number) => {
+              (choiceData: string, i: number): Node => {
                 const isCorrect = i === 0 ? true : false;
                 return <Choice
                   key={i}
@@ -60,6 +61,7 @@ export const MultipleChoice = ({
   );
 }
 
+/* eslint-disable */
 // https://stackoverflow.com/a/6274381/2368141
 function shuffle(a: Array<any>) {
   var j, x, i;
@@ -71,3 +73,4 @@ function shuffle(a: Array<any>) {
   }
   return a;
 }
+/* eslint-enable */

@@ -5,10 +5,11 @@
  * need to get x% correct 
  */
 import React from 'react';
+import type { Node } from 'react';
 import type { StateType } from '../../types.js';
 import Page from '../../containers/page/page.js';
 
-const TitleElement = ({ title }: { title: string }) => {
+const TitleElement = ({ title }: { title: string }): Node => {
   return (
     <h1>{title} Assessment</h1>
   );
@@ -23,9 +24,9 @@ type AssessmentType = {
       }
     }
   }
-}
+};
 
-const TempChoice = ({ text, isCorrect }: ChoiceType) => {
+const TempChoice = ({ text, isCorrect }: ChoiceType): Node => {
   return (
     <div>
       {text} <span>{isCorrect ? '✅' : '❎'}</span>
@@ -33,7 +34,15 @@ const TempChoice = ({ text, isCorrect }: ChoiceType) => {
   );
 };
 
-const TempChoices = ({ field_question, field_correct_choice, field_incorrect_choices}) => {
+type TempChoicesType = {
+  field_question: string,
+  field_correct_choice: string,
+  field_incorrect_choices: Array<string>
+};
+
+const TempChoices = ({ 
+  field_question, field_correct_choice, field_incorrect_choices 
+}: TempChoicesType): Node => {
   return (
     <div className="multiple-question">
       <div className="question">
@@ -42,7 +51,7 @@ const TempChoices = ({ field_question, field_correct_choice, field_incorrect_cho
       <ul className="choices">
         {
           [field_correct_choice, ...field_incorrect_choices].map(
-            (choiceData: string, i: number) => {
+            (choiceData: string, i: number): Node => {
               const isCorrect = i === 0 ? true : false;
               return <TempChoice
                 key={i}
@@ -56,7 +65,7 @@ const TempChoices = ({ field_question, field_correct_choice, field_incorrect_cho
   )
 }
 
-export const Assessment = ({ state, route }: AssessmentType) => {
+export const Assessment = ({ state, route }: AssessmentType): Node => {
   if (!state.loaded) {
     return <div>Loading...</div>;
   }
@@ -69,7 +78,7 @@ export const Assessment = ({ state, route }: AssessmentType) => {
     <Page>
       <TitleElement title={courseData.title} />
       {
-        courseData.assessment.map((assessmentId: string, i: number) =>
+        courseData.assessment.map((assessmentId: string, i: number): Node =>
           /**
            * TODO: This is not a perm solution,
            * doesn't check for different test etc
