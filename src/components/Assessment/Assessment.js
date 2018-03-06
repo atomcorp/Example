@@ -7,8 +7,6 @@
 import React from 'react';
 import type { StateType } from '../../types.js';
 import Page from '../../containers/page/page.js';
-// TODO: something more reusable for tests
-import { MultipleChoice } from '../ModuleComponent/Multiple-Choice';
 
 const TitleElement = ({ title }: { title: string }) => {
   return (

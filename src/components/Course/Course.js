@@ -36,7 +36,7 @@ const CourseModuleElement = ({ title, id, moduleComponents }: CourseModuleElemen
           }
         </ul>
         {
-          <Link to={`/module/${id}`}>Go to module</Link>
+          <Link to={`/module/${id}`}>Take the {title} module</Link>
         }
       </div>
     </div>
