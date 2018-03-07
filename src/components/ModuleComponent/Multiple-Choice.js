@@ -4,7 +4,6 @@
  */
 import React from 'react';
 import type { Node } from 'react'
-import type { MultiChoiceType } from '../../types.js';
 
 type ChoiceType = {
   text: string,
@@ -29,8 +28,11 @@ export const MultipleChoice = ({
   field_question, 
   field_correct_choice, 
   field_incorrect_choices
-}: MultiChoiceType): Node => {
-
+}: {
+  field_question: string,
+  field_correct_choice: string,
+  field_incorrect_choices: Array<string>
+}): Node => {
   return (
     <div className="multiple-question">
       <div className="question">

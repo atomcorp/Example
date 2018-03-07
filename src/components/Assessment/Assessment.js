@@ -26,7 +26,12 @@ type AssessmentType = {
   }
 };
 
-const TempChoice = ({ text, isCorrect }: ChoiceType): Node => {
+type TempChoiceType = {
+  text: string,
+  isCorrect: boolean
+};
+
+const TempChoice = ({ text, isCorrect }: TempChoiceType): Node => {
   return (
     <div>
       {text} <span>{isCorrect ? '✅' : '❎'}</span>

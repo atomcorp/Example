@@ -1,6 +1,4 @@
-// @flow
 import React from "react";
-import type { Node } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import { Courses } from '../components/Courses/Courses.js';
@@ -8,17 +6,9 @@ import { Course } from '../components/Course/Course.js';
 import { Module } from '../components/Module/Module.js';
 import { Assessment } from '../components/Assessment/Assessment.js';
 
-const Home = (): Node => <div> HOME </div>;
+const Home = () => <div> HOME </div>;
 
-type InitalStateType = {
-  assessments: {} | MultiChoiceType,
-  courses: {} | CourseType,
-  moduleComponents: {} | LessonType | MultiChoiceType,
-  modules: {} | ModuleType,
-  loaded: boolean
-};
-
-const Routes = ({ state }: InitalStateType): Node => {
+const Routes = ({ state }) => {
   return (
     <Router>
       <div>
@@ -30,16 +20,16 @@ const Routes = ({ state }: InitalStateType): Node => {
           <li><Link to="/assessment/1998">Assessment</Link></li>
           <li><Link to="/home">Home</Link></li>
         </ul>
-        <Route path="/courses" component={(): Node => (
+        <Route path="/courses" component={() => (
           <Courses courses={state.courses} />
         )} />
-        <Route path="/course/:courseId" component={(route: {}): Node => (
+        <Route path="/course/:courseId" component={route => (
           <Course route={route} state={state} />
          )} />
-        <Route path="/module/:moduleId" component={(route: {}): Node => (
+        <Route path="/module/:moduleId" component={route => (
           <Module route={route} state={state} />
         )} />
-        <Route path="/assessment/:courseId" component={(route: {}): Node => (
+        <Route path="/assessment/:courseId" component={route => (
           <Assessment route={route} state={state} />
         )} />
         <Route path="/home" component={Home} />

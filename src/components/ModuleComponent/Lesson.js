@@ -5,9 +5,13 @@
 
 import React from 'react';
 import type { Node } from 'react';
-import type { LessonType } from '../../types.js';
 
-export const Lesson = ({ field_headline, field_body }: LessonType): Node => {
+type LessonFieldsType = {
+  field_headline: string,
+  field_body: string
+};
+
+export const Lesson = ({ field_headline, field_body }: LessonFieldsType): Node => {
   return (
     <div className="lesson">
       <h2>{ field_headline }</h2>

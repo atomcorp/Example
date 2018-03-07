@@ -7,10 +7,12 @@ import React from 'react';
 import type { Node } from 'react'
 import { Lesson } from './Lesson.js';
 import { MultipleChoice } from './Multiple-Choice.js';
-import type { ModuleComponentType } from '../../types.js';
+import type {
+  MultiChoiceFieldsType, LessonFieldsType 
+} from '../../types.js';
 
 type ModuleComponentContainerType = {
-  moduleComponent: ModuleComponentType,
+  moduleComponent: MultiChoiceFieldsType | LessonFieldsType,
   isVisible: {
     thisId: string,
     visibleId: string

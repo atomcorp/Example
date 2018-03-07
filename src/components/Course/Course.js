@@ -8,7 +8,12 @@
  */
 import React from 'react';
 import type { Node } from 'react';
-import type { StateType, ModuleComponentType } from '../../types.js';
+import type {
+  StateType, 
+  ModuleComponentType, 
+  MultiChoiceFieldsType, 
+  LessonFieldsType
+} from '../../types.js';
 import Page from '../../containers/page/page.js';
 import { Link } from 'react-router-dom';
 
@@ -31,8 +36,9 @@ const CourseModuleElement = ({ title, id, moduleComponents }: CourseModuleElemen
       <div>
         <ul>
           {
-            moduleComponents.map((moduleComponent: ModuleComponentType | {}, i: number): Array<Node> => 
-              <ModuleComponentElement key={i} title={moduleComponent.field_headline} />
+            
+            moduleComponents.map((moduleComponent: MultiChoiceFieldsType | LessonFieldsType | {}, i: number): Node => 
+              <ModuleComponentElement key={i} {...moduleComponent} />
             )
           }
         </ul>
@@ -44,13 +50,13 @@ const CourseModuleElement = ({ title, id, moduleComponents }: CourseModuleElemen
   );
 };
 
-const ModuleComponentElement = ({ title }: { title: string }): Node => {
-  if (!title) {
+const ModuleComponentElement = ({ field_headline }: { field_headline: string | void }): Node => {
+  if (!field_headline) {
     return <li>Test</li>;
   }
   return (
     <li>
-      { title }
+      { field_headline }
     </li>
   );
 };
@@ -90,7 +96,7 @@ export const Course = ({ state, route }: CourseType): Node => {
               id={moduleId}
               moduleComponents={
                 state.modules[moduleId].field_lesson.map(
-                  (lessonId: string): Node => state.moduleComponents[lessonId]
+                  (lessonId: string): {} | ModuleComponentType => state.moduleComponents[lessonId]
                 )
               } />
           )

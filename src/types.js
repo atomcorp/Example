@@ -10,6 +10,14 @@ export type MultiChoiceType = {
   } 
 };
 
+export type MultiChoiceFieldsType = {
+  "field_correct_choice": string,
+  "field_incorrect_choices": Array<string>,
+  "field_question": string,
+  "id": string,
+  "type": 'Multiple-Choice Question'
+};
+
 export type LessonType = { 
   [id: string]: { 
     "field_body": string, 
@@ -18,6 +26,14 @@ export type LessonType = {
     "id": string, 
     "type": 'Lesson' 
   }
+};
+
+export type LessonFieldsType = {
+  "field_body": string,
+  "field_headline": string,
+  "field_youtube_id": string | void,
+  "id": string,
+  "type": 'Lesson'
 };
 
 export type ModuleComponentType = MultiChoiceType | LessonType;
@@ -57,4 +73,14 @@ export type ModuleStateType = {
   moduleComponentCount: ?number,
   visibleModuleComponent: ?number,
   nextButtonDisabled: ?boolean
+};
+
+export type InitalStateType = {
+  state: {
+    assessments: {} | MultiChoiceType,
+    courses: {} | CourseType,
+    moduleComponents: {} | LessonType | MultiChoiceType,
+    modules: {} | ModuleType,
+    loaded: boolean
+  }
 };

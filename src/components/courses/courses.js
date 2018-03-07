@@ -3,29 +3,39 @@ import React from 'react';
 import type { Node } from 'react';
 import Page from '../../containers/page/page.js';
 import { Link } from 'react-router-dom';
-import type { CourseType } from '../../types.js';
+// import type { CourseType } from '../../types.js';
 
 type CourseButtonType = {
   title: string,
-  id: string
+  nid: string
 };
 
-const CourseButton = ({ title, id }: CourseButtonType): Node => {
+const CourseButton = ({ title, nid }: CourseButtonType): Node => {
   return (
     <li>
-      <h2><Link to={`/course/${id}`}>{title}</Link></h2>
+      <h2><Link to={`/course/${nid}`}>{title}</Link></h2>
     </li>
   );
 };
 
-export const Courses = ({ courses }: CourseType): Node => {
+type CoursesType = {
+  [nid: string]: {
+    "assessment": Array<string>,
+    "field_introduction": string,
+    "modules": Array<string>,
+    "nid": string,
+    "title": string
+  }
+};
+
+export const Courses = ({courses}: {courses: CoursesType}): Node => {
   return (
     <Page>
       <h1>Courses</h1>
       <ul>
         {
-          Object.keys(courses).map((key: string, index: number): Array<Node> => {
-            return <CourseButton key={index} id={courses[key].nid} title={courses[key].title} />
+          Object.keys(courses).map((key: string, index: number): Node => {
+            return <CourseButton key={index} {...courses[key]} />
           })
         }
       </ul>
