@@ -15,7 +15,7 @@ const Routes = ({ resources }) => {
       <div>
         <h1>eLearning routes</h1>
         <ul>
-          <li><Link to="/courses">Courses</Link></li>
+          <li><Link to="/">Courses</Link></li>
           <li><Link to="/course/1998">Course</Link></li>
           <li><Link to="/module/2000">Module</Link></li>
           <li><Link to="/assessment/1998">Assessment</Link></li>

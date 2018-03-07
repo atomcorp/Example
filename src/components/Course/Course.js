@@ -51,7 +51,7 @@ export const Course = ({ resources, route }: CourseType): Node => {
   return (
     <Page>
       <CoursePresentation {...courseData} />
-      <CourseModulesPresentation courseModules={courseData.modules} resources={resources} />
+      <CourseModulesPresentation courseData={courseData} resources={resources} />
       <Link to={`/assessment/${courseId}`}>Go to Assessment</Link>
     </Page>
   );

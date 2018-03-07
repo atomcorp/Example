@@ -48,6 +48,14 @@ export type CourseType = {
   } 
 };
 
+export type CourseFieldsType = {
+  "assessment": Array<string>,
+  "field_introduction": string,
+  "modules": Array<string>,
+  "nid": string,
+  "title": string
+};
+
 export type ModuleType = {
   [id: string]: { 
     "field_lesson": Array<string>, 

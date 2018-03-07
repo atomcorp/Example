@@ -29,16 +29,11 @@ export class Module extends Component {
     this.resources = resources;
     this.coursePage = route.history.goBack;
     this.moduleData = this.resources.modules[moduleId];
-    this.state = Object.assign(
-      {},
-      resources,
-      {
-        moduleComponentCount: resources.modules[moduleId].field_lesson.length,
-        visibleModuleComponent: 1,
-        nextButtonDisabled: false
-      }
-    );
-    
+    this.state = {
+      moduleComponentCount: resources.modules[moduleId].field_lesson.length,
+      visibleModuleComponent: 1,
+      nextButtonDisabled: false
+    };
   }
 
   incrementVisible() {
@@ -80,7 +75,7 @@ export class Module extends Component {
           this.moduleData.field_lesson.map((moduleComponentId, i) => {
             return <ModuleComponent
               key={i}
-              moduleComponent={this.state.moduleComponents[moduleComponentId]}
+              moduleComponent={this.resources.moduleComponents[moduleComponentId]}
               isVisible={{
                 thisId: i + 1,
                 visibleId: this.state.visibleModuleComponent,
