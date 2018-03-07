@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import { Courses } from '../components/Courses/Courses.js';
@@ -8,7 +9,7 @@ import { Assessment } from '../components/Assessment/Assessment.js';
 
 const Home = () => <div> HOME </div>;
 
-const Routes = ({ state }) => {
+const Routes = ({ resources }) => {
   return (
     <Router>
       <div>
@@ -21,16 +22,16 @@ const Routes = ({ state }) => {
           <li><Link to="/home">Home</Link></li>
         </ul>
         <Route path="/courses" component={() => (
-          <Courses courses={state.courses} />
+          <Courses courses={resources.courses} />
         )} />
         <Route path="/course/:courseId" component={route => (
-          <Course route={route} state={state} />
+          <Course route={route} resources={resources} />
          )} />
         <Route path="/module/:moduleId" component={route => (
-          <Module route={route} state={state} />
+          <Module route={route} resources={resources} />
         )} />
         <Route path="/assessment/:courseId" component={route => (
-          <Assessment route={route} state={state} />
+          <Assessment route={route} resources={resources} />
         )} />
         <Route path="/home" component={Home} />
       </div>
@@ -39,12 +40,7 @@ const Routes = ({ state }) => {
 }
 
 Routes.propTypes = {
-  state: {
-    assessments: {},
-    courses: {},
-    moduleComponents: {},
-    modules: {}
-  }
+  resources: PropTypes.object
 }
 
 export default Routes;

@@ -56,6 +56,14 @@ export type ModuleType = {
   } 
 };
 
+export type ResourcesType = {
+  assessments: {} | MultiChoiceType,
+  courses: {} | CourseType,
+  moduleComponents: {} | LessonType | MultiChoiceType,
+  modules: {} | ModuleType,
+  loaded: boolean
+};
+
 export type StateType = {
   assessments: {} | MultiChoiceType,
   courses: {} | CourseType,

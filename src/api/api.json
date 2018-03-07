@@ -5,7 +5,8 @@
       "nid": "1998",
       "modules": ["2000"],
       "assessment": ["1839"],
-      "field_introduction": "Welcome to the Cambridge Audio online training course for Edge."
+      "field_introduction": "Welcome to the Cambridge Audio online training course for Edge.",
+      "available": true
     },
     "nid001": {
       "title": "CX",

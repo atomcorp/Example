@@ -7,32 +7,34 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      assessments: {},
-      courses: {},
-      moduleComponents: {},
-      modules: {},
       loaded: false
-    }
+    };
+    this.resources = {};
   }
 
   componentDidMount() {
     store.fetchState().then(
       ({ assessments, courses, moduleComponents, modules }) => {
-        this.setState({ 
-          assessments, 
-          courses, 
-          moduleComponents, 
+        this.resources = {
+          assessments,
+          courses,
+          moduleComponents,
           modules,
+        };
+        this.setState({ 
           loaded: true 
         })
       }
-    )
+    );
   }
 
   render() {
+    if (!this.state.loaded) {
+      return 'Loading app';
+    }
     return (
       <div className="App">
-        <Routes state={ this.state } />
+        <Routes resources={this.resources} state={ this.resources } />
       </div>
     );
   }

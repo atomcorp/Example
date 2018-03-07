@@ -6,6 +6,7 @@
  * each get printed on sepearate pages
  */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Page from '../../containers/page/page.js';
 import { ModuleComponent } from '../ModuleComponent/ModuleComponent.js'
 
@@ -22,25 +23,21 @@ export class Module extends Component {
 
   constructor(props) {
     super(props);
-    const { route } = props;
-    this.route = route;
-  }
-
-  componentDidMount() {
     // setting componentCount is ugly as anything
-    if (this.props.state.loaded) {
-      this.setState(
-        Object.assign(
-          {},
-          this.props.state,
-          {
-            moduleComponentCount: this.props.state.modules[this.route.match.params.moduleId].field_lesson.length,
-            visibleModuleComponent: 1,
-            nextButtonDisabled: false
-          }
-        )
-      ); 
-    }
+    const { route, resources } = props;
+    this.moduleId = route.match.params.moduleId;
+    this.resources = resources;
+    this.moduleData = this.resources.modules[this.moduleId];
+    this.state = Object.assign(
+      {},
+      resources,
+      {
+        moduleComponentCount: resources.modules[this.moduleId].field_lesson.length,
+        visibleModuleComponent: 1,
+        nextButtonDisabled: false
+      }
+    );
+    
   }
 
   incrementVisible() {
@@ -68,23 +65,18 @@ export class Module extends Component {
   }
 
   render() {
-    if (!this.state) {
-      return 'Loading...';
-    }
-    const moduleId = this.route.match.params.moduleId;
-    const moduleData = this.state.modules[moduleId];
-    if (!moduleData) {
+    if (!this.moduleData) {
       return <div>Module ID is not found</div>;
     }
     return (
       <Page>
-        <h1>{moduleData.title}</h1>
+        <h1>{this.moduleData.title}</h1>
         <div>
           Progress {this.state.visibleModuleComponent} / {this.state.moduleComponentCount}
         </div>
         {
           // TODO: might not use .field_lesson
-          moduleData.field_lesson.map((moduleComponentId, i) => {
+          this.moduleData.field_lesson.map((moduleComponentId, i) => {
             return <ModuleComponent
               key={i}
               moduleComponent={this.state.moduleComponents[moduleComponentId]}
@@ -111,3 +103,7 @@ export class Module extends Component {
 
 }
 
+Module.propTypes = {
+  resources: PropTypes.object,
+  route: PropTypes.object
+}

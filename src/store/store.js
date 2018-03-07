@@ -11,6 +11,9 @@ const buildStore = cachedState => {
   };
   const fetchState = () => {
     // TODO: check if state is already cached
+    if (cachedState) {
+      return cachedState;
+    }
     return fetchEverything().then(res => {
       state = Object.assign(
         {},
