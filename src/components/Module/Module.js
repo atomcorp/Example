@@ -25,14 +25,15 @@ export class Module extends Component {
     super(props);
     // setting componentCount is ugly as anything
     const { route, resources } = props;
-    this.moduleId = route.match.params.moduleId;
+    const moduleId = route.match.params.moduleId;
     this.resources = resources;
-    this.moduleData = this.resources.modules[this.moduleId];
+    this.coursePage = route.history.goBack;
+    this.moduleData = this.resources.modules[moduleId];
     this.state = Object.assign(
       {},
       resources,
       {
-        moduleComponentCount: resources.modules[this.moduleId].field_lesson.length,
+        moduleComponentCount: resources.modules[moduleId].field_lesson.length,
         visibleModuleComponent: 1,
         nextButtonDisabled: false
       }
@@ -96,6 +97,10 @@ export class Module extends Component {
           && <button 
             disabled={this.state.nextButtonDisabled} 
             onClick={() => this.incrementVisible()}>Next</button>
+        }
+        {
+          this.state.visibleModuleComponent === this.state.moduleComponentCount
+          && <button onClick={() => this.coursePage()}>Back to course</button>
         }
       </Page>
     )
