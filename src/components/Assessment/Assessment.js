@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import type { Node } from 'react';
-import type { StateType } from '../../types.js';
+import type { ResourcesType } from '../../types.js';
 import Page from '../../containers/page/page.js';
 
 const TitleElement = ({ title }: { title: string }): Node => {
@@ -15,16 +15,6 @@ const TitleElement = ({ title }: { title: string }): Node => {
   );
 };
 
-type AssessmentType = {
-  state: StateType,
-  route: {
-    match: {
-      params: {
-        courseId: string
-      }
-    }
-  }
-};
 
 type TempChoiceType = {
   text: string,
@@ -46,7 +36,9 @@ type TempChoicesType = {
 };
 
 const TempChoices = ({ 
-  field_question, field_correct_choice, field_incorrect_choices 
+  field_question, 
+  field_correct_choice, 
+  field_incorrect_choices 
 }: TempChoicesType): Node => {
   return (
     <div className="multiple-question">
@@ -70,12 +62,20 @@ const TempChoices = ({
   )
 }
 
-export const Assessment = ({ state, route }: AssessmentType): Node => {
-  if (!state.loaded) {
-    return <div>Loading...</div>;
+type AssessmentType = {
+  resources: ResourcesType,
+  route: {
+    match: {
+      params: {
+        courseId: string
+      }
+    }
   }
+};
+
+export const Assessment = ({ resources, route }: AssessmentType): Node => {
   const courseId = route.match.params.courseId;
-  const courseData = state.courses[courseId];
+  const courseData = resources.courses[courseId];
   if (!courseData) {
     return <div>Course ID is not found</div>;
   }
@@ -88,10 +88,9 @@ export const Assessment = ({ state, route }: AssessmentType): Node => {
            * TODO: This is not a perm solution,
            * doesn't check for different test etc
            */
-        
           <TempChoices
             key={i}
-            {...state.assessments[assessmentId]} />
+            {...resources.assessments[assessmentId]} />
         )
       }
     </Page>
