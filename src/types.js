@@ -43,7 +43,7 @@ export type CourseType = {
     "assessment": Array<string>, 
     "field_introduction": string, 
     "modules": Array<string>, 
-    "nid": string, 
+    "id": string, 
     "title": string 
   } 
 };
@@ -52,14 +52,14 @@ export type CourseFieldsType = {
   "assessment": Array<string>,
   "field_introduction": string,
   "modules": Array<string>,
-  "nid": string,
+  "id": string,
   "title": string
 };
 
 export type ModuleType = {
   [id: string]: { 
     "field_lesson": Array<string>, 
-    "nid": string, 
+    "id": string, 
     "title": string
   } 
 };

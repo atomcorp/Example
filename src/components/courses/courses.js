@@ -7,23 +7,23 @@ import { Link } from 'react-router-dom';
 
 type CourseButtonType = {
   title: string,
-  nid: string
+  id: string
 };
 
-const CourseButton = ({ title, nid }: CourseButtonType): Node => {
+const CourseButton = ({ title, id }: CourseButtonType): Node => {
   return (
     <li>
-      <h2><Link to={`/course/${nid}`}>{title}</Link></h2>
+      <h2><Link to={`/course/${id}`}>{title}</Link></h2>
     </li>
   );
 };
 
 type CoursesType = {
-  [nid: string]: {
+  [id: string]: {
     "assessment": Array<string>,
     "field_introduction": string,
     "modules": Array<string>,
-    "nid": string,
+    "id": string,
     "title": string
   }
 };

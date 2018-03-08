@@ -9,7 +9,7 @@ Show all the COURSES
 [
   {
     'title': 'Edge',
-    'nid': '1998',
+    'id': 'edge',
     'field_introduction': 'Welcome to the Cambridge Audio online training course for Edge.',
     'field_modules': ['2000', ...],
     "field_assessment":["1844"]
@@ -25,13 +25,14 @@ Show a specific COURSE's fields and it's MODULE's ids
   [
     {
       'title': 'Edge',
-      'nid': '1998',
+      'id': 'edge',
       'field_introduction': 'Welcome to the Cambridge Audio online training course for Edge.',
       'field_modules': ['2000', ...],
       "field_assessment":["1844"]
     }
   ]
 ```
+
 MODULES - /api/modules
 -----
 Show all MODULES and their fields ids
@@ -40,7 +41,7 @@ Show all MODULES and their fields ids
 [
   {
     "title":"Key Technology",
-    "nid": "2000",
+    "id": "key-technology",
     "field_structure":["1838","1839","1840"]
   },
   {
@@ -75,6 +76,7 @@ Show all the MODULE COMPONENTS, can contain lessons or tests
     'field_headline': 'DC Servo',
     'field_body': '<p><span>A clean Alternating Current … </span></p>',
     'field_youtube_id': '',
+    'type': 'lesson'
   },
   {
     // ...more LESSONS

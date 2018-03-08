@@ -1,19 +1,19 @@
 {
   "courses": {
-    "1998": {
+    "edge": {
       "title": "Edge",
-      "nid": "1998",
-      "modules": ["2000"],
+      "id": "edge",
+      "modules": ["key-technology"],
       "assessment": ["1839"],
       "field_introduction": "Welcome to the Cambridge Audio online training course for Edge.",
       "available": true
     },
     "nid001": {
       "title": "CX",
-      "nid": "nid001",
+      "id": "nid001",
       "modules": [
-        "modules001",
-        "modules002"
+        "cx-remote",
+        "cambridge-audio-history"
       ],
       "assessment": [
         "assessment001"
@@ -22,18 +22,18 @@
     }
   },
   "modules": {
-    "2000": {
+    "key-technology": {
       "title": "Key Technology",
-      "nid": "2000",
+      "id": "key-technology",
       "field_lesson": [
         "1838",
         "1842",
         "1840"
       ]
     },
-    "modules001": {
+    "cx-remote": {
       "title": "CX Remote",
-      "nid": "modules001",
+      "id": "cx-remote",
       "field_lesson": [
         "1840",
         "1838",
@@ -41,9 +41,9 @@
         "field_lesson_001"
       ]
     },
-    "modules002": {
-      "title": "CX Thingy 002",
-      "nid": "modules002",
+    "cambridge-audio-history": {
+      "title": "Cambridge Audio History",
+      "id": "cambridge-audio-history",
       "field_lesson": [
         "1842",
         "field_lesson_001"

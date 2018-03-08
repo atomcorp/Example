@@ -101,7 +101,7 @@ export const CourseModulesPresentation = ({
         key={i}
         title={resources.modules[moduleId].title}
         moduleId={moduleId}
-        courseId={courseData.nid}
+        courseId={courseData.id}
         moduleComponents={
           resources.modules[moduleId].field_lesson.map(
             (lessonId: string): {} | ModuleComponentType =>
