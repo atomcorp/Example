@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import Routes from './router/routes.js';
 
 import { store } from './store/store.js';
+
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      loaded: false
+      loaded: false,
+      user: {}
     };
     this.resources = {};
   }
@@ -33,9 +35,7 @@ class App extends Component {
       return 'Loading app';
     }
     return (
-      <div className="App">
-        <Routes resources={this.resources} state={ this.resources } />
-      </div>
+      <Routes resources={this.resources} state={this.resources} />
     );
   }
 }

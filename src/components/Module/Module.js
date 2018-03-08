@@ -6,10 +6,15 @@
  * each get printed on sepearate pages
  */
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Page from '../../containers/page/page.js';
-import { ModuleComponent } from '../ModuleComponent/ModuleComponent.js'
+import {
+  ModuleInformation, 
+  ModuleComponents,
+} from './ModulePresentational.js';
+import {
+  ModuleProgress
+} from './ModuleProgress.js';
 
 /** 
  * use prev and next buttons to keep state of progress
@@ -30,15 +35,19 @@ export class Module extends Component {
     this.courseId = route.match.params.courseId;
     this.resources = resources;
     this.moduleData = this.resources.modules[moduleId];
+    this.moduleComponentLength = resources.modules[moduleId].field_lesson.length;
     this.state = {
-      moduleComponentCount: resources.modules[moduleId].field_lesson.length,
       visibleModuleComponent: 1,
       nextButtonDisabled: false
     };
+    // bind .this to this Class, not whatever invokes it down the line 
+    this.incrementVisible = this.incrementVisible.bind(this);
+    this.decrementVisible = this.decrementVisible.bind(this);
+    this.handleDisableButton = this.handleDisableButton.bind(this);
   }
 
   incrementVisible() {
-    if (this.state.visibleModuleComponent < this.state.moduleComponentCount) {
+    if (this.state.visibleModuleComponent < this.moduleComponentLength) {
       this.setState(prevState => ({
         visibleModuleComponent: ++prevState.visibleModuleComponent
       }));
@@ -67,41 +76,30 @@ export class Module extends Component {
     }
     return (
       <Page>
-        <h1>{this.moduleData.title}</h1>
-        <div>
-          Progress {this.state.visibleModuleComponent} / {this.state.moduleComponentCount}
-        </div>
-        {
-          // TODO: might not use .field_lesson
-          this.moduleData.field_lesson.map((moduleComponentId, i) => {
-            return <ModuleComponent
-              key={i}
-              moduleComponent={this.resources.moduleComponents[moduleComponentId]}
-              isVisible={{
-                thisId: i + 1,
-                visibleId: this.state.visibleModuleComponent,
-              }}
-              disableNextButton={willDisable => this.handleDisableButton(willDisable)} />
-          })
-        }
-        { 
-          this.state.visibleModuleComponent > 1
-          && <button onClick={() => this.decrementVisible()}>Prev</button>
-        }
-        {
-          this.state.visibleModuleComponent < this.state.moduleComponentCount
-          && <button 
-            disabled={this.state.nextButtonDisabled} 
-            onClick={() => this.incrementVisible()}>Next</button>
-        }
-        {
-          this.state.visibleModuleComponent === this.state.moduleComponentCount
-          && <Link to={`/course/${this.courseId}`}>Back to course</Link>
-        }
+        <ModuleInformation
+          courseName={ this.resources.courses[this.courseId].title } 
+          moduleName={ this.moduleData.title } 
+          currentModuleComponent={ this.state.visibleModuleComponent }
+          moduleComponentLength={ this.moduleComponentLength } />
+
+        <ModuleComponents 
+          modulesComponents={ this.moduleData.field_lesson }
+          allModuleComponents={ this.resources.moduleComponents }
+          visibleModuleComponentId={ this.state.visibleModuleComponent }
+          disableButton={ this.handleDisableButton } />
+
+        <ModuleProgress 
+          state={ this.state }
+          moduleComponentLength={ this.moduleComponentLength }
+          update={{
+            decrement: this.decrementVisible,
+            increment: this.incrementVisible
+          }}
+          courseId={ this.courseId } />
+          
       </Page>
     )
   }
-
 }
 
 Module.propTypes = {

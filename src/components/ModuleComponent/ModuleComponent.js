@@ -14,9 +14,10 @@ import type {
 type ModuleComponentContainerType = {
   moduleComponent: MultiChoiceFieldsType | LessonFieldsType,
   isVisible: {
-    thisId: string,
+    thisId: number,
     visibleId: string
   }
+  // disableNextButton: () => void
 };
 
 export const ModuleComponent = ({ moduleComponent, isVisible }: ModuleComponentContainerType): Node => {
