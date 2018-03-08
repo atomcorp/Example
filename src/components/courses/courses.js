@@ -28,6 +28,23 @@ type CoursesType = {
   }
 };
 
+/**
+ * Expected state
+ * "status" boils down to:
+ *    not-started = not-clicked
+ *    started = clicked
+ *    
+ * {
+ *   coursesState: {
+ *     courseId: {
+ *        status: not-started | started | completed
+ *     }
+ *   },
+ *   etc
+ * }
+ *  
+ */
+
 export const Courses = ({courses}: {courses: CoursesType}): Node => {
   return (
     <Page>

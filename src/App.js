@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Routes from './router/routes.js';
 
-import { store } from './store/store.js';
+import { resources } from './store/xhr-db.js';
 
 class App extends Component {
 
@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    store.fetchState().then(
+    resources.then(
       ({ assessments, courses, moduleComponents, modules }) => {
         this.resources = {
           assessments,

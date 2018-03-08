@@ -27,22 +27,6 @@ type CourseType = {
   }
 };
 
-/**
- * Expected state
- * "status" boils down to:
- *    not-started = not-clicked
- *    started = clicked
- *    
- * {
- *   coursesState: {
- *     courseId: {
- *        status: not-started | started | completed
- *     }
- *   },
- *   etc
- * }
- *  
- */
 export const Course = ({ resources, route }: CourseType): Node => {
   const courseId = route.match.params.courseId;
   const courseData = resources.courses[courseId];

@@ -5,16 +5,16 @@ import {
   apiEndpoints
 } from '../config/config.js';
 
-const fetchEndpoint = (url, key) => {
-  return fetch(url).then(res => res.json()).then(json => {
-    return {
-      [key]: json
-    }
-  });
-};
+const fetchEndpoint = (url, key) => fetch(url).then(res => 
+  res.json()).then(json => {
+  return {
+    [key]: json
+  }
+});
 
-export const fetchEverything = () => {
-  return Promise.all(
-    Object.keys(apiEndpoints).map(key => fetchEndpoint(apiEndpoints[key], key))
-  );
-};
+const fetchEverything = () => Promise.all(
+  Object.keys(apiEndpoints).map(key => fetchEndpoint(apiEndpoints[key], key))
+);
+
+export const resources = fetchEverything().then(res =>
+  res.reduce((acc, val) => Object.assign({}, acc, val), {}));

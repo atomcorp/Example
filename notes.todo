@@ -1,2 +1,3 @@
 Todo:
   ☐ ModuleComponent: don't delete Components when hiding them
+  ☐ Cache: cache resources for a day, add check when downloading 
