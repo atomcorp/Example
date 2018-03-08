@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import { Courses } from '../components/Courses/Courses.js';
 import { Course } from '../components/Course/Course.js';
@@ -9,18 +9,12 @@ import { Assessment } from '../components/Assessment/Assessment.js';
 
 const NoMatch = () => <div>404</div>;
 
+const checkModuleInCourse = (moduleId, courseId, courses) => 
+  courses[courseId].modules.includes(moduleId);
+
 const Routes = ({ resources }) => {
   return (
     <Router>
-      <div>
-        <h1>eLearning routes</h1>
-        <ul>
-          <li><Link to="/">Courses</Link></li>
-          <li><Link to="/course/1998">Course</Link></li>
-          <li><Link to="/module/2000">Module</Link></li>
-          <li><Link to="/assessment/1998">Assessment</Link></li>
-          <li><Link to="/">Home</Link></li>
-        </ul>
         <Switch>
           <Route path="/" exact component={() => (
             <Courses courses={resources.courses} />
@@ -28,15 +22,20 @@ const Routes = ({ resources }) => {
           <Route path="/course/:courseId/assessment" component={route => (
             <Assessment route={route} resources={resources} />
           )} />
-          <Route path="/course/:courseId/:moduleId" component={route => (
-            <Module route={route} resources={resources} />
-          )} />
+          <Route path="/course/:courseId/:moduleId" component={route => {
+            // courseId is irrelevant to Module, so we check
+            // Course actually contains Module, else redirect to Module
+            const { courseId, moduleId } = route.match.params;
+            if (checkModuleInCourse(moduleId, courseId, resources.courses)) {
+              return <Module route={route} resources={resources} />;
+            }
+            return <Redirect to={`/course/${courseId}`} />;
+          }} />
           <Route path="/course/:courseId" component={route => (
             <Course route={route} resources={resources} />
           )} />
           <Route component={NoMatch}></Route>
         </Switch>
-      </div>
     </Router>
   )
 }

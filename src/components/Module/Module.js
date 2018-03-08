@@ -6,6 +6,7 @@
  * each get printed on sepearate pages
  */
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Page from '../../containers/page/page.js';
 import { ModuleComponent } from '../ModuleComponent/ModuleComponent.js'
@@ -26,8 +27,8 @@ export class Module extends Component {
     // setting componentCount is ugly as anything
     const { route, resources } = props;
     const moduleId = route.match.params.moduleId;
+    this.courseId = route.match.params.courseId;
     this.resources = resources;
-    this.coursePage = route.history.goBack;
     this.moduleData = this.resources.modules[moduleId];
     this.state = {
       moduleComponentCount: resources.modules[moduleId].field_lesson.length,
@@ -95,7 +96,7 @@ export class Module extends Component {
         }
         {
           this.state.visibleModuleComponent === this.state.moduleComponentCount
-          && <button onClick={() => this.coursePage()}>Back to course</button>
+          && <Link to={`/course/${this.courseId}`}>Back to course</Link>
         }
       </Page>
     )
