@@ -5,3 +5,5 @@ export const CourseStatuses = {
   STARTED: 'STARTED',
   COMPLETED: 'COMPLETED'
 };
+
+export const MODULE_DONE = 'MODULE_DONE';

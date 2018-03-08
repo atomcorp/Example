@@ -36,6 +36,7 @@ export const Course = ({ resources, route }: CourseType): Node => {
   if (!courseData) {
     return <div>Can not find course [invalid course ID]</div>;
   }
+  // 
   store.dispatch(setCourseStatus({
     status: CourseStatuses.STARTED,
     course: courseId
