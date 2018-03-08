@@ -3,7 +3,9 @@ import React from 'react';
 import type { Node } from 'react';
 import Page from '../../containers/page/page.js';
 import { Link } from 'react-router-dom';
-// import type { CourseType } from '../../types.js';
+import { store } from '../../redux/store/store.js';
+
+const courseStatus = (id: string): string => store.getState().coursesStatuses[id];
 
 type CourseButtonType = {
   title: string,
@@ -13,7 +15,7 @@ type CourseButtonType = {
 const CourseButton = ({ title, id }: CourseButtonType): Node => {
   return (
     <li>
-      <h2><Link to={`/course/${id}`}>{title}</Link></h2>
+      <h2><Link to={`/course/${id}`}>{title} ({courseStatus(id)})</Link></h2>
     </li>
   );
 };
@@ -27,23 +29,6 @@ type CoursesType = {
     "title": string
   }
 };
-
-/**
- * Expected state
- * "status" boils down to:
- *    not-started = not-clicked
- *    started = clicked
- *    
- * {
- *   coursesState: {
- *     courseId: {
- *        status: not-started | started | completed
- *     }
- *   },
- *   etc
- * }
- *  
- */
 
 export const Courses = ({courses}: {courses: CoursesType}): Node => {
   return (
