@@ -3,7 +3,7 @@ import { learnApp } from '../reducers/reducers.js';
 import { CourseStatuses } from '../actions/action-types.js';
 
 const initialStore = {
-  courseStatuses: {
+  coursesStatuses: {
     'edge': CourseStatuses.NOT_STARTED
   }
 };

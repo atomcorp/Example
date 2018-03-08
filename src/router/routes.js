@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-
+import { Provider } from 'react-redux';
 import { Courses } from '../components/Courses/Courses.js';
 import { Course } from '../components/Course/Course.js';
 import { Module } from '../components/Module/Module.js';
@@ -12,9 +12,10 @@ const NoMatch = () => <div>404</div>;
 const checkModuleInCourse = (moduleId, courseId, courses) => 
   courses[courseId].modules.includes(moduleId);
 
-const Routes = ({ resources }) => {
+const Routes = ({ resources, store }) => {
   return (
-    <Router>
+    <Provider store={store}>
+      <Router>
         <Switch>
           <Route path="/" exact component={() => (
             <Courses courses={resources.courses} />
@@ -36,12 +37,14 @@ const Routes = ({ resources }) => {
           )} />
           <Route component={NoMatch}></Route>
         </Switch>
-    </Router>
+      </Router>
+    </Provider>
   )
 }
 
 Routes.propTypes = {
-  resources: PropTypes.object
+  resources: PropTypes.object,
+  store: PropTypes.object
 }
 
 export default Routes;

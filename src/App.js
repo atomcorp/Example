@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 import Routes from './router/routes.js';
 import { resources } from './api.js';
+import { store } from './redux/store/store.js';
 
 class App extends Component {
 
@@ -38,7 +39,7 @@ class App extends Component {
       return 'Loading Cambridge Audio | Learn';
     }
     return (
-      <Routes resources={this.resources} state={this.resources} />
+      <Routes resources={this.resources} store={store} />
     );
   }
 }
