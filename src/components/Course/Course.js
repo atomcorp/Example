@@ -14,6 +14,7 @@ import {
   CoursePresentation,
   CourseModulesPresentation
 } from './CoursePresentation.js';
+import type { ResourcesType } from '../../types.js'; 
 
 type CourseType = {
   resources: ResourcesType,

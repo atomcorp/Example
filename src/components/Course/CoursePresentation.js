@@ -81,8 +81,7 @@ export const CoursePresentation = (
 
 type CourseModulesPresentationType = {
   courseData: CourseFieldsType,
-  resources: ResourcesType,
-  courseId: string
+  resources: ResourcesType
 };
 
 export const CourseModulesPresentation = ({
