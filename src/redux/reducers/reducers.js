@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import {
-  CourseStatuses,
   SET_COURSE_STATUS
 } from '../actions/action-types.js';
 

@@ -8,4 +8,4 @@ const initialStore = {
   }
 };
 
-let store = createStore(learnApp, initialStore);
+export const store = createStore(learnApp, initialStore);
