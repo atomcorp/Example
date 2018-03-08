@@ -6,37 +6,6 @@ import React, { Component } from 'react';
 import Routes from './router/routes.js';
 import { resources } from './api.js';
 
-import { createStore } from 'redux';
-import { learnApp, coursesStatuses } from './redux/reducers/reducers.js';
-
-import {
-  SET_COURSE_STATUS,
-  CourseStatuses
-} from './redux/actions/action-types.js';
-import { setCourseStatus } from './redux/actions/action-creators.js';
-
-const initialStore = {
-  coursesStatuses: {
-    'edge': CourseStatuses.NOT_STARTED
-  }
-};
-
-let store = createStore(learnApp, initialStore);
-
-console.log(store.getState());
-const unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-);
-store.dispatch(setCourseStatus({
-  status: CourseStatuses.STARTED,
-  course: 'edge'
-}));
-store.dispatch(setCourseStatus({
-  status: CourseStatuses.COMPLETED,
-  course: 'edge'
-}));
-unsubscribe();
-
 class App extends Component {
 
   constructor(props) {
