@@ -25,14 +25,14 @@ const Routes = ({ resources }) => {
           <Route path="/" exact component={() => (
             <Courses courses={resources.courses} />
           )} />
-          <Route path="/course/:courseId" component={route => (
-            <Course route={route} resources={resources} />
+          <Route path="/course/:courseId/assessment" component={route => (
+            <Assessment route={route} resources={resources} />
           )} />
-          <Route path="/module/:moduleId" component={route => (
+          <Route path="/course/:courseId/:moduleId" component={route => (
             <Module route={route} resources={resources} />
           )} />
-          <Route path="/assessment/:courseId" component={route => (
-            <Assessment route={route} resources={resources} />
+          <Route path="/course/:courseId" component={route => (
+            <Course route={route} resources={resources} />
           )} />
           <Route component={NoMatch}></Route>
         </Switch>

@@ -19,12 +19,18 @@ const TitleElement = ({ title }: { title: string }): Node => {
 
 type CourseModuleElementType = {
   title: string,
-  id: string,
+  moduleId: string,
+  courseId: string,
   moduleComponents: Array<ModuleComponentType | {}>
 };
 
 
-const CourseModuleElement = ({ title, id, moduleComponents }: CourseModuleElementType): Node => {
+const CourseModuleElement = ({ 
+  title, 
+  courseId, 
+  moduleId, 
+  moduleComponents 
+}: CourseModuleElementType): Node => {
   return (
     <div className="module">
       <h2>{title} Module</h2>
@@ -41,7 +47,7 @@ const CourseModuleElement = ({ title, id, moduleComponents }: CourseModuleElemen
           }
         </ul>
         {
-          <Link to={`/module/${id}`}>Take the {title} module</Link>
+          <Link to={`/course/${courseId}/${moduleId}`}>Take the {title} module</Link>
         }
       </div>
     </div>
@@ -94,7 +100,8 @@ export const CourseModulesPresentation = ({
       <CourseModuleElement
         key={i}
         title={resources.modules[moduleId].title}
-        id={moduleId}
+        moduleId={moduleId}
+        courseId={courseData.nid}
         moduleComponents={
           resources.modules[moduleId].field_lesson.map(
             (lessonId: string): {} | ModuleComponentType =>
