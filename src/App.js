@@ -1,7 +1,11 @@
+/**
+ * This loads the entire project,
+ * it should do as LITTLE as possible
+ */
 import React, { Component } from 'react';
 import Routes from './router/routes.js';
 
-import { resources } from './store/xhr-db.js';
+import { resources } from './api.js';
 
 class App extends Component {
 
@@ -32,7 +36,7 @@ class App extends Component {
 
   render() {
     if (!this.state.loaded) {
-      return 'Loading app';
+      return 'Loading Cambridge Audio | Learn';
     }
     return (
       <Routes resources={this.resources} state={this.resources} />

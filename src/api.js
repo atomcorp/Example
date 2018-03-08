@@ -3,7 +3,7 @@
  */
 import {
   apiEndpoints
-} from '../config/config.js';
+} from './config/config.js';
 
 const fetchEndpoint = (url, key) => fetch(url).then(res => 
   res.json()).then(json => {

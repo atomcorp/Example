@@ -15,7 +15,6 @@ const TitleElement = ({ title }: { title: string }): Node => {
   );
 };
 
-
 type TempChoiceType = {
   text: string,
   isCorrect: boolean
