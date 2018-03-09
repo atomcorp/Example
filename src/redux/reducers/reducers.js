@@ -7,7 +7,9 @@ import {
 /**
  * Shows whether a Course has been: 
  * not-started, started, completed
+ * TODO: should not regress, eg !(completed -> started)
  */
+
 export const coursesStatuses = (state = {}, action) => {
   switch (action.type) {
     case SET_COURSE_STATUS:

@@ -15,9 +15,6 @@ import {
   CourseModulesPresentation
 } from './CoursePresentation.js';
 import type { ResourcesType } from '../../types.js'; 
-import { store } from '../../redux/store/store.js';
-import { setCourseStatus } from '../../redux/actions/action-creators.js';
-import { CourseStatuses } from '../../redux/actions/action-types.js';
 
 type CourseType = {
   resources: ResourcesType,
@@ -36,11 +33,6 @@ export const Course = ({ resources, route }: CourseType): Node => {
   if (!courseData) {
     return <div>Can not find course [invalid course ID]</div>;
   }
-  // 
-  store.dispatch(setCourseStatus({
-    status: CourseStatuses.STARTED,
-    course: courseId
-  }));
   return (
     <Page>
       <CoursePresentation {...courseData} />

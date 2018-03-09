@@ -1,4 +1,5 @@
 // @flow
+import { CourseStatuses } from './redux/actions/action-types.js';
 
 export type MultiChoiceType = { 
   [id: string]: { 
@@ -100,3 +101,5 @@ export type InitalStateType = {
     loaded: boolean
   }
 };
+
+export type StatusType = CourseStatuses.NOT_STARTED | CourseStatuses.STARTED | CourseStatuses.COMPLETED;

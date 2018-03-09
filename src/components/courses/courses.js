@@ -1,46 +1,92 @@
 // @flow
 import React from 'react';
 import type { Node } from 'react';
+import { CourseStatuses } from '../../redux/actions/action-types.js';
 import Page from '../../containers/page/page.js';
 import { Link } from 'react-router-dom';
-import { store } from '../../redux/store/store.js';
-
-const courseStatus = (id: string): string => store.getState().coursesStatuses[id];
+import type { StatusType } from '../../types.js';
 
 type CourseButtonType = {
   title: string,
-  id: string
+  id: string,
+  status: string,
+  onClick: () => void
 };
 
-const CourseButton = ({ title, id }: CourseButtonType): Node => {
+export const CourseButton = ({ title, id, status, onClick }: CourseButtonType): Node => {
+  // TODO: sucks, should have a HOF to encapsulate this issue
+  // only add onClick if course hasn't been started
   return (
-    <li>
-      <h2><Link to={`/course/${id}`}>{title} ({courseStatus(id)})</Link></h2>
-    </li>
+    <h2>
+      {
+        status !== CourseStatuses.NOT_STARTED
+          ? <Link to={`/course/${id}`}>{title} ({status})</Link>
+          : <Link to={`/course/${id}`} onClick={onClick}>{title} ({status})</Link>
+      }
+    </h2>
+  );
+};
+
+type CourseListType = {
+  courses: {
+    [id: string]: {
+      "assessment": Array<string>,
+      "field_introduction": string,
+      "modules": Array<string>,
+      "id": string,
+      "title": string
+    }
+  },
+  coursesStatuses: {
+    [id: string]: StatusType
+  },
+  onClick: (string, string) => void
+};
+
+const CourseList = ({ courses, coursesStatuses, onClick }: CourseListType): Array<Node> => {
+  return (
+    Object.keys(courses).map((key: string, index: number): Node => {
+      return <CourseButton 
+        key={index} 
+        title={courses[key].title}
+        id={courses[key].id}
+        status={coursesStatuses[key]}
+        onClick={(): void => onClick(CourseStatuses.STARTED, courses[key].id)} />
+    })
   );
 };
 
 type CoursesType = {
-  [id: string]: {
-    "assessment": Array<string>,
-    "field_introduction": string,
-    "modules": Array<string>,
-    "id": string,
-    "title": string
-  }
+  courses: {
+    [id: string]: {
+      "assessment": Array<string>,
+      "field_introduction": string,
+      "modules": Array<string>,
+      "id": string,
+      "title": string
+    }
+  },
+  coursesStatuses: {
+    [id: string]: StatusType
+  },
+  onClick: () => void
 };
 
-export const Courses = ({courses}: {courses: CoursesType}): Node => {
+/**
+ * coursesStatuses is mapped from state by the CoursesContainer
+ * gets the latest version 
+ */
+export const Courses = ({ courses, coursesStatuses, onClick }: CoursesType): Node => {
   return (
     <Page>
       <h1>Courses</h1>
-      <ul>
-        {
-          Object.keys(courses).map((key: string, index: number): Node => {
-            return <CourseButton key={index} {...courses[key]} />
-          })
-        }
-      </ul>
+      <div>
+        <CourseList
+          courses={courses} 
+          coursesStatuses={coursesStatuses}
+          onClick={onClick} />
+      </div>
     </Page>
   );
 };
+

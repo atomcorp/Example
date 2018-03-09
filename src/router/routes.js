@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import { Provider } from 'react-redux';
-import { Courses } from '../components/Courses/Courses.js';
+import CoursesContainer from '../components/Courses/CoursesContainer.js';
 import { Course } from '../components/Course/Course.js';
 import { Module } from '../components/Module/Module.js';
 import { Assessment } from '../components/Assessment/Assessment.js';
@@ -18,7 +18,7 @@ const Routes = ({ resources, store }) => {
       <Router>
         <Switch>
           <Route path="/" exact component={() => (
-            <Courses courses={resources.courses} />
+            <CoursesContainer courses={resources.courses} />
           )} />
           <Route path="/course/:courseId/assessment" component={route => (
             <Assessment route={route} resources={resources} />
