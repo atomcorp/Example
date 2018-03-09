@@ -24,10 +24,13 @@ type CourseType = {
         courseId: string
       }
     }
+  },
+  moduleStatuses: {
+    [id: string]: boolean
   }
 };
 
-export const Course = ({ resources, route }: CourseType): Node => {
+export const Course = ({ resources, route, moduleStatuses }: CourseType): Node => {
   const courseId = route.match.params.courseId;
   const courseData = resources.courses[courseId];
   if (!courseData) {
