@@ -2,7 +2,7 @@
 /**
  * Shows a Multiple-Choice Question
  */
-import React from 'react';
+import React, { Component } from 'react';
 import type { Node } from 'react'
 
 type ChoiceType = {
@@ -18,35 +18,54 @@ const Choice = ({ text, isCorrect }: ChoiceType): Node => {
   );
 };
 
+type PropsType = {
+  field_question: string,
+  field_correct_choice: string,
+  field_incorrect_choices: Array<string>
+};
+
 /**
  * Will need to add state to this
  * Add click handler
  * If correct choice is clicked
  * pass callback to enable 'Next' button to be pressed
  */
-export const MultipleChoice = ({ 
-  field_question, 
-  field_correct_choice, 
-  field_incorrect_choices
-}: {
-  field_question: string,
-  field_correct_choice: string,
-  field_incorrect_choices: Array<string>
-}): Node => {
-  return (
-    <div className="multiple-question">
-      <div className="question">
-        <h2>{ field_question }</h2>
-      </div>
-      <div className="choices">
-        <MultipleChoiceList choices={[
-          field_correct_choice,
-          ...field_incorrect_choices
-        ]} />        
-      </div>
-    </div>
-  );
+export class MultipleChoice extends Component { 
+
+  constructor(props: PropsType) {
+    super(props);
+    this.state = {
+      clicked: false
+    }
+  }
+  
+  render(): Node {
+    return (
+      <MultipleChoicePresentation
+        field_question={this.props.field_question}
+        field_correct_choice={this.props.field_correct_choice}
+        field_incorrect_choices={this.props.field_incorrect_choices} />
+    );
+  }
 }
+
+const MultipleChoicePresentation = ({
+  field_question,
+  field_correct_choice,
+  field_incorrect_choices
+}: MultipleChoiceType): Node => (
+  <div className="multiple-question">
+    <div className="question">
+      <h2>{field_question}</h2>
+    </div>
+    <div className="choices">
+      <MultipleChoiceList choices={[
+        field_correct_choice,
+        ...field_incorrect_choices
+      ]} />
+    </div>
+  </div>
+);
 
 const MultipleChoiceList = ({ 
   choices 
@@ -96,3 +115,4 @@ function once(fn: any, context) {
   };
 }
 /* eslint-enable */
+
