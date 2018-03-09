@@ -1,4 +1,5 @@
 [ignore]
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
 
 [include]
 

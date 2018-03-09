@@ -61,6 +61,7 @@ const MultipleChoiceList = ({
 }: { 
   choices: Array<string>
 }): Array<Node> => (
+  // $FlowFixMe
   shuffleOnce(choices.map((
     choice: string,
     i: number
@@ -73,7 +74,6 @@ const MultipleChoiceList = ({
 );
 
 const shuffleOnce = once((children: Array<Node>): Array<Node> => {
-  console.log(children)
   return shuffle(children);
 });
 
