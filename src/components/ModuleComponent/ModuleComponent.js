@@ -42,7 +42,7 @@ type ModuleComponentVisibilityType = {
   children: Node
 };
 
-export const ModuleComponentVisibility = ({ 
+export const ModuleComponentVisibility = ({
   isVisible, 
   children
 }: ModuleComponentVisibilityType): Node => {
