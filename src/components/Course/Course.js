@@ -14,7 +14,11 @@ import {
   CoursePresentation,
   CourseModulesPresentation
 } from './CoursePresentation.js';
-import type { ResourcesType } from '../../types.js'; 
+import type { 
+  ResourcesType, 
+  ModuleStatusesType, 
+  CoursesStatusesType 
+} from '../../types.js'; 
 
 type CourseType = {
   resources: ResourcesType,
@@ -25,12 +29,8 @@ type CourseType = {
       }
     }
   },
-  moduleStatuses: {
-    [id: string]: boolean
-  },
-  coursesStatuses: {
-    [id: string]: string
-  },
+  moduleStatuses: ModuleStatusesType,
+  coursesStatuses: CoursesStatusesType,
   updateCourseStatus: (string, string) => void
 };
 
@@ -47,7 +47,10 @@ export const Course = ({ resources, route, moduleStatuses, coursesStatuses, upda
   return (
     <Page>
       <CoursePresentation {...courseData} />
-      <CourseModulesPresentation courseData={courseData} resources={resources} />
+      <CourseModulesPresentation 
+        courseData={courseData} 
+        resources={resources} 
+        moduleStatuses={moduleStatuses} />
       <Link to={`/course/${courseId}/assessment`}>Go to Assessment</Link>
     </Page>
   );

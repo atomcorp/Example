@@ -103,3 +103,11 @@ export type InitalStateType = {
 };
 
 export type StatusType = CourseStatuses.NOT_STARTED | CourseStatuses.STARTED | CourseStatuses.COMPLETED;
+
+export type ModuleStatusesType = {
+  [id: string]: boolean
+};
+
+export type CoursesStatusesType = {
+  [id: string]: boolean
+};

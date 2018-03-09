@@ -8,7 +8,8 @@ import type {
   ModuleComponentType,
   MultiChoiceFieldsType,
   LessonFieldsType,
-  CourseFieldsType
+  CourseFieldsType,
+  ModuleStatusesType
 } from '../../types.js';
 
 const TitleElement = ({ title }: { title: string }): Node => {
@@ -21,19 +22,20 @@ type CourseModuleElementType = {
   title: string,
   moduleId: string,
   courseId: string,
-  moduleComponents: Array<ModuleComponentType | {}>
+  moduleComponents: Array<ModuleComponentType | {}>,
+  moduleStatus: boolean
 };
-
 
 const CourseModuleElement = ({ 
   title, 
   courseId, 
   moduleId, 
-  moduleComponents 
+  moduleComponents,
+  moduleStatus 
 }: CourseModuleElementType): Node => {
   return (
     <div className="module">
-      <h2>{title} Module</h2>
+      <h2>{title} Module ({moduleStatus ? 'COMPLETE' : 'NOT COMPLETE'})</h2>
       <div>
         <ul>
           {
@@ -87,12 +89,14 @@ export const CoursePresentation = (
 
 type CourseModulesPresentationType = {
   courseData: CourseFieldsType,
-  resources: ResourcesType
+  resources: ResourcesType,
+  moduleStatuses: ModuleStatusesType
 };
 
 export const CourseModulesPresentation = ({
   courseData,
-  resources
+  resources,
+  moduleStatuses
 }: CourseModulesPresentationType
 ): Node => {
   return (
@@ -102,6 +106,7 @@ export const CourseModulesPresentation = ({
         title={resources.modules[moduleId].title}
         moduleId={moduleId}
         courseId={courseData.id}
+        moduleStatus={moduleStatuses[moduleId]}
         moduleComponents={
           resources.modules[moduleId].field_lesson.map(
             (lessonId: string): {} | ModuleComponentType =>
