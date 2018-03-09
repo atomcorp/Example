@@ -14,7 +14,7 @@ type LessonFieldsType = {
 export const Lesson = ({ field_headline, field_body }: LessonFieldsType): Node => {
   return (
     <div className="lesson">
-      <h2>{ field_headline }</h2>
+      <h2>{field_headline}</h2>
       { 
         /* 
         * dangerouslySetInnerHTML is React's equivilant for .innerHTML

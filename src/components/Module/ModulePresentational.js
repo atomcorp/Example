@@ -2,7 +2,10 @@
 import React from 'react';
 import type { Node } from 'react';
 import type { ModuleComponentType } from '../../types.js';
-import { ModuleComponent } from '../ModuleComponent/ModuleComponent.js';
+import { 
+  ModuleComponent, 
+  ModuleComponentVisibility 
+} from '../ModuleComponent/ModuleComponent.js';
 
 type ModuleInformationType ={
   courseName: string,
@@ -29,7 +32,7 @@ export const ModuleInformation = ({
 type ModuleComponentsType = {
   modulesComponents: Array<string>,
   allModuleComponents: ModuleComponentType,
-  visibleModuleComponentId: string,
+  visibleModuleComponentId: number,
   disableButton: (boolean) => boolean
 };
 
@@ -42,15 +45,16 @@ export const ModuleComponents = ({
   return modulesComponents.map((
     moduleComponentId: string, 
     i: number
-  ): Node => {
-    return <ModuleComponent
+  ): Node => (
+    <ModuleComponentVisibility
       key={i}
-      moduleComponent={allModuleComponents[moduleComponentId]}
       isVisible={{
         thisId: i + 1,
         visibleId: visibleModuleComponentId,
-      }} />
-      // disableNextButton={(willDisable: boolean): boolean => disableButton(willDisable)} 
-  });
-};
+      }}>
+      <ModuleComponent
+        moduleComponent={allModuleComponents[moduleComponentId]} />
+    </ModuleComponentVisibility>
+  ) // disableNextButton={(willDisable: boolean): boolean => disableButton(willDisable)} 
+)};
 

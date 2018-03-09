@@ -12,25 +12,45 @@ import type {
 } from '../../types.js';
 
 type ModuleComponentContainerType = {
-  moduleComponent: MultiChoiceFieldsType | LessonFieldsType,
-  isVisible: {
-    thisId: number,
-    visibleId: string
-  }
-  // disableNextButton: () => void
+  moduleComponent: MultiChoiceFieldsType | LessonFieldsType
 };
 
-export const ModuleComponent = ({ moduleComponent, isVisible }: ModuleComponentContainerType): Node => {
-  // TODO: 
-  if (isVisible.thisId !== isVisible.visibleId) {
-    return <div></div>;
-  }
+export const ModuleComponent = ({ moduleComponent }: ModuleComponentContainerType): Node => {
+  // TODO: transitions
+  // if (isVisible.thisId !== isVisible.visibleId) {
+  //   return <div></div>;
+  // }
   switch (moduleComponent.type) {
     case 'Lesson':
-      return <Lesson {...moduleComponent} />;
+      return (
+        <Lesson {...moduleComponent} />
+      )
     case 'Multiple-Choice Question': 
-      return <MultipleChoice {...moduleComponent} />;
+      return (
+        <MultipleChoice {...moduleComponent} />
+      )
     default:
       return <div>Error - Check ModuleComponent Types</div>;
   }
+};
+
+type ModuleComponentVisibilityType = {
+  isVisible: {
+    thisId: number,
+    visibleId: number
+  },
+  children: Node
+};
+
+export const ModuleComponentVisibility = ({ 
+  isVisible, 
+  children
+}: ModuleComponentVisibilityType): Node => {
+  const { thisId, visibleId } = isVisible;
+  return (
+    <div>
+      ({thisId === visibleId ? 'VISIBLE' : 'INVISIBLE'})
+      { children }
+    </div>
+  );
 };
