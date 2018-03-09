@@ -39,18 +39,10 @@ export const MultipleChoice = ({
         <h2>{ field_question }</h2>
       </div>
       <div className="choices">
-        {
-          /* 
-           * First choice is always correct,
-           * then we just shuffle choices 
-          */
-          
-        }
         <MultipleChoiceList choices={[
           field_correct_choice,
           ...field_incorrect_choices
-        ]} />
-        
+        ]} />        
       </div>
     </div>
   );
@@ -61,6 +53,7 @@ const MultipleChoiceList = ({
 }: { 
   choices: Array<string>
 }): Array<Node> => (
+  // TODO: porper flow support for this section
   // $FlowFixMe
   shuffleOnce(choices.map((
     choice: string,
