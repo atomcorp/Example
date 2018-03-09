@@ -27,14 +27,22 @@ type CourseType = {
   },
   moduleStatuses: {
     [id: string]: boolean
-  }
+  },
+  coursesStatuses: {
+    [id: string]: string
+  },
+  updateCourseStatus: (string, string) => void
 };
 
-export const Course = ({ resources, route, moduleStatuses }: CourseType): Node => {
+export const Course = ({ resources, route, moduleStatuses, coursesStatuses, updateCourseStatus }: CourseType): Node => {
   const courseId = route.match.params.courseId;
   const courseData = resources.courses[courseId];
   if (!courseData) {
     return <div>Can not find course [invalid course ID]</div>;
+  }
+  // TODO: Remove the onClick from Courses?
+  if (coursesStatuses[courseId] === 'NOT_STARTED') {
+    updateCourseStatus('STARTED', courseId);
   }
   return (
     <Page>

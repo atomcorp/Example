@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { Course } from './Course.js';
+import { setCourseStatus } from '../../redux/actions/action-creators.js';
 
 const getModuleProgression = (moduleProgression) => {
   return moduleProgression;
@@ -16,8 +17,17 @@ const mapStateToProps = state => {
   }
 };
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateCourseStatus: (status, course) => {
+      dispatch(setCourseStatus({ status, course }));
+    }
+  }
+};
+
 const CourseContainer = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Course);
 
 export default CourseContainer;
