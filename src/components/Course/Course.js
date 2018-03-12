@@ -9,15 +9,16 @@
 import React from 'react';
 import type { Node } from 'react';
 import Page from '../../containers/page/page.js';
-import { Link } from 'react-router-dom';
 import {
   CoursePresentation,
-  CourseModulesPresentation
+  CourseModulesPresentation,
+  CourseAssessment
 } from './CoursePresentation.js';
 import type { 
   ResourcesType, 
   ModuleStatusesType, 
-  CoursesStatusesType 
+  CoursesStatusesType,
+  AssessmentStatusesType
 } from '../../types.js'; 
 
 type CourseType = {
@@ -31,10 +32,18 @@ type CourseType = {
   },
   moduleStatuses: ModuleStatusesType,
   coursesStatuses: CoursesStatusesType,
+  assessmentStatuses: AssessmentStatusesType,
   updateCourseStatus: (string, string) => void
 };
 
-export const Course = ({ resources, route, moduleStatuses, coursesStatuses, updateCourseStatus }: CourseType): Node => {
+export const Course = ({ 
+  resources, 
+  route, 
+  moduleStatuses, 
+  coursesStatuses, 
+  updateCourseStatus,
+  assessmentStatuses
+}: CourseType): Node => {
   const courseId = route.match.params.courseId;
   const courseData = resources.courses[courseId];
   if (!courseData) {
@@ -51,7 +60,8 @@ export const Course = ({ resources, route, moduleStatuses, coursesStatuses, upda
         courseData={courseData} 
         resources={resources} 
         moduleStatuses={moduleStatuses} />
-      <Link to={`/course/${courseId}/assessment`}>Go to Assessment</Link>
+      <CourseAssessment courseId={courseId} completed={assessmentStatuses[courseId]} />
+      
     </Page>
   );
 };

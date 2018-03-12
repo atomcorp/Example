@@ -20,7 +20,7 @@ import {
 import {
   ModuleProgress
 } from './ModuleProgress.js';
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 
 /** 
  * use prev and next buttons to keep state of progress

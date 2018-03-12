@@ -116,3 +116,23 @@ export const CourseModulesPresentation = ({
     )
   )
 };
+
+type CourseAssessmentType = {
+  courseId: string, 
+  completed: boolean
+};
+
+export const CourseAssessment = ({
+  courseId, 
+  completed
+}: CourseAssessmentType): Node => (
+  <div>
+    <Link to={`/course/${courseId}/assessment`}>
+      <button>Go to Assessment</button>
+    </Link>
+      {
+      completed ? '(Completed)' : '(Not completed)'
+      }
+  </div>
+);
+  

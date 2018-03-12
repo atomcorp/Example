@@ -10,10 +10,15 @@ const getCourseStatuses = (coursesStatuses) => {
   return coursesStatuses;
 };
 
+const getAssessmentProgression = (assessmentStatuses) => {
+  return assessmentStatuses;
+};
+
 const mapStateToProps = state => {
   return {
     moduleStatuses: getModuleProgression(state.moduleProgression),
-    coursesStatuses: getCourseStatuses(state.coursesStatuses)
+    coursesStatuses: getCourseStatuses(state.coursesStatuses),
+    assessmentStatuses: getAssessmentProgression(state.assessmentStatuses)
   }
 };
 

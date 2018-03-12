@@ -111,3 +111,7 @@ export type ModuleStatusesType = {
 export type CoursesStatusesType = {
   [id: string]: boolean
 };
+
+export type AssessmentStatusesType = {
+  [id: string]: boolean  
+};
