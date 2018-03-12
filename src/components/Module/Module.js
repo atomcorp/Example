@@ -1,10 +1,15 @@
 // FLOW is A pain here, redo or something ...!
 
 /**
- * Given an ID,
+ * Module
+ * 
+ * Given a Module ID,
  * Holds all the lessons and tests, 
- * each get printed on sepearate pages
+ * users click between each sequentially,
+ * the module info and progress are independent 
+ * of the lessons / tests
  */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Page from '../../containers/page/page.js';
@@ -15,6 +20,7 @@ import {
 import {
   ModuleProgress
 } from './ModuleProgress.js';
+import { Redirect } from 'react-router';
 
 /** 
  * use prev and next buttons to keep state of progress
@@ -32,18 +38,23 @@ export class Module extends Component {
     // setting componentCount is ugly as anything
     const { route, resources } = props;
     const moduleId = route.match.params.moduleId;
+    const completeModuleHoF = id => () => this.props.done(id);
     this.courseId = route.match.params.courseId;
     this.resources = resources;
     this.moduleData = this.resources.modules[moduleId];
     this.moduleComponentLength = resources.modules[moduleId].field_lesson.length;
+    this.completeModule = completeModuleHoF(moduleId);
+    // state is only stuff local to Module that can change
     this.state = {
       visibleModuleComponent: 1,
-      nextButtonDisabled: false
+      nextButtonDisabled: false,
+      completed: false
     };
-    // bind .this to this Class, not whatever invokes it down the line 
+    // bind .this to Module Class, not whatever invokes it down the line 
     this.incrementVisible = this.incrementVisible.bind(this);
     this.decrementVisible = this.decrementVisible.bind(this);
     this.handleDisableButton = this.handleDisableButton.bind(this);
+    this.completeModuleButton = this.completeModuleButton.bind(this);
   }
 
   incrementVisible() {
@@ -70,6 +81,13 @@ export class Module extends Component {
     }
   }
 
+  completeModuleButton() { 
+    this.completeModule();
+    this.setState({
+      completed: true
+    })
+  }
+
   render() {
     if (!this.moduleData) {
       return <div>Module ID is not found</div>;
@@ -93,10 +111,15 @@ export class Module extends Component {
           moduleComponentLength={ this.moduleComponentLength }
           update={{
             decrement: this.decrementVisible,
-            increment: this.incrementVisible
+            increment: this.incrementVisible,
+            complete: this.completeModuleButton
           }}
           courseId={ this.courseId } />
-          
+        
+        {
+          // If you hit the complete module button
+          this.state.completed && <Redirect to={`/course/${this.courseId}`} />
+        }
       </Page>
     )
   }
@@ -104,5 +127,7 @@ export class Module extends Component {
 
 Module.propTypes = {
   resources: PropTypes.object,
-  route: PropTypes.object
+  route: PropTypes.object,
+  moduleStatuses: PropTypes.object,
+  done: PropTypes.func
 }

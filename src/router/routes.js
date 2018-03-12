@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import { Provider } from 'react-redux';
 import CoursesContainer from '../components/Courses/CoursesContainer.js';
 import CourseContainer from '../components/Course/CourseContainer.js';
-import { Module } from '../components/Module/Module.js';
+import ModuleContainer from '../components/Module/ModuleContainer.js';
 import { Assessment } from '../components/Assessment/Assessment.js';
 
 const NoMatch = () => <div>404</div>;
@@ -14,7 +14,7 @@ const ValidateModulePath = ({ route, resources}) => {
   // Course actually contains Module, else redirect to Module
   const { courseId, moduleId } = route.match.params;
   if (resources.courses[courseId].modules.includes(moduleId)) {
-    return <Module route={route} resources={resources} />;
+    return <ModuleContainer route={route} resources={resources} />;
   }
   return <Redirect to={`/course/${courseId}`} />;
 };

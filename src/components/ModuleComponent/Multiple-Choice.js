@@ -3,7 +3,9 @@
  * Shows a Multiple-Choice Question
  */
 import React, { Component } from 'react';
-import type { Node } from 'react'
+import PropTypes from 'prop-types';
+import type { Node } from 'react';
+import { once as myOnce } from '../../utility/utility.js';
 
 type ChoiceType = {
   text: string,
@@ -49,6 +51,12 @@ export class MultipleChoice extends Component {
   }
 }
 
+MultipleChoice.propTypes = {
+  field_question: PropTypes.string,
+  field_correct_choice: PropTypes.string,
+  field_incorrect_choices: PropTypes.array,
+};
+
 const MultipleChoicePresentation = ({
   field_question,
   field_correct_choice,
@@ -85,7 +93,7 @@ const MultipleChoiceList = ({
   }))
 );
 
-const shuffleOnce = once((children: Array<Node>): Array<Node> => {
+const shuffleOnce = myOnce((children: Array<Node>): Array<Node> => {
   return shuffle(children);
 });
 
@@ -103,16 +111,5 @@ function shuffle(a: Array<any>) {
   return a;
 }
 
-// https://davidwalsh.name/javascript-once
-function once(fn: any, context) {
-  var result;
-  return function () {
-    if (fn) {
-      result = fn.apply(context || this, arguments);
-      fn = null;
-    }
-    return result;
-  };
-}
 /* eslint-enable */
 

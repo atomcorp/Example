@@ -12,8 +12,10 @@ type ModuleProgressType = {
   moduleComponentLength: number,
   update: {
     decrement: () => void,
-    increment: () => void
+    increment: () => void,
+    complete: () => void
   },
+  completeModuleButton: () => void, 
   courseId: string
 };
 
@@ -37,6 +39,14 @@ export const ModuleProgress = ({
           state.visibleModuleComponent < moduleComponentLength ? 'visible' : 'hidden'
         }
         disabled={state.nextButtonDisabled} />
+      <ProgressButton
+        label="Complete module"
+        update={update.complete}
+        visibility={
+          state.visibleModuleComponent === moduleComponentLength ? 'visible' : 'hidden'
+        }
+        disabled={state.nextButtonDisabled} />
+      {/* TODO: add warning, you'll lose your progress */}
       <br />
       <Link to={`/course/${courseId}`}>Back to course</Link>
     </div>
