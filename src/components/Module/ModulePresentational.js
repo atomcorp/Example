@@ -22,10 +22,7 @@ export const ModuleInformation = ({
 }: ModuleInformationType): Node => (
   <div>
     <h1>{courseName} Course</h1>
-    <h2>{moduleName}</h2>
-    <div>
-      Progress {currentModuleComponent} / {moduleComponentLength}
-    </div>
+    <h2>{moduleName} ({currentModuleComponent} / {moduleComponentLength})</h2>
   </div>
 );
 

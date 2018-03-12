@@ -89,6 +89,12 @@ export const Course = ({
         courseId={courseId} 
         completed={assessmentStatuses[courseId]}
         courseTitle={courseData.title} />
+      <h2>Resources</h2>
+      <ul>
+        <li>resource 1</li>
+        <li>resource 2</li>
+        <li>resource 3</li>
+      </ul>
     </Page>
   );
 };

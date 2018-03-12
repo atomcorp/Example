@@ -49,7 +49,7 @@ const CourseModuleElement = ({
           }
         </ul>
         {
-          <Link to={`/course/${courseId}/${moduleId}`}>Take the {title} module</Link>
+          <Link to={`/course/${courseId}/${moduleId}`}><button>Take the {title} module</button></Link>
         }
       </div>
     </div>
@@ -129,14 +129,14 @@ export const CourseAssessment = ({
   courseTitle
 }: CourseAssessmentType): Node => (
   <div>
-    <h2>{courseTitle} Assessment</h2>
+    <h2>{courseTitle} Assessment {
+        completed ? '(COMPLETED)' : '(NOT COMPLETED)'
+    }</h2>
     <Link to={`/course/${courseId}/assessment`}>
       <button>Take the Assessment</button>
     </Link>
     <br/>
-    {
-      completed ? '(Completed)' : '(Not completed)'
-    }
+    
   </div>
 );
   
