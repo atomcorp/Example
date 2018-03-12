@@ -50,7 +50,11 @@ const CourseList = ({ courses, coursesStatuses, onClick }: CourseListType): Arra
         key={index} 
         title={courses[key].title}
         id={courses[key].id}
-        status={coursesStatuses[key]}
+        status={
+          coursesStatuses[key] 
+          ? coursesStatuses[key] 
+          : coursesStatuses[key] = CourseStatuses.NOT_STARTED
+        }
         onClick={(): void => onClick(CourseStatuses.STARTED, courses[key].id)} />
     })
   );

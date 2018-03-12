@@ -1,7 +1,7 @@
 import {
   SET_COURSE_STATUS,
   MODULE_DONE,
-  ASESSMENT_DONE
+  ASSESSMENT_DONE
 } from './action-types.js';
 
 export const setCourseStatus = ({status, course}) => {
@@ -21,7 +21,7 @@ export const moduleDone = (id) => {
 
 export const assessmentDone = (id) => {
   return {
-    type: ASESSMENT_DONE,
+    type: ASSESSMENT_DONE,
     id
   }
 };

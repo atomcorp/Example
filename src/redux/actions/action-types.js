@@ -8,4 +8,4 @@ export const CourseStatuses = {
 
 export const MODULE_DONE = 'MODULE_DONE';
 
-export const ASESSMENT_DONE = 'ASESSMENT_DONE';
+export const ASSESSMENT_DONE = 'ASSESSMENT_DONE';

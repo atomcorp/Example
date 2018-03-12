@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import {
   SET_COURSE_STATUS,
   MODULE_DONE,
-  ASESSMENT_DONE
+  ASSESSMENT_DONE
 } from '../actions/action-types.js';
 
 /**
@@ -39,7 +39,7 @@ export const moduleProgression = (state = {}, action) => {
 
 export const assessmentStatuses = (state = {}, action) => {
   switch (action.type) {
-    case ASESSMENT_DONE:
+    case ASSESSMENT_DONE:
       return Object.assign({}, state, {
         [action.id]: true
       });
