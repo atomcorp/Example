@@ -21,6 +21,19 @@ import type {
   AssessmentStatusesType
 } from '../../types.js'; 
 
+const testCourseComplete = (
+  courseId: string,
+  modulesIds: Array<string>,
+  moduleStatuses: ModuleStatusesType,
+  assessmentStatuses: AssessmentStatusesType
+): boolean => {
+  // all courses module complete
+  // AND assessment complete
+  return modulesIds.every((id: string): boolean => moduleStatuses[id])
+    && assessmentStatuses[courseId]
+    ? true : false;
+};
+
 type CourseType = {
   resources: ResourcesType,
   route: {
@@ -46,6 +59,12 @@ export const Course = ({
 }: CourseType): Node => {
   const courseId = route.match.params.courseId;
   const courseData = resources.courses[courseId];
+  const courseDone = testCourseComplete(
+    courseId,
+    courseData.modules,
+    moduleStatuses,
+    assessmentStatuses
+  );
   if (!courseData) {
     return <div>Can not find course [invalid course ID]</div>;
   }
@@ -53,15 +72,21 @@ export const Course = ({
   if (coursesStatuses[courseId] === 'NOT_STARTED') {
     updateCourseStatus('STARTED', courseId);
   }
+  if (courseDone && coursesStatuses[courseId] !== 'COMPLETED') {
+    updateCourseStatus('COMPLETED', courseId);
+  }
   return (
     <Page>
+      {
+        courseDone ? 'Course status: Done' : 'Course status: Not done'
+      }
       <CoursePresentation {...courseData} />
       <CourseModulesPresentation 
         courseData={courseData} 
         resources={resources} 
         moduleStatuses={moduleStatuses} />
       <CourseAssessment courseId={courseId} completed={assessmentStatuses[courseId]} />
-      
     </Page>
   );
 };
+
