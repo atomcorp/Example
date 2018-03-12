@@ -48,7 +48,7 @@ export const ModuleComponentVisibility = ({
 }: ModuleComponentVisibilityType): Node => {
   const { thisId, visibleId } = isVisible;
   return (
-    <div>
+    <div style={{ display: thisId === visibleId ? 'block' : 'none'}}>
       ({thisId === visibleId ? 'VISIBLE' : 'INVISIBLE'})
       { children }
     </div>

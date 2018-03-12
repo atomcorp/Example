@@ -15,8 +15,7 @@ type ChoiceType = {
   clicked: boolean
 };
 
-const Choice = ({ text, isCorrect, handleClick, clicked }: ChoiceType): Node => {
-  console.log(clicked);
+const Choice = ({ text, isCorrect, handleClick }: ChoiceType): Node => {
   return (
     <div onClick={ (): boolean => handleClick(isCorrect) }>
       {text} <span className={styles.icon}>{ isCorrect ? '✅' : '❎' }</span>
