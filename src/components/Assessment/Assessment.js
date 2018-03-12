@@ -61,6 +61,10 @@ const TempChoices = ({
   )
 }
 
+const complete = () => {
+
+}
+
 type AssessmentType = {
   resources: ResourcesType,
   route: {
@@ -92,6 +96,7 @@ export const Assessment = ({ resources, route }: AssessmentType): Node => {
             {...resources.assessments[assessmentId]} />
         )
       }
+      <button onClick={complete}>Complete assessment</button>
     </Page>
   );
 }

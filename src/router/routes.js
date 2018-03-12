@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import CoursesContainer from '../components/Courses/CoursesContainer.js';
 import CourseContainer from '../components/Course/CourseContainer.js';
 import ModuleContainer from '../components/Module/ModuleContainer.js';
-import { Assessment } from '../components/Assessment/Assessment.js';
+import AssessmentContainer from '../components/Assessment/AssessmentContainer.js';
 
 const NoMatch = () => <div>404</div>;
 
@@ -28,7 +28,7 @@ const Routes = ({ resources, store }) => {
             <CoursesContainer courses={resources.courses} />
           )} />
           <Route path="/course/:courseId/assessment" component={route => (
-            <Assessment route={route} resources={resources} />
+            <AssessmentContainer route={route} resources={resources} />
           )} />
           <Route path="/course/:courseId/:moduleId" component={route => (
             <ValidateModulePath route={route} resources={resources} />

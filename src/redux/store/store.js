@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { learnApp } from '../reducers/reducers.js';
+import learnApp from '../reducers/reducers.js';
 import { CourseStatuses } from '../actions/action-types.js';
 
 const initialState = {
@@ -8,6 +8,9 @@ const initialState = {
   },
   moduleProgression: {
     'key-technology': false
+  },
+  assessmentStatuses: {
+    'edge': false
   }
 };
 
