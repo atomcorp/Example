@@ -6,16 +6,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import type { Node } from 'react';
 import { once as myOnce } from '../../utility/utility.js';
+import styles from './Multiple-Choice.module.css';
 
 type ChoiceType = {
   text: string,
-  isCorrect: boolean
+  isCorrect: boolean,
+  handleClick: () => boolean,
+  clicked: boolean
 };
 
-const Choice = ({ text, isCorrect }: ChoiceType): Node => {
+const Choice = ({ text, isCorrect, handleClick, clicked }: ChoiceType): Node => {
+  console.log(clicked);
   return (
-    <div>
-      {text} <span>{isCorrect ? '✅' : '❎' }</span>
+    <div onClick={ (): boolean => handleClick(isCorrect) }>
+      {text} <span className={styles.icon}>{ isCorrect ? '✅' : '❎' }</span>
     </div>
   );
 };
@@ -38,7 +42,18 @@ export class MultipleChoice extends Component {
     super(props);
     this.state = {
       clicked: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(isCorrect: boolean) {
+    if (this.state.clicked) {
+      return;
     }
+    this.setState({
+      clicked: true,
+      isCorrectChoice: isCorrect
+    });
   }
   
   render(): Node {
@@ -46,7 +61,9 @@ export class MultipleChoice extends Component {
       <MultipleChoicePresentation
         field_question={this.props.field_question}
         field_correct_choice={this.props.field_correct_choice}
-        field_incorrect_choices={this.props.field_incorrect_choices} />
+        field_incorrect_choices={this.props.field_incorrect_choices}
+        handleClick={this.handleClick}
+        state={this.state} />
     );
   }
 }
@@ -55,41 +72,62 @@ MultipleChoice.propTypes = {
   field_question: PropTypes.string,
   field_correct_choice: PropTypes.string,
   field_incorrect_choices: PropTypes.array,
+  handleClick: PropTypes.func,
+  state: PropTypes.object
 };
 
 const MultipleChoicePresentation = ({
   field_question,
   field_correct_choice,
-  field_incorrect_choices
+  field_incorrect_choices,
+  handleClick,
+  state
 }: MultipleChoiceType): Node => (
   <div className="multiple-question">
     <div className="question">
       <h2>{field_question}</h2>
     </div>
-    <div className="choices">
+      <div className={`choices ${state.clicked ? styles.choicesChosen : ''}`}>
       <MultipleChoiceList choices={[
-        field_correct_choice,
-        ...field_incorrect_choices
-      ]} />
+          field_correct_choice,
+          ...field_incorrect_choices
+        ]}
+        handleClick={handleClick}
+        clicked={state.clicked} />
+    </div>
+    <div className="choice">
+      {
+        state.clicked && (
+          state.isCorrectChoice
+          ? 'Correct!'
+          : 'Incorrect'
+        )
+      }
     </div>
   </div>
 );
 
+type MultipleChoiceListType = {
+  choices: Array<string>,
+  handleClick: () => void,
+  clicked: boolean
+};
+
 const MultipleChoiceList = ({ 
-  choices 
-}: { 
-  choices: Array<string>
-}): Array<Node> => (
-  // TODO: porper flow support for this section
-  // $FlowFixMe
+  choices,
+  handleClick,
+  clicked
+}: MultipleChoiceListType ): Array<Node> => (
   shuffleOnce(choices.map((
     choice: string,
     i: number
   ): Node => {
     return <Choice
       key={i}
-      text={choice}
-      isCorrect={i === 0 ? true : false} />
+      text={ choice}
+      isCorrect={i === 0 ? true : false}
+      clicked={ clicked } 
+      handleClick={handleClick} />
   }))
 );
 

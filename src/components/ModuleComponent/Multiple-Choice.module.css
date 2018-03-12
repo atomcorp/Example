@@ -1,0 +1,11 @@
+.icon {
+  display: none;
+}
+
+.choices .icon {
+  display: none;
+}
+
+.choicesChosen .icon {
+  display: inline;
+}
