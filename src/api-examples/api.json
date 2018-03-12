@@ -4,7 +4,7 @@
       "title": "Edge",
       "id": "edge",
       "modules": ["key-technology"],
-      "assessment": ["1839"],
+      "assessment": ["1839", "assessment001", "1839"],
       "field_introduction": "Welcome to the Cambridge Audio online training course for Edge.",
       "available": true
     },

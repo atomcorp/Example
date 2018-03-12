@@ -119,20 +119,24 @@ export const CourseModulesPresentation = ({
 
 type CourseAssessmentType = {
   courseId: string, 
-  completed: boolean
+  completed: boolean,
+  courseTitle: string
 };
 
 export const CourseAssessment = ({
   courseId, 
-  completed
+  completed,
+  courseTitle
 }: CourseAssessmentType): Node => (
   <div>
+    <h2>{courseTitle} Assessment</h2>
     <Link to={`/course/${courseId}/assessment`}>
-      <button>Go to Assessment</button>
+      <button>Take the Assessment</button>
     </Link>
-      {
+    <br/>
+    {
       completed ? '(Completed)' : '(Not completed)'
-      }
+    }
   </div>
 );
   

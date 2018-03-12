@@ -86,7 +86,18 @@ const MultipleChoicePresentation = ({
     <div className="question">
       <h2>{field_question}</h2>
     </div>
-      <div className={`choices ${state.clicked ? styles.choicesChosen : ''}`}>
+    <div className="choice">
+      {
+        state.clicked && (
+          state.isCorrectChoice
+            ? 'Correct!'
+            : 'Incorrect'
+        )
+      }
+      
+    </div>
+    <br />
+    <div className={`choices ${state.clicked ? styles.choicesChosen : ''}`}>
       <MultipleChoiceList choices={[
           field_correct_choice,
           ...field_incorrect_choices
@@ -94,15 +105,7 @@ const MultipleChoicePresentation = ({
         handleClick={handleClick}
         clicked={state.clicked} />
     </div>
-    <div className="choice">
-      {
-        state.clicked && (
-          state.isCorrectChoice
-          ? 'Correct!'
-          : 'Incorrect'
-        )
-      }
-    </div>
+    <br/>
   </div>
 );
 

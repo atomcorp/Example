@@ -83,7 +83,7 @@ type CoursesType = {
 export const Courses = ({ courses, coursesStatuses, onClick }: CoursesType): Node => {
   return (
     <Page>
-      <h1>Courses</h1>
+      <h1>Choose a course</h1>
       <div>
         <CourseList
           courses={courses} 

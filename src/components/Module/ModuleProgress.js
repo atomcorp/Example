@@ -47,8 +47,8 @@ export const ModuleProgress = ({
         }
         disabled={state.nextButtonDisabled} />
       {/* TODO: add warning, you'll lose your progress */}
-      <br />
-      <Link to={`/course/${courseId}`}>Back to course</Link>
+      <br /><br />
+      <Link to={`/course/${courseId}`}>(back to course)</Link>
     </div>
   );
 

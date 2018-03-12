@@ -2,14 +2,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import style from './page.module.css';
 
 class Page extends Component {
   render() {
     return (
-      <div className="page">
-        <div><Link to="/">Cambridge Audio | Learn</Link></div>
-        { this.props.children }
-        <div> Footer </div>
+      <div className={style.page}>
+        <div className={style.header}><Link to="/">Cambridge Audio | Learn</Link></div>
+        <div className={style.content}>
+          {this.props.children}
+        </div>
+        {/* <div> Footer </div> */}
         <br/>
       </div>
     );

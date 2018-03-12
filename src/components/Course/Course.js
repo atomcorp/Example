@@ -85,7 +85,10 @@ export const Course = ({
         courseData={courseData} 
         resources={resources} 
         moduleStatuses={moduleStatuses} />
-      <CourseAssessment courseId={courseId} completed={assessmentStatuses[courseId]} />
+      <CourseAssessment 
+        courseId={courseId} 
+        completed={assessmentStatuses[courseId]}
+        courseTitle={courseData.title} />
     </Page>
   );
 };
