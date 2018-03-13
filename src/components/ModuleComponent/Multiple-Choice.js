@@ -44,14 +44,16 @@ export class MultipleChoice extends Component<PropsType, StateType> {
 
   constructor(props: PropsType) {
     super(props);
+    // state is maintained between all questions...
     this.state = {
       clicked: false,
       isCorrectChoice: ''
     };
-    // this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(isCorrect: boolean) {
+  // property initializer syntax
+  // https://github.com/facebook/flow/issues/5874#issuecomment-369922816
+  handleClick = (isCorrect: boolean) => {
     if (!this.state.clicked) {
       this.setState({
         clicked: true,

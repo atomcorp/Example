@@ -7,7 +7,7 @@
 import React, { Component } from 'react';
 import type { Node } from 'react';
 import { Redirect } from 'react-router-dom';
-import type { ResourcesType } from '../../types.js';
+import type { ResourcesType, CourseFieldsType } from '../../types.js';
 import Page from '../../containers/page/page.js';
 
 const TitleElement = ({ title }: { title: string }): Node => {
@@ -77,21 +77,30 @@ type PropsType = {
   resources: ResourcesType
 };
 
-export class Assessment extends Component<void, PropsType> {
+type StateType = {
+  completed: boolean
+};
+
+export class Assessment extends Component<PropsType, StateType> {
+
+  courseId: string;
+  courseData: CourseFieldsType;
+  completeAssessment: () => void;
+
   constructor(props: PropsType) {
     super(props);
     this.courseId = this.props.route.match.params.courseId;
     this.courseData = this.props.resources.courses[this.courseId];
-    const completeAssessmentHoF = (id: string): void => (): void => this.props.done(id);
+    // flow doesn't seem to get higher-order functions???
+    // $FlowFixMe
+    const completeAssessmentHoF = (id: string): () => void => (): void => this.props.done(id);
     this.completeAssessment = completeAssessmentHoF(this.courseId);
     this.state = {
       completed: false
-    }
-    // bind this to Assessment class, not whatever invokes it down the line
-    this.completeAssessmentButton = this.completeAssessmentButton.bind(this);
+    };
   }
 
-  completeAssessmentButton() {
+  completeAssessmentButton = () => {
     this.completeAssessment();
     this.setState({
       completed: true
