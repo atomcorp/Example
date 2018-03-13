@@ -1,8 +1,10 @@
 Todo:
-  ☐ ModuleComponent: don't delete Components when hiding them
-  ☐ Cache: cache resources for a day, add check when downloading 
-  ☐ Multiple-Choice and the make random once thing,
-    issue is we need to pass props down when user clicks an answer
-    however once() just returns the original componen, which didn't know
-    if answer was correct. Currently just use CSS which is "ok"
-    Use a HOF type thing
+  ✔ ModuleComponent: don't delete Components when hiding them @done(18-03-13 17:00)
+  ☐ Cache: cache resources for a day, add check when downloading
+  ✔ Multiple-Choice and the make random once thing: @done(18-03-13 17:03)
+    * Issue is we need to pass props down when user clicks an answer
+    * however once() just returns the original component, which didn't know
+    * if answer was correct. Currently just use CSS which is "ok"
+    * Use a HOF type thing
+  ☐ State management of multiple choice questions is flat broke @bug
+  ☐ got bored? MAKE SO TESTS! @critical
