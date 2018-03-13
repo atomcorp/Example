@@ -1,14 +1,13 @@
 // @flow
-import { CourseStatuses } from './redux/actions/action-types.js';
+import {
+  CourseStatuses,
+  SET_COURSE_STATUS,
+  MODULE_DONE,
+  ASSESSMENT_DONE,
+} from './redux/actions/action-types.js';
 
-export type MultiChoiceType = { 
-  [id: string]: { 
-    "field_correct_choice": string, 
-    "field_incorrect_choices": Array<string>, 
-    "field_question": string, 
-    "id": string, 
-    "type": 'Multiple-Choice Question' 
-  } 
+export type MultiChoiceType = {
+  [id: string]: MultiChoiceFieldsType
 };
 
 export type MultiChoiceFieldsType = {
@@ -19,14 +18,8 @@ export type MultiChoiceFieldsType = {
   "type": 'Multiple-Choice Question'
 };
 
-export type LessonType = { 
-  [id: string]: { 
-    "field_body": string, 
-    "field_headline": string, 
-    "field_youtube_id": string | void, 
-    "id": string, 
-    "type": 'Lesson' 
-  }
+export type LessonType = {
+  [id: string]: LessonFieldsType
 };
 
 export type LessonFieldsType = {
@@ -39,14 +32,8 @@ export type LessonFieldsType = {
 
 export type ModuleComponentType = MultiChoiceType | LessonType;
 
-export type CourseType = { 
-  [id: string]: { 
-    "assessment": Array<string>, 
-    "field_introduction": string, 
-    "modules": Array<string>, 
-    "id": string, 
-    "title": string 
-  } 
+export type CourseType = {
+  [id: string]: CourseFieldsType
 };
 
 export type CourseFieldsType = {
@@ -58,11 +45,13 @@ export type CourseFieldsType = {
 };
 
 export type ModuleType = {
-  [id: string]: { 
-    "field_lesson": Array<string>, 
-    "id": string, 
-    "title": string
-  } 
+  [id: string]: ModuleFieldsType
+};
+
+export type ModuleFieldsType = {
+  "field_lesson": Array<string>,
+  "id": string,
+  "title": string
 };
 
 export type ResourcesType = {
@@ -102,7 +91,10 @@ export type InitalStateType = {
   }
 };
 
-export type StatusType = CourseStatuses.NOT_STARTED | CourseStatuses.STARTED | CourseStatuses.COMPLETED;
+export type StatusType =
+  CourseStatuses.NOT_STARTED
+  | CourseStatuses.STARTED
+  | CourseStatuses.COMPLETED;
 
 export type ModuleStatusesType = {
   [id: string]: boolean
@@ -113,5 +105,29 @@ export type CoursesStatusesType = {
 };
 
 export type AssessmentStatusesType = {
-  [id: string]: boolean  
+  [id: string]: boolean
+};
+
+// Redux Types
+export type SetCourseStatusType = {
+  status: CourseStatuses.NOT_STARTED
+  | CourseStatuses.STARTED
+  | CourseStatuses.COMPLETED,
+  course: string
+};
+
+export type SetCourseStatusReturnType = {
+  type: SET_COURSE_STATUS,
+  status: StatusType,
+  course: string
+};
+
+export type ModuleDoneType = {
+  type: MODULE_DONE,
+  id: string
+};
+
+export type AssessmentDoneType = {
+  type: ASSESSMENT_DONE,
+  id: string
 };

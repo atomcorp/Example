@@ -1,3 +1,5 @@
+/* global document */
+// global document, stops es-lint error
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

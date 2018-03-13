@@ -2,10 +2,10 @@
 /**
  * Shows a Multiple-Choice Question
  */
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
-import type { Node } from 'react';
-import { once as myOnce } from '../../utility/utility.js';
+import type {Node} from 'react';
+import {once as myOnce} from '../../utility/utility.js';
 import styles from './Multiple-Choice.module.css';
 
 type ChoiceType = {
@@ -15,7 +15,11 @@ type ChoiceType = {
   clicked: boolean
 };
 
-const Choice = ({ text, isCorrect, handleClick }: ChoiceType): Node => {
+const Choice = ({
+  text,
+  isCorrect,
+  handleClick,
+}: ChoiceType): Node => {
   return (
     <div onClick={ (): void => handleClick(isCorrect) }>
       {text} <span className={styles.icon}>{ isCorrect ? '✅' : '❎' }</span>
@@ -40,28 +44,25 @@ type StateType = {
  * If correct choice is clicked
  * pass callback to enable 'Next' button to be pressed
  */
-export class MultipleChoice extends Component<PropsType, StateType> { 
-
+export class MultipleChoice extends Component<PropsType, StateType> {
   constructor(props: PropsType) {
     super(props);
     // state is maintained between all questions...
     this.state = {
       clicked: false,
-      isCorrectChoice: ''
+      isCorrectChoice: '',
     };
   }
-
   // property initializer syntax
   // https://github.com/facebook/flow/issues/5874#issuecomment-369922816
   handleClick = (isCorrect: boolean) => {
     if (!this.state.clicked) {
       this.setState({
         clicked: true,
-        isCorrectChoice: isCorrect ? 'Correct' : 'Incorrect'
+        isCorrectChoice: isCorrect ? 'Correct' : 'Incorrect',
       });
     }
   }
-  
   render(): Node {
     return (
       <MultipleChoicePresentation
@@ -87,7 +88,7 @@ const MultipleChoicePresentation = ({
   field_correct_choice,
   field_incorrect_choices,
   handleClick,
-  state
+  state,
 }: MultipleChoicePresentationType): Node => (
   <div className="multiple-question">
     <div className="question">
@@ -106,7 +107,7 @@ const MultipleChoicePresentation = ({
     <div className={`choices ${state.clicked ? styles.choicesChosen : ''}`}>
       <MultipleChoiceList choices={[
           field_correct_choice,
-          ...field_incorrect_choices
+          ...field_incorrect_choices,
         ]}
         handleClick={handleClick}
         clicked={state.clicked} />
@@ -121,10 +122,10 @@ type MultipleChoiceListType = {
   clicked: boolean
 };
 
-const MultipleChoiceList = ({ 
+const MultipleChoiceList = ({
   choices,
   handleClick,
-  clicked
+  clicked,
 }: MultipleChoiceListType ): Array<Node> => (
   shuffleOnce(choices.map((
     choice: string,
@@ -134,8 +135,8 @@ const MultipleChoiceList = ({
       key={i}
       text={ choice}
       isCorrect={i === 0 ? true : false}
-      clicked={ clicked } 
-      handleClick={handleClick} />
+      clicked={ clicked }
+      handleClick={handleClick} />;
   }))
 );
 

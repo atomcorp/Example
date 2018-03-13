@@ -1,21 +1,23 @@
 {
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "google"
   ],
   "env": {
     "es6": true
   },
   "plugins": [
     "react",
-    "flowtype"
+    "flowtype",
+    "babel"
   ],
   "globals": {
     "fetch": true
   },
   "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 7,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true,
@@ -24,6 +26,11 @@
     }
   },
   "rules": {
+    "linebreak-style": 0,
+    "camelcase": 0,
+    "require-jsdoc": 0,
+    "no-invalid-this": 0,
+    "babel/no-invalid-this": 1,
     "flowtype/boolean-style": [
       2,
       "boolean"

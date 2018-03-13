@@ -1,10 +1,10 @@
-import { createStore } from 'redux';
+import {createStore} from 'redux';
 import learnApp from '../reducers/reducers.js';
 
 const initialState = {
   coursesStatuses: {},
   moduleProgression: {},
-  assessmentStatuses: {}
+  assessmentStatuses: {},
 };
 
 export const store = createStore(learnApp, initialState);

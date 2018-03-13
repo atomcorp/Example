@@ -7,19 +7,19 @@
  * And lessons and tests within
  */
 import React from 'react';
-import type { Node } from 'react';
+import type {Node} from 'react';
 import Page from '../../containers/page/page.js';
 import {
   CoursePresentation,
   CourseModulesPresentation,
-  CourseAssessment
+  CourseAssessment,
 } from './CoursePresentation.js';
-import type { 
-  ResourcesType, 
-  ModuleStatusesType, 
+import type {
+  ResourcesType,
+  ModuleStatusesType,
   CoursesStatusesType,
-  AssessmentStatusesType
-} from '../../types.js'; 
+  AssessmentStatusesType,
+} from '../../types.js';
 
 const testCourseComplete = (
   courseId: string,
@@ -49,13 +49,13 @@ type CourseType = {
   updateCourseStatus: (string, string) => void
 };
 
-export const Course = ({ 
-  resources, 
-  route, 
-  moduleStatuses, 
-  coursesStatuses, 
+export const Course = ({
+  resources,
+  route,
+  moduleStatuses,
+  coursesStatuses,
   updateCourseStatus,
-  assessmentStatuses
+  assessmentStatuses,
 }: CourseType): Node => {
   const courseId = route.match.params.courseId;
   const courseData = resources.courses[courseId];
@@ -81,12 +81,12 @@ export const Course = ({
         courseDone ? 'Course status: Done' : 'Course status: Not done'
       }
       <CoursePresentation {...courseData} />
-      <CourseModulesPresentation 
-        courseData={courseData} 
-        resources={resources} 
+      <CourseModulesPresentation
+        courseData={courseData}
+        resources={resources}
         moduleStatuses={moduleStatuses} />
-      <CourseAssessment 
-        courseId={courseId} 
+      <CourseAssessment
+        courseId={courseId}
         completed={assessmentStatuses[courseId]}
         courseTitle={courseData.title} />
       <h2>Resources</h2>
