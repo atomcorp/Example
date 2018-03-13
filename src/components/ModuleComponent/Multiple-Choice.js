@@ -3,7 +3,7 @@
  * Shows a Multiple-Choice Question
  */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import type { Node } from 'react';
 import { once as myOnce } from '../../utility/utility.js';
 import styles from './Multiple-Choice.module.css';
@@ -11,13 +11,13 @@ import styles from './Multiple-Choice.module.css';
 type ChoiceType = {
   text: string,
   isCorrect: boolean,
-  handleClick: () => boolean,
+  handleClick: boolean => void,
   clicked: boolean
 };
 
 const Choice = ({ text, isCorrect, handleClick }: ChoiceType): Node => {
   return (
-    <div onClick={ (): boolean => handleClick(isCorrect) }>
+    <div onClick={ (): void => handleClick(isCorrect) }>
       {text} <span className={styles.icon}>{ isCorrect ? '✅' : '❎' }</span>
     </div>
   );
@@ -29,30 +29,35 @@ type PropsType = {
   field_incorrect_choices: Array<string>
 };
 
+type StateType = {
+  clicked: boolean,
+  isCorrectChoice: string
+};
+
 /**
  * Will need to add state to this
  * Add click handler
  * If correct choice is clicked
  * pass callback to enable 'Next' button to be pressed
  */
-export class MultipleChoice extends Component { 
+export class MultipleChoice extends Component<PropsType, StateType> { 
 
   constructor(props: PropsType) {
     super(props);
     this.state = {
-      clicked: false
+      clicked: false,
+      isCorrectChoice: ''
     };
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(isCorrect: boolean) {
-    if (this.state.clicked) {
-      return;
+    if (!this.state.clicked) {
+      this.setState({
+        clicked: true,
+        isCorrectChoice: isCorrect ? 'Correct' : 'Incorrect'
+      });
     }
-    this.setState({
-      clicked: true,
-      isCorrectChoice: isCorrect
-    });
   }
   
   render(): Node {
@@ -67,12 +72,12 @@ export class MultipleChoice extends Component {
   }
 }
 
-MultipleChoice.propTypes = {
-  field_question: PropTypes.string,
-  field_correct_choice: PropTypes.string,
-  field_incorrect_choices: PropTypes.array,
-  handleClick: PropTypes.func,
-  state: PropTypes.object
+type MultipleChoicePresentationType = {
+  field_question: string,
+  field_correct_choice: string,
+  field_incorrect_choices: Array<string>,
+  handleClick: boolean => void,
+  state: StateType
 };
 
 const MultipleChoicePresentation = ({
@@ -81,7 +86,7 @@ const MultipleChoicePresentation = ({
   field_incorrect_choices,
   handleClick,
   state
-}: MultipleChoiceType): Node => (
+}: MultipleChoicePresentationType): Node => (
   <div className="multiple-question">
     <div className="question">
       <h2>{field_question}</h2>
@@ -94,7 +99,6 @@ const MultipleChoicePresentation = ({
             : 'Incorrect'
         )
       }
-      
     </div>
     <br />
     <div className={`choices ${state.clicked ? styles.choicesChosen : ''}`}>
@@ -111,7 +115,7 @@ const MultipleChoicePresentation = ({
 
 type MultipleChoiceListType = {
   choices: Array<string>,
-  handleClick: () => void,
+  handleClick: boolean => void,
   clicked: boolean
 };
 
