@@ -10,10 +10,12 @@ type PropsType = {
     field_question: string
   },
   handleClick: ({id: string, isCorrect: boolean}) => void,
-  id: string
+  id: string,
+  submitted: boolean
 };
 
 export const MultiChoiceAssessment = (props: PropsType): Node => {
+  // use some sort of caching of id instead
   const shuffleOnce = myOnce((children: Array<Node>): Array<Node> => {
     return shuffle(children);
   });
@@ -30,7 +32,8 @@ export const MultiChoiceAssessment = (props: PropsType): Node => {
           ]}
           handleClick={props.handleClick}
           shuffleOnce={shuffleOnce}
-          id={props.id} />
+          id={props.id}
+          submitted={props.submitted} />
       </div>
       <br />
     </div>
@@ -41,14 +44,18 @@ type MultipleChoiceListType = {
   choices: Array<string>,
   handleClick: ({id: string, isCorrect: boolean}) => void,
   shuffleOnce: (Array<Node>) => Array<Node>,
-  id: string
+  id: string,
+  submitted: boolean
 };
 
+// TODO: turn into class
+// has ref to Choice, so when clicked can be highlighted
 const MultipleChoiceList = ({
   choices,
   handleClick,
   shuffleOnce,
   id,
+  submitted,
 }: MultipleChoiceListType): Array<Node> => (
   shuffleOnce(choices.map((
     choice: string,
@@ -59,7 +66,8 @@ const MultipleChoiceList = ({
       text={choice}
       isCorrect={i === 0 ? true : false}
       handleClick={handleClick}
-      id={id} />;
+      id={id}
+      submitted={submitted} />;
   }))
 );
 
@@ -67,7 +75,8 @@ type ChoiceType = {
   text: string,
   isCorrect: boolean,
   handleClick: ({id: string, isCorrect: boolean}) => void,
-  id: string
+  id: string,
+  submitted: boolean
 };
 
 const Choice = ({
@@ -75,13 +84,16 @@ const Choice = ({
   isCorrect,
   handleClick,
   id,
+  submitted,
 }: ChoiceType): Node => {
   return (
     <div onClick={(): void => handleClick({
       isCorrect,
       id,
     })}>
-      {text} <span className={'style'}>{isCorrect ? '✅' : '❎'}</span>
+      {text} <span style={{
+          display: submitted ? 'inline' : 'none',
+        }}>{isCorrect ? '✅' : '❎'}</span>
     </div>
   );
 };

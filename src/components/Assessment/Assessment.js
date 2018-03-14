@@ -63,12 +63,7 @@ export class Assessment extends Component<PropsType, StateType> {
     const completeAssessmentHoF = (id: string): () => void => (): void => (
       this.props.done(id)
     );
-    this.testsStatuses = this.courseData.assessment.map(
-      (assessmentId: string): AssessmentTestsType => ({
-        id: assessmentId,
-        status: 'not-started',
-      })
-    );
+    this.testsStatuses = resetTestStatuses(this.courseData.assessment);
     this.completeAssessment = completeAssessmentHoF(this.courseId);
     this.score = 0;
     this.state = {
@@ -115,7 +110,14 @@ export class Assessment extends Component<PropsType, StateType> {
       }
     );
   }
-
+  reset() {
+    resetTestStatuses(this.courseData.assessment);
+    this.score = 0;
+    this.setState({
+      submitted: false,
+      passed: false,
+    });
+  }
   render(): Node {
     if (!this.courseData) {
       return <div>Course ID is not found</div>;
@@ -125,9 +127,11 @@ export class Assessment extends Component<PropsType, StateType> {
         <TitleElement title={this.courseData.title} />
         <div>
           {
-            this.state.passed
-              ? `Passed: ${this.score}`
-              : `Failed: ${this.score}`
+            this.state.submitted && (
+              this.state.passed
+                ? `Passed: ${this.score}`
+                : `Failed: ${this.score}`
+            )
           }
         </div>
         {
@@ -137,15 +141,27 @@ export class Assessment extends Component<PropsType, StateType> {
                 key={i}
                 id={assessmentId}
                 assessment={this.props.resources.assessments[assessmentId]}
-                handleClick={this.handleClick} />
+                handleClick={this.handleClick}
+                submitted={this.state.submitted} />
             )
           )
         }
-        <button onClick={(): void => this.handleSubmit()}>Check answers</button>
-        <button>Try again</button>
-        <button onClick={(): void => this.completeAssessmentButton()}>
-          Complete assessment
-        </button>
+        {
+          !this.state.submitted
+            && <button onClick={(): void => this.handleSubmit()}>
+              Check answers
+            </button>
+        }
+        {
+          this.state.submitted && !this.state.passed
+            && <button onClick={(): void => this.reset()}>Try again</button>
+        }
+        {
+          this.state.submitted && this.state.passed
+            && <button onClick={(): void => this.completeAssessmentButton()}>
+                Complete assessment
+            </button>
+        }
         {
           // If you hit the complete module button
           this.state.completed && <Redirect to={`/course/${this.courseId}`} />
@@ -181,4 +197,15 @@ const markTests = (tests: Array<AssessmentTestsType>): number => {
 
 const gradeAssessment = (target: number, score: number): boolean => {
   return score >= target;
+};
+
+const resetTestStatuses = (
+  assessment: Array<string>
+): Array<AssessmentTestsType> => {
+  return assessment.map(
+    (assessmentId: string): AssessmentTestsType => ({
+      id: assessmentId,
+      status: 'not-started',
+    })
+  );
 };
