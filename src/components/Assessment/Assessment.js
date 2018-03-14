@@ -115,6 +115,7 @@ export class Assessment extends Component<PropsType, StateType> {
       }
     );
   }
+
   render(): Node {
     if (!this.courseData) {
       return <div>Course ID is not found</div>;
@@ -123,7 +124,11 @@ export class Assessment extends Component<PropsType, StateType> {
       <Page>
         <TitleElement title={this.courseData.title} />
         <div>
-          {this.state.passed ? 'Passed' : 'Failed'}
+          {
+            this.state.passed
+              ? `Passed: ${this.score}`
+              : `Failed: ${this.score}`
+          }
         </div>
         {
           this.courseData.assessment.map(

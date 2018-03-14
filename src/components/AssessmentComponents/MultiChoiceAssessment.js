@@ -25,8 +25,8 @@ export const MultiChoiceAssessment = (props: PropsType): Node => {
       <br />
       <div className={'name'}>
         <MultipleChoiceList choices={[
-          props.assessment.field_correct_choice,
-          ...props.assessment.field_incorrect_choices,
+            props.assessment.field_correct_choice,
+            ...props.assessment.field_incorrect_choices,
           ]}
           handleClick={props.handleClick}
           shuffleOnce={shuffleOnce}
