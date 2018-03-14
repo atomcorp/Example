@@ -20,11 +20,6 @@ type ModuleComponentsType = {
 };
 
 class ModuleComponents extends Component<ModuleComponentsType, void> {
-  constructor(props: ModuleComponentsType) {
-    super(props);
-    // Currently has no reason to be a class
-    // however, probably will
-  }
   render(): Array<Node> {
     return (
       this.props.modulesComponents.map((

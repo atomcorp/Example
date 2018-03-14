@@ -9,53 +9,13 @@ import type {Node} from 'react';
 import {Redirect} from 'react-router-dom';
 import type {ResourcesType, CourseFieldsType} from '../../types.js';
 import Page from '../../containers/page/page.js';
+import {TempChoices} from '../AssessmentComponents/AssessmentComponents.js';
 
 const TitleElement = ({title}: { title: string }): Node => {
   return (
     <h1>{title} Assessment</h1>
   );
 };
-
-type TempChoiceType = {
-  text: string,
-  isCorrect: boolean
-};
-
-const TempChoice = ({text, isCorrect}: TempChoiceType): Node => (
-  <div>
-    {text} <span>{isCorrect ? '✅' : '❎'}</span>
-  </div>
-);
-
-type TempChoicesType = {
-  field_question: string,
-  field_correct_choice: string,
-  field_incorrect_choices: Array<string>
-};
-
-const TempChoices = ({
-  field_question,
-  field_correct_choice,
-  field_incorrect_choices,
-}: TempChoicesType): Node => (
-  <div className="multiple-question">
-    <div className="question">
-      <h2>{field_question}</h2>
-    </div>
-    <ul className="choices">
-      {
-        [field_correct_choice, ...field_incorrect_choices].map(
-          (choiceData: string, i: number): Node => (
-            <TempChoice
-              key={i}
-              text={choiceData}
-              isCorrect={i === 0 ? true : false} />
-          )
-        )
-      }
-    </ul>
-  </div>
-);
 
 type PropsType = {
   assessmentStatuses: {
@@ -73,15 +33,21 @@ type PropsType = {
 };
 
 type StateType = {
-  completed: boolean
+  completed: boolean,
+  submitted: boolean,
+  passed: '' | 'passed' | 'not-passed'
 };
 
-/**
- * Assessment
- */
+type AssessmentTestsType = {
+  id: string,
+  status: 'not-started' | 'incorrect' | 'correct'
+};
+
 export class Assessment extends Component<PropsType, StateType> {
   courseId: string;
   courseData: CourseFieldsType;
+  testsStatuses: Array<AssessmentTestsType>
+  score: number;
   completeAssessment: () => void;
   /**
    * constructor
@@ -96,9 +62,18 @@ export class Assessment extends Component<PropsType, StateType> {
     const completeAssessmentHoF = (id: string): () => void => (): void => (
       this.props.done(id)
     );
+    this.testsStatuses = this.courseData.assessment.map(
+      (assessmentId: string): AssessmentTestsType => ({
+        id: assessmentId,
+        status: 'not-started',
+      })
+    );
     this.completeAssessment = completeAssessmentHoF(this.courseId);
+    this.score = 0;
     this.state = {
       completed: false,
+      submitted: false,
+      passed: '',
     };
   }
   completeAssessmentButton = () => {
@@ -106,6 +81,31 @@ export class Assessment extends Component<PropsType, StateType> {
     this.setState({
       completed: true,
     });
+  }
+  handleSubmit() {
+    const validateStatus = (
+      status: 'not-started' | 'incorrect' | 'correct'
+    ): boolean => status !== 'not-started';
+    const isValid = this.testsStatuses.every(
+      (test: AssessmentTestsType): boolean => validateStatus(test.status)
+    );
+    if (isValid) {
+      this.score = markTests(this.testsStatuses);
+      const hasPassed = gradeAssessment(2, this.score);
+    }
+
+    // this.setState({
+    //   submitted: true,
+    // });
+  }
+  handleClick = (id: string, isCorrect: boolean) => {
+    this.testsStatuses = setTestStatus(
+      this.testsStatuses,
+      {
+        id,
+        status: isCorrect ? 'correct' : 'incorrect',
+      }
+    );
   }
   render(): Node {
     if (!this.courseData) {
@@ -126,6 +126,8 @@ export class Assessment extends Component<PropsType, StateType> {
                 {...this.props.resources.assessments[assessmentId]} />
           )
         }
+        <button onClick={this.handleSubmit()}>Check answers</button>
+        <button>Try again</button>
         <button onClick={(): void => this.completeAssessmentButton()}>
           Complete assessment
         </button>
@@ -137,3 +139,31 @@ export class Assessment extends Component<PropsType, StateType> {
     );
   }
 }
+
+// Utility functions
+const setTestStatus = (
+  prevTestStatus: Array<AssessmentTestsType>,
+  {id, status}: AssessmentTestsType
+): Array<AssessmentTestsType> => {
+  return prevTestStatus.reduce((
+    acc: Array<AssessmentTestsType>,
+    val: AssessmentTestsType
+  ): Array<AssessmentTestsType> => {
+    if (val.id === id) {
+      return [...acc, Object.assign({}, val, {
+        status: status,
+      })];
+    }
+    return [...acc, val];
+  }, []);
+};
+
+const markTests = (tests: Array<AssessmentTestsType>): number => {
+  return tests.reduce((acc: number, val: AssessmentTestsType): number => {
+    return val.status === 'correct' ? acc + 1 : acc;
+  }, 0);
+};
+
+const gradeAssessment = (target: number, score: number): boolean => {
+  return score >= target;
+};
