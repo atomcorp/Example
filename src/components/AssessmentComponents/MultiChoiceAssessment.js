@@ -57,7 +57,7 @@ const MultipleChoiceList = ({
   id,
   submitted,
 }: MultipleChoiceListType): Array<Node> => (
-  shuffleOnce(choices.map((
+  choices.map((
     choice: string,
     i: number
   ): Node => {
@@ -68,7 +68,7 @@ const MultipleChoiceList = ({
       handleClick={handleClick}
       id={id}
       submitted={submitted} />;
-  }))
+  })
 );
 
 type ChoiceType = {
@@ -90,9 +90,13 @@ const Choice = ({
     <div onClick={(): void => handleClick({
       isCorrect,
       id,
-    })}>
+    })}
+    style={{
+      color: isCorrect ? 'green' : 'red',
+    }}>
       {text} <span style={{
           display: submitted ? 'inline' : 'none',
+          color: isCorrect ? 'green' : 'red',
         }}>{isCorrect ? '✅' : '❎'}</span>
     </div>
   );
