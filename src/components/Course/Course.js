@@ -69,7 +69,10 @@ export const Course = ({
     return <div>Can not find course [invalid course ID]</div>;
   }
   // TODO: Remove the onClick from Courses?
-  if (coursesStatuses[courseId] === 'NOT_STARTED') {
+  if (
+    coursesStatuses[courseId] === 'NOT_STARTED'
+    || !coursesStatuses[courseId]
+  ) {
     updateCourseStatus('STARTED', courseId);
   }
   if (courseDone && coursesStatuses[courseId] !== 'COMPLETED') {

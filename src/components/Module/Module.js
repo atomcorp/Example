@@ -59,6 +59,7 @@ export class Module extends Component<PropsType, StateType> {
   moduleData: ModuleFieldsType;
   moduleComponentLength: number;
   completeModule: () => void;
+
   constructor(props: PropsType) {
     super(props);
     // setting componentCount is ugly as anything
@@ -105,7 +106,7 @@ export class Module extends Component<PropsType, StateType> {
       });
     }
   }
-  completeModuleButton() {
+  completeModuleButton = () => {
     this.completeModule();
     this.setState({
       completed: true,
