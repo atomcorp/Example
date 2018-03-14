@@ -5,7 +5,7 @@
 import React, {Component} from 'react';
 // import PropTypes from 'prop-types';
 import type {Node} from 'react';
-import {once as myOnce} from '../../utility/utility.js';
+import {once as myOnce, shuffle} from '../../utility/utility.js';
 import styles from './Multiple-Choice.module.css';
 
 type ChoiceType = {
@@ -145,20 +145,3 @@ const MultipleChoiceList = ({
       handleClick={handleClick} />;
   }))
 );
-
-// helpers
-/* eslint-disable */
-// https://stackoverflow.com/a/6274381/2368141
-function shuffle(a: Array<any>) {
-  var j, x, i;
-  for (i = a.length - 1; i > 0; i--) {
-    j = Math.floor(Math.random() * (i + 1));
-    x = a[i];
-    a[i] = a[j];
-    a[j] = x;
-  }
-  return a;
-}
-
-/* eslint-enable */
-

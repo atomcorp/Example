@@ -9,7 +9,8 @@ import type {Node} from 'react';
 import {Redirect} from 'react-router-dom';
 import type {ResourcesType, CourseFieldsType} from '../../types.js';
 import Page from '../../containers/page/page.js';
-import {TempChoices} from '../AssessmentComponents/AssessmentComponents.js';
+import {MultiChoiceAssessment}
+  from '../AssessmentComponents/MultiChoiceAssessment.js';
 
 const TitleElement = ({title}: { title: string }): Node => {
   return (
@@ -35,7 +36,7 @@ type PropsType = {
 type StateType = {
   completed: boolean,
   submitted: boolean,
-  passed: '' | 'passed' | 'not-passed'
+  passed: boolean
 };
 
 type AssessmentTestsType = {
@@ -73,7 +74,7 @@ export class Assessment extends Component<PropsType, StateType> {
     this.state = {
       completed: false,
       submitted: false,
-      passed: '',
+      passed: false,
     };
   }
   completeAssessmentButton = () => {
@@ -91,14 +92,21 @@ export class Assessment extends Component<PropsType, StateType> {
     );
     if (isValid) {
       this.score = markTests(this.testsStatuses);
-      const hasPassed = gradeAssessment(2, this.score);
+      this.succesfullySubmitted(gradeAssessment(2, this.score));
+    } else {
+      this.invalidSubmission();
     }
-
-    // this.setState({
-    //   submitted: true,
-    // });
   }
-  handleClick = (id: string, isCorrect: boolean) => {
+  succesfullySubmitted(hasPassed: boolean) {
+    this.setState({
+      submitted: true,
+      passed: hasPassed,
+    });
+  }
+  invalidSubmission() {
+
+  }
+  handleClick = ({id, isCorrect}: {id: string, isCorrect: boolean}) => {
     this.testsStatuses = setTestStatus(
       this.testsStatuses,
       {
@@ -114,19 +122,21 @@ export class Assessment extends Component<PropsType, StateType> {
     return (
       <Page>
         <TitleElement title={this.courseData.title} />
+        <div>
+          {this.state.passed ? 'Passed' : 'Failed'}
+        </div>
         {
           this.courseData.assessment.map(
-            (assessmentId: string, i: number): Node =>
-            // /**
-            //  * TODO: This is not a perm solution,
-            //  * doesn't check for different test etc
-            //  */
-              <TempChoices
+            (assessmentId: string, i: number): Node => (
+              <MultiChoiceAssessment
                 key={i}
-                {...this.props.resources.assessments[assessmentId]} />
+                id={assessmentId}
+                assessment={this.props.resources.assessments[assessmentId]}
+                handleClick={this.handleClick} />
+            )
           )
         }
-        <button onClick={this.handleSubmit()}>Check answers</button>
+        <button onClick={(): void => this.handleSubmit()}>Check answers</button>
         <button>Try again</button>
         <button onClick={(): void => this.completeAssessmentButton()}>
           Complete assessment
