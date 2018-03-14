@@ -14,11 +14,11 @@ import React, {Component} from 'react';
 import Page from '../../containers/page/page.js';
 import {
   ModuleInformation,
-  ModuleComponents,
 } from './ModulePresentational.js';
 import {
   ModuleProgress,
 } from './ModuleProgress.js';
+import ModuleComponents from '../ModuleComponents/ModuleComponents.js';
 import {Redirect} from 'react-router-dom';
 import type {
   ResourcesType,

@@ -53,6 +53,10 @@ export class MultipleChoice extends Component<PropsType, StateType> {
       isCorrectChoice: '',
     };
   }
+
+  shuffleOnce = myOnce((children: Array<Node>): Array<Node> => {
+    return shuffle(children);
+  })
   // property initializer syntax
   // https://github.com/facebook/flow/issues/5874#issuecomment-369922816
   handleClick = (isCorrect: boolean) => {
@@ -70,7 +74,8 @@ export class MultipleChoice extends Component<PropsType, StateType> {
         field_correct_choice={this.props.field_correct_choice}
         field_incorrect_choices={this.props.field_incorrect_choices}
         handleClick={this.handleClick}
-        state={this.state} />
+        state={this.state}
+        shuffleOnce={this.shuffleOnce} />
     );
   }
 }
@@ -80,7 +85,8 @@ type MultipleChoicePresentationType = {
   field_correct_choice: string,
   field_incorrect_choices: Array<string>,
   handleClick: boolean => void,
-  state: StateType
+  state: StateType,
+  shuffleOnce: (Array<Node>) => Array<Node>
 };
 
 const MultipleChoicePresentation = ({
@@ -89,6 +95,7 @@ const MultipleChoicePresentation = ({
   field_incorrect_choices,
   handleClick,
   state,
+  shuffleOnce,
 }: MultipleChoicePresentationType): Node => (
   <div className="multiple-question">
     <div className="question">
@@ -96,11 +103,7 @@ const MultipleChoicePresentation = ({
     </div>
     <div className="choice">
       {
-        state.clicked && (
-          state.isCorrectChoice
-            ? 'Correct!'
-            : 'Incorrect'
-        )
+        state.clicked && state.isCorrectChoice
       }
     </div>
     <br />
@@ -110,7 +113,8 @@ const MultipleChoicePresentation = ({
           ...field_incorrect_choices,
         ]}
         handleClick={handleClick}
-        clicked={state.clicked} />
+        clicked={state.clicked}
+        shuffleOnce={shuffleOnce} />
     </div>
     <br/>
   </div>
@@ -119,13 +123,15 @@ const MultipleChoicePresentation = ({
 type MultipleChoiceListType = {
   choices: Array<string>,
   handleClick: boolean => void,
-  clicked: boolean
+  clicked: boolean,
+  shuffleOnce: (Array<Node>) => Array<Node>
 };
 
 const MultipleChoiceList = ({
   choices,
   handleClick,
   clicked,
+  shuffleOnce,
 }: MultipleChoiceListType ): Array<Node> => (
   shuffleOnce(choices.map((
     choice: string,
@@ -139,10 +145,6 @@ const MultipleChoiceList = ({
       handleClick={handleClick} />;
   }))
 );
-
-const shuffleOnce = myOnce((children: Array<Node>): Array<Node> => {
-  return shuffle(children);
-});
 
 // helpers
 /* eslint-disable */

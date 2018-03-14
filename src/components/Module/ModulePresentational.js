@@ -1,11 +1,6 @@
 // @flow
 import React from 'react';
 import type {Node} from 'react';
-import type {ModuleComponentType} from '../../types.js';
-import {
-  ModuleComponent,
-  ModuleComponentVisibility,
-} from '../ModuleComponent/ModuleComponent.js';
 
 type ModuleInformationType ={
   courseName: string,
@@ -24,33 +19,5 @@ export const ModuleInformation = ({
     <h1>{courseName} Course</h1>
     <h2>{moduleName} ({currentModuleComponent} / {moduleComponentLength})</h2>
   </div>
-);
-
-type ModuleComponentsType = {
-  modulesComponents: Array<string>,
-  allModuleComponents: ModuleComponentType,
-  visibleModuleComponentId: number
-};
-
-export const ModuleComponents = ({
-  modulesComponents,
-  allModuleComponents,
-  visibleModuleComponentId,
-}: ModuleComponentsType): Array<Node> => (
-  modulesComponents.map((
-    moduleComponentId: string,
-    i: number
-  ): Node => (
-      <ModuleComponentVisibility
-        key={i}
-        isVisible={{
-          thisId: i + 1,
-          visibleId: visibleModuleComponentId,
-        }}>
-        <ModuleComponent
-          moduleComponent={allModuleComponents[moduleComponentId]} />
-      </ModuleComponentVisibility>
-    )
-  )
 );
 
