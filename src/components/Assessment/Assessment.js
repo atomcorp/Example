@@ -49,6 +49,7 @@ export class Assessment extends Component<PropsType, StateType> {
   courseData: CourseFieldsType;
   testsStatuses: Array<AssessmentTestsType>
   score: number;
+  target: number;
   completeAssessment: () => void;
   /**
    * constructor
@@ -66,6 +67,7 @@ export class Assessment extends Component<PropsType, StateType> {
     this.testsStatuses = resetTestStatuses(this.courseData.assessment);
     this.completeAssessment = completeAssessmentHoF(this.courseId);
     this.score = 0;
+    this.target = parseInt(this.courseData.assessment.length * 0.8, 10);
     this.state = {
       completed: false,
       submitted: false,
@@ -87,7 +89,7 @@ export class Assessment extends Component<PropsType, StateType> {
     );
     if (isValid) {
       this.score = markTests(this.testsStatuses);
-      this.succesfullySubmitted(gradeAssessment(2, this.score));
+      this.succesfullySubmitted(gradeAssessment(this.target, this.score));
     } else {
       this.invalidSubmission();
     }
@@ -111,7 +113,7 @@ export class Assessment extends Component<PropsType, StateType> {
     );
   }
   reset() {
-    resetTestStatuses(this.courseData.assessment);
+    this.testsStatuses = resetTestStatuses(this.courseData.assessment);
     this.score = 0;
     this.setState({
       submitted: false,
@@ -129,9 +131,13 @@ export class Assessment extends Component<PropsType, StateType> {
           {
             this.state.submitted && (
               this.state.passed
-                ? `Passed: ${this.score}`
-                : `Failed: ${this.score}`
+                ? `Passed: ${this.score} / ${this.courseData.assessment.length}`
+                : `Failed: ${this.score} / ${this.courseData.assessment.length}`
             )
+          }
+          <br/>
+          {
+            this.state.submitted && `Pass minimum: ${this.target}`
           }
         </div>
         {
