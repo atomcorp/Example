@@ -5,11 +5,9 @@ import {
   MODULE_DONE,
   ASSESSMENT_DONE,
 } from '../actions/action-types.js';
-import {
+import type {
   CourseType,
   SetCourseStatusReturnType,
-  ModuleDoneType,
-  AssessmentDoneType,
   ModuleType,
   AssessmentStatusesType,
 } from '../../types.js';
@@ -37,8 +35,8 @@ export const coursesStatuses = (
 // and shows on Course pages
 export const moduleProgression = (
   state: ModuleType = {},
-  action: {action: string, id: string}
-): ModuleDoneType => {
+  action: {action: string, id: string, type: string}
+): ModuleType => {
   switch (action.type) {
     case MODULE_DONE:
       return Object.assign({}, state, {
@@ -52,7 +50,7 @@ export const moduleProgression = (
 export const assessmentStatuses = (
   state: AssessmentStatusesType = {},
   action: {type: string, id: string}
-): AssessmentDoneType => {
+): AssessmentStatusesType => {
   switch (action.type) {
     case ASSESSMENT_DONE:
       return Object.assign({}, state, {

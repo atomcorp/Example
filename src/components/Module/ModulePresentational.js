@@ -10,8 +10,8 @@ import {
 type ModuleInformationType ={
   courseName: string,
   moduleName: string,
-  currentModuleComponent: string,
-  moduleComponentLength: string
+  currentModuleComponent: number,
+  moduleComponentLength: number
 };
 
 export const ModuleInformation = ({
@@ -29,15 +29,13 @@ export const ModuleInformation = ({
 type ModuleComponentsType = {
   modulesComponents: Array<string>,
   allModuleComponents: ModuleComponentType,
-  visibleModuleComponentId: number,
-  disableButton: (boolean) => boolean
+  visibleModuleComponentId: number
 };
 
 export const ModuleComponents = ({
   modulesComponents,
   allModuleComponents,
   visibleModuleComponentId,
-  // disableButton
 }: ModuleComponentsType): Array<Node> => (
   modulesComponents.map((
     moduleComponentId: string,

@@ -4,11 +4,16 @@
  * it should do as LITTLE as possible
  */
 import React, {Component} from 'react';
-import {Node} from 'react';
+import type {Node} from 'react';
 import Routes from './router/routes.js';
 import {resources} from './api.js';
 import {store} from './redux/store/store.js';
-import {} from './types.js';
+import type {
+  MultiChoiceType,
+  CourseType,
+  LessonType,
+  ModuleType,
+} from './types.js';
 
 type ResourcesType = {
   assessments: {} | MultiChoiceType,
@@ -17,7 +22,13 @@ type ResourcesType = {
   modules: {} | ModuleType
 };
 
-class App extends Component<> {
+type StateType = {
+  loaded: boolean,
+  user: {}
+};
+
+class App extends Component<void, StateType> {
+  resources: {} | ResourcesType;
   constructor() {
     super();
     this.state = {

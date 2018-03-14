@@ -68,7 +68,7 @@ type PropsType = {
       }
     }
   },
-  done: () => void,
+  done: string => void,
   resources: ResourcesType
 };
 

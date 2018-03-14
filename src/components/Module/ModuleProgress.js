@@ -15,7 +15,6 @@ type ModuleProgressType = {
     increment: () => void,
     complete: () => void
   },
-  completeModuleButton: () => void,
   courseId: string
 };
 

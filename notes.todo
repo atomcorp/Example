@@ -7,4 +7,4 @@ Todo:
     * if answer was correct. Currently just use CSS which is "ok"
     * Use a HOF type thing
   ☐ State management of multiple choice questions is flat broke @bug
-  ☐ got bored? MAKE SO TESTS! @critical
+  ☐ got bored? MAKE TESTS! @critical
