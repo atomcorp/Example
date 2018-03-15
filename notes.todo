@@ -12,4 +12,4 @@ Todo:
     ✔ Highlight selected answers @done(18-03-15 11:57)
     ✔ shuffle w/ class @done(18-03-15 11:57)
   ✘ redo how choices are shuffled totally, probably need to alter api @cancelled(18-03-15 09:15)
-  ☐ Authorisation - Protected routes
+  ✔ Authorisation - Protected routes @done(18-03-15 14:26)

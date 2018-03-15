@@ -33,7 +33,7 @@ const Logout = withRouter(
         Sign out
       </button>
     ) : (
-        <p>You are not logged in.</p>
+        <Link to="/login">Login</Link>
       )
 );
 

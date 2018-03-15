@@ -72,10 +72,12 @@ class MultipleChoiceList extends Component<
     choice: {id: string, isCorrect: boolean},
     choiceRef: string
   ) => {
-    this.props.handleClick(choice);
-    this.setState({
-      selectedId: choiceRef,
-    });
+    if (!this.props.submitted) {
+      this.props.handleClick(choice);
+      this.setState({
+        selectedId: choiceRef,
+      });
+    }
   }
   componentWillUpdate() {
     // reset, so highlighted choice
