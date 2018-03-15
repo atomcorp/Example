@@ -8,8 +8,8 @@ Todo:
     * Use a HOF type thing
   ✔ State management of multiple choice questions is flat broke @bug @done(18-03-14 11:21)
   ☐ got bored? MAKE TESTS! @critical
-  ☐ Assessment page
-    ☐ Highlight selected answers
-    ☐ shuffle w/ class
+  ✔ Assessment page @done(18-03-15 11:57)
+    ✔ Highlight selected answers @done(18-03-15 11:57)
+    ✔ shuffle w/ class @done(18-03-15 11:57)
   ✘ redo how choices are shuffled totally, probably need to alter api @cancelled(18-03-15 09:15)
-  ☐ 
+  ☐ Authorisation - Protected routes

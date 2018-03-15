@@ -6,3 +6,14 @@ export const apiEndpoints = {
   modules: `${baseApi}/modules.json`,
   moduleComponents: `${baseApi}/moduleComponents.json`,
 };
+export const appAuth = {
+  isAuthenticated: false,
+  authenticate(callback) {
+    this.isAuthenticated = true;
+    callback();
+  },
+  signout(callback) {
+    this.isAuthenticated = false;
+    callback();
+  },
+};

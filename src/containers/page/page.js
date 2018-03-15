@@ -1,14 +1,16 @@
 // Not actually a container!
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import style from './page.module.css';
 
 class Page extends Component {
   render() {
     return (
       <div className={style.page}>
-        <div className={style.header}><Link to="/">Cambridge Audio | Learn</Link></div>
+        <div className={style.header}>
+          <Link to="/">Cambridge Audio | Learn</Link>
+        </div>
         <div className={style.content}>
           {this.props.children}
         </div>
@@ -20,7 +22,7 @@ class Page extends Component {
 }
 
 Page.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default Page;
