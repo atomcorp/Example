@@ -9,4 +9,7 @@ Todo:
   ✔ State management of multiple choice questions is flat broke @bug @done(18-03-14 11:21)
   ☐ got bored? MAKE TESTS! @critical
   ☐ Assessment page
-  ☐ redo how choices are shuffled totally, probably need to alter api
+    ☐ Highlight selected answers
+    ☐ shuffle w/ class
+  ✘ redo how choices are shuffled totally, probably need to alter api @cancelled(18-03-15 09:15)
+  ☐ 

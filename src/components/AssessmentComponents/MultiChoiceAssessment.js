@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, {Component} from 'react';
 import type {Node} from 'react';
 import {once as myOnce, shuffle} from '../../utility/utility.js';
 
@@ -14,85 +14,108 @@ type PropsType = {
   submitted: boolean
 };
 
-export const MultiChoiceAssessment = (props: PropsType): Node => {
-  // use some sort of caching of id instead
-  const shuffleOnce = myOnce((children: Array<Node>): Array<Node> => {
-    return shuffle(children);
-  });
-  return (
-    <div className="multiple-question">
-      <div className="question">
-        <h2>{props.assessment.field_question}</h2>
-      </div>
-      <br />
-      <div className={'name'}>
-        <MultipleChoiceList choices={[
-            props.assessment.field_correct_choice,
-            ...props.assessment.field_incorrect_choices,
-          ]}
-          handleClick={props.handleClick}
-          shuffleOnce={shuffleOnce}
-          id={props.id}
-          submitted={props.submitted} />
-      </div>
-      <br />
+export const MultiChoiceAssessment = (props: PropsType): Node => (
+  <div className="multiple-question">
+    <div className="question">
+      <h2>{props.assessment.field_question}</h2>
     </div>
-  );
-};
+    <br />
+    <div className={'name'}>
+      <MultipleChoiceList choices={[
+        props.assessment.field_correct_choice,
+        ...props.assessment.field_incorrect_choices,
+      ]}
+        handleClick={props.handleClick}
+        id={props.id}
+        submitted={props.submitted} />
+    </div>
+    <br />
+  </div>
+);
 
 type MultipleChoiceListType = {
   choices: Array<string>,
   handleClick: ({id: string, isCorrect: boolean}) => void,
-  shuffleOnce: (Array<Node>) => Array<Node>,
   id: string,
   submitted: boolean
 };
 
-// TODO: turn into class
-// has ref to Choice, so when clicked can be highlighted
-const MultipleChoiceList = ({
-  choices,
-  handleClick,
-  shuffleOnce,
-  id,
-  submitted,
-}: MultipleChoiceListType): Array<Node> => (
-  choices.map((
-    choice: string,
-    i: number
-  ): Node => {
-    return <Choice
-      key={i}
-      text={choice}
-      isCorrect={i === 0 ? true : false}
-      handleClick={handleClick}
-      id={id}
-      submitted={submitted} />;
-  })
-);
+type StateMultipleChoiceListType = {
+  selectedId: string
+};
+
+class MultipleChoiceList extends Component<
+  MultipleChoiceListType,
+  StateMultipleChoiceListType
+> {
+  constructor(props: MultipleChoiceListType) {
+    super(props);
+    this.state = {
+      selectedId: '',
+    };
+  }
+  shuffleOnce = myOnce((children: Array<Node>): Array<Node> => {
+    return shuffle(children);
+  });
+  handleChoice = (
+    choice: {id: string, isCorrect: boolean},
+    choiceRef: string
+  ) => {
+    this.props.handleClick(choice);
+    this.setState({
+      selectedId: choiceRef,
+    });
+  }
+  // add another click here for selection
+  render(): * {
+    return (
+      this.props.choices.map((
+        choice: string,
+        i: number
+      ): Node => {
+        return <Choice
+          key={i}
+          text={choice}
+          isCorrect={i === 0 ? true : false}
+          // handleClick={this.props.handleClick}
+          id={this.props.id}
+          submitted={this.props.submitted}
+          selectedId={this.state.selectedId}
+          handleChoice={this.handleChoice}
+          choiceRef={i + ''} />;
+      })
+    );
+  }
+}
 
 type ChoiceType = {
   text: string,
   isCorrect: boolean,
-  handleClick: ({id: string, isCorrect: boolean}) => void,
+  // handleClick: ({id: string, isCorrect: boolean}) => void,
   id: string,
-  submitted: boolean
+  submitted: boolean,
+  selectedId: string,
+  handleChoice: ({id: string, isCorrect: boolean}, choiceRef: string) => void,
+  choiceRef: string
 };
 
 const Choice = ({
   text,
   isCorrect,
-  handleClick,
   id,
   submitted,
+  selectedId,
+  handleChoice,
+  choiceRef,
 }: ChoiceType): Node => {
   return (
-    <div onClick={(): void => handleClick({
+    <div onClick={(): void => handleChoice({
       isCorrect,
       id,
-    })}
+    }, choiceRef)}
     style={{
       color: isCorrect ? 'green' : 'red',
+      backgroundColor: selectedId === choiceRef ? 'yellow' : '',
     }}>
       {text} <span style={{
           display: submitted ? 'inline' : 'none',

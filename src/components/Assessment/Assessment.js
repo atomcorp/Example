@@ -67,7 +67,7 @@ export class Assessment extends Component<PropsType, StateType> {
     this.testsStatuses = resetTestStatuses(this.courseData.assessment);
     this.completeAssessment = completeAssessmentHoF(this.courseId);
     this.score = 0;
-    this.target = parseInt(this.courseData.assessment.length * 0.8, 10);
+    this.target = Math.ceil(this.courseData.assessment.length * 0.8);
     this.state = {
       completed: false,
       submitted: false,
