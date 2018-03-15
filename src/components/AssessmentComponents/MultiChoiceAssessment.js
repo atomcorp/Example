@@ -77,6 +77,15 @@ class MultipleChoiceList extends Component<
       selectedId: choiceRef,
     });
   }
+  componentWillUpdate() {
+    // reset, so highlighted choice
+    // isn't selected anymore
+    if (this.props.submitted) {
+      this.setState({
+        selectedId: '',
+      });
+    }
+  }
   // add another click here for selection
   render(): * {
     return (
