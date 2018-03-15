@@ -21,10 +21,21 @@ export const MultiChoiceAssessment = (props: PropsType): Node => (
     </div>
     <br />
     <div className={'name'}>
-      <MultipleChoiceList choices={[
-        props.assessment.field_correct_choice,
-        ...props.assessment.field_incorrect_choices,
-      ]}
+      <MultipleChoiceList
+        choices={
+          [props.assessment.field_correct_choice,
+          ...props.assessment.field_incorrect_choices,
+          ].reduce((
+            acc: Array<{choice: string, isCorrect: boolean}>,
+            choice: string,
+            i: number
+          ): Array<{choice: string, isCorrect: boolean }> => {
+          return [...acc, {
+            choice,
+            isCorrect: i < 1 ? true : false,
+          }];
+          }, [])
+        }
         handleClick={props.handleClick}
         id={props.id}
         submitted={props.submitted} />
@@ -69,15 +80,14 @@ class MultipleChoiceList extends Component<
   // add another click here for selection
   render(): * {
     return (
-      this.props.choices.map((
+      this.shuffleOnce(this.props.choices).map((
         choice: string,
         i: number
       ): Node => {
         return <Choice
           key={i}
-          text={choice}
-          isCorrect={i === 0 ? true : false}
-          // handleClick={this.props.handleClick}
+          text={choice.choice}
+          isCorrect={choice.isCorrect}
           id={this.props.id}
           submitted={this.props.submitted}
           selectedId={this.state.selectedId}
@@ -115,7 +125,7 @@ const Choice = ({
     }, choiceRef)}
     style={{
       color: isCorrect ? 'green' : 'red',
-      backgroundColor: selectedId === choiceRef ? 'yellow' : '',
+      fontWeight: selectedId === choiceRef ? '700' : '400',
     }}>
       {text} <span style={{
           display: submitted ? 'inline' : 'none',
