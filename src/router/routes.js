@@ -5,7 +5,6 @@ import {
   Route,
   Switch,
   Redirect,
-  Link,
 } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import CoursesContainer from '../components/Courses/CoursesContainer.js';
@@ -14,17 +13,10 @@ import ModuleContainer from '../components/Module/ModuleContainer.js';
 import AssessmentContainer from
   '../components/Assessment/AssessmentContainer.js';
 import Login from '../components/Login/Login.js';
+import Home from '../components/Home/Home.js';
 import {appAuth} from '../config/config.js';
 
 const NoMatch = () => <div>404</div>;
-const Home = () => (
-  <div>
-    <h1>Home</h1>
-    <Link to='/login'>Login</Link>
-    <br/>
-    <Link to='/courses'>Courses</Link>
-  </div>
-);
 
 const ValidateModulePath = ({route, resources}) => {
   // courseId is irrelevant to rendering Module, so we check
