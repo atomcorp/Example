@@ -13,7 +13,9 @@
     "babel"
   ],
   "globals": {
-    "fetch": true
+    "fetch": true,
+    "localStorage": true,
+    "process": true
   },
   "parser": "babel-eslint",
   "parserOptions": {

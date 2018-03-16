@@ -138,7 +138,8 @@ export class Module extends Component<PropsType, StateType> {
           courseId={ this.courseId } />
         {
           // If you hit the complete module button
-          this.state.completed && <Redirect to={`/course/${this.courseId}`} />
+          this.state.completed && <Redirect
+            to={`/course/${this.courseId}`} />
         }
       </Page>
     );

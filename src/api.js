@@ -18,3 +18,12 @@ const fetchEverything = () => Promise.all(
 
 export const resources = fetchEverything().then((res) =>
   res.reduce((acc, val) => Object.assign({}, acc, val), {}));
+
+const userId = 'tom';
+
+
+const localSave = (data) => {
+  localStorage.setItem(userId, JSON.stringify(data));
+};
+
+export const postUserData = (data) => localSave(data);

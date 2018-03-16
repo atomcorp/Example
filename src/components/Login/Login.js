@@ -6,7 +6,11 @@ import {appAuth} from '../../config/config.js';
 
 type PropsType = {
   location: {
-    state: string
+    state: {
+      from: {
+        pathname: string
+      }
+    }
   }
 };
 
@@ -28,7 +32,7 @@ class Login extends Component<PropsType, StateType> {
   }
   render(): * {
     const {from} = this.props.location.state
-      || {from: {pathname: '/courses'}};
+      || {from: {pathname: `/courses`}};
     const {redirectToReferrer} = this.state;
       if (redirectToReferrer || appAuth.isAuthenticated) {
       return <Redirect to={from} />;

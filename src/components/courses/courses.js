@@ -28,7 +28,9 @@ export const CourseButton = ({
           ? <Link to={`/course/${id}`}>
               {title} ({status})
             </Link>
-          : <Link to={`/course/${id}`} onClick={onClick}>
+          : <Link
+              to={`/course/${id}`}
+              onClick={onClick}>
               {title} ({status})
             </Link>
       }

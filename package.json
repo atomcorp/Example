@@ -2,6 +2,7 @@
   "name": "react-elearning",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://localhost/dylan/learn/",
   "dependencies": {
     "custom-react-scripts": "^0.2.1",
     "flow-bin": "^0.66.0",

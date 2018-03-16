@@ -45,7 +45,10 @@ export const MultiChoiceAssessment = (props: PropsType): Node => (
 );
 
 type MultipleChoiceListType = {
-  choices: Array<string>,
+  choices: Array<{
+    choice: string,
+    isCorrect: boolean
+  }>,
   handleClick: ({id: string, isCorrect: boolean}) => void,
   id: string,
   submitted: boolean
@@ -92,7 +95,7 @@ class MultipleChoiceList extends Component<
   render(): * {
     return (
       this.shuffleOnce(this.props.choices).map((
-        choice: string,
+        choice: {choice: string, isCorrect: boolean},
         i: number
       ): Node => {
         return <Choice

@@ -48,24 +48,30 @@ const PrivateRoute = ({component: Component, ...rest}) => (
 
 const Routes = ({resources, store}) => (
   <Provider store={store}>
-    <Router>
+    <Router basename={`${process.env.PUBLIC_URL}/`}>
       <Switch>
-        <PrivateRoute path="/courses" exact component={() => (
+        <PrivateRoute
+          path={`/courses`}
+          exact component={() => (
           <CoursesContainer courses={resources.courses} />
         )} />
         <PrivateRoute
-          path="/course/:courseId/assessment"
+          path={`/course/:courseId/assessment`}
           component={(route) => (
           <AssessmentContainer route={route} resources={resources} />
         )} />
-        <PrivateRoute path="/course/:courseId/:moduleId" component={(route) => (
+        <PrivateRoute
+          path={`/course/:courseId/:moduleId`}
+          component={(route) => (
           <ValidateModulePath route={route} resources={resources} />
         )} />
-        <PrivateRoute path="/course/:courseId" component={(route) => (
+        <PrivateRoute
+          path={`/course/:courseId`}
+          component={(route) => (
           <CourseContainer route={route} resources={resources} />
         )} />
-        <Route exact path="/" component={Home} />
-        <Route path="/login" component={Login} />
+        <Route exact path={`/`} component={Home} />
+        <Route path={`/login`} component={Login} />
         <Route component={NoMatch}></Route>
       </Switch>
     </Router>

@@ -54,7 +54,10 @@ export const ModuleProgress = ({
         maybe listen for user pressing back button
       */}
       <br /><br />
-      <Link to={`/course/${courseId}`}>(back to course)</Link>
+      <Link
+        to={`/course/${courseId}`}>
+          (back to course)
+        </Link>
     </div>
   );
 
