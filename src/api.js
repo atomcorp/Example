@@ -30,7 +30,7 @@ const localSave = (data) => {
 
 const localGet = () => JSON.parse(localStorage.getItem(userId));
 
-const localClear = (data) => {
+const localClear = () => {
   localStorage.removeItem(userId);
 };
 
@@ -38,5 +38,5 @@ export const postUserData = (data) => localSave(data);
 
 export const getUserData = () => localGet();
 
-export const clearUserData = (data) => localClear(data);
+export const clearUserData = () => localClear();
 
