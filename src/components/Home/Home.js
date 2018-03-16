@@ -12,8 +12,21 @@ const Home = (): Node => (
     <br />
     <Link to={`/courses`}>Courses</Link>
     <br/>
+    <br/>
+    <Progress />
+    <br/>
+    <br/>
     <Reset />
   </Page>
+);
+
+const Progress = (): Node => (
+  <div>
+    <h4>Progress</h4>
+    If user has started course will show here.<br/>
+    It will show progress as a percentage.<br/>
+    If user has not started a course, will be blank or something
+  </div>
 );
 
 const Reset = (): Node => {
