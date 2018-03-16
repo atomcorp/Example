@@ -11,6 +11,7 @@ import type {ResourcesType, CourseFieldsType} from '../../types.js';
 import Page from '../../containers/page/page.js';
 import {MultiChoiceAssessment}
   from '../AssessmentComponents/MultiChoiceAssessment.js';
+import AssessmentButtons from './AssessmentButtons.js';
 
 const TitleElement = ({title}: { title: string }): Node => {
   return (
@@ -36,7 +37,8 @@ type PropsType = {
 type StateType = {
   completed: boolean,
   submitted: boolean,
-  passed: boolean
+  passed: boolean,
+  error: string
 };
 
 type AssessmentTestsType = {
@@ -72,6 +74,7 @@ export class Assessment extends Component<PropsType, StateType> {
       completed: false,
       submitted: false,
       passed: false,
+      error: '',
     };
   }
   completeAssessmentButton = () => {
@@ -80,7 +83,7 @@ export class Assessment extends Component<PropsType, StateType> {
       completed: true,
     });
   }
-  handleSubmit() {
+  handleSubmit = () => {
     const validateStatus = (
       status: 'not-started' | 'incorrect' | 'correct'
     ): boolean => status !== 'not-started';
@@ -101,7 +104,23 @@ export class Assessment extends Component<PropsType, StateType> {
     });
   }
   invalidSubmission() {
-
+    const validateStatus = (
+      status: 'not-started' | 'incorrect' | 'correct'
+    ): boolean => status !== 'not-started';
+    const notInputtedCount = this.testsStatuses.reduce((
+      acc: number,
+      val: AssessmentTestsType
+    ): number => {
+      if (validateStatus(val.status)) {
+        return acc;
+      }
+      return acc + 1;
+    }, 0);
+    this.setState({
+      error: `
+        You must answer every question. \n
+        ${notInputtedCount} missing.`,
+    });
   }
   handleClick = ({id, isCorrect}: {id: string, isCorrect: boolean}) => {
     this.testsStatuses = setTestStatus(
@@ -112,7 +131,7 @@ export class Assessment extends Component<PropsType, StateType> {
       }
     );
   }
-  reset() {
+  reset = () => {
     this.testsStatuses = resetTestStatuses(this.courseData.assessment);
     this.score = 0;
     this.setState({
@@ -128,6 +147,8 @@ export class Assessment extends Component<PropsType, StateType> {
       <Page>
         <TitleElement title={this.courseData.title} />
         <div>
+          {this.state.error}
+          <br/>
           {
             this.state.submitted && (
               this.state.passed
@@ -152,22 +173,13 @@ export class Assessment extends Component<PropsType, StateType> {
             )
           )
         }
-        {
-          !this.state.submitted
-            && <button onClick={(): void => this.handleSubmit()}>
-              Check answers
-            </button>
-        }
-        {
-          this.state.submitted && !this.state.passed
-            && <button onClick={(): void => this.reset()}>Try again</button>
-        }
-        {
-          this.state.submitted && this.state.passed
-            && <button onClick={(): void => this.completeAssessmentButton()}>
-                Complete assessment
-            </button>
-        }
+        <AssessmentButtons
+          state={this.state}
+          methods={{
+            handleSubmit: this.handleSubmit,
+            reset: this.reset,
+            completeAssessmentButton: this.completeAssessmentButton,
+          }} />
         {
           // If you hit the complete module button
           this.state.completed && <Redirect to={`/course/${this.courseId}`} />
