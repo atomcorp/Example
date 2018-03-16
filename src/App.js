@@ -8,6 +8,7 @@ import type {Node} from 'react';
 import Routes from './router/routes.js';
 import {resources} from './api.js';
 import {store} from './redux/store/store.js';
+import {postUserData} from './api.js';
 import type {
   MultiChoiceType,
   CourseType,
@@ -23,8 +24,7 @@ type ResourcesType = {
 };
 
 type StateType = {
-  loaded: boolean,
-  user: {}
+  loaded: boolean
 };
 
 class App extends Component<void, StateType> {
@@ -33,7 +33,6 @@ class App extends Component<void, StateType> {
     super();
     this.state = {
       loaded: false,
-      user: {},
     };
     this.resources = {};
   }
@@ -68,5 +67,13 @@ class App extends Component<void, StateType> {
     );
   }
 }
+
+// Anytime redux is updated, this gets the state
+// State then gets posted whereever
+store.subscribe((): {
+  coursesStatuses: {},
+  moduleProgression: {},
+  assessmentStatuses: {}
+} => postUserData(store.getState()));
 
 export default App;

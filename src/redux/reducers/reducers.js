@@ -47,6 +47,7 @@ export const moduleProgression = (
   }
 };
 
+// Checks if User has completed an Assessment
 export const assessmentStatuses = (
   state: AssessmentStatusesType = {},
   action: {type: string, id: string}
