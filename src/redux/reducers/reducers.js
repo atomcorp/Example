@@ -4,6 +4,7 @@ import {
   SET_COURSE_STATUS,
   MODULE_DONE,
   ASSESSMENT_DONE,
+  LOGIN,
 } from '../actions/action-types.js';
 import type {
   CourseType,
@@ -56,6 +57,32 @@ export const assessmentStatuses = (
     case ASSESSMENT_DONE:
       return Object.assign({}, state, {
         [action.id]: true,
+      });
+    default:
+      return state;
+  }
+};
+
+type UserStatusType = {
+  id: string,
+  isLoggedIn: boolean
+};
+
+export const status = (
+  state: UserStatusType,
+  action: {type: string, id?: string}
+): UserStatusType => {
+  switch (action.type) {
+    case LOGIN.REQUEST:
+    case LOGIN.FAILURE:
+      return Object.assign({}, state, {
+        id: '',
+        isLoggedIn: false,
+      });
+    case LOGIN.SUCCESS:
+      return Object.assign({}, state, {
+        id: action.id,
+        isLoggedIn: true,
       });
     default:
       return state;

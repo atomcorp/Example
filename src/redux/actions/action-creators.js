@@ -3,6 +3,7 @@ import {
   SET_COURSE_STATUS,
   MODULE_DONE,
   ASSESSMENT_DONE,
+  LOGIN,
 } from './action-types.js';
 import type {
   SetCourseStatusType,
@@ -28,4 +29,17 @@ export const moduleDone = (id: string): ModuleDoneType => ({
 export const assessmentDone = (id: string): AssessmentDoneType => ({
   type: ASSESSMENT_DONE,
   id,
+});
+
+export const loginRequest = (): {type: string} => ({
+  type: LOGIN.REQUEST,
+});
+
+export const loginSuccess = (id: string): {type: string, id: string} => ({
+  type: LOGIN.SUCCESS,
+  id,
+});
+
+export const loginFailure = (): {type: string} => ({
+  type: LOGIN.FAILURE,
 });

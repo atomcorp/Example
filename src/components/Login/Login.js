@@ -4,6 +4,15 @@ import {Redirect} from 'react-router-dom';
 import Page from '../../containers/page/page.js';
 import {appAuth} from '../../config/auth.js';
 
+// USAGE
+// import {auth} from '../../firebase';
+// console.log(auth);
+// auth.signUp('tmsisatwork+1@gmail.com', 'password')
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err));
+// auth.signIn('tmsisatwork+1@gmail.com', 'password')
+//  .then(res => console.log(res));
+
 type PropsType = {
   location: {
     state: {

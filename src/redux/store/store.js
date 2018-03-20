@@ -7,11 +7,9 @@ const initialState = getUserData() || {
   coursesStatuses: {},
   moduleProgression: {},
   assessmentStatuses: {},
-  user: {
-    name: '',
-    csrf: '',
+  status: {
+    id: '',
     isLoggedIn: false,
-    isLoggingIn: false,
   },
 };
 

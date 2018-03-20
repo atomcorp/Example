@@ -39,5 +39,7 @@ Domain build is deployed to must be specified in package.json:
 }
 ```
 
-
+Firebase
+_____
+export data (ie emails): https://firebase.google.com/docs/cli/auth
 

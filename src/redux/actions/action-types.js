@@ -10,10 +10,10 @@ export const MODULE_DONE = 'MODULE_DONE';
 
 export const ASSESSMENT_DONE = 'ASSESSMENT_DONE';
 
-export const LOGIN_ATTEMPT = 'LOGIN_ATTEMPT';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGIN = {
+  ATTEMPT: 'LOGIN_REQUEST',
+  SUCCESS: 'LOGIN_SUCCESS',
+  FAIL: 'LOGIN_FAIL',
+};
 
-export const LOGOUT_ATTEMPT = 'LOGOUT_ATTEMPT';
-export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
-export const LOGOUT_FAIL = 'LOGOUT_FAIL';
+export const LOGOUT = 'LOGOUT';

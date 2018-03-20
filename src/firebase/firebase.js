@@ -1,0 +1,26 @@
+import * as firebase from 'firebase';
+
+const config = {
+  apiKey: 'AIzaSyCdkE903n9AV5i7Z9MU9ArriTOD9yHFLBU',
+  authDomain: 'learn-54603.firebaseapp.com',
+  databaseURL: 'https://learn-54603.firebaseio.com',
+  projectId: 'learn-54603',
+  storageBucket: 'learn-54603.appspot.com',
+  messagingSenderId: '1000835758153',
+};
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}
+
+const auth = firebase.auth();
+
+// check user signed in
+// if (auth.currentUser) {
+//   console.log(auth.currentUser);
+// } else {
+//   console.log('Signout');
+// }
+
+
+export default auth;
