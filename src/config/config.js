@@ -11,15 +11,6 @@ export const apiEndpoints = {
 };
 
 export const apiLogin = formattedLocalURL('user/login');
+export const apiLogout = formattedLocalURL('user/logout');
+export const apiStatus = formattedLocalURL('user/login_status');
 
-export const appAuth = {
-  isAuthenticated: false,
-  authenticate(callback) {
-    this.isAuthenticated = true;
-    callback();
-  },
-  signout(callback) {
-    this.isAuthenticated = false;
-    callback();
-  },
-};

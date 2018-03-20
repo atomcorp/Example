@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Link, withRouter} from 'react-router-dom';
 import style from './page.module.css';
-import {appAuth} from '../../config/config.js';
+import {appAuth} from '../../config/auth.js';
 
 class Page extends Component {
   render() {

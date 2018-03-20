@@ -14,7 +14,7 @@ import AssessmentContainer from
   '../components/Assessment/AssessmentContainer.js';
 import Login from '../components/Login/Login.js';
 import Home from '../components/Home/Home.js';
-import {appAuth} from '../config/config.js';
+import {appAuth} from '../config/auth.js';
 
 const NoMatch = () => <div>404</div>;
 

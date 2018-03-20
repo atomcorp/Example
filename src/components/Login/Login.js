@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import Page from '../../containers/page/page.js';
-import {appAuth} from '../../config/config.js';
+import {appAuth} from '../../config/auth.js';
 
 type PropsType = {
   location: {

@@ -7,6 +7,12 @@ const initialState = getUserData() || {
   coursesStatuses: {},
   moduleProgression: {},
   assessmentStatuses: {},
+  user: {
+    name: '',
+    csrf: '',
+    isLoggedIn: false,
+    isLoggingIn: false,
+  },
 };
 
 export const store = createStore(learnApp, initialState);

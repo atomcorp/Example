@@ -28,6 +28,8 @@ _____
 - http://www.darrylnorris.com/blog/how-to-request-a-node-via-rest-using-web-services-drupal-8
 - https://github.com/signalpoint/jDrupal
 
+- User endpoints (user status, logout etc) https://www.drupal.org/node/2720655
+
 React - Subdomains
 _____
 Domain build is deployed to must be specified in package.json: 
