@@ -107,5 +107,17 @@
       ],
       "field_question": "CX Question"
     }
+  },
+  "login": {
+      "current_user": {
+        "uid": "39",
+        "roles": [
+          "authenticated",
+          "administrator"
+        ],
+        "name": "tom.maxwell"
+      },
+      "csrf_token": "_P8JbL1vqR9kB7QQ9PjZbo4ceLd8IJFX0Z7xi5HyPwQ",
+      "logout_token": "6l0c6Gl9Qv9EVj9XEh7h0Q9_NwhO6BAYOdTJVUexQWY"
   }
 }

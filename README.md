@@ -16,6 +16,12 @@ Set services.yml file: https://www.drupal.org/node/2715637
 Set server https://stackoverflow.com/a/41742063/2368141 (this is for Apache/Xampp, obvs different for Nginx)
 More CORS .htaccess info https://awesometoast.com/cors/
 
+CORS - React dev
+_____
+To get CORS requests working with Drupal dev (eg Xampp), React can proxy the request to the api-serving server
+Look for "proxy" in package.json. 
+Src - https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#proxying-api-requests-in-development
+
 Drupal - Rest services
 _____
 - https://www.drupal.org/docs/8/core/modules/rest/javascript-and-drupal-8-restful-web-services
