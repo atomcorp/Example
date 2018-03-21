@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onClick: (loginParams) => dispatch(loginIfNecessary(loginParams)),
+  attemptLogin: (loginParams) => dispatch(loginIfNecessary(loginParams)),
 });
 
 const LoginContainer = connect(
