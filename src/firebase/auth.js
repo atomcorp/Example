@@ -11,7 +11,7 @@ export const signUp = (email, password) =>
 export const signIn = (email, password) =>
   auth.signInAndRetrieveDataWithEmailAndPassword(email, password);
 
- export const signOut = () =>
+export const signOut = () =>
   auth.signOut();
 
 export const passwordReset = (email) =>

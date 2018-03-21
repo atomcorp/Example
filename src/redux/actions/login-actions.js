@@ -4,9 +4,15 @@ import {
   LOGOUT,
 } from './action-types.js';
 
-export const logout = () => ({
+const logoutSuccess = () => ({
   type: LOGOUT,
 });
+
+export const logout = () => {
+  return (dispatch) => {
+    return auth.signOut().then((res) => dispatch(logoutSuccess()));
+  };
+};
 
 const loginRequest = () => ({
   type: LOGIN.REQUEST,
