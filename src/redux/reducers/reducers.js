@@ -69,20 +69,34 @@ type UserStatusType = {
 };
 
 export const status = (
-  state: UserStatusType,
-  action: {type: string, id?: string}
+  state: UserStatusType = {
+    error: '',
+    isLoggedIn: false,
+    email: '',
+    id: '',
+  },
+  action: {type: string, id?: string, email?: string}
 ): UserStatusType => {
   switch (action.type) {
     case LOGIN.REQUEST:
+      return Object.assign({}, state, {
+        id: '',
+        isLoggedIn: false,
+        email: '',
+        error: '',
+      });
     case LOGIN.FAILURE:
       return Object.assign({}, state, {
         id: '',
         isLoggedIn: false,
+        email: '',
+        error: action.error,
       });
     case LOGIN.SUCCESS:
       return Object.assign({}, state, {
         id: action.id,
         isLoggedIn: true,
+        email: action.email,
       });
     default:
       return state;
@@ -93,6 +107,7 @@ const learnApp = combineReducers({
   coursesStatuses,
   moduleProgression,
   assessmentStatuses,
+  status,
 });
 
 export default learnApp;

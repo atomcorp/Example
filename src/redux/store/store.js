@@ -1,4 +1,6 @@
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
+import {createLogger} from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
 import learnApp from '../reducers/reducers.js';
 import {getUserData} from '../../api.js';
 
@@ -10,7 +12,15 @@ const initialState = getUserData() || {
   status: {
     id: '',
     isLoggedIn: false,
+    email: '',
+    error: '',
   },
 };
 
-export const store = createStore(learnApp, initialState);
+const loggerMiddleware = createLogger();
+
+export const store = createStore(
+  learnApp,
+  initialState,
+  applyMiddleware(thunkMiddleware, loggerMiddleware)
+);

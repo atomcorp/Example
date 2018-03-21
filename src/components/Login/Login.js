@@ -2,7 +2,6 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import Page from '../../containers/page/page.js';
-import {appAuth} from '../../config/auth.js';
 
 // USAGE
 // import {auth} from '../../firebase';
@@ -20,6 +19,13 @@ type PropsType = {
         pathname: string
       }
     }
+  },
+  onClick: ({
+    email: string,
+    pass: string
+  }) => void,
+  status: {
+    isLoggedIn: boolean
   }
 };
 
@@ -30,20 +36,28 @@ type StateType = {
 class Login extends Component<PropsType, StateType> {
   constructor(props: PropsType) {
     super(props);
-    this.state = {
-      redirectToReferrer: false,
-    };
+    // this.state = {
+    //   redirectToReferrer: false,
+    // };
   }
   handleClick = () => {
-    appAuth.authenticate(() => {
-      this.setState({redirectToReferrer: true});
+    this.props.onClick({
+      email: 'tmsisatwork+1@gmail.com',
+      pass: 'password',
     });
+    // login({
+    //   email: 'tmsisatwork+1@gmail.com',
+    //   pass: 'password',
+    // });
+    // appAuth.authenticate(() => {
+    //   this.setState({redirectToReferrer: true});
+    // });
   }
+
   render(): * {
     const {from} = this.props.location.state
       || {from: {pathname: `/courses`}};
-    const {redirectToReferrer} = this.state;
-      if (redirectToReferrer || appAuth.isAuthenticated) {
+    if (this.props.status.isLoggedIn) {
       return <Redirect to={from} />;
     }
     return (

@@ -16,7 +16,7 @@ if (!firebase.apps.length) {
 const auth = firebase.auth();
 
 // check user signed in
-// if (auth.currentUser) {
+// if (auth.default.currentUser) {
 //   console.log(auth.currentUser);
 // } else {
 //   console.log('Signout');

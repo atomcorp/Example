@@ -6,15 +6,14 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom';
-import {Provider} from 'react-redux';
+import {connect, Provider} from 'react-redux';
 import CoursesContainer from '../components/Courses/CoursesContainer.js';
 import CourseContainer from '../components/Course/CourseContainer.js';
 import ModuleContainer from '../components/Module/ModuleContainer.js';
 import AssessmentContainer from
   '../components/Assessment/AssessmentContainer.js';
-import Login from '../components/Login/Login.js';
+import LoginContainer from '../components/Login/LoginContainer.js';
 import Home from '../components/Home/Home.js';
-import {appAuth} from '../config/auth.js';
 
 const NoMatch = () => <div>404</div>;
 
@@ -31,8 +30,10 @@ const ValidateModulePath = ({route, resources}) => {
 const PrivateRoute = ({component: Component, ...rest}) => (
   <Route
     {...rest}
-    render={(props) =>
-      appAuth.isAuthenticated ? (
+    render={(props) => {
+      const {status} = rest;
+      // console.log(status.isLoggedIn)
+      return status.isLoggedIn ? (
         <Component {...props} />
       ) : (
           <Redirect
@@ -41,37 +42,46 @@ const PrivateRoute = ({component: Component, ...rest}) => (
               state: {from: props.location},
             }}
           />
-        )
+        );
+    }
     }
   />
 );
+
+const mapStateToProps = (state) => ({
+  status: state.status,
+});
+
+const PriveRouteContainer = connect(
+  mapStateToProps
+)(PrivateRoute);
 
 const Routes = ({resources, store}) => (
   <Provider store={store}>
     <Router basename={`${process.env.PUBLIC_URL}/`}>
       <Switch>
-        <PrivateRoute
+        <PriveRouteContainer
           path={`/courses`}
           exact component={() => (
           <CoursesContainer courses={resources.courses} />
         )} />
-        <PrivateRoute
+        <PriveRouteContainer
           path={`/course/:courseId/assessment`}
           component={(route) => (
           <AssessmentContainer route={route} resources={resources} />
         )} />
-        <PrivateRoute
+        <PriveRouteContainer
           path={`/course/:courseId/:moduleId`}
           component={(route) => (
           <ValidateModulePath route={route} resources={resources} />
         )} />
-        <PrivateRoute
+        <PriveRouteContainer
           path={`/course/:courseId`}
           component={(route) => (
           <CourseContainer route={route} resources={resources} />
         )} />
         <Route exact path={`/`} component={Home} />
-        <Route path={`/login`} component={Login} />
+        <Route path={`/login`} component={LoginContainer} />
         <Route component={NoMatch}></Route>
       </Switch>
     </Router>
