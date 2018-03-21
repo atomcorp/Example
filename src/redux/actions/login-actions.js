@@ -40,16 +40,16 @@ const login = ({email, pass}) => {
 
 // Not sure this is necessary???
 const shouldLogin = (state) => {
-  if (state.isLoggedIn) {
+  if (state.status.isLoggedIn) {
     return false;
   }
   return true;
 };
 
-export const loginIfNecessary = () => {
+export const loginIfNecessary = (loginParams) => {
   return (dispatch, getState) => {
     if (shouldLogin(getState())) {
-      return dispatch(login());
+      return dispatch(login(loginParams));
     }
   };
 };

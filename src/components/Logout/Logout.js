@@ -1,16 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {appAuth} from '../../config/auth.js';
 import {Link, withRouter} from 'react-router-dom';
+import {logout} from '../../redux/actions/login-actions';
 
 const Logout = withRouter(
-  ({history, status}) => {
+  ({history, status, onClick}) => {
     return status.isLoggedIn
     ? (
       <button
-        onClick={() => {
-          appAuth.signout(() => history.push('/'));
-        }} >
+        onClick={() => onClick()} >
         Sign out
       </button>
     ) : (
@@ -23,8 +21,13 @@ const mapStateToProps = (state) => ({
   status: state.status,
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  onClick: () => dispatch(logout()),
+});
+
 const LogoutContainer = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Logout);
 
 export default LogoutContainer;
