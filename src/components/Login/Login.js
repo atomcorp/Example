@@ -29,31 +29,13 @@ type PropsType = {
   }
 };
 
-type StateType = {
-  redirectToReferrer: boolean
-};
-
-class Login extends Component<PropsType, StateType> {
-  constructor(props: PropsType) {
-    super(props);
-    // this.state = {
-    //   redirectToReferrer: false,
-    // };
-  }
+class Login extends Component<PropsType, void> {
   handleClick = () => {
     this.props.onClick({
       email: 'tmsisatwork+1@gmail.com',
       pass: 'password',
     });
-    // login({
-    //   email: 'tmsisatwork+1@gmail.com',
-    //   pass: 'password',
-    // });
-    // appAuth.authenticate(() => {
-    //   this.setState({redirectToReferrer: true});
-    // });
   }
-
   render(): * {
     const {from} = this.props.location.state
       || {from: {pathname: `/courses`}};
