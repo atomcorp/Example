@@ -14,6 +14,7 @@ const initialState = getUserData() || {
     isLoggedIn: false,
     email: '',
     error: '',
+    isLoggingIn: false,
   },
 };
 

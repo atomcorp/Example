@@ -44,7 +44,6 @@ const login = ({email, pass}) => {
   };
 };
 
-// Not sure this is necessary???
 const shouldLogin = (state) => {
   if (state.status.isLoggedIn) {
     return false;

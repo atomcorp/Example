@@ -25,7 +25,8 @@ type PropsType = {
     pass: string
   }) => void,
   status: {
-    isLoggedIn: boolean
+    isLoggedIn: boolean,
+    isLoggingIn: boolean
   }
 };
 
@@ -46,6 +47,7 @@ class Login extends Component<PropsType, void> {
       <Page>
           <h1>Login</h1>
           <button onClick={this.handleClick}>Login</button>
+          {this.props.status.isLoggingIn ? 'Logging in...' : ''}
       </Page>
     );
   }

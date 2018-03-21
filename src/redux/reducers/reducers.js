@@ -85,6 +85,7 @@ export const status = (
         isLoggedIn: false,
         email: '',
         error: '',
+        isLoggingIn: true,
       });
     case LOGIN.FAILURE:
       return Object.assign({}, state, {
@@ -92,12 +93,14 @@ export const status = (
         isLoggedIn: false,
         email: '',
         error: action.error,
+        isLoggingIn: false,
       });
     case LOGIN.SUCCESS:
       return Object.assign({}, state, {
         id: action.id,
         isLoggedIn: true,
         email: action.email,
+        isLoggingIn: false,
       });
     case LOGOUT:
       return Object.assign({}, state, {
