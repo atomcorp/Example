@@ -102,13 +102,6 @@ export const status = (
         email: action.email,
         isLoggingIn: false,
       });
-    case LOGOUT:
-      return Object.assign({}, state, {
-        error: '',
-        isLoggedIn: false,
-        email: '',
-        id: '',
-      });
     default:
       return state;
   }
@@ -121,4 +114,12 @@ const learnApp = combineReducers({
   status,
 });
 
-export default learnApp;
+// https://stackoverflow.com/a/35641992/2368141
+const rootReducer = (state: ?{}, action: {type: string}): void => {
+  if (action.type === LOGOUT) {
+    state = undefined;
+  }
+  return learnApp(state, action);
+};
+
+export default rootReducer;

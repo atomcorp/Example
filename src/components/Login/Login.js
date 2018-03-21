@@ -52,22 +52,27 @@ class Login extends Component<PropsType, void> {
     }
     return (
       <Page>
-          <h1>Login</h1>
-          <form onSubmit={this.handleSubmit}>
-            <input
-              type="text"
-              value={this.state.email}
-              onInput={(e: Event): void => this.handleInput('email', e)}
-              placeholder="Email" />
-            <input
-              type="password"
-              value={this.state.password}
-              onInput={(e: Event): void => this.handleInput('pass', e)}
-              placeholder="Password" />
-            <input type="submit" value="Login" />
-          </form>
-          {this.props.status.isLoggingIn ? 'Logging in...' : ''}
-          {this.props.status.error ? this.props.status.error : ''}
+        <h1>Login</h1>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={this.state.email}
+            onInput={(e: Event): void => this.handleInput('email', e)}
+            placeholder="Email" />
+          <input
+            type="password"
+            value={this.state.password}
+            onInput={(e: Event): void => this.handleInput('pass', e)}
+            placeholder="Password" />
+          <input type="submit" value="Login" />
+        </form>
+        {this.props.status.isLoggingIn ? 'Logging in...' : ''}
+        {this.props.status.error ? this.props.status.error : ''}
+        <br />
+        <div>
+          User: tmsisatwork+1@gmail.com <br />
+          Password: password
+        </div>
       </Page>
     );
   }
