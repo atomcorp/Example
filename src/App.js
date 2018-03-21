@@ -7,8 +7,9 @@ import React, {Component} from 'react';
 import type {Node} from 'react';
 import Routes from './router/routes.js';
 import {resources} from './api.js';
-import {store} from './redux/store/store.js';
-import {postUserData} from './api.js';
+import configureStore from './redux/store/configureStore.js';
+import {firebase} from './firebase/';
+// import {postUserData} from './api.js';
 import type {
   MultiChoiceType,
   CourseType,
@@ -38,6 +39,19 @@ class App extends Component<void, StateType> {
   }
 
   componentDidMount() {
+    // get user data here
+    firebase.default.onAuthStateChanged((user: void) => {
+      if (user) {
+        // TODO: 
+        // 1. If the user is already logged in via
+        //    Firebase Authentication, get their ID.
+        // 2. Grab all the data associated with it
+        //    from 
+        console.log(user);
+      } else {
+        console.log('No user');
+      }
+    });
     resources.then(
       ({
         assessments,
@@ -63,17 +77,19 @@ class App extends Component<void, StateType> {
       return <div>Loading Cambridge Audio | Learn</div>;
     }
     return (
-      <Routes resources={this.resources} store={store} />
+      <Routes
+        resources={this.resources}
+        store={configureStore(this.state.preLoadedState)} />
     );
   }
 }
 
 // Anytime redux is updated, this gets the state
 // State then gets posted whereever
-store.subscribe((): {
-  coursesStatuses: {},
-  moduleProgression: {},
-  assessmentStatuses: {}
-} => postUserData(store.getState()));
+// store.subscribe((): {
+//   coursesStatuses: {},
+//   moduleProgression: {},
+//   assessmentStatuses: {}
+// } => postUserData(store.getState()));
 
 export default App;

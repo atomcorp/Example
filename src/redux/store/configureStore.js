@@ -17,9 +17,14 @@ import rootReducer from '../reducers/reducers.js';
 //   },
 // };
 
+// const initialState = firebase.default.currentUser | {};
+
 const loggerMiddleware = createLogger();
 
-export const store = createStore(
+const configureStore = (preloadedState) => createStore(
   rootReducer,
+  preloadedState,
   applyMiddleware(thunkMiddleware, loggerMiddleware)
 );
+
+export default configureStore;
