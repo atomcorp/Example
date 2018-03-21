@@ -1,7 +1,12 @@
 import {auth} from '../../firebase';
 import {
   LOGIN,
+  LOGOUT,
 } from './action-types.js';
+
+export const logout = () => ({
+  type: LOGOUT,
+});
 
 const loginRequest = () => ({
   type: LOGIN.REQUEST,
@@ -18,7 +23,7 @@ const loginFailure = (error) => ({
   error,
 });
 
-export const login = ({email, pass}) => {
+const login = ({email, pass}) => {
   return (dispatch) => {
     dispatch(loginRequest());
     return auth
@@ -34,17 +39,17 @@ export const login = ({email, pass}) => {
 };
 
 // Not sure this is necessary???
-// const shouldLogin = (state) => {
-//   if (state.isLoggedIn) {
-//     return false;
-//   }
-//   return true;
-// };
+const shouldLogin = (state) => {
+  if (state.isLoggedIn) {
+    return false;
+  }
+  return true;
+};
 
-// const loginIfNecessary = () => {
-//   return (dispatch, getState) => {
-//     if (shouldLogin(getState())) {
-//       return dispatch(login());
-//     }
-//   };
-// };
+export const loginIfNecessary = () => {
+  return (dispatch, getState) => {
+    if (shouldLogin(getState())) {
+      return dispatch(login());
+    }
+  };
+};

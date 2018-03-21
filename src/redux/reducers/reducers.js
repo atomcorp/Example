@@ -5,6 +5,7 @@ import {
   MODULE_DONE,
   ASSESSMENT_DONE,
   LOGIN,
+  LOGOUT,
 } from '../actions/action-types.js';
 import type {
   CourseType,
@@ -97,6 +98,13 @@ export const status = (
         id: action.id,
         isLoggedIn: true,
         email: action.email,
+      });
+    case LOGOUT:
+      return Object.assign({}, state, {
+        error: '',
+        isLoggedIn: false,
+        email: '',
+        id: '',
       });
     default:
       return state;

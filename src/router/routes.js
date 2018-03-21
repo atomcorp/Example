@@ -27,15 +27,15 @@ const ValidateModulePath = ({route, resources}) => {
   return <Redirect to={`/course/${courseId}`} />;
 };
 
+// TODO: extract this to a new file
 const PrivateRoute = ({component: Component, ...rest}) => (
   <Route
     {...rest}
     render={(props) => {
       const {status} = rest;
-      // console.log(status.isLoggedIn)
-      return status.isLoggedIn ? (
-        <Component {...props} />
-      ) : (
+      return status.isLoggedIn 
+        ? <Component {...props} />
+        : (
           <Redirect
             to={{
               pathname: '/login',

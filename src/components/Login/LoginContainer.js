@@ -1,13 +1,13 @@
 import {connect} from 'react-redux';
 import Login from './Login';
-import {login} from '../../redux/actions/login-actions';
+import {loginIfNecessary} from '../../redux/actions/login-actions';
 
 const mapStateToProps = (state) => ({
   status: state.status,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onClick: (loginParams) => dispatch(login(loginParams)),
+  onClick: (loginParams) => dispatch(loginIfNecessary(loginParams)),
 });
 
 const LoginContainer = connect(
