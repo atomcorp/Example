@@ -13,7 +13,8 @@ if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
 
-const auth = firebase.auth();
+export const firebaseAuth = firebase.auth();
+export const database = firebase.database();
 
 // check user signed in
 // if (auth.default.currentUser) {
@@ -21,6 +22,3 @@ const auth = firebase.auth();
 // } else {
 //   console.log('Signout');
 // }
-
-
-export default auth;

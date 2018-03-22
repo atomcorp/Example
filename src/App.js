@@ -8,7 +8,7 @@ import type {Node} from 'react';
 import Routes from './router/routes.js';
 import {resources} from './api.js';
 import configureStore from './redux/store/configureStore.js';
-import {firebase} from './firebase/';
+import {auth} from './firebase/';
 // import {postUserData} from './api.js';
 import type {
   MultiChoiceType,
@@ -42,7 +42,7 @@ class App extends Component<void, StateType> {
 
   componentDidMount() {
     // get user data here
-    firebase.default.onAuthStateChanged((user: void) => {
+    auth.onLogin((user: void) => {
       if (user) {
         // TODO:
         // 1. If the user is already logged in via
@@ -59,6 +59,7 @@ class App extends Component<void, StateType> {
         //     isLoggingIn: false,
         //   },
         // });
+        console.log(user);
       }
     });
     resources.then(

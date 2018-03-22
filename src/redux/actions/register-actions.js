@@ -23,11 +23,6 @@ export const register = ({email, pass}) => {
     return auth
       .signUp(email, pass)
       .then((user) => {
-        // registerSuccess()
-        // dispatch(loginIfNecessary({
-        //   email,
-        //   pass,
-        // }));
         dispatch(registerSuccess({
           id: user.uid,
           email: user.email,
