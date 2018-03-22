@@ -26,7 +26,7 @@ type ResourcesType = {
 
 type StateType = {
   loaded: boolean,
-  preLoadedState: ?{}
+  preLoadedState: ?{} | typeof undefined
 };
 
 class App extends Component<void, StateType> {
@@ -35,7 +35,7 @@ class App extends Component<void, StateType> {
     super();
     this.state = {
       loaded: false,
-      preLoadedState: {},
+      preLoadedState: undefined,
     };
     this.resources = {};
   }
@@ -51,9 +51,14 @@ class App extends Component<void, StateType> {
         //    from Firebase Database and pass
         //    to Redux (aka configureStore(state),
         //    else just leave 'undefined'
-        console.log(user);
-      } else {
-        console.log('No user');
+        // this.setState({
+        //   preLoadedState: {
+        //     id: user.uid,
+        //     isLoggedIn: true,
+        //     email: user.email,
+        //     isLoggingIn: false,
+        //   },
+        // });
       }
     });
     resources.then(
@@ -83,7 +88,7 @@ class App extends Component<void, StateType> {
     return (
       <Routes
         resources={this.resources}
-        store={configureStore(this.state.preLoadedState)} />
+        store={configureStore({status: this.state.preLoadedState})} />
     );
   }
 }

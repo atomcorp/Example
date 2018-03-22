@@ -7,13 +7,15 @@ import {
   Redirect,
 } from 'react-router-dom';
 import {connect, Provider} from 'react-redux';
-import CoursesContainer from '../components/Courses/CoursesContainer.js';
-import CourseContainer from '../components/Course/CourseContainer.js';
-import ModuleContainer from '../components/Module/ModuleContainer.js';
-import AssessmentContainer from
-  '../components/Assessment/AssessmentContainer.js';
-import LoginContainer from '../components/Login/LoginContainer.js';
-import Home from '../components/Home/Home.js';
+import {
+  CoursesContainer,
+  CourseContainer,
+  ModuleContainer,
+  AssessmentContainer,
+  LoginContainer,
+  Home,
+  RegisterContainer,
+} from '../components/index.js';
 
 const NoMatch = () => <div>404</div>;
 
@@ -33,7 +35,7 @@ const PrivateRoute = ({component: Component, ...rest}) => (
     {...rest}
     render={(props) => {
       const {status} = rest;
-      return status.isLoggedIn 
+      return status.isLoggedIn
         ? <Component {...props} />
         : (
           <Redirect
@@ -81,6 +83,7 @@ const Routes = ({resources, store}) => (
           <CourseContainer route={route} resources={resources} />
         )} />
         <Route exact path={`/`} component={Home} />
+        <Route exact path={`/register`} component={RegisterContainer} />
         <Route path={`/login`} component={LoginContainer} />
         <Route component={NoMatch}></Route>
       </Switch>

@@ -6,6 +6,7 @@ import {
   ASSESSMENT_DONE,
   LOGIN,
   LOGOUT,
+  REGISTER,
 } from '../actions/action-types.js';
 import type {
   CourseType,
@@ -75,6 +76,8 @@ export const status = (
     isLoggedIn: false,
     email: '',
     id: '',
+    registrationError: '',
+    uploadingState: false,
   },
   action: {type: string, id?: string, email?: string, error: string}
 ): UserStatusType => {
@@ -101,6 +104,25 @@ export const status = (
         isLoggedIn: true,
         email: action.email,
         isLoggingIn: false,
+        error: '',
+      });
+    case REGISTER.REQUEST:
+      return Object.assign({}, state, {
+        isLoggingIn: true,
+      });
+    case REGISTER.FAILURE:
+      return Object.assign({}, state, {
+        registrationError: action.registrationError,
+        id: '',
+        isLoggedIn: false,
+        email: '',
+        isLoggingIn: false,
+        error: '',
+      });
+    case REGISTER.SUCCESS:
+      return Object.assign({}, state, {
+        id: action.id,
+        email: action.id,
       });
     default:
       return state;

@@ -12,6 +12,7 @@ const Home = (): Node => (
     <br />
     <Link to={`/courses`}>Courses</Link>
     <br/>
+    <Link to={`/register`}>Register</Link>
     <br/>
     <Progress />
     <br/>
