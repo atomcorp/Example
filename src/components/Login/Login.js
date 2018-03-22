@@ -22,7 +22,12 @@ type PropsType = {
   }
 };
 
-class Login extends Component<PropsType, void> {
+type StateType = {
+  email: string,
+  pass: string
+};
+
+class Login extends Component<PropsType, StateType> {
   constructor(props: PropsType) {
     super(props);
     this.state = {
@@ -36,10 +41,8 @@ class Login extends Component<PropsType, void> {
       email: this.state.email,
       pass: this.state.pass,
     });
-    // email: 'tmsisatwork+1@gmail.com',
-    // pass: 'password',
   }
-  handleInput(type: string, event: Event) {
+  handleInput(type: string, event: {target: {value: string}}) {
     this.setState({
       [type]: event.target.value,
     });
@@ -57,12 +60,18 @@ class Login extends Component<PropsType, void> {
           <input
             type="text"
             value={this.state.email}
-            onInput={(e: Event): void => this.handleInput('email', e)}
+            onInput={
+              (e: {target: {value: string}}): void =>
+                this.handleInput('email', e)
+              }
             placeholder="Email" />
           <input
             type="password"
-            value={this.state.password}
-            onInput={(e: Event): void => this.handleInput('pass', e)}
+            value={this.state.pass}
+            onInput={
+              (e: {target: {value: string}}): void =>
+                this.handleInput('pass', e)
+              }
             placeholder="Password" />
           <input type="submit" value="Login" />
         </form>

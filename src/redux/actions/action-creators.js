@@ -29,3 +29,6 @@ export const assessmentDone = (id: string): AssessmentDoneType => ({
   type: ASSESSMENT_DONE,
   id,
 });
+
+// TODO: add a middleware function that pasts new state whenever these change
+// call it updateUserProgress() or something

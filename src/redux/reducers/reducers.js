@@ -76,7 +76,7 @@ export const status = (
     email: '',
     id: '',
   },
-  action: {type: string, id?: string, email?: string}
+  action: {type: string, id?: string, email?: string, error: string}
 ): UserStatusType => {
   switch (action.type) {
     case LOGIN.REQUEST:

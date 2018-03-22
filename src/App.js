@@ -25,7 +25,8 @@ type ResourcesType = {
 };
 
 type StateType = {
-  loaded: boolean
+  loaded: boolean,
+  preLoadedState: ?{}
 };
 
 class App extends Component<void, StateType> {
@@ -34,6 +35,7 @@ class App extends Component<void, StateType> {
     super();
     this.state = {
       loaded: false,
+      preLoadedState: {},
     };
     this.resources = {};
   }
@@ -42,11 +44,13 @@ class App extends Component<void, StateType> {
     // get user data here
     firebase.default.onAuthStateChanged((user: void) => {
       if (user) {
-        // TODO: 
+        // TODO:
         // 1. If the user is already logged in via
         //    Firebase Authentication, get their ID.
         // 2. Grab all the data associated with it
-        //    from 
+        //    from Firebase Database and pass
+        //    to Redux (aka configureStore(state),
+        //    else just leave 'undefined'
         console.log(user);
       } else {
         console.log('No user');
