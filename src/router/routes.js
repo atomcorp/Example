@@ -16,7 +16,7 @@ import {
   Home,
   RegisterContainer,
 } from '../components/index.js';
-import {loginIfNecessary} from '../redux/actions/login-actions';
+import {loginSuccess} from '../redux/actions/login-actions';
 
 const NoMatch = () => <div>404</div>;
 
@@ -60,13 +60,13 @@ const PriveRouteContainer = connect(
 )(PrivateRoute);
 
 const Routes = ({resources, store}) => {
-  // const state = store.getState();
-  // if (state.status.isLoggedIn) {
-  //   store.dispatch(loginIfNecessary({
-  //     email: state.status.email,
-  //     id: state.status.id,
-  //   }));
-  // }
+  const state = store.getState();
+  if (state.status.isLoggedIn) {
+    store.dispatch(loginSuccess({
+      email: state.status.email,
+      id: state.status.id,
+    }));
+  }
   return (
     <Provider store={store}>
       <Router basename={`${process.env.PUBLIC_URL}/`}>

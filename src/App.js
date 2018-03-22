@@ -41,26 +41,7 @@ class App extends Component<void, StateType> {
   }
 
   componentDidMount() {
-    auth.onLogin((user: void) => {
-      if (user) {
-        // TODO:
-        // 1. If the user is already logged in via
-        //    Firebase Authentication, get their ID.
-        // 2. Grab all the data associated with it
-        //    from Firebase Database and pass
-        //    to Redux (aka configureStore(state),
-        //    else just leave 'undefined'
-        database.ref('/users/' + user.uid)
-          .once('value')
-          .then((res) => res.val())
-          .then((state) => {
-            console.log(state);
-            this.setState({
-              preLoadedState: state,
-            });
-          });
-      }
-    });
+    /*  */
     // get static learning data here
     resources.then(
       ({
@@ -75,12 +56,32 @@ class App extends Component<void, StateType> {
           moduleComponents,
           modules,
         };
-        this.setState({
-          loaded: true,
-        });
+        // this.setState({
+        //   loaded: true,
+        // });
       }
-    );
+    ).then(() => {
+      auth.onLogin((user: void) => {
+        if (user && !this.state.loaded) {
+          database.ref('/users/' + user.uid)
+            .once('value')
+            .then((res) => res.val())
+            .then((state) => {
+              console.log(state);
+              this.setState({
+                preLoadedState: state,
+                loaded: true,
+              });
+            });
+        } else {
+          this.setState({
+            loaded: true,
+          });
+        }
+      });
+    });
   }
+  
 
   render(): Node {
     if (!this.state.loaded) {
@@ -89,7 +90,7 @@ class App extends Component<void, StateType> {
     return (
       <Routes
         resources={this.resources}
-        store={configureStore({status: this.state.preLoadedState})} />
+        store={configureStore(this.state.preLoadedState)} />
     );
   }
 }
