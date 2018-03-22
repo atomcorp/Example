@@ -2,7 +2,7 @@ import {createStore, applyMiddleware} from 'redux';
 import {createLogger} from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import rootReducer from '../reducers/reducers.js';
-// import {getUserData} from '../../api.js';
+import {database} from '../../firebase';
 
 // Example Of Initial State {
 //   coursesStatuses: {},
@@ -17,9 +17,13 @@ import rootReducer from '../reducers/reducers.js';
 //   },
 // };
 
-// const initialState = firebase.default.currentUser | {};
-
 const loggerMiddleware = createLogger();
+
+const logStateToDatabaseIfSignedIn = (state) => {
+  if (state.status.isLoggedIn) {
+    return database.ref('users/' + state.status.id).set(state);
+  }
+};
 
 const configureStore = (preloadedState) => {
   const store = createStore(
@@ -36,6 +40,10 @@ const configureStore = (preloadedState) => {
       store.replaceReducer(nextRootReducer);
     });
   }
+  // add subscription
+  // Anytime redux is updated, this gets the state
+  // State then gets posted to firebase of whereever
+  store.subscribe(() => logStateToDatabaseIfSignedIn(store.getState()));
   return store;
 };
 
