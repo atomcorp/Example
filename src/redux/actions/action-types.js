@@ -17,6 +17,7 @@ export const LOGIN = {
 };
 
 export const LOGOUT = 'LOGOUT';
+export const IMPORT_STATE = 'IMPORT_STATE';
 
 export const REGISTER = {
   REQUEST: 'REGISTER_REQUEST',

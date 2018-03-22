@@ -16,6 +16,7 @@ import {
   Home,
   RegisterContainer,
 } from '../components/index.js';
+import {loginIfNecessary} from '../redux/actions/login-actions';
 
 const NoMatch = () => <div>404</div>;
 
@@ -58,38 +59,47 @@ const PriveRouteContainer = connect(
   mapStateToProps
 )(PrivateRoute);
 
-const Routes = ({resources, store}) => (
-  <Provider store={store}>
-    <Router basename={`${process.env.PUBLIC_URL}/`}>
-      <Switch>
-        <PriveRouteContainer
-          path={`/courses`}
-          exact component={() => (
-          <CoursesContainer courses={resources.courses} />
-        )} />
-        <PriveRouteContainer
-          path={`/course/:courseId/assessment`}
-          component={(route) => (
-          <AssessmentContainer route={route} resources={resources} />
-        )} />
-        <PriveRouteContainer
-          path={`/course/:courseId/:moduleId`}
-          component={(route) => (
-          <ValidateModulePath route={route} resources={resources} />
-        )} />
-        <PriveRouteContainer
-          path={`/course/:courseId`}
-          component={(route) => (
-          <CourseContainer route={route} resources={resources} />
-        )} />
-        <Route exact path={`/`} component={Home} />
-        <Route exact path={`/register`} component={RegisterContainer} />
-        <Route path={`/login`} component={LoginContainer} />
-        <Route component={NoMatch}></Route>
-      </Switch>
-    </Router>
-  </Provider>
-);
+const Routes = ({resources, store}) => {
+  // const state = store.getState();
+  // if (state.status.isLoggedIn) {
+  //   store.dispatch(loginIfNecessary({
+  //     email: state.status.email,
+  //     id: state.status.id,
+  //   }));
+  // }
+  return (
+    <Provider store={store}>
+      <Router basename={`${process.env.PUBLIC_URL}/`}>
+        <Switch>
+          <PriveRouteContainer
+            path={`/courses`}
+            exact component={() => (
+              <CoursesContainer courses={resources.courses} />
+            )} />
+          <PriveRouteContainer
+            path={`/course/:courseId/assessment`}
+            component={(route) => (
+              <AssessmentContainer route={route} resources={resources} />
+            )} />
+          <PriveRouteContainer
+            path={`/course/:courseId/:moduleId`}
+            component={(route) => (
+              <ValidateModulePath route={route} resources={resources} />
+            )} />
+          <PriveRouteContainer
+            path={`/course/:courseId`}
+            component={(route) => (
+              <CourseContainer route={route} resources={resources} />
+            )} />
+          <Route exact path={`/`} component={Home} />
+          <Route exact path={`/register`} component={RegisterContainer} />
+          <Route path={`/login`} component={LoginContainer} />
+          <Route component={NoMatch}></Route>
+        </Switch>
+      </Router>
+    </Provider>
+  );
+};
 
 Routes.propTypes = {
   resources: PropTypes.object,

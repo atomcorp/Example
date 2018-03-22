@@ -1,11 +1,17 @@
-import {auth} from '../../firebase';
+import {auth, database} from '../../firebase';
 import {
   LOGIN,
   LOGOUT,
+  IMPORT_STATE,
 } from './action-types.js';
 
 const logoutSuccess = () => ({
   type: LOGOUT,
+});
+
+const importData = (data) => ({
+  type: IMPORT_STATE,
+  data,
 });
 
 export const logout = () => {
@@ -35,10 +41,20 @@ const login = ({email, pass}) => {
     return auth
       .signIn(email, pass)
       .then(({user}) => {
-        dispatch(loginSuccess({
-          id: user.uid,
-          email: user.email,
-        }));
+        // download state from database
+        // if it exists
+        database.ref('/users/' + user.uid)
+          .once('value')
+          .then((res) => res.val())
+          .then((userData) => {
+            if (userData) {
+              dispatch(importData(userData));
+            }
+            dispatch(loginSuccess({
+              id: user.uid,
+              email: user.email,
+            }));
+          });
       })
       .catch((err) => dispatch(loginFailure(err.message)));
   };
@@ -58,3 +74,5 @@ export const loginIfNecessary = (loginParams) => {
     }
   };
 };
+
+

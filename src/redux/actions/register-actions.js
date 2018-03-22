@@ -1,5 +1,5 @@
 import {REGISTER} from './action-types';
-import {auth, database} from '../../firebase';
+import {auth} from '../../firebase';
 import {loginIfNecessary} from './login-actions';
 
 const registerRequest = () => ({
@@ -37,11 +37,6 @@ export const register = ({email, pass}) => {
         }));
         return user;
       })
-      // .then((user) => {
-      //   // dispatch to Firebase Storage
-      //   // getState()
-      //   database.ref('users/' + user.uid).set(getState());
-      // })
       .catch((err) => dispatch(registerFailure(err.message)));
   };
 };

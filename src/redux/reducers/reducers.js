@@ -7,6 +7,7 @@ import {
   LOGIN,
   LOGOUT,
   REGISTER,
+  IMPORT_STATE,
 } from '../actions/action-types.js';
 import type {
   CourseType,
@@ -145,9 +146,12 @@ const learnApp = combineReducers({
 });
 
 // https://stackoverflow.com/a/35641992/2368141
-const rootReducer = (state: ?{}, action: {type: string}): void => {
+const rootReducer = (state: ?{}, action: {type: string, data: ?{}}): void => {
   if (action.type === LOGOUT) {
     state = undefined;
+  }
+  if (action.type === IMPORT_STATE) {
+    state = Object.assign({}, action.data);
   }
   return learnApp(state, action);
 };

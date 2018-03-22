@@ -8,7 +8,7 @@ import type {Node} from 'react';
 import Routes from './router/routes.js';
 import {resources} from './api.js';
 import configureStore from './redux/store/configureStore.js';
-import {auth} from './firebase/';
+import {auth, database} from './firebase/';
 // import {postUserData} from './api.js';
 import type {
   MultiChoiceType,
@@ -41,7 +41,6 @@ class App extends Component<void, StateType> {
   }
 
   componentDidMount() {
-    // get user data here
     auth.onLogin((user: void) => {
       if (user) {
         // TODO:
@@ -51,17 +50,18 @@ class App extends Component<void, StateType> {
         //    from Firebase Database and pass
         //    to Redux (aka configureStore(state),
         //    else just leave 'undefined'
-        // this.setState({
-        //   preLoadedState: {
-        //     id: user.uid,
-        //     isLoggedIn: true,
-        //     email: user.email,
-        //     isLoggingIn: false,
-        //   },
-        // });
-        console.log(user);
+        database.ref('/users/' + user.uid)
+          .once('value')
+          .then((res) => res.val())
+          .then((state) => {
+            console.log(state);
+            this.setState({
+              preLoadedState: state,
+            });
+          });
       }
     });
+    // get static learning data here
     resources.then(
       ({
         assessments,
