@@ -70,6 +70,14 @@ type UserStatusType = {
   isLoggedIn: boolean
 };
 
+type UserStatusActionType = {
+  type: string,
+  id?: string,
+  email?: string,
+  error?: string,
+  registrationError?: string
+};
+
 export const status = (
   state: UserStatusType = {
     error: '',
@@ -79,7 +87,7 @@ export const status = (
     registrationError: '',
     uploadingState: false,
   },
-  action: {type: string, id?: string, email?: string, error: string}
+  action: UserStatusActionType
 ): UserStatusType => {
   switch (action.type) {
     case LOGIN.REQUEST:

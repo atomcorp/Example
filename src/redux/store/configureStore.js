@@ -27,7 +27,7 @@ const configureStore = (preloadedState) => {
     preloadedState,
     applyMiddleware(thunkMiddleware, loggerMiddleware)
   );
-  // see Hot reloading reducers is now explicit:
+  // see "Hot reloading reducers is now explicit":
   // https://github.com/reactjs/react-redux/releases/tag/v2.0.0
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers

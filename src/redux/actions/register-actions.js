@@ -23,7 +23,6 @@ export const register = ({email, pass}) => {
     return auth
       .signUp(email, pass)
       .then((user) => {
-        console.log(user);
         // registerSuccess()
         // dispatch(loginIfNecessary({
         //   email,
@@ -31,8 +30,8 @@ export const register = ({email, pass}) => {
         // }));
         dispatch(registerSuccess({
           id: user.uid,
-          email: user.email
-        }))
+          email: user.email,
+        }));
         return user;
       })
       .then((user) => {
@@ -47,7 +46,7 @@ export const register = ({email, pass}) => {
           pass,
         }));
       })
-      .catch(err => dispatch(registerFailure(err.message)))
+      .catch((err) => dispatch(registerFailure(err.message)));
   };
 };
 

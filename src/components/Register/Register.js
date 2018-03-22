@@ -1,10 +1,28 @@
+// @flow
 import React, {Component} from 'react';
+import type {Node} from 'react';
 import {connect} from 'react-redux';
 import Page from '../../containers/page/page';
 import {register} from '../../redux/actions/register-actions';
 
-class Register extends Component {
-  constructor(props) {
+type PropsType = {
+  registrationError: string,
+  attemptToRegister: ({
+    email: string,
+    pass: string
+  }) => void,
+  isLoggingIn: string
+};
+
+type StateType = {
+  email: string,
+  pass: string,
+  confirmPass: string,
+  error: string
+};
+
+class Register extends Component<PropsType, StateType> {
+  constructor(props: PropsType) {
     super(props);
     this.state = {
       email: '',
@@ -13,12 +31,12 @@ class Register extends Component {
       error: 'No errors',
     };
   }
-  handleInput(type, event) {
+  handleInput(type: string, event: {target: {value: string}}) {
     this.setState({
       [type]: event.target.value,
     });
   }
-  handleSubmit = (event) => {
+  handleSubmit = (event: Event) => {
     event.preventDefault();
     if (this.state.pass !== this.state.confirmPass) {
       this.setState({
@@ -31,7 +49,7 @@ class Register extends Component {
       pass: this.state.pass,
     });
   }
-  render() {
+  render(): Node {
     return (
       <Page>
         <div>
@@ -39,19 +57,25 @@ class Register extends Component {
           <form onSubmit={this.handleSubmit}>
             Email:
             <input
-              onInput={(e) => this.handleInput('email', e)}
+              onInput={(e: {target: {value: string}}): void =>
+                this.handleInput('email', e)
+              }
               value={this.state.email}
               type="text" placeholder="Email" />
             <br />
             Password:
             <input
-              onInput={(e) => this.handleInput('pass', e)}
+              onInput={(e: {target: {value: string}}): void =>
+                this.handleInput('pass', e)
+              }
               value={this.state.pass}
               type="password" placeholder="Password" />
             <br />
             Confirm password:
             <input
-              onInput={(e) => this.handleInput('confirmPass', e)}
+              onInput={(e: {target: {value: string}}): void =>
+                this.handleInput('confirmPass', e)
+              }
               value={this.state.confirmPass}
               type="password" placeholder="Confirm password" />
             <br />
@@ -66,10 +90,19 @@ class Register extends Component {
   }
 }
 
-const mapStateToProps = (state) => state.status;
+type LoginDataType = {
+  email: string,
+  pass: string
+};
 
-const mapDispatchToProps = (dispatch) => ({
-  attemptToRegister: (registerParams) => dispatch(register(registerParams)),
+const mapStateToProps = (state: {status: ?{}}): ?{} => state.status;
+
+const mapDispatchToProps = (
+  dispatch: (register: () => void) => void
+): {attemptToRegister: any} => ({
+  attemptToRegister: (
+    registerParams: LoginDataType
+  ): void => dispatch(register(registerParams)),
 });
 
 const RegisterContainer = connect(

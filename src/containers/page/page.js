@@ -5,12 +5,17 @@ import {Link} from 'react-router-dom';
 import style from './page.module.css';
 import LogoutContainer from '../../components/Logout/Logout';
 
+// Add header links
+
 class Page extends Component {
   render() {
     return (
       <div className={style.page}>
         <div className={style.header}>
           <Link to="/">Cambridge Audio | Learn</Link>
+          <div>
+            <Link to="/register">Register</Link>
+          </div>
           <LogoutContainer />
         </div>
         <div className={style.content}>
@@ -22,7 +27,6 @@ class Page extends Component {
     );
   }
 }
-
 
 Page.propTypes = {
   children: PropTypes.node,

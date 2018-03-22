@@ -16,7 +16,9 @@
     "fetch": true,
     "localStorage": true,
     "process": true,
-    "document": true
+    "document": true,
+    "module": true,
+    "require": true
   },
   "parser": "babel-eslint",
   "parserOptions": {
