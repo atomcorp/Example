@@ -43,45 +43,49 @@ class App extends Component<void, StateType> {
   componentDidMount() {
     /*  */
     // get static learning data here
-    resources.then(
-      ({
-        assessments,
-        courses,
-        moduleComponents,
-        modules,
-      }: ResourcesType) => {
-        this.resources = {
+    Promise.all([
+      resources.then(
+        ({
           assessments,
           courses,
           moduleComponents,
           modules,
-        };
-        // this.setState({
-        //   loaded: true,
-        // });
-      }
-    ).then(() => {
+        }: ResourcesType) => {
+          this.resources = {
+            assessments,
+            courses,
+            moduleComponents,
+            modules,
+          };
+        }
+      ),
       auth.onLogin((user: void) => {
         if (user && !this.state.loaded) {
+          console.log('Loading profile');
           database.ref('/users/' + user.uid)
             .once('value')
             .then((res) => res.val())
             .then((state) => {
-              console.log(state);
               this.setState({
                 preLoadedState: state,
                 loaded: true,
               });
             });
         } else {
+          console.log('Don\'t bother');
           this.setState({
             loaded: true,
           });
         }
-      });
-    });
+      }),
+    ]).then((res) => console.log('done', res[1]));
   }
-  
+
+  componentWillUpdate() {
+    // if (auth.getCurrentUser()) {
+      
+    // }
+  }
 
   render(): Node {
     if (!this.state.loaded) {
