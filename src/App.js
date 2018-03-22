@@ -9,7 +9,6 @@ import Routes from './router/routes.js';
 import {resources} from './api.js';
 import configureStore from './redux/store/configureStore.js';
 import {auth, database} from './firebase/';
-// import {postUserData} from './api.js';
 import type {
   MultiChoiceType,
   CourseType,
@@ -43,25 +42,23 @@ class App extends Component<void, StateType> {
   componentDidMount() {
     /*  */
     // get static learning data here
-    Promise.all([
-      resources.then(
-        ({
+    resources.then(
+      ({
+        assessments,
+        courses,
+        moduleComponents,
+        modules,
+      }: ResourcesType) => {
+        this.resources = {
           assessments,
           courses,
           moduleComponents,
           modules,
-        }: ResourcesType) => {
-          this.resources = {
-            assessments,
-            courses,
-            moduleComponents,
-            modules,
-          };
-        }
-      ),
+        };
+      }
+    ).then(() => {
       auth.onLogin((user: void) => {
         if (user && !this.state.loaded) {
-          console.log('Loading profile');
           database.ref('/users/' + user.uid)
             .once('value')
             .then((res) => res.val())
@@ -72,19 +69,12 @@ class App extends Component<void, StateType> {
               });
             });
         } else {
-          console.log('Don\'t bother');
           this.setState({
             loaded: true,
           });
         }
-      }),
-    ]).then((res) => console.log('done', res[1]));
-  }
-
-  componentWillUpdate() {
-    // if (auth.getCurrentUser()) {
-      
-    // }
+      });
+    });
   }
 
   render(): Node {
