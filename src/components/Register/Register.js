@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import type {Node} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import Page from '../../containers/page/page';
 import {register} from '../../redux/actions/register-actions';
 
@@ -11,7 +12,15 @@ type PropsType = {
     email: string,
     pass: string
   }) => void,
-  isLoggingIn: string
+  isLoggingIn: string,
+  isLoggedIn: true,
+  location: {
+    state: {
+      from: {
+        pathname: string
+      }
+    }
+  }
 };
 
 type StateType = {
@@ -50,6 +59,11 @@ class Register extends Component<PropsType, StateType> {
     });
   }
   render(): Node {
+    const {from} = this.props.location.state
+      || {from: {pathname: `/courses`}};
+    if (this.props.isLoggedIn) {
+      return <Redirect to={from} />;
+    }
     return (
       <Page>
         <div>
