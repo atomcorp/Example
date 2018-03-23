@@ -18,23 +18,3 @@ const fetchEverything = () => Promise.all(
 
 export const resources = fetchEverything().then((res) =>
   res.reduce((acc, val) => Object.assign({}, acc, val), {}));
-
-// all temporary
-// Need to post user data to server
-const userId = 'tom';
-
-const localSave = (data) => {
-  localStorage.setItem(userId, JSON.stringify(data));
-};
-
-const localGet = () => JSON.parse(localStorage.getItem(userId));
-
-const localClear = () => {
-  localStorage.removeItem(userId);
-};
-
-export const postUserData = (data) => localSave(data);
-
-export const getUserData = () => localGet();
-
-export const clearUserData = () => localClear();

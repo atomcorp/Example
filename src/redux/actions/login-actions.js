@@ -4,6 +4,10 @@ import {
   LOGOUT,
   IMPORT_STATE,
 } from './action-types.js';
+import {
+  addToLocalStorage,
+  clearFromLocalStorage,
+} from '../../utility/utility';
 
 const logoutSuccess = () => ({
   type: LOGOUT,
@@ -16,7 +20,10 @@ const importData = (data) => ({
 
 export const logout = () => {
   return (dispatch) => {
-    return auth.signOut().then((res) => dispatch(logoutSuccess()));
+    return auth.signOut().then((res) => {
+      clearFromLocalStorage(LOGIN.SUCCESS);
+      return dispatch(logoutSuccess());
+    });
   };
 };
 
@@ -54,6 +61,7 @@ const login = ({email, pass}) => {
               id: user.uid,
               email: user.email,
             }));
+            addToLocalStorage(LOGIN.SUCCESS, user.uid);
           });
       })
       .catch((err) => dispatch(loginFailure(err.message)));
@@ -74,5 +82,4 @@ export const loginIfNecessary = (loginParams) => {
     }
   };
 };
-
 

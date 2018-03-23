@@ -8,13 +8,15 @@ import type {Node} from 'react';
 import Routes from './router/routes.js';
 import {resources} from './api.js';
 import configureStore from './redux/store/configureStore.js';
-import {auth, database} from './firebase/';
+import {database} from './firebase/';
 import type {
   MultiChoiceType,
   CourseType,
   LessonType,
   ModuleType,
 } from './types.js';
+import {LOGIN} from './redux/actions/action-types';
+import {getFromLocalStorage} from './utility/utility';
 
 type ResourcesType = {
   assessments: {} | MultiChoiceType,
@@ -57,22 +59,22 @@ class App extends Component<void, StateType> {
         };
       }
     ).then(() => {
-      auth.onLogin((user: void) => {
-        if (user && !this.state.loaded) {
-          database.ref('/users/' + user.uid)
-            .once('value')
-            .then((res) => res.val())
-            .then((state) => {
-              this.setState({
-                preLoadedState: state,
-                loaded: true,
-              });
+      // check if user is logged in with our localStorage reference
+      const userIdIfLoggedInAtLoad = getFromLocalStorage(LOGIN.SUCCESS);
+      if (userIdIfLoggedInAtLoad) {
+        return database.ref('/users/' + userIdIfLoggedInAtLoad)
+          .once('value')
+          .then((res: {val: any} ): {} => res.val())
+          .then((state: any) => {
+            this.setState({
+              preLoadedState: state,
             });
-        } else {
-          this.setState({
-            loaded: true,
           });
-        }
+      }
+      return;
+    }).then(() => {
+      this.setState({
+        loaded: true,
       });
     });
   }
@@ -88,13 +90,5 @@ class App extends Component<void, StateType> {
     );
   }
 }
-
-// Anytime redux is updated, this gets the state
-// State then gets posted whereever
-// store.subscribe((): {
-//   coursesStatuses: {},
-//   moduleProgression: {},
-//   assessmentStatuses: {}
-// } => postUserData(store.getState()));
 
 export default App;

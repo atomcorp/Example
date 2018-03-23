@@ -2,7 +2,6 @@
 import React from 'react';
 import type {Node} from 'react';
 import Page from '../../containers/page/page.js';
-import {clearUserData} from '../../api.js';
 import {Link} from 'react-router-dom';
 
 const Home = (): Node => (
@@ -32,11 +31,9 @@ const Progress = (): Node => (
 
 const Reset = (): Node => {
   return (
-    <button onClick={() => {
-      clearUserData();
-    }}>
+    <button>
       Clear localStorage (debug)
-  </button>
+    </button>
   );
 };
 
