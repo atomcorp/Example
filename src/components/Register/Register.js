@@ -28,7 +28,8 @@ type StateType = {
   email: string,
   pass: string,
   confirmPass: string,
-  passwordsMatch: boolean
+  passwordsMatch: boolean,
+  confirmPasswordsIsDirty: boolean
 };
 
 class Register extends Component<PropsType, StateType> {
@@ -39,12 +40,15 @@ class Register extends Component<PropsType, StateType> {
       pass: '',
       confirmPass: '',
       passwordsMatch: false,
+      confirmPasswordsIsDirty: false,
     };
   }
   handleInput = (type: string, event: Event) => {
     if (typeof event.target.value === 'string') {
       this.setState({
         [type]: event.target.value,
+        // confirmPasswordsIsDirty: !prevState.confirmPasswordsIsDirty && type === 'confirmPass' ? true : false,
+        passwordsMatch: this.handleIfPasswordsMatch(),
       });
     }
   }
@@ -52,7 +56,7 @@ class Register extends Component<PropsType, StateType> {
     event.preventDefault();
     if (this.state.pass !== this.state.confirmPass) {
       this.setState({
-        passwordsMatch: true,
+        confirmPasswordsIsDirty: true,
       });
       return;
     }
@@ -60,6 +64,16 @@ class Register extends Component<PropsType, StateType> {
       email: this.state.email,
       pass: this.state.pass,
     });
+  }
+  handleIfPasswordsMatch(): boolean {
+    const {
+      pass,
+      confirmPass,
+    } = this.state;
+    if (pass === confirmPass) {
+      return true;
+    }
+    return false;
   }
   render(): Node {
     const {from} = this.props.location.state
@@ -95,7 +109,9 @@ const RegistrationForm = ({
   state: {
     email: string,
     pass: string,
-    confirmPass: string
+    confirmPass: string,
+    passwordsMatch: boolean,
+    confirmPasswordsIsDirty: boolean
   }
 }): Node => (
   <form onSubmit={handleSubmit}>
@@ -119,7 +135,9 @@ const RegistrationForm = ({
       value={state.confirmPass}
       type={'password'}
       placeholder={''}
-      handleInput={handleInput} />
+      handleInput={handleInput}
+      passwordsMatch={state.passwordsMatch}
+      confirmPasswordsIsDirty={state.confirmPasswordsIsDirty} />
     <input type="submit" value="Register" />
   </form>
 );
@@ -131,16 +149,28 @@ const InputWithLabel = ({
   type,
   placeholder,
   handleInput,
+  ...props
 }: {
   label: string,
   inputType: string,
   value: string,
   type: string,
   placeholder: string,
-  handleInput: (string, Event) => void
+  handleInput: (string, Event) => void,
+  props?: any,
+  passwordsMatch?: boolean,
+  confirmPasswordsIsDirty?: boolean
 }): Node => (
   <label className={styles.inputBlock}>
     {label}:&nbsp;
+    {
+      // @FlowFixMe
+      inputType === 'confirmPass'
+      && props.confirmPasswordsIsDirty
+      && !props.passwordsMatch
+        ? 'Passwords do not match'
+        : ''
+    }
     <input
       onInput={(e: Event): void =>
         handleInput(inputType, e)
