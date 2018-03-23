@@ -91,8 +91,7 @@ class Register extends Component<PropsType, StateType> {
           <RegistrationForm
             handleSubmit={this.handleSubmit}
             handleInput={this.handleInput}
-            state={this.state}
-            />
+            state={this.state} />
           {this.props.isLoggingIn ? 'Registering you...' : ''}
         </div>
       </Page >

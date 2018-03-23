@@ -11,6 +11,7 @@
  */
 
 import React, {Component} from 'react';
+import type {Node} from 'react';
 import Page from '../../containers/page/page.js';
 import {
   ModuleInformation,
@@ -23,6 +24,7 @@ import {Redirect} from 'react-router-dom';
 import type {
   ResourcesType,
   ModuleFieldsType,
+  ModuleComponentType,
 } from '../../types.js';
 
 type PropsType = {
@@ -123,6 +125,10 @@ export class Module extends Component<PropsType, StateType> {
           moduleName={ this.moduleData.title }
           currentModuleComponent={ this.state.visibleModuleComponent }
           moduleComponentLength={ this.moduleComponentLength } />
+        <Sidebar
+          modulesComponents={this.moduleData.field_lesson}
+          allModuleComponents={this.resources.moduleComponents}
+          visibleModuleComponentId={this.state.visibleModuleComponent} />
         <ModuleComponents
           modulesComponents={ this.moduleData.field_lesson }
           allModuleComponents={ this.resources.moduleComponents }
@@ -145,3 +151,35 @@ export class Module extends Component<PropsType, StateType> {
     );
   }
 }
+
+type ModuleComponentsType = {
+  modulesComponents: Array<string>,
+  allModuleComponents: ModuleComponentType,
+  visibleModuleComponentId: number
+};
+
+const Sidebar = ({
+  modulesComponents,
+  allModuleComponents,
+  visibleModuleComponentId,
+}: ModuleComponentsType): Node => (
+  <ul>
+    {
+      modulesComponents.map((
+        moduleComponentId: string,
+        i: number
+      ): Node => (
+            <li key={i} style={{
+              opacity: visibleModuleComponentId > i + 1 ? '0.5' : '1',
+              }}>
+            {
+                allModuleComponents[moduleComponentId].type === 'Lesson'
+                  ? allModuleComponents[moduleComponentId].field_headline
+                  : allModuleComponents[moduleComponentId].type
+            }
+          </li>
+        )
+      )
+    }
+  </ul>
+);
