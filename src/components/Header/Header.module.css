@@ -1,0 +1,35 @@
+.header {
+  padding: 30px 15px;
+  border-bottom: 1px solid;
+  background: #ececec;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  
+}
+
+.link {
+  padding: 0 0 0 15px;
+  display: inline-block;
+}
+
+.user {
+  margin: 0 0 0 auto;
+}
+
+.loggedIn {
+  display: flex;
+  align-items: center;
+}
+
+.logout {
+  margin: 0 0 0 15px;
+}

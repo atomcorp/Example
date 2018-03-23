@@ -7,16 +7,11 @@ import {Link} from 'react-router-dom';
 const Home = (): Node => (
   <Page>
     <h1>Home</h1>
-    <Link to={`/login`}>Login</Link>
-    <br />
     <Link to={`/courses`}>Courses</Link>
-    <br/>
-    <Link to={`/register`}>Register</Link>
     <br/>
     <Progress />
     <br/>
     <br/>
-    <Reset />
   </Page>
 );
 
@@ -28,13 +23,5 @@ const Progress = (): Node => (
     If user has not started a course, will be blank or something
   </div>
 );
-
-const Reset = (): Node => {
-  return (
-    <button>
-      Clear localStorage (debug)
-    </button>
-  );
-};
 
 export default Home;

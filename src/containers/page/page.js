@@ -1,23 +1,15 @@
 // Not actually a container!
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
 import style from './page.module.css';
-import LogoutContainer from '../../components/Logout/Logout';
-
+import HeaderContainer from '../../components/Header/Header';
 // Add header links
 
 class Page extends Component {
   render() {
     return (
       <div className={style.page}>
-        <div className={style.header}>
-          <Link to="/">Cambridge Audio | Learn</Link>
-          <div>
-            <Link to="/register">Register</Link>
-          </div>
-          <LogoutContainer />
-        </div>
+        <HeaderContainer />
         <div className={style.content}>
           {this.props.children}
         </div>
