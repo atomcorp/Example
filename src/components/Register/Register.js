@@ -47,7 +47,8 @@ class Register extends Component<PropsType, StateType> {
     if (typeof event.target.value === 'string') {
       this.setState({
         [type]: event.target.value,
-        // confirmPasswordsIsDirty: !prevState.confirmPasswordsIsDirty && type === 'confirmPass' ? true : false,
+        // confirmPasswordsIsDirty: !prevState.confirmPasswordsIsDirty
+        // && type === 'confirmPass' ? true : false,
         passwordsMatch: this.handleIfPasswordsMatch(),
       });
     }
