@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import Page from '../../containers/page/page';
 import {register} from '../../redux/actions/register-actions';
+import styles from './Register.module.css';
 
 type PropsType = {
   registrationError: string,
@@ -27,7 +28,7 @@ type StateType = {
   email: string,
   pass: string,
   confirmPass: string,
-  error: string
+  passwordsMatch: boolean
 };
 
 class Register extends Component<PropsType, StateType> {
@@ -37,19 +38,21 @@ class Register extends Component<PropsType, StateType> {
       email: '',
       pass: '',
       confirmPass: '',
-      error: 'No errors',
+      passwordsMatch: false,
     };
   }
-  handleInput(type: string, event: {target: {value: string}}) {
-    this.setState({
-      [type]: event.target.value,
-    });
+  handleInput = (type: string, event: Event) => {
+    if (typeof event.target.value === 'string') {
+      this.setState({
+        [type]: event.target.value,
+      });
+    }
   }
   handleSubmit = (event: Event) => {
     event.preventDefault();
     if (this.state.pass !== this.state.confirmPass) {
       this.setState({
-        error: 'Passwords do not match',
+        passwordsMatch: true,
       });
       return;
     }
@@ -68,41 +71,85 @@ class Register extends Component<PropsType, StateType> {
       <Page>
         <div>
           <h1>Register</h1>
-          <form onSubmit={this.handleSubmit}>
-            Email:
-            <input
-              onInput={(e: {target: {value: string}}): void =>
-                this.handleInput('email', e)
-              }
-              value={this.state.email}
-              type="text" placeholder="Email" />
-            <br />
-            Password:
-            <input
-              onInput={(e: {target: {value: string}}): void =>
-                this.handleInput('pass', e)
-              }
-              value={this.state.pass}
-              type="password" placeholder="Password" />
-            <br />
-            Confirm password:
-            <input
-              onInput={(e: {target: {value: string}}): void =>
-                this.handleInput('confirmPass', e)
-              }
-              value={this.state.confirmPass}
-              type="password" placeholder="Confirm password" />
-            <br />
-            {this.state.error}
-            {this.props.registrationError}
-            <input type="submit" value="Register" />
-            {this.props.isLoggingIn ? 'Registering you...' : 'No reg'}
-          </form>
+          {this.state.passwordsMatch ? '' : 'Passwords do not match'}
+          {this.props.registrationError}
+          <RegistrationForm
+            handleSubmit={this.handleSubmit}
+            handleInput={this.handleInput}
+            state={this.state}
+            />
+          {this.props.isLoggingIn ? 'Registering you...' : ''}
         </div>
       </Page >
     );
   }
 }
+
+const RegistrationForm = ({
+  handleSubmit,
+  handleInput,
+  state,
+}: {
+  handleSubmit: (Event) => void,
+  handleInput: (string, Event) => void,
+  state: {
+    email: string,
+    pass: string,
+    confirmPass: string
+  }
+}): Node => (
+  <form onSubmit={handleSubmit}>
+    <InputWithLabel
+      label={'Email'}
+      inputType={'email'}
+      value={state.email}
+      type={'text'}
+      placeholder={''}
+      handleInput={handleInput} />
+    <InputWithLabel
+      label={'Password'}
+      inputType={'pass'}
+      value={state.pass}
+      type={'password'}
+      placeholder={''}
+      handleInput={handleInput} />
+    <InputWithLabel
+      label={'Confirm password'}
+      inputType={'confirmPass'}
+      value={state.confirmPass}
+      type={'password'}
+      placeholder={''}
+      handleInput={handleInput} />
+    <input type="submit" value="Register" />
+  </form>
+);
+
+const InputWithLabel = ({
+  label,
+  inputType,
+  value,
+  type,
+  placeholder,
+  handleInput,
+}: {
+  label: string,
+  inputType: string,
+  value: string,
+  type: string,
+  placeholder: string,
+  handleInput: (string, Event) => void
+}): Node => (
+  <label className={styles.inputBlock}>
+    {label}:&nbsp;
+    <input
+      onInput={(e: Event): void =>
+        handleInput(inputType, e)
+      }
+      value={value}
+      type={type}
+      placeholder={placeholder} />
+  </label>
+);
 
 type LoginDataType = {
   email: string,
