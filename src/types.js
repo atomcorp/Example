@@ -11,11 +11,21 @@ export type MultiChoiceType = {
 };
 
 export type MultiChoiceFieldsType = {
-  "field_correct_choice": string,
-  "field_incorrect_choices": Array<string>,
-  "field_question": string,
-  "id": string,
-  "type": 'Multiple-Choice Question'
+  "field_correct_choice": Array<{
+    value: string
+  }>,
+  "field_incorrect_choices": Array<{
+    value: string
+  }>,
+  "field_question": Array<{
+    value: string
+  }>,
+  "id": Array<{
+    value: string
+  }>,
+  "type": Array<{
+    target_id: 'question'
+  }>
 };
 
 export type LessonType = {
@@ -23,11 +33,21 @@ export type LessonType = {
 };
 
 export type LessonFieldsType = {
-  "field_body": string,
-  "field_headline": string,
-  "field_youtube_id": string | void,
-  "id": string,
-  "type": 'Lesson'
+  "field_body": Array<{
+    value: string
+  }>,
+  "field_headline": Array<{
+    value: string
+  }>,
+  "field_youtube_id": Array<{
+    value: string
+  }> | void,
+  "id": Array<{
+    value: string
+  }>,
+  "type": Array<{
+    value: 'lesson'
+  }>
 };
 
 export type ModuleComponentType = MultiChoiceType | LessonType;
@@ -37,11 +57,21 @@ export type CourseType = {
 };
 
 export type CourseFieldsType = {
-  "assessment": Array<string>,
-  "field_introduction": string,
-  "modules": Array<string>,
-  "id": string,
-  "title": string
+  "field_course_assessment": Array<{
+    target_id: string
+  }>,
+  "field_introduction": Array<{
+    value: string
+  }>,
+  "field_modules": Array<{
+    target_id: string
+  }>,
+  "nid": Array<{
+    value: string
+  }>,
+  "title": Array<{
+    value: string
+  }>
 };
 
 export type ModuleType = {
@@ -49,15 +79,21 @@ export type ModuleType = {
 };
 
 export type ModuleFieldsType = {
-  "field_lesson": Array<string>,
-  "id": string,
-  "title": string
+  "field_add_components": Array<{
+    target_id: string
+  }>,
+  "nid": Array<{
+    value: string
+  }>,
+  "title": Array<{
+    value: string
+  }>
 };
 
 export type ResourcesType = {
   assessments: {} | MultiChoiceType,
   courses: {} | CourseType,
-  moduleComponents: {} | LessonType | MultiChoiceType,
+  components: {} | LessonType | MultiChoiceType,
   modules: {} | ModuleType,
   loaded: boolean
 };

@@ -23,13 +23,19 @@ import type {
 
 const testCourseComplete = (
   courseId: string,
-  modulesIds: Array<string>,
+  modules: Array<{
+    target_id: string
+  }>,
   moduleStatuses: ModuleStatusesType,
   assessmentStatuses: AssessmentStatusesType
 ): boolean => {
   // all courses module complete
   // AND assessment complete
-  return Object.keys(modulesIds).every((id: string): boolean => moduleStatuses[id])
+  return modules.every((
+    module: {target_id: string}
+  ): boolean => {
+    return moduleStatuses[module.target_id];
+  })
     && assessmentStatuses[courseId]
     ? true : false;
 };

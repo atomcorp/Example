@@ -4,7 +4,7 @@ import type {Node} from 'react';
 import {CourseStatuses} from '../../redux/actions/action-types.js';
 import Page from '../../containers/page/page.js';
 import {Link} from 'react-router-dom';
-import type {StatusType} from '../../types.js';
+import type {StatusType, CourseType} from '../../types.js';
 
 type CourseButtonType = {
   title: string,
@@ -39,15 +39,7 @@ export const CourseButton = ({
 };
 
 type CourseListType = {
-  courses: {
-    [id: string]: {
-      "assessment": Array<string>,
-      "field_introduction": string,
-      "modules": Array<string>,
-      "id": string,
-      "title": string
-    }
-  },
+  courses: CourseType,
   coursesStatuses: {
     [id: string]: StatusType
   },
@@ -78,15 +70,7 @@ const CourseList = ({
 };
 
 type CoursesType = {
-  courses: {
-    [id: string]: {
-      "assessment": Array<string>,
-      "field_introduction": string,
-      "modules": Array<string>,
-      "id": string,
-      "title": string
-    }
-  },
+  courses: CourseType,
   coursesStatuses: {
     [id: string]: StatusType
   },

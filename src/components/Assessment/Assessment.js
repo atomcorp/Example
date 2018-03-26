@@ -13,7 +13,7 @@ import {MultiChoiceAssessment}
   from '../AssessmentComponents/MultiChoiceAssessment.js';
 import AssessmentButtons from './AssessmentButtons.js';
 
-const TitleElement = ({title}: { title: string }): Node => {
+const TitleElement = ({title}: { title: Array<{value: string}> }): Node => {
   return (
     <h1>{title[0].value} Assessment</h1>
   );
@@ -66,10 +66,14 @@ export class Assessment extends Component<PropsType, StateType> {
     const completeAssessmentHoF = (id: string): () => void => (): void => (
       this.props.done(id)
     );
-    this.testsStatuses = resetTestStatuses(this.courseData.field_course_assessment);
+    this.testsStatuses = resetTestStatuses(
+      this.courseData.field_course_assessment
+    );
     this.completeAssessment = completeAssessmentHoF(this.courseId);
     this.score = 0;
-    this.target = Math.ceil(this.courseData.field_course_assessment.length * 0.8);
+    this.target = Math.ceil(
+      this.courseData.field_course_assessment.length * 0.8
+    );
     this.state = {
       completed: false,
       submitted: false,
@@ -132,7 +136,9 @@ export class Assessment extends Component<PropsType, StateType> {
     );
   }
   reset = () => {
-    this.testsStatuses = resetTestStatuses(this.courseData.field_course_assessment);
+    this.testsStatuses = resetTestStatuses(
+      this.courseData.field_course_assessment
+    );
     this.score = 0;
     this.setState({
       submitted: false,
@@ -152,8 +158,12 @@ export class Assessment extends Component<PropsType, StateType> {
           {
             this.state.submitted && (
               this.state.passed
-                ? `Passed: ${this.score} / ${this.courseData.field_course_assessment.length}`
-                : `Failed: ${this.score} / ${this.courseData.field_course_assessment.length}`
+                ? `Passed: ${this.score} / ${
+                  this.courseData.field_course_assessment.length
+                }`
+                : `Failed: ${this.score} / ${
+                  this.courseData.field_course_assessment.length
+                }`
             )
           }
           <br/>
@@ -163,11 +173,13 @@ export class Assessment extends Component<PropsType, StateType> {
         </div>
         {
           this.courseData.field_course_assessment.map(
-            (assessment: string, i: number): Node => (
+            (assessment: {target_id: string}, i: number): Node => (
               <MultiChoiceAssessment
                 key={i}
                 id={assessment.target_id}
-                assessment={this.props.resources.components[assessment.target_id]}
+                assessment={
+                  this.props.resources.components[assessment.target_id]
+                }
                 handleClick={this.handleClick}
                 submitted={this.state.submitted} />
             )
@@ -218,7 +230,9 @@ const gradeAssessment = (target: number, score: number): boolean => {
 };
 
 const resetTestStatuses = (
-  assessment: Array<string>
+  assessment: Array<{
+    target_id: string
+  }>
 ): Array<AssessmentTestsType> => {
   return assessment.map(
     (test: string): AssessmentTestsType => ({

@@ -42,11 +42,7 @@ const CourseModuleElement = ({
           moduleComponents.map((
             moduleComponent: MultiChoiceFieldsType | LessonFieldsType | {},
             i: number
-          ): Node =>
-            {
-
-              return <ModuleComponentElement key={i} {...moduleComponent} />
-            }
+          ): Node => <ModuleComponentElement key={i} {...moduleComponent} />
           )
         }
       </ul>
@@ -61,7 +57,7 @@ const CourseModuleElement = ({
 
 const ModuleComponentElement = ({
   field_headline,
-}: { field_headline: string | void }): Node => {
+}: { field_headline: Array<{value: string}> | void }): Node => {
   if (!field_headline) {
     return <li>Test</li>;
   }
@@ -73,8 +69,8 @@ const ModuleComponentElement = ({
 };
 
 type CoursePresentationType = {
-  title: string,
-  field_introduction: string
+  title: Array<{value: string}>,
+  field_introduction: Array<{value: string}>
 };
 
 export const CoursePresentation = ({
@@ -101,8 +97,10 @@ export const CourseModulesPresentation = ({
   moduleStatuses,
 }: CourseModulesPresentationType
 ): Node => (
-  courseData.field_modules.map((module: string, i: number): Node =>
-    {
+    courseData.field_modules.map((
+      module: {target_id: string},
+      i: number
+    ): Node => {
       return <CourseModuleElement
         key={i}
         title={resources.modules[module.target_id].title[0].value}
@@ -111,7 +109,7 @@ export const CourseModulesPresentation = ({
         moduleStatus={moduleStatuses[module.target_id]}
         moduleComponents={
           resources.modules[module.target_id].field_add_components.map(
-            (component: string): {} | ModuleComponentType =>
+            (component: {target_id: string}): {} | ModuleComponentType =>
               resources.components[component.target_id]
           )
         } />;

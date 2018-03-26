@@ -2,13 +2,10 @@
 import React, {Component} from 'react';
 import type {Node} from 'react';
 import {once as myOnce, shuffle} from '../../utility/utility.js';
+import type {MultiChoiceFieldsType} from '../../types.js';
 
 type PropsType = {
-  assessment: {
-    field_correct_choice: string,
-    field_incorrect_choices: Array<string>,
-    field_question: string
-  },
+  assessment: MultiChoiceFieldsType,
   handleClick: ({id: string, isCorrect: boolean}) => void,
   id: string,
   submitted: boolean
@@ -26,10 +23,10 @@ export const MultiChoiceAssessment = (props: PropsType): Node => (
           [props.assessment.field_correct_choice[0],
           ...props.assessment.field_incorrect_choices,
           ].reduce((
-            acc: Array<{choice: string, isCorrect: boolean}>,
-            choice: string,
+            acc: [] | Array<{choice: {value: string}, isCorrect: boolean}>,
+            choice: {value: string},
             i: number
-          ): Array<{choice: string, isCorrect: boolean }> => {
+          ): Array<{choice: {value: string}, isCorrect: boolean }> => {
           return [...acc, {
             choice,
             isCorrect: i < 1 ? true : false,
@@ -46,7 +43,7 @@ export const MultiChoiceAssessment = (props: PropsType): Node => (
 
 type MultipleChoiceListType = {
   choices: Array<{
-    choice: string,
+    choice: {value: string},
     isCorrect: boolean
   }>,
   handleClick: ({id: string, isCorrect: boolean}) => void,
@@ -95,7 +92,7 @@ class MultipleChoiceList extends Component<
   render(): * {
     return (
       this.shuffleOnce(this.props.choices).map((
-        choice: {choice: string, isCorrect: boolean},
+        choice: {choice: {value: string}, isCorrect: boolean},
         i: number
       ): Node => {
         return <Choice
@@ -113,7 +110,7 @@ class MultipleChoiceList extends Component<
 }
 
 type ChoiceType = {
-  text: string,
+  text: {value: string},
   isCorrect: boolean,
   // handleClick: ({id: string, isCorrect: boolean}) => void,
   id: string,
