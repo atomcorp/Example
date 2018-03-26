@@ -153,9 +153,12 @@ export class Module extends Component<PropsType, StateType> {
 }
 
 type ModuleComponentsType = {
-  components: Array<string>,
+  components: Array<{
+    target_id: string
+  }>,
   allModuleComponents: ModuleComponentType,
-  visibleModuleComponentId: number
+  visibleModuleComponentId: number,
+  children?: void
 };
 
 const Sidebar = ({
@@ -166,18 +169,21 @@ const Sidebar = ({
   <ul style={{display: 'none'}}>
     {
       components.map((
-        component: string,
+        component: {target_id: string},
         i: number
       ): Node => (
-            <li key={i} style={{
-              opacity: visibleModuleComponentId > i + 1 ? '0.5' : '1',
-              }}>
-            {
-                allModuleComponents[component.target_id].type[0].target_id === 'lesson'
-                  ? allModuleComponents[component.target_id].field_headline[0].value
-                  : allModuleComponents[component.target_id].type[0].target_id
-            }
-          </li>
+        <li key={i} style={{
+          opacity: visibleModuleComponentId > i + 1 ? 0.5 : 1,
+          }}>
+        {
+          allModuleComponents[
+            component.target_id
+          ].type[0].target_id === 'lesson'
+            // $FlowFixMe
+            ? allModuleComponents[component.target_id].field_headline[0].value
+            : allModuleComponents[component.target_id].type[0].target_id
+        }
+      </li>
         )
       )
     }

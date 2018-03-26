@@ -171,9 +171,11 @@ export class Assessment extends Component<PropsType, StateType> {
             this.state.submitted && `Pass minimum: ${this.target}`
           }
         </div>
+        
         {
           this.courseData.field_course_assessment.map(
             (assessment: {target_id: string}, i: number): Node => (
+              // cause components has lessons in it?
               <MultiChoiceAssessment
                 key={i}
                 id={assessment.target_id}
@@ -235,7 +237,7 @@ const resetTestStatuses = (
   }>
 ): Array<AssessmentTestsType> => {
   return assessment.map(
-    (test: string): AssessmentTestsType => ({
+    (test: {target_id: string}): AssessmentTestsType => ({
       id: test.target_id,
       status: 'not-started',
     })

@@ -7,8 +7,12 @@ import React from 'react';
 import type {Node} from 'react';
 
 type LessonFieldsType = {
-  field_headline: string,
-  field_body: string
+  field_headline: Array<{
+    value: string
+  }>,
+  field_body: Array<{
+    value: string
+  }>
 };
 
 export const Lesson = ({

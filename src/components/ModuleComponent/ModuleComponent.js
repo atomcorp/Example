@@ -20,6 +20,7 @@ export const ModuleComponent = (
   {moduleComponent}: ModuleComponentContainerType
 ): Node => {
   // TODO: transitions
+  // $FlowFixMe
   switch (moduleComponent.type[0].target_id) {
     case 'lesson':
       return (
@@ -27,6 +28,7 @@ export const ModuleComponent = (
       );
     case 'question':
       return (
+        // $FlowFixMe
         <MultipleChoice {...moduleComponent} />
       );
     default:

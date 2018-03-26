@@ -14,7 +14,9 @@ import {
 } from '../ModuleComponent/ModuleComponent.js';
 
 type ModuleComponentsType = {
-  modulesComponents: Array<string>,
+  modulesComponents: Array<{
+    target_id: string
+  }>,
   allModuleComponents: ModuleComponentType,
   visibleModuleComponentId: number
 };
@@ -23,7 +25,9 @@ class ModuleComponents extends Component<ModuleComponentsType, void> {
   render(): Array<Node> {
     return (
       this.props.modulesComponents.map((
-        moduleComponent: string,
+        moduleComponent: {
+          target_id: string
+        },
         i: number
       ): Node => (
           <ModuleComponentVisibility

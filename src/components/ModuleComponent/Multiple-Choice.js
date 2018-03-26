@@ -81,9 +81,15 @@ export class MultipleChoice extends Component<PropsType, StateType> {
 }
 
 type MultipleChoicePresentationType = {
-  field_question: string,
-  field_correct_choice: string,
-  field_incorrect_choices: Array<string>,
+  field_question: Array<{
+    value: string
+  }>,
+  field_correct_choice: Array<{
+    value: string
+  }>,
+  field_incorrect_choices: Array<{
+    value: string
+  }>,
   handleClick: boolean => void,
   state: StateType,
   shuffleOnce: (Array<Node>) => Array<Node>
