@@ -24,7 +24,9 @@ const ValidateModulePath = ({route, resources}) => {
   // courseId is irrelevant to rendering Module, so we check
   // Course actually contains Module, else redirect to Module
   const {courseId, moduleId} = route.match.params;
-  if (resources.courses[courseId].modules.includes(moduleId)) {
+  if (resources.courses[courseId].field_modules.some((module) => {
+    return Number(module.target_id) === Number(moduleId);
+  })) {
     return <ModuleContainer route={route} resources={resources} />;
   }
   return <Redirect to={`/course/${courseId}`} />;

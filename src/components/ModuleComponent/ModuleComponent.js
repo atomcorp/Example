@@ -20,15 +20,12 @@ export const ModuleComponent = (
   {moduleComponent}: ModuleComponentContainerType
 ): Node => {
   // TODO: transitions
-  // if (isVisible.thisId !== isVisible.visibleId) {
-  //   return <div></div>;
-  // }
-  switch (moduleComponent.type) {
-    case 'Lesson':
+  switch (moduleComponent.type[0].target_id) {
+    case 'lesson':
       return (
         <Lesson {...moduleComponent} />
       );
-    case 'Multiple-Choice Question':
+    case 'question':
       return (
         <MultipleChoice {...moduleComponent} />
       );

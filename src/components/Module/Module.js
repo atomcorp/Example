@@ -75,7 +75,7 @@ export class Module extends Component<PropsType, StateType> {
     this.resources = resources;
     this.moduleData = this.resources.modules[moduleId];
     this.moduleComponentLength =
-      resources.modules[moduleId].field_lesson.length;
+      resources.modules[moduleId].field_add_components.length;
     // $FlowFixMe
     this.completeModule = completeModuleHoF(moduleId);
     // state is only stuff local to Module that can change
@@ -121,17 +121,17 @@ export class Module extends Component<PropsType, StateType> {
     return (
       <Page>
         <ModuleInformation
-          courseName={ this.resources.courses[this.courseId].title }
-          moduleName={ this.moduleData.title }
+          courseName={this.resources.courses[this.courseId].title[0].value }
+          moduleName={ this.moduleData.title[0].value }
           currentModuleComponent={ this.state.visibleModuleComponent }
           moduleComponentLength={ this.moduleComponentLength } />
         <Sidebar
-          modulesComponents={this.moduleData.field_lesson}
-          allModuleComponents={this.resources.moduleComponents}
+          components={this.moduleData.field_add_components}
+          allModuleComponents={this.resources.components}
           visibleModuleComponentId={this.state.visibleModuleComponent} />
         <ModuleComponents
-          modulesComponents={ this.moduleData.field_lesson }
-          allModuleComponents={ this.resources.moduleComponents }
+          modulesComponents={ this.moduleData.field_add_components }
+          allModuleComponents={ this.resources.components }
           visibleModuleComponentId={ this.state.visibleModuleComponent } />
         <ModuleProgress
           state={ this.state }
@@ -153,29 +153,29 @@ export class Module extends Component<PropsType, StateType> {
 }
 
 type ModuleComponentsType = {
-  modulesComponents: Array<string>,
+  components: Array<string>,
   allModuleComponents: ModuleComponentType,
   visibleModuleComponentId: number
 };
 
 const Sidebar = ({
-  modulesComponents,
+  components,
   allModuleComponents,
   visibleModuleComponentId,
 }: ModuleComponentsType): Node => (
   <ul>
     {
-      modulesComponents.map((
-        moduleComponentId: string,
+      components.map((
+        component: string,
         i: number
       ): Node => (
             <li key={i} style={{
               opacity: visibleModuleComponentId > i + 1 ? '0.5' : '1',
               }}>
             {
-                allModuleComponents[moduleComponentId].type === 'Lesson'
-                  ? allModuleComponents[moduleComponentId].field_headline
-                  : allModuleComponents[moduleComponentId].type
+                allModuleComponents[component.target_id].type[0].target_id === 'lesson'
+                  ? allModuleComponents[component.target_id].field_headline[0].value
+                  : allModuleComponents[component.target_id].type[0].target_id
             }
           </li>
         )

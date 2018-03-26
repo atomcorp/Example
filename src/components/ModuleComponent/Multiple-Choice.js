@@ -99,7 +99,7 @@ const MultipleChoicePresentation = ({
 }: MultipleChoicePresentationType): Node => (
   <div className="multiple-question">
     <div className="question">
-      <h2>{field_question}</h2>
+      <h2>{field_question[0].value}</h2>
     </div>
     <div className="choice">
       {
@@ -109,7 +109,7 @@ const MultipleChoicePresentation = ({
     <br />
     <div className={`choices ${state.clicked ? styles.choicesChosen : ''}`}>
       <MultipleChoiceList choices={[
-          field_correct_choice,
+          field_correct_choice[0],
           ...field_incorrect_choices,
         ]}
         handleClick={handleClick}
@@ -139,7 +139,7 @@ const MultipleChoiceList = ({
   ): Node => {
     return <Choice
       key={i}
-      text={ choice}
+      text={choice.value}
       isCorrect={i === 0 ? true : false}
       clicked={ clicked }
       handleClick={handleClick} />;

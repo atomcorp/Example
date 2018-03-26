@@ -16,7 +16,7 @@ export const Lesson = ({
   field_body,
 }: LessonFieldsType): Node => (
   <div className="lesson">
-    <h2>{field_headline}</h2>
+    <h2>{field_headline[0].value}</h2>
     {
       /*
       * dangerouslySetInnerHTML is React's equivilant for .innerHTML
@@ -24,7 +24,7 @@ export const Lesson = ({
       */
     }
     <div dangerouslySetInnerHTML={{
-      __html: field_body,
+      __html: field_body[0].value,
     }} />
   </div>
 );

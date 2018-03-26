@@ -23,7 +23,7 @@ class ModuleComponents extends Component<ModuleComponentsType, void> {
   render(): Array<Node> {
     return (
       this.props.modulesComponents.map((
-        moduleComponentId: string,
+        moduleComponent: string,
         i: number
       ): Node => (
           <ModuleComponentVisibility
@@ -34,7 +34,7 @@ class ModuleComponents extends Component<ModuleComponentsType, void> {
             }}>
             <ModuleComponent
               moduleComponent={
-                this.props.allModuleComponents[moduleComponentId]
+                this.props.allModuleComponents[moduleComponent.target_id]
               } />
           </ModuleComponentVisibility>
         )
