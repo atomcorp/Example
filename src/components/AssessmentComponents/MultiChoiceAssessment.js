@@ -17,13 +17,13 @@ type PropsType = {
 export const MultiChoiceAssessment = (props: PropsType): Node => (
   <div className="multiple-question">
     <div className="question">
-      <h2>{props.assessment.field_question}</h2>
+      <h2>{props.assessment.field_question[0].value}</h2>
     </div>
     <br />
     <div className={'name'}>
       <MultipleChoiceList
         choices={
-          [props.assessment.field_correct_choice,
+          [props.assessment.field_correct_choice[0],
           ...props.assessment.field_incorrect_choices,
           ].reduce((
             acc: Array<{choice: string, isCorrect: boolean}>,
@@ -141,7 +141,7 @@ const Choice = ({
       color: isCorrect ? 'green' : 'red',
       fontWeight: selectedId === choiceRef ? '700' : '400',
     }}>
-      {text} <span style={{
+      {text.value} <span style={{
           display: submitted ? 'inline' : 'none',
           color: isCorrect ? 'green' : 'red',
         }}>{isCorrect ? '✅' : '❎'}</span>

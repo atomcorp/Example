@@ -163,7 +163,7 @@ const Sidebar = ({
   allModuleComponents,
   visibleModuleComponentId,
 }: ModuleComponentsType): Node => (
-  <ul>
+  <ul style={{display: 'none'}}>
     {
       components.map((
         component: string,
