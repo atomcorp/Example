@@ -1,0 +1,6240 @@
+{
+  "courses": {
+    "2003": {
+      "nid": [
+        {
+          "value": 2003
+        }
+      ],
+      "uuid": [
+        {
+          "value": "902ab86e-3859-4d0c-b992-f617df92a7ab"
+        }
+      ],
+      "vid": [
+        {
+          "value": 4429
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "type": [
+        {
+          "target_id": "course",
+          "target_type": "node_type",
+          "target_uuid": "7bea8629-3bee-46b7-b25e-e52754dbb575"
+        }
+      ],
+      "revision_timestamp": [
+        {
+          "value": 1522060486
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "revision_log": [],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "title": [
+        {
+          "value": "Edge"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "created": [
+        {
+          "value": 1521212294
+        }
+      ],
+      "changed": [
+        {
+          "value": 1522060486
+        }
+      ],
+      "promote": [
+        {
+          "value": true
+        }
+      ],
+      "sticky": [
+        {
+          "value": false
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "ds_switch": [],
+      "metatag": {
+        "value": {
+          "title": "| Cambridge Audio",
+          "robots": "index, follow"
+        }
+      },
+      "path": [
+        {
+          "alias": "/edge",
+          "pid": 2715,
+          "langcode": "en"
+        }
+      ],
+      "rh_action": [
+        {
+          "value": "bundle_default"
+        }
+      ],
+      "rh_redirect": [],
+      "rh_redirect_response": [
+        {
+          "value": 301
+        }
+      ],
+      "menu_link": [],
+      "field_course_assessment": [
+        {
+          "target_id": 1850,
+          "target_revision_id": 19021,
+          "target_type": "paragraph",
+          "target_uuid": "8aeaadaf-3a99-4480-bb5d-fcb49ecd912b"
+        },
+        {
+          "target_id": 1851,
+          "target_revision_id": 19022,
+          "target_type": "paragraph",
+          "target_uuid": "98dbba57-5b57-4d9f-81ae-09c3b2df6863"
+        },
+        {
+          "target_id": 1852,
+          "target_revision_id": 19023,
+          "target_type": "paragraph",
+          "target_uuid": "bf700b2e-a2e8-4da2-9335-6bf15012521f"
+        },
+        {
+          "target_id": 1853,
+          "target_revision_id": 19024,
+          "target_type": "paragraph",
+          "target_uuid": "100c5cd3-d43f-44bf-9b27-a21d5502eced"
+        },
+        {
+          "target_id": 1854,
+          "target_revision_id": 19025,
+          "target_type": "paragraph",
+          "target_uuid": "bc41bb2e-db1c-4f64-a10f-bc6ac12be895"
+        },
+        {
+          "target_id": 1855,
+          "target_revision_id": 19026,
+          "target_type": "paragraph",
+          "target_uuid": "c1a3a6db-86de-48ae-8ee3-fc45a756f553"
+        }
+      ],
+      "field_domain_access": [
+        {
+          "target_id": "gb",
+          "target_type": "domain",
+          "target_uuid": "6fd077b4-213e-4812-bacf-1d35221c57fd"
+        }
+      ],
+      "field_domain_all_affiliates": [
+        {
+          "value": false
+        }
+      ],
+      "field_introduction": [
+        {
+          "value": "<p>Welcome to the Cambridge Audio online training module for Edge.</p>\r\n\r\n<p>Five decades ago our founders had a vision – to create hi-fi systems that delivered the Great British sound into people’s homes. Nothing added, nothing taken away.</p>\r\n\r\n<p>One of these talented engineers, Professor Gordon Edge, was the brains behind the innovation and design of our first product – the ground-breaking P40 integrated amplifier. In recognition of our heritage, we developed Edge.The embodiment of Cambridge Audio’s signature Great British Sound and the pinnacle of 50 years of Hi-Fi expertise.</p>\r\n\r\n<p>During this module you will find out about some of the history of Cambridge Audio, our listening philosophy and the key technologies that drive Edge.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_modules": [
+        {
+          "target_id": 2004,
+          "target_type": "node",
+          "target_uuid": "148f3f4d-c29d-4ff7-8826-f8de1a6d4eb2",
+          "url": "/dylan/gbr/en/50-years-cambridge-audio"
+        },
+        {
+          "target_id": 2005,
+          "target_type": "node",
+          "target_uuid": "329247e0-3950-466c-a539-85e4a923e16c",
+          "url": "/dylan/gbr/en/introducing-edge"
+        },
+        {
+          "target_id": 2006,
+          "target_type": "node",
+          "target_uuid": "1cdf7677-9b1d-4eed-861e-13d1b6c48789",
+          "url": "/dylan/gbr/en/key-technology"
+        },
+        {
+          "target_id": 2007,
+          "target_type": "node",
+          "target_uuid": "788df3c6-080e-42e9-a05f-49aa3503db08",
+          "url": "/dylan/gbr/en/control"
+        }
+      ]
+    }
+  },
+  "modules": {
+    "2004": {
+      "nid": [
+        {
+          "value": 2004
+        }
+      ],
+      "uuid": [
+        {
+          "value": "148f3f4d-c29d-4ff7-8826-f8de1a6d4eb2"
+        }
+      ],
+      "vid": [
+        {
+          "value": 4425
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "type": [
+        {
+          "target_id": "course_module",
+          "target_type": "node_type",
+          "target_uuid": "94d44d35-ef0d-4c96-b565-7696afd8e250"
+        }
+      ],
+      "revision_timestamp": [
+        {
+          "value": 1522058328
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "revision_log": [],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "title": [
+        {
+          "value": "50 Years of Cambridge Audio"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "created": [
+        {
+          "value": 1521473035
+        }
+      ],
+      "changed": [
+        {
+          "value": 1522058328
+        }
+      ],
+      "promote": [
+        {
+          "value": true
+        }
+      ],
+      "sticky": [
+        {
+          "value": false
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "ds_switch": [],
+      "metatag": {
+        "value": {
+          "title": "| Cambridge Audio",
+          "robots": "index, follow"
+        }
+      },
+      "path": [
+        {
+          "alias": "/50-years-cambridge-audio",
+          "pid": 2716,
+          "langcode": "en"
+        }
+      ],
+      "rh_action": [
+        {
+          "value": "bundle_default"
+        }
+      ],
+      "rh_redirect": [],
+      "rh_redirect_response": [
+        {
+          "value": 301
+        }
+      ],
+      "menu_link": [],
+      "field_add_components": [
+        {
+          "target_id": 1848,
+          "target_revision_id": 18986,
+          "target_type": "paragraph",
+          "target_uuid": "0fd46b97-ccab-4e8e-8539-a25ef7a3657f"
+        },
+        {
+          "target_id": 1856,
+          "target_revision_id": 18987,
+          "target_type": "paragraph",
+          "target_uuid": "4263aa6e-c972-4598-be92-6c644d36f831"
+        },
+        {
+          "target_id": 1857,
+          "target_revision_id": 18988,
+          "target_type": "paragraph",
+          "target_uuid": "ca25cc08-37ac-4c07-b942-dfa720a640cf"
+        },
+        {
+          "target_id": 1858,
+          "target_revision_id": 18989,
+          "target_type": "paragraph",
+          "target_uuid": "15ee34a7-4dc4-4a76-9186-d1869e0b3ecd"
+        },
+        {
+          "target_id": 1859,
+          "target_revision_id": 18990,
+          "target_type": "paragraph",
+          "target_uuid": "8dafba7a-5955-4618-9339-d2205c0907aa"
+        },
+        {
+          "target_id": 1860,
+          "target_revision_id": 18991,
+          "target_type": "paragraph",
+          "target_uuid": "94831c64-7a78-4114-a406-72d5c98213b9"
+        },
+        {
+          "target_id": 1861,
+          "target_revision_id": 18992,
+          "target_type": "paragraph",
+          "target_uuid": "7852d7a5-41f5-4012-a6d6-d46f1f85f16f"
+        },
+        {
+          "target_id": 1862,
+          "target_revision_id": 18993,
+          "target_type": "paragraph",
+          "target_uuid": "2d6a6a97-ca67-465f-9d96-21746b543c2e"
+        },
+        {
+          "target_id": 1863,
+          "target_revision_id": 18994,
+          "target_type": "paragraph",
+          "target_uuid": "5591158d-1d2a-45e6-8a4d-1a0db88f4b9a"
+        },
+        {
+          "target_id": 1864,
+          "target_revision_id": 18995,
+          "target_type": "paragraph",
+          "target_uuid": "a290a74a-a25d-4b96-9295-d3f6c6291acc"
+        },
+        {
+          "target_id": 1865,
+          "target_revision_id": 18996,
+          "target_type": "paragraph",
+          "target_uuid": "22ea8361-f9ed-4784-84c1-950889eb7f03"
+        }
+      ],
+      "field_domain_access": [
+        {
+          "target_id": "gb",
+          "target_type": "domain",
+          "target_uuid": "6fd077b4-213e-4812-bacf-1d35221c57fd"
+        }
+      ],
+      "field_domain_all_affiliates": [
+        {
+          "value": false
+        }
+      ]
+    },
+    "2005": {
+      "nid": [
+        {
+          "value": 2005
+        }
+      ],
+      "uuid": [
+        {
+          "value": "329247e0-3950-466c-a539-85e4a923e16c"
+        }
+      ],
+      "vid": [
+        {
+          "value": 4426
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "type": [
+        {
+          "target_id": "course_module",
+          "target_type": "node_type",
+          "target_uuid": "94d44d35-ef0d-4c96-b565-7696afd8e250"
+        }
+      ],
+      "revision_timestamp": [
+        {
+          "value": 1522059727
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "revision_log": [],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "title": [
+        {
+          "value": "Introducing Edge"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "created": [
+        {
+          "value": 1522058423
+        }
+      ],
+      "changed": [
+        {
+          "value": 1522059727
+        }
+      ],
+      "promote": [
+        {
+          "value": true
+        }
+      ],
+      "sticky": [
+        {
+          "value": false
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "ds_switch": [],
+      "metatag": {
+        "value": {
+          "title": "| Cambridge Audio",
+          "robots": "index, follow"
+        }
+      },
+      "path": [
+        {
+          "alias": "/introducing-edge",
+          "pid": 2717,
+          "langcode": "en"
+        }
+      ],
+      "rh_action": [
+        {
+          "value": "bundle_default"
+        }
+      ],
+      "rh_redirect": [],
+      "rh_redirect_response": [
+        {
+          "value": 301
+        }
+      ],
+      "menu_link": [],
+      "field_add_components": [
+        {
+          "target_id": 1866,
+          "target_revision_id": 18997,
+          "target_type": "paragraph",
+          "target_uuid": "1cf1054b-2902-4649-aff4-0e849bafebdc"
+        },
+        {
+          "target_id": 1867,
+          "target_revision_id": 18998,
+          "target_type": "paragraph",
+          "target_uuid": "a69d17d1-8d65-437f-8e74-f7e87843548b"
+        },
+        {
+          "target_id": 1868,
+          "target_revision_id": 18999,
+          "target_type": "paragraph",
+          "target_uuid": "9b9e7afd-9c4f-47d4-bbeb-6133bd5b0573"
+        },
+        {
+          "target_id": 1869,
+          "target_revision_id": 19000,
+          "target_type": "paragraph",
+          "target_uuid": "8a183647-fef3-4be8-bc2d-4966eebf333b"
+        },
+        {
+          "target_id": 1870,
+          "target_revision_id": 19001,
+          "target_type": "paragraph",
+          "target_uuid": "c9cb797c-c96e-4e86-95fb-f90f298cacfc"
+        },
+        {
+          "target_id": 1871,
+          "target_revision_id": 19002,
+          "target_type": "paragraph",
+          "target_uuid": "5e4122de-f49f-4227-83f6-42bce5496e0a"
+        },
+        {
+          "target_id": 1872,
+          "target_revision_id": 19003,
+          "target_type": "paragraph",
+          "target_uuid": "ad7cbe6f-2bc6-464a-adc4-1a70d18f48d1"
+        }
+      ],
+      "field_domain_access": [
+        {
+          "target_id": "gb",
+          "target_type": "domain",
+          "target_uuid": "6fd077b4-213e-4812-bacf-1d35221c57fd"
+        }
+      ],
+      "field_domain_all_affiliates": [
+        {
+          "value": false
+        }
+      ]
+    },
+    "2006": {
+      "nid": [
+        {
+          "value": 2006
+        }
+      ],
+      "uuid": [
+        {
+          "value": "1cdf7677-9b1d-4eed-861e-13d1b6c48789"
+        }
+      ],
+      "vid": [
+        {
+          "value": 4427
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "type": [
+        {
+          "target_id": "course_module",
+          "target_type": "node_type",
+          "target_uuid": "94d44d35-ef0d-4c96-b565-7696afd8e250"
+        }
+      ],
+      "revision_timestamp": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "revision_log": [],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "title": [
+        {
+          "value": "Key Technology"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "created": [
+        {
+          "value": 1522059751
+        }
+      ],
+      "changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "promote": [
+        {
+          "value": true
+        }
+      ],
+      "sticky": [
+        {
+          "value": false
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "ds_switch": [],
+      "metatag": {
+        "value": {
+          "title": "| Cambridge Audio",
+          "robots": "index, follow"
+        }
+      },
+      "path": [
+        {
+          "alias": "/key-technology",
+          "pid": 2718,
+          "langcode": "en"
+        }
+      ],
+      "rh_action": [
+        {
+          "value": "bundle_default"
+        }
+      ],
+      "rh_redirect": [],
+      "rh_redirect_response": [
+        {
+          "value": 301
+        }
+      ],
+      "menu_link": [],
+      "field_add_components": [
+        {
+          "target_id": 1873,
+          "target_revision_id": 19004,
+          "target_type": "paragraph",
+          "target_uuid": "545d2973-f8d2-4655-a896-d66ebc8f8180"
+        },
+        {
+          "target_id": 1874,
+          "target_revision_id": 19005,
+          "target_type": "paragraph",
+          "target_uuid": "43dcaa3f-216a-4747-9811-f26c43dca6c2"
+        },
+        {
+          "target_id": 1875,
+          "target_revision_id": 19006,
+          "target_type": "paragraph",
+          "target_uuid": "5885e9ef-a1b9-45b1-8a91-cc9eb6a1023c"
+        },
+        {
+          "target_id": 1876,
+          "target_revision_id": 19007,
+          "target_type": "paragraph",
+          "target_uuid": "d90447a0-f10d-444a-a57a-82d94c353e20"
+        },
+        {
+          "target_id": 1877,
+          "target_revision_id": 19008,
+          "target_type": "paragraph",
+          "target_uuid": "c1b24de8-1240-4efe-b5a4-9919fdef6dcf"
+        },
+        {
+          "target_id": 1878,
+          "target_revision_id": 19009,
+          "target_type": "paragraph",
+          "target_uuid": "e383bf9a-0b5f-4656-ac80-c565608a825b"
+        },
+        {
+          "target_id": 1879,
+          "target_revision_id": 19010,
+          "target_type": "paragraph",
+          "target_uuid": "1c6d953b-6285-427d-b602-01fd6fd334e4"
+        },
+        {
+          "target_id": 1880,
+          "target_revision_id": 19011,
+          "target_type": "paragraph",
+          "target_uuid": "a9e82fb1-2fb7-4cdf-a31d-4491c67af0ec"
+        },
+        {
+          "target_id": 1881,
+          "target_revision_id": 19012,
+          "target_type": "paragraph",
+          "target_uuid": "8ca9deeb-d1e2-4938-adaf-311720a34d3a"
+        },
+        {
+          "target_id": 1882,
+          "target_revision_id": 19013,
+          "target_type": "paragraph",
+          "target_uuid": "6420a392-50b3-4282-ac9c-c02ffc526894"
+        },
+        {
+          "target_id": 1883,
+          "target_revision_id": 19014,
+          "target_type": "paragraph",
+          "target_uuid": "2bdf61df-52ff-423f-bfb5-36b4bfeedd12"
+        },
+        {
+          "target_id": 1884,
+          "target_revision_id": 19015,
+          "target_type": "paragraph",
+          "target_uuid": "ac5edc5d-59e2-4492-af2a-a7fd43ee14b0"
+        },
+        {
+          "target_id": 1885,
+          "target_revision_id": 19016,
+          "target_type": "paragraph",
+          "target_uuid": "633a6f19-d3bf-4179-a5d0-5eb39621857e"
+        },
+        {
+          "target_id": 1886,
+          "target_revision_id": 19017,
+          "target_type": "paragraph",
+          "target_uuid": "6af8505c-5484-446a-97c6-141d536a1b99"
+        }
+      ],
+      "field_domain_access": [
+        {
+          "target_id": "gb",
+          "target_type": "domain",
+          "target_uuid": "6fd077b4-213e-4812-bacf-1d35221c57fd"
+        }
+      ],
+      "field_domain_all_affiliates": [
+        {
+          "value": false
+        }
+      ]
+    },
+    "2007": {
+      "nid": [
+        {
+          "value": 2007
+        }
+      ],
+      "uuid": [
+        {
+          "value": "788df3c6-080e-42e9-a05f-49aa3503db08"
+        }
+      ],
+      "vid": [
+        {
+          "value": 4428
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "type": [
+        {
+          "target_id": "course_module",
+          "target_type": "node_type",
+          "target_uuid": "94d44d35-ef0d-4c96-b565-7696afd8e250"
+        }
+      ],
+      "revision_timestamp": [
+        {
+          "value": 1522060331
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "revision_log": [],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "title": [
+        {
+          "value": "Control"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "created": [
+        {
+          "value": 1522060227
+        }
+      ],
+      "changed": [
+        {
+          "value": 1522060331
+        }
+      ],
+      "promote": [
+        {
+          "value": true
+        }
+      ],
+      "sticky": [
+        {
+          "value": false
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "ds_switch": [],
+      "metatag": {
+        "value": {
+          "title": "| Cambridge Audio",
+          "robots": "index, follow"
+        }
+      },
+      "path": [
+        {
+          "alias": "/control",
+          "pid": 2719,
+          "langcode": "en"
+        }
+      ],
+      "rh_action": [
+        {
+          "value": "bundle_default"
+        }
+      ],
+      "rh_redirect": [],
+      "rh_redirect_response": [
+        {
+          "value": 301
+        }
+      ],
+      "menu_link": [],
+      "field_add_components": [
+        {
+          "target_id": 1887,
+          "target_revision_id": 19018,
+          "target_type": "paragraph",
+          "target_uuid": "e8ffda1d-b5f7-4a9d-998f-3db3e7b66fae"
+        },
+        {
+          "target_id": 1888,
+          "target_revision_id": 19019,
+          "target_type": "paragraph",
+          "target_uuid": "88ca52f9-039b-4d0d-88a2-847f785561c6"
+        },
+        {
+          "target_id": 1889,
+          "target_revision_id": 19020,
+          "target_type": "paragraph",
+          "target_uuid": "6ba06efc-aeb4-4ae4-979c-a899a7f3f0c6"
+        }
+      ],
+      "field_domain_access": [
+        {
+          "target_id": "gb",
+          "target_type": "domain",
+          "target_uuid": "6fd077b4-213e-4812-bacf-1d35221c57fd"
+        }
+      ],
+      "field_domain_all_affiliates": [
+        {
+          "value": false
+        }
+      ]
+    }
+  },
+  "components": {
+    "1847": {
+      "id": [
+        {
+          "value": 1847
+        }
+      ],
+      "uuid": [
+        {
+          "value": "16a61400-61a1-4c4c-b6db-50eaeec34693"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18955
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1521473111
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_lessons"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1521473111
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>Some text to introduce Edge</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "Lesson 1"
+        }
+      ],
+      "field_image": [],
+      "field_youtube_id": [
+        {
+          "value": "CTAud5O7Qqk"
+        }
+      ]
+    },
+    "1848": {
+      "id": [
+        {
+          "value": 1848
+        }
+      ],
+      "uuid": [
+        {
+          "value": "0fd46b97-ccab-4e8e-8539-a25ef7a3657f"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18986
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1521473233
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057862
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>The P40 Amplifier was the first amplifier in the world to use a toroidal transformer.</p>\r\n\r\n<p>It sounded better than anything else, and launched to huge critical acclaim.</p>\r\n\r\n<p>The P40 is just the first legacy that Cambridge Audio has left on the Hi-Fi industry.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": " 1968"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3959,
+          "alt": "1968",
+          "title": "",
+          "width": 1958,
+          "height": 289,
+          "target_type": "file",
+          "target_uuid": "60d8385d-65fc-4c9a-9243-2ab5626bd844",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/1968.png"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1849": {
+      "id": [
+        {
+          "value": 1849
+        }
+      ],
+      "uuid": [
+        {
+          "value": "bdf3a199-3a0c-4080-97ff-24b12235432d"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18959
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1521473260
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1521473314
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "Edge Introduction Answer"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "Edge Introduction Incorrect answer 1"
+        },
+        {
+          "value": "Edge Introduction Incorrect answer 2"
+        },
+        {
+          "value": "Edge Introduction Incorrect answer 3"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "Edge Introduction Question "
+        }
+      ]
+    },
+    "1850": {
+      "id": [
+        {
+          "value": 1850
+        }
+      ],
+      "uuid": [
+        {
+          "value": "8aeaadaf-3a99-4480-bb5d-fcb49ecd912b"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19021
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522057155
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2003"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_course_assessment"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057185
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "The first amplifier to use a toroidal transformer"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "World’s first amplifier to use an external transformer"
+        },
+        {
+          "value": "World’s first tube amplifier"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "What was so innovative about the P40 Amplifier?"
+        }
+      ]
+    },
+    "1851": {
+      "id": [
+        {
+          "value": 1851
+        }
+      ],
+      "uuid": [
+        {
+          "value": "98dbba57-5b57-4d9f-81ae-09c3b2df6863"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19022
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522057179
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2003"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_course_assessment"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057261
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "Dacmagic"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "CD1 Transport and DAC"
+        },
+        {
+          "value": "StreamMagic"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "Which product gained Cambridge Audio’s first Best Buy award from What Hi-Fi?"
+        }
+      ]
+    },
+    "1852": {
+      "id": [
+        {
+          "value": 1852
+        }
+      ],
+      "uuid": [
+        {
+          "value": "bf700b2e-a2e8-4da2-9335-6bf15012521f"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19023
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522057231
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2003"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_course_assessment"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057261
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "NP30"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "CXN"
+        },
+        {
+          "value": "851N"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "Which of the following was the first in a long line of award winning network streaming products?"
+        }
+      ]
+    },
+    "1853": {
+      "id": [
+        {
+          "value": 1853
+        }
+      ],
+      "uuid": [
+        {
+          "value": "100c5cd3-d43f-44bf-9b27-a21d5502eced"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19024
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522057274
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2003"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_course_assessment"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057346
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "Unadulterated, unfiltered and as the producer first laid down"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "Mid-range mix to carry the vocals"
+        },
+        {
+          "value": "Heavy punchy bass"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "Which of these statements best describes ‘Great British Sound’?"
+        }
+      ]
+    },
+    "1854": {
+      "id": [
+        {
+          "value": 1854
+        }
+      ],
+      "uuid": [
+        {
+          "value": "bc41bb2e-db1c-4f64-a10f-bc6ac12be895"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19025
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522057306
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2003"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_course_assessment"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057346
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "1968"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "1963"
+        },
+        {
+          "value": "1971"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "What year did Cambridge Audio start their pursuit of the 'British' sound?"
+        }
+      ]
+    },
+    "1855": {
+      "id": [
+        {
+          "value": 1855
+        }
+      ],
+      "uuid": [
+        {
+          "value": "c1a3a6db-86de-48ae-8ee3-fc45a756f553"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19026
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522057327
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2003"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_course_assessment"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057346
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "A proprietary streaming platform"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "The P40 amplifier"
+        },
+        {
+          "value": "The CD1 transport and DAC"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "What did Cambridge Audio create to deliver a pure British sound from digital music files?"
+        }
+      ]
+    },
+    "1856": {
+      "id": [
+        {
+          "value": 1856
+        }
+      ],
+      "uuid": [
+        {
+          "value": "4263aa6e-c972-4598-be92-6c644d36f831"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18987
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522057799
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057862
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>This substantial-looking machine was the world’s first 2-box CD player. It comprised a lower deck that contained the decoder and analogue filter sections, and a larger upper deck that carried control, transport, and power-supply sections. Still today the CD1 is recognised as a landmark product in CD reproduction thanks to its unique design incorporating three DACs per channel and three power supply transformers.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "1985"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3960,
+          "alt": "1985",
+          "title": "",
+          "width": 1954,
+          "height": 852,
+          "target_type": "file",
+          "target_uuid": "6dbd5d26-7a18-4590-8178-5b4c12bc58b0",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/1985.png"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1857": {
+      "id": [
+        {
+          "value": 1857
+        }
+      ],
+      "uuid": [
+        {
+          "value": "ca25cc08-37ac-4c07-b942-dfa720a640cf"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18988
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522057818
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057862
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>Featuring BNC (Bayonet Neill–Concelman - a miniature quick connect/disconnect radio frequency connector used for coaxial cable) inputs and outputs, the DacMagic offered incredible performance at an extremely low price, making it the first product in Cambridge Audio’s history to win a prestigious “What Hi-Fi? Best Buy” award in 1996.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "1995"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3961,
+          "alt": "1995",
+          "title": "",
+          "width": 1946,
+          "height": 407,
+          "target_type": "file",
+          "target_uuid": "63842900-1974-42e9-af43-334fd6721030",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/1995.png"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1858": {
+      "id": [
+        {
+          "value": 1858
+        }
+      ],
+      "uuid": [
+        {
+          "value": "15ee34a7-4dc4-4a76-9186-d1869e0b3ecd"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18989
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522057840
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057862
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>In 2011 we launched the NP30, Cambridge Audio’s first Network Music Player and established our award winning Stream Magic music streaming platform. Building on and adding to the success of this versatile platform, the Stream Magic 6 and Minx Xi players followed, cementing Cambridge Audio’s reputation as a leader in network music streaming technology.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "2011"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3962,
+          "alt": "2011",
+          "title": "",
+          "width": 1953,
+          "height": 358,
+          "target_type": "file",
+          "target_uuid": "078d5d3c-3f26-4615-8444-df537c11f2dc",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/2011.png"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1859": {
+      "id": [
+        {
+          "value": 1859
+        }
+      ],
+      "uuid": [
+        {
+          "value": "8dafba7a-5955-4618-9339-d2205c0907aa"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18990
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522057876
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057954
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "The first amplifier to use a toroidal transformer"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "World’s first amplifier to use an external transformer"
+        },
+        {
+          "value": "World’s first tube amplifier"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "What was so innovative about the P40 Amplifier?"
+        }
+      ]
+    },
+    "1860": {
+      "id": [
+        {
+          "value": 1860
+        }
+      ],
+      "uuid": [
+        {
+          "value": "94831c64-7a78-4114-a406-72d5c98213b9"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18991
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522057906
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057954
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "Dacmagic"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "CD1 Transport and DAC"
+        },
+        {
+          "value": "StreamMagic"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "Which product gained Cambridge Audio’s first Best Buy award from What Hi-Fi?"
+        }
+      ]
+    },
+    "1861": {
+      "id": [
+        {
+          "value": 1861
+        }
+      ],
+      "uuid": [
+        {
+          "value": "7852d7a5-41f5-4012-a6d6-d46f1f85f16f"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18992
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522057931
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522057954
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "NP30"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "CXN"
+        },
+        {
+          "value": "851N"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "Which of the following was the first in a long line of award winning network streaming products?"
+        }
+      ]
+    },
+    "1862": {
+      "id": [
+        {
+          "value": 1862
+        }
+      ],
+      "uuid": [
+        {
+          "value": "2d6a6a97-ca67-465f-9d96-21746b543c2e"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18993
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522058088
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522058328
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>Since 1968 Cambridge Audio has faithfully pursued the accurate representation of ‘British’ sound.</p>\r\n\r\n<p>But what does British sound actually mean? Watch this short video to get to the bottom of it. Don’t forget to turn the sound up!</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "Great British Sound"
+        }
+      ],
+      "field_image": [],
+      "field_youtube_id": [
+        {
+          "value": "0uAVQtnXVeM"
+        }
+      ]
+    },
+    "1863": {
+      "id": [
+        {
+          "value": 1863
+        }
+      ],
+      "uuid": [
+        {
+          "value": "5591158d-1d2a-45e6-8a4d-1a0db88f4b9a"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18994
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522058231
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522058328
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "Unadulterated, unfiltered and as the producer first laid down"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "Heavy punchy bass"
+        },
+        {
+          "value": "Mid-range mix to carry the vocals"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "Which of these statements best describes ‘Great British Sound’?"
+        }
+      ]
+    },
+    "1864": {
+      "id": [
+        {
+          "value": 1864
+        }
+      ],
+      "uuid": [
+        {
+          "value": "a290a74a-a25d-4b96-9295-d3f6c6291acc"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18995
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522058278
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522058328
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "1968"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "1963"
+        },
+        {
+          "value": "1971"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "What year did Cambridge Audio start their pursuit of the 'British' sound?"
+        }
+      ]
+    },
+    "1865": {
+      "id": [
+        {
+          "value": 1865
+        }
+      ],
+      "uuid": [
+        {
+          "value": "22ea8361-f9ed-4784-84c1-950889eb7f03"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18996
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522058304
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2004"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522058328
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "A proprietary streaming platform"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "The P40 amplifier"
+        },
+        {
+          "value": "The CD1 transport and DAC"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "What did Cambridge Audio create to deliver a pure British sound from digital music files?"
+        }
+      ]
+    },
+    "1866": {
+      "id": [
+        {
+          "value": 1866
+        }
+      ],
+      "uuid": [
+        {
+          "value": "1cf1054b-2902-4649-aff4-0e849bafebdc"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18997
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522058434
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2005"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522059727
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>In the build-up to our 50th anniversary, we asked our engineers a simple question – what would they make if anything was possible?</p>\r\n\r\n<p>Forget cost. Forget limitations. Create a system that delivers previously undiscovered layers of detail, is highly transparent, offering superlative sound-staging. A product true to Cambridge Audio’s foundations of creative innovation and entrepreneurial ambition.</p>\r\n\r\n<p>Over 3 years in the making, utilising a team of 9 engineers, the result is Edge.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "The Making of Edge"
+        }
+      ],
+      "field_image": [],
+      "field_youtube_id": [
+        {
+          "value": "0uAVQtnXVeM"
+        }
+      ]
+    },
+    "1867": {
+      "id": [
+        {
+          "value": 1867
+        }
+      ],
+      "uuid": [
+        {
+          "value": "a69d17d1-8d65-437f-8e74-f7e87843548b"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18998
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522058485
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2005"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522059727
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>Edge A is made to celebrate musicality. Riffs, phrases, percussive rolls – take in every detail of your music thanks to its dynamic setup. Effortlessly powerful, but with incredible depth, the overall sound is breath-taking – like you’re sat in the recording booth with the musician themselves.</p>\r\n\r\n<p>An integrated amplifier houses both preamplifier and power amplifier in one box. The Edge A has numerous connections , both digital and analogue as well as AptxHD Bluetooth.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "Edge A - INTEGRATED AMPLIFIER"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3963,
+          "alt": "Edge A",
+          "title": "",
+          "width": 1800,
+          "height": 1200,
+          "target_type": "file",
+          "target_uuid": "444a696e-59f0-42c5-a22d-1847765d254b",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/Cambridge_Audio_Edge_A_Hero_02_Large.jpg"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1868": {
+      "id": [
+        {
+          "value": 1868
+        }
+      ],
+      "uuid": [
+        {
+          "value": "9b9e7afd-9c4f-47d4-bbeb-6133bd5b0573"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 18999
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522058549
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2005"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522059727
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>With a revolutionary preamp circuit-board that reduces interference and an incredibly clean signal path, Edge NQ plays your favourite music with astonishing depth. Stream, cast, plug-in and play to enjoy every note in perfect clarity.</p>\r\n\r\n<p>The job of a pre-amplifier is to control input selection and volume. The Edge NQ has inputs for all of your sources as well as being home to the very latest incarnation of our award-winning Streammagic streaming platfrom.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "EDGE NQ - PREAMPLIFIER WITH NETWORK PLAYER"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3965,
+          "alt": "EDGE NQ",
+          "title": "",
+          "width": 1800,
+          "height": 1200,
+          "target_type": "file",
+          "target_uuid": "e571eac2-3b7d-4cbc-a8b5-ecfff64b032d",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/Cambridge_Audio_Edge_NQ_Hero_02_header_Large.jpg"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1869": {
+      "id": [
+        {
+          "value": 1869
+        }
+      ],
+      "uuid": [
+        {
+          "value": "8a183647-fef3-4be8-bc2d-4966eebf333b"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19000
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522058587
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2005"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522059727
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>Edge W is made to be played loud. When you do turn it up, expect nothing but a dynamic and punchy sound that captures all the musicality of your songs. With just 14 hand-picked components, Edge W has one of the cleanest signal paths available. It delivers our breath-taking, unadulterated British sound – nothing added, nothing taken away.</p>\r\n\r\n<p>A power amplifier takes the analogue signal from a preamplifier and uses it to drive the speakers. The Edge W provides the muscle to match the Edge NQ’s finesse.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "EDGE W - POWER AMPLIFIER"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3966,
+          "alt": "Edge W",
+          "title": "",
+          "width": 1800,
+          "height": 1200,
+          "target_type": "file",
+          "target_uuid": "7b8531f5-9a71-46ed-8a26-efdd07aefdab",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/Cambridge_Audio_Edge_W_Hero_header_Large_02.jpg"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1870": {
+      "id": [
+        {
+          "value": 1870
+        }
+      ],
+      "uuid": [
+        {
+          "value": "c9cb797c-c96e-4e86-95fb-f90f298cacfc"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19001
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522059586
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2005"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522059727
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": ".... an integrated amplifier"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "…..a power amplifier"
+        },
+        {
+          "value": "…..a preamplifier with        network player"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "The Edge A is...."
+        }
+      ]
+    },
+    "1871": {
+      "id": [
+        {
+          "value": 1871
+        }
+      ],
+      "uuid": [
+        {
+          "value": "5e4122de-f49f-4227-83f6-42bce5496e0a"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19002
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522059637
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2005"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522059727
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "NQ"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "W"
+        },
+        {
+          "value": "Either can control volume"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "When an Edge W is paired with an NQ, which unit controls the volume?"
+        }
+      ]
+    },
+    "1872": {
+      "id": [
+        {
+          "value": 1872
+        }
+      ],
+      "uuid": [
+        {
+          "value": "ad7cbe6f-2bc6-464a-adc4-1a70d18f48d1"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19003
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522059656
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2005"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522059727
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "14"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "41"
+        },
+        {
+          "value": "21"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "How many components are there in the Edge W’s signal path?"
+        }
+      ]
+    },
+    "1873": {
+      "id": [
+        {
+          "value": 1873
+        }
+      ],
+      "uuid": [
+        {
+          "value": "545d2973-f8d2-4655-a896-d66ebc8f8180"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19004
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522059758
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>A clean Alternating Current signal is key to delivering Great British Sound from the amplifier to the speakers. Direct Current generated in the amplification process can be detrimental to sound quality as it causes distortion.</p>\r\n\r\n<p>In a conventional Hi-fi topology, DC is removed by using capacitors but these capacitors can significantly colour the final sound reproduction – not in line with our Great British Sound philosophy.</p>\r\n\r\n<p>Edge uses a DC Servo to measure the amount of DC generated during amplification. The servo then applies an equal but opposite amount of DC. These two DC signals cancel each other out leaving pure unfiltered AC to drive the speakers.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "DC Servo"
+        }
+      ],
+      "field_image": [],
+      "field_youtube_id": []
+    },
+    "1874": {
+      "id": [
+        {
+          "value": 1874
+        }
+      ],
+      "uuid": [
+        {
+          "value": "43dcaa3f-216a-4747-9811-f26c43dca6c2"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19005
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522059829
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "Capacitors significantly change sound characteristics"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "Capacitors are old technology"
+        },
+        {
+          "value": "Capacitors reduce modulation in an AC signal"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "Why doesn’t Edge use capacitors to eliminate Direct Current from it’s signal chain?"
+        }
+      ]
+    },
+    "1875": {
+      "id": [
+        {
+          "value": 1875
+        }
+      ],
+      "uuid": [
+        {
+          "value": "5885e9ef-a1b9-45b1-8a91-cc9eb6a1023c"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19006
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522059854
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>The base for any piece of electrical equipment is the power supply.</p>\r\n\r\n<p>Toroidal transformers have been found in Cambridge Audio products since our first amplifier, the P40, in 1968. The word toroidal means “shaped like a doughnut” and due to that shape, these transformers give off a greatly reduced electro magnetic field compared to other types of transformer.</p>\r\n\r\n<p>Having said that, some electro magnetic interference can escape which is why we use a second transformer to not only share the power duties but , when carefully positioned, it will cancel out the EM field of the first, meaning less hum is audible. This short video explains in more detail.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "Twin Toroidal Transformers"
+        }
+      ],
+      "field_image": [],
+      "field_youtube_id": []
+    },
+    "1876": {
+      "id": [
+        {
+          "value": 1876
+        }
+      ],
+      "uuid": [
+        {
+          "value": "d90447a0-f10d-444a-a57a-82d94c353e20"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19007
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522059849
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "...shaped like a doughnut"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "...high electro magnetic         activity"
+        },
+        {
+          "value": "...you should see a doctor"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "The word Toroidal means..."
+        }
+      ]
+    },
+    "1877": {
+      "id": [
+        {
+          "value": 1877
+        }
+      ],
+      "uuid": [
+        {
+          "value": "c1b24de8-1240-4efe-b5a4-9919fdef6dcf"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19008
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522059912
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>For pure sound quality it’s hard to beat a Class A powered amplifier. Unfortunately Class A is incredibly inefficient. As little as 15% of the power used is turned into sound. The rest is turned into heat which requires a huge heat sink to dissipate.</p>\r\n\r\n<p>Unique to Cambridge Audio, our Class XA amplifier topology brings the benefits of Class A sound quality, but with improved efficiency and less heat. We add a bias voltage to a traditional Class AB design, thus shifting the crossover point to a position where the distortion is not audible to the human ear.</p>\r\n\r\n<p>Unclear on amplification classes? Watch our short video to find out more.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "Class XA Amplification"
+        }
+      ],
+      "field_image": [],
+      "field_youtube_id": []
+    },
+    "1878": {
+      "id": [
+        {
+          "value": 1878
+        }
+      ],
+      "uuid": [
+        {
+          "value": "e383bf9a-0b5f-4656-ac80-c565608a825b"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19009
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522059927
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "Heat"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "Distortion"
+        },
+        {
+          "value": "Overdrive for the bass"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "Excess power generated by a Class A amplifier is turned into what?"
+        }
+      ]
+    },
+    "1879": {
+      "id": [
+        {
+          "value": 1879
+        }
+      ],
+      "uuid": [
+        {
+          "value": "1c6d953b-6285-427d-b602-01fd6fd334e4"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19010
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522059949
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>Cambridge Audio’s award winning Streammagic platform comes to Edge with a significant update – Google Chromecast built-in. Tap on the logos to find out more.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "StreamMagic"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3967,
+          "alt": "StreamMagic",
+          "title": "",
+          "width": 1200,
+          "height": 800,
+          "target_type": "file",
+          "target_uuid": "67286f86-27de-45dc-9f31-e26e4a8bcd93",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/Cambridge_Audio_Edge_range_page_Let_the_music_through.jpg"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1880": {
+      "id": [
+        {
+          "value": 1880
+        }
+      ],
+      "uuid": [
+        {
+          "value": "a9e82fb1-2fb7-4cdf-a31d-4491c67af0ec"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19011
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522060004
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>Works seamlessly for Apple products connected to the same network and plays back files at CD quality 16/44.1</p>\r\n\r\n<p>&nbsp;</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "Apple AirPlay"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3968,
+          "alt": "Apple AirPlay",
+          "title": "",
+          "width": 1200,
+          "height": 800,
+          "target_type": "file",
+          "target_uuid": "97453b47-143c-45f4-aa7d-7d77271b48e2",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/Cambridge_Audio_Edge_range_page_Let_the_music_through_0.jpg"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1881": {
+      "id": [
+        {
+          "value": 1881
+        }
+      ],
+      "uuid": [
+        {
+          "value": "8ca9deeb-d1e2-4938-adaf-311720a34d3a"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19012
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522060021
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>Like Spotify Connect, your content will stream from the cloud freeing up your phone or tablet. Unlike Spotify Connect, Chromecast is available across a wide variety of apps. Simply tap the cast logo and select your Edge NQ for playback resolutions up to 24/96.</p>\r\n\r\n<p>Chromecast Built-in also offers the opportunity to add your Edge NQ to a multiroom set-up with other Chromecast enabled devices</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "Google Chromecast Built-in"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3969,
+          "alt": "Google Chromecast Built-in",
+          "title": "",
+          "width": 1200,
+          "height": 800,
+          "target_type": "file",
+          "target_uuid": "5c0c6b40-81dc-461b-a970-45e8ca128ca1",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/Cambridge_Audio_Edge_range_page_Let_the_music_through_1.jpg"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1882": {
+      "id": [
+        {
+          "value": 1882
+        }
+      ],
+      "uuid": [
+        {
+          "value": "6420a392-50b3-4282-ac9c-c02ffc526894"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19013
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522060038
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>Spotify is the biggest global streaming service with more than 50 million premium subscribers. Spotify Connect is a feature that allows premium subscribers to stream their music choices directly to compatible equipment straight from Spotify’s servers. No more drain on the battery or interrupting the music to take a phone call.</p>\r\n\r\n<p>Spotify delivers 320kbps at \"Extreme\" quality</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "Spotify"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3970,
+          "alt": "Spotify",
+          "title": "",
+          "width": 1200,
+          "height": 800,
+          "target_type": "file",
+          "target_uuid": "5888ce14-6302-4c2e-ad09-06efbaf5a121",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/Cambridge_Audio_Edge_range_page_Let_the_music_through_2.jpg"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1883": {
+      "id": [
+        {
+          "value": 1883
+        }
+      ],
+      "uuid": [
+        {
+          "value": "2bdf61df-52ff-423f-bfb5-36b4bfeedd12"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19014
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522060062
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>Unlike Spotify, Tidal is a streaming service that deals in CD quality streaming. Twice the price but the quality upgrade is definitely worth it. Resolution up to 16/44.1 is supported.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "Tidal"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3971,
+          "alt": "Tidal",
+          "title": "",
+          "width": 1200,
+          "height": 800,
+          "target_type": "file",
+          "target_uuid": "39045b29-aff5-4208-a131-674861574efb",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/Cambridge_Audio_Edge_range_page_Let_the_music_through_3.jpg"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1884": {
+      "id": [
+        {
+          "value": 1884
+        }
+      ],
+      "uuid": [
+        {
+          "value": "ac5edc5d-59e2-4492-af2a-a7fd43ee14b0"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19015
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522060088
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "24/96"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "320kbs"
+        },
+        {
+          "value": "16/44.1"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "Google Chromecast is capable of audio playback at what resolution"
+        }
+      ]
+    },
+    "1885": {
+      "id": [
+        {
+          "value": 1885
+        }
+      ],
+      "uuid": [
+        {
+          "value": "633a6f19-d3bf-4179-a5d0-5eb39621857e"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19016
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522060116
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>Both Edge A and NQ have a fully featured selection of digital and analogue inputs as well Bluetooth Aptx HD allowing you to get the most out of all your music sources.</p>\r\n\r\n<p>Touch the images below to enlarge and investigate. You’ll notice that the inputs are also labelled upside down in addition to the correct way up because who hasn’t found themselves struggling to read whilst hunched over a piece of hi-fi equipment?</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "Digital Inputs"
+        }
+      ],
+      "field_image": [
+        {
+          "target_id": 3972,
+          "alt": "Digital Inputs",
+          "title": "",
+          "width": 1800,
+          "height": 1200,
+          "target_type": "file",
+          "target_uuid": "422eea50-4e76-477b-894a-619489f43fc4",
+          "url": "http://localhost/dylan/sites/default/files/2018-03/Cambridge_Audio_Edge_NQ_Tech_Specs_Back_Large.jpg"
+        }
+      ],
+      "field_youtube_id": []
+    },
+    "1886": {
+      "id": [
+        {
+          "value": 1886
+        }
+      ],
+      "uuid": [
+        {
+          "value": "6af8505c-5484-446a-97c6-141d536a1b99"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19017
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522060167
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2006"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060197
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "A Cambridge Audio USB driver"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "A touchscreen"
+        },
+        {
+          "value": "Windows 8 or higher"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "What does a Windows PC require to play music through the Edge’s Class 2 USB port?"
+        }
+      ]
+    },
+    "1887": {
+      "id": [
+        {
+          "value": 1887
+        }
+      ],
+      "uuid": [
+        {
+          "value": "e8ffda1d-b5f7-4a9d-998f-3db3e7b66fae"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19018
+        }
+      ],
+      "type": [
+        {
+          "target_id": "lesson",
+          "target_type": "paragraphs_type",
+          "target_uuid": "90c18cf3-34cf-4995-8aa5-9549d94c9140"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522060237
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2007"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060331
+        }
+      ],
+      "field_body": [
+        {
+          "value": "<p>The Dual Concentric Control Knob on Edge A and NQ serves two purposes – volume control and source selection. Made up of 31 individually machined parts, the knob is both designed and manufactured in the UK.</p>\r\n",
+          "format": "basic_html"
+        }
+      ],
+      "field_headline": [
+        {
+          "value": "Dual Concentric Control Knob"
+        }
+      ],
+      "field_image": [],
+      "field_youtube_id": [
+        {
+          "value": "video goes here"
+        }
+      ]
+    },
+    "1888": {
+      "id": [
+        {
+          "value": 1888
+        }
+      ],
+      "uuid": [
+        {
+          "value": "88ca52f9-039b-4d0d-88a2-847f785561c6"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19019
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522060284
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2007"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060331
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "31"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "21"
+        },
+        {
+          "value": "41"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "How many individually machined parts are the in the dual concentric control knob for Edge A and NQ?"
+        }
+      ]
+    },
+    "1889": {
+      "id": [
+        {
+          "value": 1889
+        }
+      ],
+      "uuid": [
+        {
+          "value": "6ba06efc-aeb4-4ae4-979c-a899a7f3f0c6"
+        }
+      ],
+      "revision_id": [
+        {
+          "value": 19020
+        }
+      ],
+      "type": [
+        {
+          "target_id": "question",
+          "target_type": "paragraphs_type",
+          "target_uuid": "59d7a85f-9cc9-4469-b4c9-5c12ddceddb7"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "created": [
+        {
+          "value": 1522060306
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "parent_id": [
+        {
+          "value": "2007"
+        }
+      ],
+      "parent_type": [
+        {
+          "value": "node"
+        }
+      ],
+      "parent_field_name": [
+        {
+          "value": "field_add_components"
+        }
+      ],
+      "behavior_settings": [
+        {
+          "value": "a:0:{}"
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_changed": [
+        {
+          "value": 1522060331
+        }
+      ],
+      "field_correct_choice": [
+        {
+          "value": "Window Phone"
+        }
+      ],
+      "field_incorrect_choices": [
+        {
+          "value": "iOS"
+        },
+        {
+          "value": "Android"
+        }
+      ],
+      "field_question": [
+        {
+          "value": "Which of these operating systems are not supported by the Edge App?"
+        }
+      ]
+    }
+  },
+  "learn": [
+    {
+      "changed": [
+        {
+          "value": 1521473667
+        }
+      ],
+      "content_translation_outdated": [
+        {
+          "value": false
+        }
+      ],
+      "content_translation_source": [
+        {
+          "value": "und"
+        }
+      ],
+      "created": [
+        {
+          "value": 1521212294
+        }
+      ],
+      "default_langcode": [
+        {
+          "value": true
+        }
+      ],
+      "field_assessment_p_": [
+        {
+          "target_id": 1843,
+          "target_revision_id": 18960,
+          "target_type": "paragraph",
+          "target_uuid": "81bae0a0-aba5-4b03-8a58-fc10072e9c8f"
+        },
+        {
+          "target_id": 1845,
+          "target_revision_id": 18961,
+          "target_type": "paragraph",
+          "target_uuid": "058de282-087c-4629-99a5-3e6129a6cd03"
+        }
+      ],
+      "field_domain_access": [
+        {
+          "target_id": "gb",
+          "target_type": "domain",
+          "target_uuid": "6fd077b4-213e-4812-bacf-1d35221c57fd"
+        }
+      ],
+      "field_domain_all_affiliates": [
+        {
+          "value": false
+        }
+      ],
+      "field_introduction": [
+        {
+          "format": "basic_html",
+          "value": "<p>A short introduction into the world of Edge.</p>\r\n"
+        }
+      ],
+      "field_modules": [
+        {
+          "target_id": 2004,
+          "target_type": "node",
+          "target_uuid": "148f3f4d-c29d-4ff7-8826-f8de1a6d4eb2",
+          "url": "/dylan/gbr/en/node/2004"
+        }
+      ],
+      "langcode": [
+        {
+          "value": "en"
+        }
+      ],
+      "metatag": {
+        "value": {
+          "robots": "index, follow",
+          "title": "| Cambridge Audio"
+        }
+      },
+      "nid": [
+        {
+          "value": 2003
+        }
+      ],
+      "path": [
+        {
+          "alias": "/api/learn/v1/edge",
+          "langcode": "en",
+          "pid": 2715
+        }
+      ],
+      "promote": [
+        {
+          "value": true
+        }
+      ],
+      "revision_timestamp": [
+        {
+          "value": 1521473667
+        }
+      ],
+      "revision_translation_affected": [
+        {
+          "value": true
+        }
+      ],
+      "revision_uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "rh_action": [
+        {
+          "value": "bundle_default"
+        }
+      ],
+      "rh_redirect_response": [
+        {
+          "value": 301
+        }
+      ],
+      "status": [
+        {
+          "value": true
+        }
+      ],
+      "sticky": [
+        {
+          "value": false
+        }
+      ],
+      "title": [
+        {
+          "value": "Edge"
+        }
+      ],
+      "type": [
+        {
+          "target_id": "course",
+          "target_type": "node_type",
+          "target_uuid": "7bea8629-3bee-46b7-b25e-e52754dbb575"
+        }
+      ],
+      "uid": [
+        {
+          "target_id": 39,
+          "target_type": "user",
+          "target_uuid": "56975580-202b-470d-a01a-821ca6c6ad71",
+          "url": "/dylan/gbr/en/user/39"
+        }
+      ],
+      "uuid": [
+        {
+          "value": "902ab86e-3859-4d0c-b992-f617df92a7ab"
+        }
+      ],
+      "vid": [
+        {
+          "value": 4418
+        }
+      ]
+    }
+  ]
+}

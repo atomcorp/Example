@@ -29,7 +29,7 @@ const testCourseComplete = (
 ): boolean => {
   // all courses module complete
   // AND assessment complete
-  return modulesIds.every((id: string): boolean => moduleStatuses[id])
+  return Object.keys(modulesIds).every((id: string): boolean => moduleStatuses[id])
     && assessmentStatuses[courseId]
     ? true : false;
 };
@@ -61,7 +61,7 @@ export const Course = ({
   const courseData = resources.courses[courseId];
   const courseDone = testCourseComplete(
     courseId,
-    courseData.modules,
+    courseData.field_modules,
     moduleStatuses,
     assessmentStatuses
   );
@@ -91,7 +91,7 @@ export const Course = ({
       <CourseAssessment
         courseId={courseId}
         completed={assessmentStatuses[courseId]}
-        courseTitle={courseData.title} />
+        courseTitle={courseData.title[0].value} />
       <h2>Resources</h2>
       <ul>
         <li>resource 1</li>

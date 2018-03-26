@@ -63,15 +63,15 @@ const CourseList = ({
     Object.keys(courses).map((key: string, index: number): Node =>
       <CourseButton
         key={index}
-        title={courses[key].title}
-        id={courses[key].id}
+        title={courses[key].title[0].value}
+        id={courses[key].nid[0].value}
         status={
           coursesStatuses[key]
           ? coursesStatuses[key]
           : coursesStatuses[key] = CourseStatuses.NOT_STARTED
         }
         onClick={(): void => onClick(
-          CourseStatuses.STARTED, courses[key].id
+          CourseStatuses.STARTED, courses[key].nid[0].value
         )} />
     )
   );

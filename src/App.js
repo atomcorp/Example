@@ -21,7 +21,7 @@ import {getFromLocalStorage} from './utility/utility';
 type ResourcesType = {
   assessments: {} | MultiChoiceType,
   courses: {} | CourseType,
-  moduleComponents: {} | LessonType | MultiChoiceType,
+  components: {} | LessonType | MultiChoiceType,
   modules: {} | ModuleType
 };
 
@@ -46,15 +46,13 @@ class App extends Component<void, StateType> {
     // get static learning data here
     resources.then(
       ({
-        assessments,
         courses,
-        moduleComponents,
+        components,
         modules,
       }: ResourcesType) => {
         this.resources = {
-          assessments,
           courses,
-          moduleComponents,
+          components,
           modules,
         };
       }

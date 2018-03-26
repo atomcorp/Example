@@ -43,7 +43,10 @@ const CourseModuleElement = ({
             moduleComponent: MultiChoiceFieldsType | LessonFieldsType | {},
             i: number
           ): Node =>
-            <ModuleComponentElement key={i} {...moduleComponent} />
+            {
+
+              return <ModuleComponentElement key={i} {...moduleComponent} />
+            }
           )
         }
       </ul>
@@ -64,7 +67,7 @@ const ModuleComponentElement = ({
   }
   return (
     <li>
-      {field_headline}
+      {field_headline[0].value}
     </li>
   );
 };
@@ -79,9 +82,9 @@ export const CoursePresentation = ({
   field_introduction,
 }: CoursePresentationType): Node => (
   <div>
-    <TitleElement title={title} />
+    <TitleElement title={title[0].value} />
     <div dangerouslySetInnerHTML={{
-      __html: field_introduction,
+      __html: field_introduction[0].value,
     }} />
   </div>
 );
@@ -98,19 +101,21 @@ export const CourseModulesPresentation = ({
   moduleStatuses,
 }: CourseModulesPresentationType
 ): Node => (
-  courseData.modules.map((moduleId: string, i: number): Node =>
-    <CourseModuleElement
-      key={i}
-      title={resources.modules[moduleId].title}
-      moduleId={moduleId}
-      courseId={courseData.id}
-      moduleStatus={moduleStatuses[moduleId]}
-      moduleComponents={
-        resources.modules[moduleId].field_lesson.map(
-          (lessonId: string): {} | ModuleComponentType =>
-            resources.moduleComponents[lessonId]
-        )
-      } />
+  courseData.field_modules.map((module: string, i: number): Node =>
+    {
+      return <CourseModuleElement
+        key={i}
+        title={resources.modules[module.target_id].title[0].value}
+        moduleId={module.target_id}
+        courseId={courseData.nid[0].value}
+        moduleStatus={moduleStatuses[module.target_id]}
+        moduleComponents={
+          resources.modules[module.target_id].field_add_components.map(
+            (component: string): {} | ModuleComponentType =>
+              resources.components[component.target_id]
+          )
+        } />;
+    }
   )
 );
 

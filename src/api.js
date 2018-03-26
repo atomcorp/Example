@@ -7,10 +7,10 @@ import {
 
 const fetchEndpoint = (url, key) => fetch(url).then((res) =>
   res.json()).then((json) => {
-  return {
-    [key]: json,
-  };
-});
+    return {
+      [key]: json,
+    };
+  });
 
 const fetchEverything = () => Promise.all(
   Object.keys(apiEndpoints).map((key) => fetchEndpoint(apiEndpoints[key], key))
