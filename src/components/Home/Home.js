@@ -5,8 +5,7 @@ import Page from '../../containers/page/page.js';
 import {Link} from 'react-router-dom';
 
 const Home = (): Node => (
-  <Page>
-    <h1>Home</h1>
+  <Page title={'Home'}>
     <Link to={`/courses`}>Courses</Link>
     <br/>
     <Progress />

@@ -11,6 +11,10 @@ class Page extends Component {
       <div className={style.page}>
         <HeaderContainer />
         <div className={style.content}>
+          <div className={style.title}>
+            <h1>{this.props.title}</h1>
+          </div>
+
           {this.props.children}
         </div>
         {/* <div> Footer </div> */}

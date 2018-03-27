@@ -1,5 +1,17 @@
 .content {
   padding: 15px;
-  max-width: 960px;
   margin: 0 auto;
+}
+
+@supports (display: grid) {
+  .content {
+    display: grid;
+    grid-template-areas: 
+      "header header"
+      "sidebar content"
+      "footer footer";
+  }
+  .title {
+    grid-area: header;
+  }
 }

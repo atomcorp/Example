@@ -5,6 +5,7 @@
 
 import React from 'react';
 import type {Node} from 'react';
+import styles from './lesson.module.css';
 
 type LessonFieldsType = {
   field_headline: Array<{
@@ -12,15 +13,26 @@ type LessonFieldsType = {
   }>,
   field_body: Array<{
     value: string
+  }>,
+  field_image: Array<{
+    alt: string,
+    url: string
   }>
 };
 
 export const Lesson = ({
   field_headline,
   field_body,
+  field_image,
 }: LessonFieldsType): Node => (
   <div className="lesson">
     <h2>{field_headline[0].value}</h2>
+    {
+        field_image && <img
+          className={styles.img}
+          src={field_image[0].url}
+          alt={field_image[0].alt} />
+    }
     {
       /*
       * dangerouslySetInnerHTML is React's equivilant for .innerHTML

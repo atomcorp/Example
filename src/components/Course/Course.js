@@ -20,6 +20,7 @@ import type {
   CoursesStatusesType,
   AssessmentStatusesType,
 } from '../../types.js';
+import style from './Course.module.css';
 
 const testCourseComplete = (
   courseId: string,
@@ -85,15 +86,14 @@ export const Course = ({
     updateCourseStatus('COMPLETED', courseId);
   }
   return (
-    <Page>
-      {
-        courseDone ? 'Course status: Done' : 'Course status: Not done'
-      }
-      <CoursePresentation {...courseData} />
-      <CourseModulesPresentation
-        courseData={courseData}
-        resources={resources}
-        moduleStatuses={moduleStatuses} />
+    <Page title={`${courseData.title[0].value} Course`}>
+      <CoursePresentation courseDone={courseDone} {...courseData} />
+      <div className={style.modules}>
+        <CourseModulesPresentation
+          courseData={courseData}
+          resources={resources}
+          moduleStatuses={moduleStatuses} />
+      </div>
       <CourseAssessment
         courseId={courseId}
         completed={assessmentStatuses[courseId]}

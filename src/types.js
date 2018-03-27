@@ -47,6 +47,10 @@ export type LessonFieldsType = {
   }>,
   "type": Array<{
     value: 'lesson'
+  }>,
+  field_image: Array<{
+    alt: string,
+    url: string
   }>
 };
 

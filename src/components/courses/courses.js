@@ -85,8 +85,7 @@ export const Courses = ({
   onClick,
 }: CoursesType): Node => {
   return (
-    <Page>
-      <h1>Choose a course</h1>
+    <Page title={'Choose a course'}>
       <div>
         <CourseList
           courses={courses}

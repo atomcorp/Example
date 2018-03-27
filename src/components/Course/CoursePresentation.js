@@ -2,21 +2,16 @@
 import React from 'react';
 import type {Node} from 'react';
 import {Link} from 'react-router-dom';
+import style from './Course.module.css';
 
 import type {
   ResourcesType,
   ModuleComponentType,
-  MultiChoiceFieldsType,
-  LessonFieldsType,
+  // MultiChoiceFieldsType,
+  // LessonFieldsType,
   CourseFieldsType,
   ModuleStatusesType,
 } from '../../types.js';
-
-const TitleElement = ({title}: { title: string }): Node => {
-  return (
-    <h1>{title} Course</h1>
-  );
-};
 
 type CourseModuleElementType = {
   title: string,
@@ -33,12 +28,11 @@ const CourseModuleElement = ({
   moduleComponents,
   moduleStatus,
 }: CourseModuleElementType): Node => (
-  <div className="module">
+    <div className={style.module}>
     <h2>{title} Module ({moduleStatus ? 'COMPLETE' : 'NOT COMPLETE'})</h2>
-    <div>
+{/*     <div>
       <ul>
         {
-
           moduleComponents.map((
             moduleComponent: MultiChoiceFieldsType | LessonFieldsType | {},
             i: number
@@ -47,38 +41,40 @@ const CourseModuleElement = ({
         }
       </ul>
       {
-        <Link to={`/course/${courseId}/${moduleId}`}>
-          <button>Take the {title} module</button>
-        </Link>
       }
-    </div>
+    </div> */}
+    <Link to={`/course/${courseId}/${moduleId}`}>
+      <button>Take the {title} module</button>
+    </Link>
   </div>
 );
 
-const ModuleComponentElement = ({
-  field_headline,
-}: { field_headline: Array<{value: string}> | void }): Node => {
-  if (!field_headline) {
-    return <li>Test</li>;
-  }
-  return (
-    <li>
-      {field_headline[0].value}
-    </li>
-  );
-};
+// const ModuleComponentElement = ({
+//   field_headline,
+// }: { field_headline: Array<{value: string}> | void }): Node => {
+//   if (!field_headline) {
+//     return <li>Test</li>;
+//   }
+//   return (
+//     <li>
+//       {field_headline[0].value}
+//     </li>
+//   );
+// };
 
 type CoursePresentationType = {
   title: Array<{value: string}>,
-  field_introduction: Array<{value: string}>
+  field_introduction: Array<{value: string}>,
+  courseDone: boolean
 };
 
 export const CoursePresentation = ({
   title,
   field_introduction,
+  courseDone,
 }: CoursePresentationType): Node => (
-  <div>
-    <TitleElement title={title[0].value} />
+  <div className={style.introduction}>
+    {courseDone ? 'Course status: Done' : 'Course status: Not done'}
     <div dangerouslySetInnerHTML={{
       __html: field_introduction[0].value,
     }} />
@@ -97,22 +93,22 @@ export const CourseModulesPresentation = ({
   moduleStatuses,
 }: CourseModulesPresentationType
 ): Node => (
-    courseData.field_modules.map((
-      module: {target_id: string},
-      i: number
-    ): Node => {
-      return <CourseModuleElement
-        key={i}
-        title={resources.modules[module.target_id].title[0].value}
-        moduleId={module.target_id}
-        courseId={courseData.nid[0].value}
-        moduleStatus={moduleStatuses[module.target_id]}
-        moduleComponents={
-          resources.modules[module.target_id].field_add_components.map(
-            (component: {target_id: string}): {} | ModuleComponentType =>
-              resources.components[component.target_id]
-          )
-        } />;
+  courseData.field_modules.map((
+    module: {target_id: string},
+    i: number
+  ): Node => {
+    return <CourseModuleElement
+      key={i}
+      title={resources.modules[module.target_id].title[0].value}
+      moduleId={module.target_id}
+      courseId={courseData.nid[0].value}
+      moduleStatus={moduleStatuses[module.target_id]}
+      moduleComponents={
+        resources.modules[module.target_id].field_add_components.map(
+          (component: {target_id: string}): {} | ModuleComponentType =>
+            resources.components[component.target_id]
+        )
+      } />;
     }
   )
 );
@@ -130,7 +126,7 @@ export const CourseAssessment = ({
 }: CourseAssessmentType): Node => (
   <div>
     <h2>{courseTitle} Assessment {
-        completed ? '(COMPLETED)' : '(NOT COMPLETED)'
+      completed ? '(COMPLETED)' : '(NOT COMPLETED)'
     }</h2>
     <Link to={`/course/${courseId}/assessment`}>
       <button>Take the Assessment</button>
