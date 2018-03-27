@@ -111,7 +111,7 @@ export const CourseAssessment = ({
   courseTitle,
 }: CourseAssessmentType): Node => (
   <Link className={style.assessment} to={`/course/${courseId}/assessment`}>
-    <div className={style.assessmentTitle}>{courseTitle} Assessment</div>
+    <div className={style.assessmentTitle}>?. Assessment</div>
     <div>{completed ? '✔' : '✗'}</div>
   </Link>
 );

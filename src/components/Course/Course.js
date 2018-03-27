@@ -123,21 +123,20 @@ export const Course = ({
         progress={courseProgress} />
       <div className={style.page}>
         <div className={style.content}>
-          <h2>Modules:</h2>
+          <h2>Courses:</h2>
           <CourseModulesPresentation
             courseData={courseData}
             resources={resources}
             moduleStatuses={moduleStatuses} />
-          <h2>Assessment:</h2>
           <CourseAssessment
             courseId={courseId}
             completed={assessmentStatuses[courseId]}
             courseTitle={courseData.title[0].value} />
-          <h2>Resources</h2>
+          <h4>Resources</h4>
           <ul>
-            <li>resource 1</li>
-            <li>resource 2</li>
-            <li>resource 3</li>
+            <li><a href="#">resource 1</a></li>
+            <li><a href="#">resource 2</a></li>
+            <li><a href="#">resource 3</a></li>
           </ul>
         </div>
         <CoursePresentation courseDone={courseDone} {...courseData} />
