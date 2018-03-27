@@ -171,7 +171,7 @@ export class Assessment extends Component<PropsType, StateType> {
             this.state.submitted && `Pass minimum: ${this.target}`
           }
         </div>
-        
+
         {
           this.courseData.field_course_assessment.map(
             (assessment: {target_id: string}, i: number): Node => (
@@ -180,6 +180,7 @@ export class Assessment extends Component<PropsType, StateType> {
                 key={i}
                 id={assessment.target_id}
                 assessment={
+                  // $FlowFixMe
                   this.props.resources.components[assessment.target_id]
                 }
                 handleClick={this.handleClick}

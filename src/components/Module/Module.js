@@ -172,6 +172,7 @@ const Sidebar = ({
         component: {target_id: string},
         i: number
       ): Node => (
+        // $FlowFixMe
         <li key={i} style={{
           opacity: visibleModuleComponentId > i + 1 ? 0.5 : 1,
           }}>

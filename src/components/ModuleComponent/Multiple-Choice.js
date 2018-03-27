@@ -28,9 +28,15 @@ const Choice = ({
 };
 
 type PropsType = {
-  field_question: string,
-  field_correct_choice: string,
-  field_incorrect_choices: Array<string>
+  field_question: Array<{
+    value: string
+  }>,
+  field_correct_choice: Array<{
+    value: string
+  }>,
+  field_incorrect_choices: Array<{
+    value: string
+  }>
 };
 
 type StateType = {
@@ -127,7 +133,9 @@ const MultipleChoicePresentation = ({
 );
 
 type MultipleChoiceListType = {
-  choices: Array<string>,
+  choices: Array<{
+    value: string
+  }>,
   handleClick: boolean => void,
   clicked: boolean,
   shuffleOnce: (Array<Node>) => Array<Node>
@@ -140,7 +148,9 @@ const MultipleChoiceList = ({
   shuffleOnce,
 }: MultipleChoiceListType ): Array<Node> => (
   shuffleOnce(choices.map((
-    choice: string,
+    choice: {
+      value: string
+    },
     i: number
   ): Node => {
     return <Choice

@@ -131,13 +131,13 @@ const Choice = ({
 }: ChoiceType): Node => {
   return (
     <div onClick={(): void => handleChoice({
-      isCorrect,
-      id,
-    }, choiceRef)}
-    style={{
-      color: isCorrect ? 'green' : 'red',
-      fontWeight: selectedId === choiceRef ? '700' : '400',
-    }}>
+        isCorrect,
+        id,
+      }, choiceRef)}
+      style={{
+        color: isCorrect ? 'green' : 'red',
+        fontWeight: selectedId === choiceRef ? '700' : '400',
+      }}>
       {text.value} <span style={{
           display: submitted ? 'inline' : 'none',
           color: isCorrect ? 'green' : 'red',
