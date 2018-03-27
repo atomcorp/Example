@@ -17,8 +17,7 @@ const Header = ({
 }: {status: StatusType, logout: () => void}): Node => {
   return (
     <div className={styles.header}>
-      <Link className={styles.logo} to="/">Cambridge Audio | Learn</Link>
-      <Navigation isLoggedIn={status.isLoggedIn} />
+      <Link className={styles.logo} to="/courses">Cambridge Audio | Learn</Link>
       <User
         isLoggedIn={status.isLoggedIn}
         email={status.email}
@@ -26,12 +25,6 @@ const Header = ({
     </div>
   );
 };
-
-const Navigation = ({isLoggedIn}: {isLoggedIn: boolean}): Node => (
-  isLoggedIn
-    ? <Link className={styles.link} to="/courses">Courses</Link>
-    : null
-);
 
 const User = ({
   isLoggedIn,

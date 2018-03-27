@@ -11,10 +11,14 @@ class Page extends Component {
       <div className={style.page}>
         <HeaderContainer />
         <div className={style.content}>
-          <div className={style.title}>
-            <h1>{this.props.title}</h1>
-          </div>
-
+          {
+            // TODO: scrap props title
+            this.props.title && (
+              <div className={style.title}>
+                <h1>{this.props.title}</h1>
+              </div>
+            )
+          }
           {this.props.children}
         </div>
         {/* <div> Footer </div> */}
@@ -26,6 +30,7 @@ class Page extends Component {
 
 Page.propTypes = {
   children: PropTypes.node,
+  title: PropTypes.string,
 };
 
 export default Page;

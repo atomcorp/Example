@@ -1,8 +1,62 @@
-@supports (grid: display) {
-  .introduction {
-    grid-area: sidebar;
-  }
-  .modules {
-    grid-area: content;
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress {
+  font-size: 2rem;
+}
+
+.page {
+  display: flex;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.introduction {
+  padding: 50px;
+}
+
+.about {
+  max-width: 460px;
+}
+
+.content {
+  flex: 1 0 auto;
+  padding: 50px;
+}
+
+.module {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background: #f6f6f7;
+  text-decoration: none;
+  color: initial;
+}
+
+.module > div {
+  padding: 30px;
+}
+
+.moduleTitle {
+  flex: 1 0 auto;
+}
+
+.assessment {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  background: #f6f6f7;
+  text-decoration: none;
+  color: initial;
+}
+
+.assessmentTitle {
+  flex: 1 0 auto;
+}
+
+.assessment > div {
+  padding: 30px;
 }

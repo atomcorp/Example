@@ -18,7 +18,8 @@ type CourseModuleElementType = {
   moduleId: string,
   courseId: string,
   moduleComponents: Array<ModuleComponentType | {}>,
-  moduleStatus: boolean
+  moduleStatus: boolean,
+  number: number
 };
 
 const CourseModuleElement = ({
@@ -27,26 +28,12 @@ const CourseModuleElement = ({
   moduleId,
   moduleComponents,
   moduleStatus,
+  number,
 }: CourseModuleElementType): Node => (
-    <div className={style.module}>
-    <h2>{title} Module ({moduleStatus ? 'COMPLETE' : 'NOT COMPLETE'})</h2>
-{/*     <div>
-      <ul>
-        {
-          moduleComponents.map((
-            moduleComponent: MultiChoiceFieldsType | LessonFieldsType | {},
-            i: number
-          ): Node => <ModuleComponentElement key={i} {...moduleComponent} />
-          )
-        }
-      </ul>
-      {
-      }
-    </div> */}
-    <Link to={`/course/${courseId}/${moduleId}`}>
-      <button>Take the {title} module</button>
-    </Link>
-  </div>
+  <Link to={`/course/${courseId}/${moduleId}`} className={style.module}>
+    <div className={style.moduleTitle}>{number}. {title}</div>
+    <div className={style.moduleDone}>{moduleStatus ? '✔' : '✗'}</div>
+  </Link>
 );
 
 // const ModuleComponentElement = ({
@@ -64,18 +51,16 @@ const CourseModuleElement = ({
 
 type CoursePresentationType = {
   title: Array<{value: string}>,
-  field_introduction: Array<{value: string}>,
-  courseDone: boolean
+  field_introduction: Array<{value: string}>
 };
 
 export const CoursePresentation = ({
   title,
   field_introduction,
-  courseDone,
 }: CoursePresentationType): Node => (
   <div className={style.introduction}>
-    {courseDone ? 'Course status: Done' : 'Course status: Not done'}
-    <div dangerouslySetInnerHTML={{
+    <h2>About:</h2>
+    <div className={style.about} dangerouslySetInnerHTML={{
       __html: field_introduction[0].value,
     }} />
   </div>
@@ -103,6 +88,7 @@ export const CourseModulesPresentation = ({
       moduleId={module.target_id}
       courseId={courseData.nid[0].value}
       moduleStatus={moduleStatuses[module.target_id]}
+      number={i + 1}
       moduleComponents={
         resources.modules[module.target_id].field_add_components.map(
           (component: {target_id: string}): {} | ModuleComponentType =>
@@ -124,13 +110,35 @@ export const CourseAssessment = ({
   completed,
   courseTitle,
 }: CourseAssessmentType): Node => (
-  <div>
-    <h2>{courseTitle} Assessment {
-      completed ? '(COMPLETED)' : '(NOT COMPLETED)'
-    }</h2>
-    <Link to={`/course/${courseId}/assessment`}>
-      <button>Take the Assessment</button>
-    </Link>
-    <br/>
+  <Link className={style.assessment} to={`/course/${courseId}/assessment`}>
+    <div className={style.assessmentTitle}>{courseTitle} Assessment</div>
+    <div>{completed ? '✔' : '✗'}</div>
+  </Link>
+);
+
+const Title = ({title}: {title: string}): Node => <h1>{title}</h1>;
+
+const Progress = ({
+  complete,
+  total,
+}: {complete: number, total: number}): Node => {
+  return <div className={style.progress}>
+    {parseInt((complete / total) * 100, 10)}% Complete
+  </div>;
+};
+
+export const CourseHeader = ({
+  title,
+  progress,
+}: {
+  title: string,
+  progress: {
+    total: number,
+    complete: number
+  }
+}): Node => (
+  <div className={style.header}>
+    <Title title={title} />
+    <Progress complete={progress.complete} total={progress.total} />
   </div>
 );

@@ -1,17 +1,16 @@
 .content {
-  padding: 15px;
   margin: 0 auto;
+  width: 100%;
 }
 
-@supports (display: grid) {
+@media (min-width: 72em) {
   .content {
-    display: grid;
-    grid-template-areas: 
-      "header header"
-      "sidebar content"
-      "footer footer";
+    width: calc(100% - 12.5em);
   }
-  .title {
-    grid-area: header;
+}
+
+@media (min-width: 100em) {
+  .content {
+    width: 87.5em;
   }
 }

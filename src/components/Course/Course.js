@@ -13,6 +13,7 @@ import {
   CoursePresentation,
   CourseModulesPresentation,
   CourseAssessment,
+  CourseHeader,
 } from './CoursePresentation.js';
 import type {
   ResourcesType,
@@ -39,6 +40,29 @@ const testCourseComplete = (
   })
     && assessmentStatuses[courseId]
     ? true : false;
+};
+
+const calculateCourseCompletetion = (
+  courseId: string,
+  courseModules: Array<{
+    target_id: string
+  }>,
+  moduleStatuses: ModuleStatusesType,
+  assessmentStatuses: AssessmentStatusesType
+): {complete: number, total: number} => {
+  return courseModules.reduce((
+    acc: {complete: number, total: number},
+    module: {target_id: string}
+  ): {complete: number, total: number} => {
+    let {total, complete} = acc;
+    return {
+      total: ++total,
+      complete: moduleStatuses[module.target_id] ? ++complete : complete,
+    };
+  }, {
+      total: 1,
+      complete: assessmentStatuses[courseId] ? 1 : 0,
+    });
 };
 
 type CourseType = {
@@ -72,6 +96,12 @@ export const Course = ({
     moduleStatuses,
     assessmentStatuses
   );
+  const courseProgress = calculateCourseCompletetion(
+    courseId,
+    courseData.field_modules,
+    moduleStatuses,
+    assessmentStatuses
+  );
   if (!courseData) {
     return <div>Can not find course [invalid course ID]</div>;
   }
@@ -85,25 +115,33 @@ export const Course = ({
   if (courseDone && coursesStatuses[courseId] !== 'COMPLETED') {
     updateCourseStatus('COMPLETED', courseId);
   }
+
   return (
-    <Page title={`${courseData.title[0].value} Course`}>
-      <CoursePresentation courseDone={courseDone} {...courseData} />
-      <div className={style.modules}>
-        <CourseModulesPresentation
-          courseData={courseData}
-          resources={resources}
-          moduleStatuses={moduleStatuses} />
+    <Page>
+      <CourseHeader
+        title={courseData.title[0].value}
+        progress={courseProgress} />
+      <div className={style.page}>
+        <div className={style.content}>
+          <h2>Modules:</h2>
+          <CourseModulesPresentation
+            courseData={courseData}
+            resources={resources}
+            moduleStatuses={moduleStatuses} />
+          <h2>Assessment:</h2>
+          <CourseAssessment
+            courseId={courseId}
+            completed={assessmentStatuses[courseId]}
+            courseTitle={courseData.title[0].value} />
+          <h2>Resources</h2>
+          <ul>
+            <li>resource 1</li>
+            <li>resource 2</li>
+            <li>resource 3</li>
+          </ul>
+        </div>
+        <CoursePresentation courseDone={courseDone} {...courseData} />
       </div>
-      <CourseAssessment
-        courseId={courseId}
-        completed={assessmentStatuses[courseId]}
-        courseTitle={courseData.title[0].value} />
-      <h2>Resources</h2>
-      <ul>
-        <li>resource 1</li>
-        <li>resource 2</li>
-        <li>resource 3</li>
-      </ul>
     </Page>
   );
 };
