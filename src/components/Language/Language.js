@@ -1,16 +1,28 @@
 import React from 'react';
-import Page from '../../containers/page/page';
+import {addToLocalStorage} from '../../utility/utility';
+
+const handleClick = (iso) => {
+  console.log(iso)
+  addToLocalStorage('lang', iso);
+};
 
 const Language = () => (
-  <Page>
-    <h2>Choose a language</h2>
+  <div>
+    <h2>Please choose a language: </h2>
     <ul>
-      <li>English</li>
-      <li>French</li>
-      <li>Spanish</li>
-      <li>German</li>
+      <LanguageButton lang="English" iso="en" />
+      <LanguageButton lang="French" iso="fr" />
+      <LanguageButton lang="Spanish" iso="es" />
+      <LanguageButton lang="German" iso="de" />
     </ul>
-  </Page>
+    <button>Start</button>
+  </div>
+);
+
+const LanguageButton = ({lang, iso}) => (
+  <li onClick={(e) => handleClick(iso)}>
+    {lang}
+  </li>
 );
 
 export default Language;

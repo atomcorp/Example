@@ -16,7 +16,10 @@ import type {
   ModuleType,
 } from './types.js';
 import {LOGIN} from './redux/actions/action-types';
-import {getFromLocalStorage} from './utility/utility';
+import {
+  getFromLocalStorage,
+  addToLocalStorage,
+} from './utility/utility';
 
 type ResourcesType = {
   assessments: {} | MultiChoiceType,
@@ -27,8 +30,7 @@ type ResourcesType = {
 
 type StateType = {
   loaded: boolean,
-  preLoadedState: ?{} | typeof undefined,
-  language?: string
+  preLoadedState: ?{} | typeof undefined
 };
 
 class App extends Component<void, StateType> {
@@ -38,15 +40,16 @@ class App extends Component<void, StateType> {
     this.state = {
       loaded: false,
       preLoadedState: undefined,
-      language: '',
     };
     this.resources = {};
   }
 
   componentDidMount() {
-    /*  */
-    // get static learning data here
-    resources.then(
+    // if no language set default to English
+    if (!getFromLocalStorage('lang')) {
+      addToLocalStorage('lang', '');
+    }
+    resources(getFromLocalStorage('lang')).then(
       ({
         courses,
         components,
@@ -68,7 +71,6 @@ class App extends Component<void, StateType> {
           .then((state: any) => {
             this.setState({
               preLoadedState: state,
-              language: state.language,
             });
           });
       }

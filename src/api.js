@@ -7,6 +7,7 @@ import {
 
 const fetchEndpoint = (url, key) => fetch(url).then((res) =>
   res.json()).then((json) => {
+    console.log(url)
     return {
       [key]: json,
     };
@@ -16,5 +17,5 @@ const fetchEverything = (language) => Promise.all(
     fetchEndpoint(localisedApiEndpoints(language)[key], key))
 );
 
-export const resources = fetchEverything().then((res) =>
+export const resources = (lang = '') => fetchEverything(lang).then((res) =>
   res.reduce((acc, val) => Object.assign({}, acc, val), {}));
