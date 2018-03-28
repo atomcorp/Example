@@ -134,9 +134,9 @@ export const Course = ({
             courseTitle={courseData.title[0].value} />
           <h4>Resources</h4>
           <ul>
-            <li><a href="#">resource 1</a></li>
-            <li><a href="#">resource 2</a></li>
-            <li><a href="#">resource 3</a></li>
+            <li><a href="/">resource 1</a></li>
+            <li><a href="/">resource 2</a></li>
+            <li><a href="/">resource 3</a></li>
           </ul>
         </div>
         <CoursePresentation courseDone={courseDone} {...courseData} />
