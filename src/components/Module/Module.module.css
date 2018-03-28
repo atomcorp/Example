@@ -36,3 +36,7 @@
   padding: 25px;
   width: 30%;
 }
+
+.index li {
+  cursor: pointer;
+}

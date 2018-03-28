@@ -5,7 +5,7 @@
  *
  */
 
-import React, {Component} from 'react';
+import React from 'react';
 import type {Node} from 'react';
 import type {ModuleComponentType} from '../../types.js';
 import {
@@ -21,30 +21,30 @@ type ModuleComponentsType = {
   visibleModuleComponentId: number
 };
 
-class ModuleComponents extends Component<ModuleComponentsType, void> {
-  render(): Array<Node> {
-    return (
-      this.props.modulesComponents.map((
-        moduleComponent: {
-          target_id: string
-        },
-        i: number
-      ): Node => (
-          <ModuleComponentVisibility
-            key={i}
-            isVisible={{
-              thisId: i + 1,
-              visibleId: this.props.visibleModuleComponentId,
-            }}>
-            <ModuleComponent
-              moduleComponent={
-                this.props.allModuleComponents[moduleComponent.target_id]
-              } />
-          </ModuleComponentVisibility>
-        )
-      )
-    );
-  }
-}
+const ModuleComponents = ({
+  modulesComponents,
+  allModuleComponents,
+  visibleModuleComponentId,
+}: ModuleComponentsType): Array<Node> => (
+  modulesComponents.map((
+    moduleComponent: {
+      target_id: string
+    },
+    i: number
+  ): Node => (
+      <ModuleComponentVisibility
+        key={i}
+        isVisible={{
+          thisId: i + 1,
+          visibleId: visibleModuleComponentId,
+        }}>
+        <ModuleComponent
+          moduleComponent={
+            allModuleComponents[moduleComponent.target_id]
+          } />
+      </ModuleComponentVisibility>
+    )
+  )
+);
 
 export default ModuleComponents;

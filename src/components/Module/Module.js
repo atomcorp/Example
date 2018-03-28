@@ -100,6 +100,13 @@ export class Module extends Component<PropsType, StateType> {
       });
     }
   }
+  skipToComponent = (componentId: number) => {
+    if (componentId <= this.moduleComponentLength) {
+      this.setState({
+        visibleModuleComponent: componentId,
+      });
+    }
+  }
   completeModuleButton = () => {
     this.completeModule();
     this.setState({
@@ -137,7 +144,8 @@ export class Module extends Component<PropsType, StateType> {
             <Sidebar
               components={this.moduleData.field_add_components}
               allModuleComponents={this.resources.components}
-              visibleModuleComponentId={this.state.visibleModuleComponent} />
+              visibleModuleComponentId={this.state.visibleModuleComponent}
+              skipToComponent={this.skipToComponent} />
           </div>
         </div>
         {
@@ -156,6 +164,7 @@ type ModuleComponentsType = {
   }>,
   allModuleComponents: ModuleComponentType,
   visibleModuleComponentId: number,
+  skipToComponent: (number) => void,
   children?: void
 };
 
@@ -163,17 +172,21 @@ const Sidebar = ({
   components,
   allModuleComponents,
   visibleModuleComponentId,
+  skipToComponent,
 }: ModuleComponentsType): Node => (
-  <ol>
+  <ol className={styles.index}>
     {
       components.map((
         component: {target_id: string},
         i: number
       ): Node => (
         // $FlowFixMe
-        <li key={i} style={{
-          opacity: visibleModuleComponentId > i + 1 ? 0.5 : 1,
-        }}>
+        <li
+          key={i}
+          onClick={(): void => skipToComponent(i + 1)}
+          style={{
+            opacity: visibleModuleComponentId > i + 1 ? 0.5 : 1,
+          }}>
         {
           allModuleComponents[
             component.target_id

@@ -26,7 +26,7 @@ export const Lesson = ({
   field_image,
 }: LessonFieldsType): Node => (
   <div className="lesson">
-    <h2>{field_headline[0].value}</h2>
+    <h3>{field_headline[0].value}</h3>
     {
         field_image && <img
           className={styles.img}
