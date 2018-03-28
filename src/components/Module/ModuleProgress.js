@@ -2,7 +2,7 @@
 
 import React from 'react';
 import type {Node} from 'react';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import styles from './Module.module.css';
 
 type ModuleProgressType = {
@@ -23,49 +23,48 @@ export const ModuleProgress = ({
   state,
   moduleComponentLength,
   update,
-  courseId,
+  // courseId,
 }: ModuleProgressType): Node => (
     <div className={styles.progress}>
       <ProgressButton
         label="Prev"
         update={update.decrement}
         visibility={
-          state.visibleModuleComponent > 1 ? 'visible' : 'hidden'
+          state.visibleModuleComponent > 1 ? 'block' : 'none'
         } />
       <ProgressButton
         label="Next"
         update={update.increment}
         visibility={
           state.visibleModuleComponent < moduleComponentLength
-            ? 'visible'
-            : 'hidden'
+            ? 'block'
+            : 'none'
         }
+        className={styles.progressRight}
         disabled={state.nextButtonDisabled} />
       <ProgressButton
         label="Complete module"
         update={update.complete}
         visibility={
           state.visibleModuleComponent === moduleComponentLength
-            ? 'visible'
-            : 'hidden'
+            ? 'block'
+            : 'none'
         }
         disabled={state.nextButtonDisabled} />
       {/*
         TODO: add warning, you'll lose your progress,
         maybe listen for user pressing back button
       */}
-      <br /><br />
-      <Link
-        to={`/course/${courseId}`}>
-          (back to course)
-        </Link>
+      {/* <Link to={`/course/${courseId}`}>
+        (back to course)
+      </Link> */}
     </div>
   );
 
 type ProgressButtonType = {
   label: string,
   update: () => void,
-  visibility: 'visible' | 'hidden',
+  visibility: 'block' | 'none',
   props?: {}
 };
 
@@ -76,5 +75,5 @@ const ProgressButton = ({
   ...props
 }: ProgressButtonType): Node =>
   <button
-    style={{visibility: visibility}}
+    style={{display: visibility}}
     onClick={(): void => update()} {...props}>{label}</button>;

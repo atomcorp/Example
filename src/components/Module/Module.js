@@ -47,15 +47,6 @@ type StateType = {
   completed: boolean
 };
 
-// **
-//  * use prev and next buttons to keep state of progress
-//  * will be passed down to Module Components
-//  * 1. Get how many components there are
-//  * 2. Always start with one
-//  * 3. Pass current component to ModuleComponent,
-//  *    so it only renders that one
-//  * 4.
-//  */
 export class Module extends Component<PropsType, StateType> {
   courseId: string;
   resources: ResourcesType;
@@ -173,7 +164,7 @@ const Sidebar = ({
   allModuleComponents,
   visibleModuleComponentId,
 }: ModuleComponentsType): Node => (
-  <ul>
+  <ol>
     {
       components.map((
         component: {target_id: string},
@@ -182,18 +173,18 @@ const Sidebar = ({
         // $FlowFixMe
         <li key={i} style={{
           opacity: visibleModuleComponentId > i + 1 ? 0.5 : 1,
-          }}>
+        }}>
         {
           allModuleComponents[
             component.target_id
           ].type[0].target_id === 'lesson'
             // $FlowFixMe
             ? allModuleComponents[component.target_id].field_headline[0].value
-            : allModuleComponents[component.target_id].type[0].target_id
+            : 'Question'
         }
       </li>
         )
       )
     }
-  </ul>
+  </ol>
 );
