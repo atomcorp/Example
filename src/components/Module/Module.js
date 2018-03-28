@@ -26,6 +26,7 @@ import type {
   ModuleFieldsType,
   ModuleComponentType,
 } from '../../types.js';
+import styles from './Module.module.css';
 
 type PropsType = {
   resources: ResourcesType,
@@ -125,23 +126,29 @@ export class Module extends Component<PropsType, StateType> {
           moduleName={ this.moduleData.title[0].value }
           currentModuleComponent={ this.state.visibleModuleComponent }
           moduleComponentLength={ this.moduleComponentLength } />
-        <Sidebar
-          components={this.moduleData.field_add_components}
-          allModuleComponents={this.resources.components}
-          visibleModuleComponentId={this.state.visibleModuleComponent} />
-        <ModuleComponents
-          modulesComponents={ this.moduleData.field_add_components }
-          allModuleComponents={ this.resources.components }
-          visibleModuleComponentId={ this.state.visibleModuleComponent } />
-        <ModuleProgress
-          state={ this.state }
-          moduleComponentLength={ this.moduleComponentLength }
-          update={{
-            decrement: this.decrementVisible,
-            increment: this.incrementVisible,
-            complete: this.completeModuleButton,
-          }}
-          courseId={ this.courseId } />
+        <div className={styles.page}>
+          <div className={styles.content}>
+            <ModuleComponents
+              modulesComponents={this.moduleData.field_add_components}
+              allModuleComponents={this.resources.components}
+              visibleModuleComponentId={this.state.visibleModuleComponent} />
+            <ModuleProgress
+              state={this.state}
+              moduleComponentLength={this.moduleComponentLength}
+              update={{
+                decrement: this.decrementVisible,
+                increment: this.incrementVisible,
+                complete: this.completeModuleButton,
+              }}
+              courseId={this.courseId} />
+          </div>
+          <div className={styles.sidebar}>
+            <Sidebar
+              components={this.moduleData.field_add_components}
+              allModuleComponents={this.resources.components}
+              visibleModuleComponentId={this.state.visibleModuleComponent} />
+          </div>
+        </div>
         {
           // If you hit the complete module button
           this.state.completed && <Redirect

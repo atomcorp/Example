@@ -10,7 +10,6 @@
 
 .page {
   display: flex;
-  margin: 0 auto;
   background: #fff;
   padding: 25px;
 }

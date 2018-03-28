@@ -3,6 +3,7 @@
 import React from 'react';
 import type {Node} from 'react';
 import {Link} from 'react-router-dom';
+import styles from './Module.module.css';
 
 type ModuleProgressType = {
   state: {
@@ -24,7 +25,7 @@ export const ModuleProgress = ({
   update,
   courseId,
 }: ModuleProgressType): Node => (
-    <div>
+    <div className={styles.progress}>
       <ProgressButton
         label="Prev"
         update={update.decrement}
