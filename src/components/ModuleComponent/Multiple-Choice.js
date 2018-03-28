@@ -8,25 +8,6 @@ import type {Node} from 'react';
 import {once as myOnce, shuffle} from '../../utility/utility.js';
 import styles from './Multiple-Choice.module.css';
 
-type ChoiceType = {
-  text: string,
-  isCorrect: boolean,
-  handleClick: boolean => void,
-  clicked: boolean
-};
-
-const Choice = ({
-  text,
-  isCorrect,
-  handleClick,
-}: ChoiceType): Node => {
-  return (
-    <div onClick={ (): void => handleClick(isCorrect) }>
-      {text} <span className={styles.icon}>{ isCorrect ? '✅' : '❎' }</span>
-    </div>
-  );
-};
-
 type PropsType = {
   field_question: Array<{
     value: string
@@ -111,15 +92,12 @@ const MultipleChoicePresentation = ({
 }: MultipleChoicePresentationType): Node => (
   <div className="multiple-question">
     <div className="question">
-      <h2>{field_question[0].value}</h2>
+      <h3>{field_question[0].value}</h3>
     </div>
-    <div className="choice">
-      {
-        state.clicked && state.isCorrectChoice
-      }
-    </div>
-    <br />
-    <div className={`choices ${state.clicked ? styles.choicesChosen : ''}`}>
+    <div>Select an answer: </div>
+    <div className={
+      `${styles.choices} ${state.clicked ? styles.choicesChosen : ''}`
+      }>
       <MultipleChoiceList choices={[
           field_correct_choice[0],
           ...field_incorrect_choices,
@@ -128,7 +106,11 @@ const MultipleChoicePresentation = ({
         clicked={state.clicked}
         shuffleOnce={shuffleOnce} />
     </div>
-    <br/>
+    <div className="choice">
+      {
+        state.clicked && state.isCorrectChoice
+      }
+    </div>
   </div>
 );
 
@@ -161,3 +143,60 @@ const MultipleChoiceList = ({
       handleClick={handleClick} />;
   }))
 );
+
+type ChoiceType = {
+  text: string,
+  isCorrect: boolean,
+  handleClick: boolean => void,
+  clicked: boolean
+};
+
+class Choice extends Component<ChoiceType, {domIndex: string}> {
+  el: string
+  constructor(props: ChoiceType) {
+    super(props);
+    this.el = '';
+    this.state = {
+      domIndex: 'not set',
+    };
+  }
+  getIndex = (el: Node): number => {
+    if (el) {
+      let i = 0;
+      // $FlowFixMe
+      while ((el = el.previousSibling) != null) {
+        i++;
+      }
+      return i;
+    }
+    return 0;
+  };
+  componentDidMount() {
+    if (this.el) {
+      this.setState({
+        domIndex: String.fromCharCode(
+          97 + this.getIndex(this.el)
+        ).toUpperCase() + '. ',
+      });
+    }
+  }
+
+  render(): * {
+    return (
+      <div
+        // $FlowFixME
+        ref={(div: any): * => {
+          this.el = div;
+        }}
+        className={styles.choice}
+        onClick={(): void => this.props.handleClick(this.props.isCorrect)}
+      >
+        {this.state.domIndex}
+        {this.props.text}
+        <span className={styles.icon}>
+          {this.props.isCorrect ? '✅' : '❎'}
+        </span>
+      </div>
+    );
+  }
+}
