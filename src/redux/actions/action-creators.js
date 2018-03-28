@@ -3,6 +3,7 @@ import {
   SET_COURSE_STATUS,
   MODULE_DONE,
   ASSESSMENT_DONE,
+  CHOOSE_LANGUAGE,
 } from './action-types.js';
 import type {
   SetCourseStatusType,
@@ -30,5 +31,9 @@ export const assessmentDone = (id: string): AssessmentDoneType => ({
   id,
 });
 
-// TODO: add a middleware function that pasts new state whenever these change
-// call it updateUserProgress() or something
+export const chooseLanguage = (
+  language: string
+): {type: string, language: string} => ({
+  type: CHOOSE_LANGUAGE,
+  language,
+});

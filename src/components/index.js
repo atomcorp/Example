@@ -6,6 +6,7 @@ import AssessmentContainer from
 import LoginContainer from './Login/LoginContainer.js';
 import Home from './Home/Home.js';
 import RegisterContainer from './Register/Register';
+import Language from './Language/Language';
 
 export {
   CoursesContainer,
@@ -15,4 +16,5 @@ export {
   LoginContainer,
   Home,
   RegisterContainer,
+  Language,
 };

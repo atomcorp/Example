@@ -8,6 +8,7 @@ import {
   LOGOUT,
   REGISTER,
   IMPORT_STATE,
+  CHOOSE_LANGUAGE,
 } from '../actions/action-types.js';
 import type {
   CourseType,
@@ -76,7 +77,8 @@ type UserStatusActionType = {
   id?: string,
   email?: string,
   error?: string,
-  registrationError?: string
+  registrationError?: string,
+  language?: string
 };
 
 export const status = (
@@ -87,6 +89,7 @@ export const status = (
     id: '',
     registrationError: '',
     uploadingState: false,
+    language: 'en',
   },
   action: UserStatusActionType
 ): UserStatusType => {
@@ -132,6 +135,10 @@ export const status = (
       return Object.assign({}, state, {
         id: action.id,
         email: action.id,
+      });
+    case CHOOSE_LANGUAGE:
+      return Object.assign({}, state, {
+        language: action.language,
       });
     default:
       return state;

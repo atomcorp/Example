@@ -27,7 +27,8 @@ type ResourcesType = {
 
 type StateType = {
   loaded: boolean,
-  preLoadedState: ?{} | typeof undefined
+  preLoadedState: ?{} | typeof undefined,
+  language?: string
 };
 
 class App extends Component<void, StateType> {
@@ -37,6 +38,7 @@ class App extends Component<void, StateType> {
     this.state = {
       loaded: false,
       preLoadedState: undefined,
+      language: '',
     };
     this.resources = {};
   }
@@ -66,6 +68,7 @@ class App extends Component<void, StateType> {
           .then((state: any) => {
             this.setState({
               preLoadedState: state,
+              language: state.language,
             });
           });
       }

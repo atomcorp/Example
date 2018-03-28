@@ -2,7 +2,7 @@
  * Get all the data for the app in one go
  */
 import {
-  apiEndpoints,
+  localisedApiEndpoints,
 } from './config/config.js';
 
 const fetchEndpoint = (url, key) => fetch(url).then((res) =>
@@ -11,9 +11,9 @@ const fetchEndpoint = (url, key) => fetch(url).then((res) =>
       [key]: json,
     };
   });
-
-const fetchEverything = () => Promise.all(
-  Object.keys(apiEndpoints).map((key) => fetchEndpoint(apiEndpoints[key], key))
+const fetchEverything = (language) => Promise.all(
+  Object.keys(localisedApiEndpoints(language)).map((key) =>
+    fetchEndpoint(localisedApiEndpoints(language)[key], key))
 );
 
 export const resources = fetchEverything().then((res) =>
