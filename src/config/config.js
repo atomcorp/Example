@@ -15,7 +15,7 @@ const apiEndpoints = (baseApi) => {
       courses: `${baseApi}/courses.json`,
       modules: `${baseApi}/modules.json`,
       components: `${baseApi}/components.json`,
-    }
+    };
   };
 };
 

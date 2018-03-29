@@ -2,7 +2,7 @@
   "name": "react-elearning",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://localhost/dylan/learn/",
+  "homepage": "https://learn-54603.firebaseapp.com/",
   "proxy": "http://localhost/dylan",
   "dependencies": {
     "custom-react-scripts": "^0.2.1",

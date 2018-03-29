@@ -9,9 +9,14 @@
 }
 
 .page {
-  display: flex;
   background: #fff;
-  padding: 25px;
+}
+
+@media (min-width: 72em) {
+  .page {
+    display: flex;
+    padding: 25px;
+  }
 }
 
 .introduction {
