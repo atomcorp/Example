@@ -83,7 +83,6 @@ const Routes = ({resources, store}) => {
             path={`/courses`}
             exact component={() => (
               <CoursesContainer />
-              // courses={resources.courses}
             )} />
           <PriveRouteContainer
             path={`/course/:courseId/assessment`}
@@ -98,7 +97,7 @@ const Routes = ({resources, store}) => {
           <PriveRouteContainer
             path={`/course/:courseId`}
             component={(route) => (
-              <CourseContainer route={route} resources={resources} />
+              <CourseContainer route={route} />
             )} />
           <Route exact path={`/`} component={Home} />
           <Route exact path={`/register`} component={RegisterContainer} />

@@ -11,10 +11,18 @@ const getCourseStatuses = (coursesStatuses) =>
 const getAssessmentProgression = (assessmentStatuses) =>
   assessmentStatuses;
 
+const getResources = ({status, data}) => {
+  return {
+    loaded: status === 'loaded' ? true : false,
+    data: data,
+  };
+};
+
 const mapStateToProps = (state) => ({
   moduleStatuses: getModuleProgression(state.moduleProgression),
   coursesStatuses: getCourseStatuses(state.coursesStatuses),
   assessmentStatuses: getAssessmentProgression(state.assessmentStatuses),
+  resources: getResources(state.resources),
 });
 
 const mapDispatchToProps = (dispatch) => ({

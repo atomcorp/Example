@@ -88,8 +88,11 @@ export const Course = ({
   updateCourseStatus,
   assessmentStatuses,
 }: CourseType): Node => {
+  if (!resources.loaded) {
+    return <div>Loading Course...</div>
+  }
   const courseId = route.match.params.courseId;
-  const courseData = resources.courses[courseId];
+  const courseData = resources.data.courses[courseId];
   const courseDone = testCourseComplete(
     courseId,
     courseData.field_modules,
@@ -126,7 +129,7 @@ export const Course = ({
           <h2>Courses:</h2>
           <CourseModulesPresentation
             courseData={courseData}
-            resources={resources}
+            resources={resources.data}
             moduleStatuses={moduleStatuses} />
           <CourseAssessment
             courseId={courseId}
