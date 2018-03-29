@@ -2,15 +2,6 @@ import {connect} from 'react-redux';
 import {Course} from './Course.js';
 import {setCourseStatus} from '../../redux/actions/action-creators.js';
 
-const getModuleProgression = (moduleProgression) =>
-  moduleProgression;
-
-const getCourseStatuses = (coursesStatuses) =>
-  coursesStatuses;
-
-const getAssessmentProgression = (assessmentStatuses) =>
-  assessmentStatuses;
-
 const getResources = ({status, data}) => {
   return {
     loaded: status === 'loaded' ? true : false,
@@ -19,10 +10,11 @@ const getResources = ({status, data}) => {
 };
 
 const mapStateToProps = (state) => ({
-  moduleStatuses: getModuleProgression(state.moduleProgression),
-  coursesStatuses: getCourseStatuses(state.coursesStatuses),
-  assessmentStatuses: getAssessmentProgression(state.assessmentStatuses),
+  moduleStatuses: state.moduleProgression,
+  coursesStatuses: state.coursesStatuses,
+  assessmentStatuses: state.assessmentStatuses,
   resources: getResources(state.resources),
+  language: state.status.language,
 });
 
 const mapDispatchToProps = (dispatch) => ({

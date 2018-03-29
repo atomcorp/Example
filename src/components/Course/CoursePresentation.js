@@ -57,9 +57,10 @@ type CoursePresentationType = {
 export const CoursePresentation = ({
   title,
   field_introduction,
+  t,
 }: CoursePresentationType): Node => (
   <div className={style.introduction}>
-    <h2>About:</h2>
+    <h2>{t('about')}:</h2>
     <div className={style.about} dangerouslySetInnerHTML={{
       __html: field_introduction[0].value,
     }} />

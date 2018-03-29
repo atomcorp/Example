@@ -22,6 +22,7 @@ import type {
   AssessmentStatusesType,
 } from '../../types.js';
 import style from './Course.module.css';
+import translate from '../../config/text';
 
 const testCourseComplete = (
   courseId: string,
@@ -80,7 +81,8 @@ type CourseType = {
   moduleStatuses: ModuleStatusesType,
   coursesStatuses: CoursesStatusesType,
   assessmentStatuses: AssessmentStatusesType,
-  updateCourseStatus: (string, string) => void
+  updateCourseStatus: (string, string) => void,
+  language: string
 };
 
 export const Course = ({
@@ -90,10 +92,12 @@ export const Course = ({
   coursesStatuses,
   updateCourseStatus,
   assessmentStatuses,
+  language,
 }: CourseType): Node => {
   if (!resources.loaded) {
     return <div>Loading Course...</div>;
   }
+  const t = translate(language);
   const courseId = route.match.params.courseId;
   const courseData = resources.data.courses[courseId];
   const courseDone = testCourseComplete(
@@ -129,7 +133,7 @@ export const Course = ({
         progress={courseProgress} />
       <div className={style.page}>
         <div className={style.content}>
-          <h2>Courses:</h2>
+          <h2>{t('course')}:</h2>
           <CourseModulesPresentation
             courseData={courseData}
             resources={resources.data}
@@ -138,14 +142,14 @@ export const Course = ({
             courseId={courseId}
             completed={assessmentStatuses[courseId]}
             courseTitle={courseData.title[0].value} />
-          <h4>Resources</h4>
+          <h4>{t('resources')}</h4>
           <ul>
             <li><a href="/">resource 1</a></li>
             <li><a href="/">resource 2</a></li>
             <li><a href="/">resource 3</a></li>
           </ul>
         </div>
-        <CoursePresentation courseDone={courseDone} {...courseData} />
+        <CoursePresentation t={t} courseDone={courseDone} {...courseData} />
       </div>
     </Page>
   );

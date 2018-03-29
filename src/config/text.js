@@ -1,12 +1,21 @@
-// 1. en, 2. de
+// 1. en,
+// 2. de
 const text = {
   title: [
     'Learn',
-    'Lernen'
+    'Lernen',
   ],
   chooseCourse: [
     'Choose a course',
     'Wählen Sie einen Kurs',
+  ],
+  course: [
+    'Course',
+    'Kurs',
+  ],
+  about: [
+    'About',
+    'Über',
   ],
   signIn: [
     'Sign in',
@@ -36,16 +45,32 @@ const text = {
     'Logging in...',
     'Einloggen',
   ],
+  complete: [
+    'Complete',
+    'Komplett',
+  ],
+  resource: [
+    'Resource',
+    'Ressource',
+  ],
+  txtErr: [
+    'Error! Text not found',
+    'Error! Text not found',
+    'Error! Text not found',
+    'Error! Text not found',
+  ],
 };
 
 const translate = (lang) => {
-  switch(lang) {
+  switch (lang) {
     case 'de':
-      return (string) => text[string][1];
+      return (string) => isString(string)[1];
     case 'en':
     default:
-      return (string) => text[string][0];
+      return (string) => isString(string)[0];
   }
 };
+
+const isString = (string) => text[string] ? text[string] : text['txtErr'];
 
 export default translate;
