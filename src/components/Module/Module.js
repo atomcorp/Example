@@ -30,6 +30,7 @@ import styles from './Module.module.css';
 
 type PropsType = {
   resources: ResourcesType,
+  loaded: boolean,
   route: {
     match: {
       params: {
@@ -47,6 +48,15 @@ type StateType = {
   completed: boolean
 };
 
+export const ModuleLoader = (props: PropsType): Node => {
+  if (!props.loaded) {
+    return <div>Loading Module</div>;
+  }
+  return (
+    <Module {...props} />
+  );
+};
+
 export class Module extends Component<PropsType, StateType> {
   courseId: string;
   resources: ResourcesType;
@@ -56,7 +66,6 @@ export class Module extends Component<PropsType, StateType> {
 
   constructor(props: PropsType) {
     super(props);
-    // setting componentCount is ugly as anything
     const {route, resources} = props;
     const moduleId = route.match.params.moduleId;
     // $FlowFixMe

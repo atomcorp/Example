@@ -92,7 +92,7 @@ const Routes = ({resources, store}) => {
           <PriveRouteContainer
             path={`/course/:courseId/:moduleId`}
             component={(route) => (
-              <ValidateModulePath route={route} resources={resources} />
+              <ModuleContainer route={route} />
             )} />
           <PriveRouteContainer
             path={`/course/:courseId`}

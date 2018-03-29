@@ -24,7 +24,6 @@ const havePreferredLanguage = (state) => {
 };
 
 export const downloadResourcesInPreferredLanguage = () => {
-  console.log('Yay');
   return (dispatch, getState) => {
     dispatch(resourcesRequest());
     const lang = havePreferredLanguage(getState());
@@ -41,13 +40,13 @@ export const downloadResourcesInPreferredLanguage = () => {
   };
 };
 
-const cacheResources = (data) => {
-  const cache = {};
-  let cacheEmpty = true;
-  const newCache = () => Object.assign({}, cache, newCache);
-  const showCache = () => cache;
-  return {
-    newCache,
-    showCache,
-  };
-};
+// const cacheResources = (data) => {
+//   const cache = {};
+//   let cacheEmpty = true;
+//   const newCache = () => Object.assign({}, cache, newCache);
+//   const showCache = () => cache;
+//   return {
+//     newCache,
+//     showCache,
+//   };
+// };

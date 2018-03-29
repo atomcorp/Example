@@ -66,7 +66,10 @@ const calculateCourseCompletetion = (
 };
 
 type CourseType = {
-  resources: ResourcesType,
+  resources: {
+    data: ResourcesType,
+    loaded: boolean
+  },
   route: {
     match: {
       params: {
@@ -89,7 +92,7 @@ export const Course = ({
   assessmentStatuses,
 }: CourseType): Node => {
   if (!resources.loaded) {
-    return <div>Loading Course...</div>
+    return <div>Loading Course...</div>;
   }
   const courseId = route.match.params.courseId;
   const courseData = resources.data.courses[courseId];

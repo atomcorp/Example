@@ -70,11 +70,16 @@ const CourseList = ({
 };
 
 type CoursesType = {
-  courses: CourseType,
   coursesStatuses: {
     [id: string]: StatusType
   },
-  onClick: () => void
+  onClick: () => void,
+  resources: {
+    data: {
+      courses: CourseType
+    },
+    loaded: boolean
+  }
 };
 
 // coursesStatuses is mapped from state by the CoursesContainer
@@ -82,9 +87,7 @@ type CoursesType = {
 export const Courses = ({
   coursesStatuses,
   onClick,
-  loaded,
   resources,
-  ...props
 }: CoursesType): Node => {
   if (!resources.loaded) {
     return <div>Loading courses</div>;
