@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {Assessment} from './Assessment';
+import {AssessmentLoader} from './Assessment';
 import {assessmentDone} from '../../redux/actions/action-creators.js';
 
 const getAssessmentProgression = (assessmentStatuses) =>
@@ -7,6 +7,8 @@ const getAssessmentProgression = (assessmentStatuses) =>
 
 const mapStateToProps = (state) => ({
   assessmentStatuses: getAssessmentProgression(state.assessmentStatuses),
+  resources: state.resources.data,
+  loaded: state.resources.status === 'loaded' ? true : false,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,6 +20,6 @@ const mapDispatchToProps = (dispatch) => ({
 const AssessmentContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Assessment);
+)(AssessmentLoader);
 
 export default AssessmentContainer;

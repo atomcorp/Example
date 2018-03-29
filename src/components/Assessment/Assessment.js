@@ -31,7 +31,8 @@ type PropsType = {
     }
   },
   done: string => void,
-  resources: ResourcesType
+  resources: ResourcesType,
+  loaded: boolean
 };
 
 type StateType = {
@@ -44,6 +45,13 @@ type StateType = {
 type AssessmentTestsType = {
   id: string,
   status: 'not-started' | 'incorrect' | 'correct'
+};
+
+export const AssessmentLoader = (props: PropsType): Node => {
+  if (!props.loaded) {
+    return <div>Loading assessment...</div>;
+  }
+  return <Assessment {...props} />;
 };
 
 export class Assessment extends Component<PropsType, StateType> {

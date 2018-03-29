@@ -62,7 +62,7 @@ const mapStateToProps = (state) => ({
   status: state.status,
 });
 
-const PriveRouteContainer = connect(
+const PrivateRouteContainer = connect(
   mapStateToProps
 )(PrivateRoute);
 
@@ -79,22 +79,22 @@ const Routes = ({resources, store}) => {
     <Provider store={store}>
       <Router basename={`${process.env.PUBLIC_URL}/`}>
         <Switch>
-          <PriveRouteContainer
+          <PrivateRouteContainer
             path={`/courses`}
             exact component={() => (
               <CoursesContainer />
             )} />
-          <PriveRouteContainer
+          <PrivateRouteContainer
             path={`/course/:courseId/assessment`}
             component={(route) => (
-              <AssessmentContainer route={route} resources={resources} />
+              <AssessmentContainer route={route} />
             )} />
-          <PriveRouteContainer
+          <PrivateRouteContainer
             path={`/course/:courseId/:moduleId`}
             component={(route) => (
               <ModuleContainer route={route} />
             )} />
-          <PriveRouteContainer
+          <PrivateRouteContainer
             path={`/course/:courseId`}
             component={(route) => (
               <CourseContainer route={route} />
