@@ -1,27 +1,58 @@
+// @flow
 import React from 'react';
-import {addToLocalStorage} from '../../utility/utility';
+import type {Node} from 'react';
+import {connect} from 'react-redux';
+import Page from '../../containers/page/page';
+import {chooseLanguage} from '../../redux/actions/action-creators';
 
-const handleClick = (iso) => {
-  addToLocalStorage('lang', iso);
+type PropsType = {
+  language: string,
+  changeLanguage: string => void
 };
 
-const Language = () => (
-  <div>
-    <h2>Please choose a language: </h2>
+const Language = ({language, changeLanguage}: PropsType): Node => (
+  <Page>
+    <h2>Current language is {language}</h2>
+    <h4>Please choose a language: </h4>
     <ul>
-      <LanguageButton lang="English" iso="en" />
-      <LanguageButton lang="French" iso="fr" />
-      <LanguageButton lang="Spanish" iso="es" />
-      <LanguageButton lang="German" iso="de" />
+      <LanguageButton changeLanguage={changeLanguage} lang="English" iso="en" />
+      <LanguageButton changeLanguage={changeLanguage} lang="French" iso="fr" />
+      <LanguageButton changeLanguage={changeLanguage} lang="Spanish" iso="es" />
+      <LanguageButton changeLanguage={changeLanguage} lang="German" iso="de" />
     </ul>
-    <button>Start</button>
-  </div>
+    <button>Confirm</button>
+  </Page>
 );
 
-const LanguageButton = ({lang, iso}) => (
-  <li onClick={(e) => handleClick(iso)}>
+type LanguageButtonType = {
+  lang: string,
+  iso: string,
+  changeLanguage: string => void
+};
+
+const LanguageButton = ({
+  lang,
+  iso,
+  changeLanguage,
+}: LanguageButtonType): Node => (
+  <li onClick={(e: Event): void => changeLanguage(iso)}>
     {lang}
   </li>
 );
 
-export default Language;
+const mapStateToProps = (state: any): {language: string} => ({
+  language: state.status.language,
+});
+
+const mapDispatchToProps = (dispatch: any): any => ({
+  changeLanguage: (
+    language: string
+  ): void => dispatch(chooseLanguage(language)),
+});
+
+const LanguageContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Language);
+
+export default LanguageContainer;

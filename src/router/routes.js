@@ -15,7 +15,7 @@ import {
   LoginContainer,
   Home,
   RegisterContainer,
-  Language,
+  LanguageContainer,
 } from '../components/index.js';
 import {loginSuccess} from '../redux/actions/login-actions';
 import {
@@ -102,7 +102,7 @@ const Routes = ({resources, store}) => {
           <Route exact path={`/`} component={Home} />
           <Route exact path={`/register`} component={RegisterContainer} />
           <Route path={`/login`} component={LoginContainer} />
-          <Route path={`/language`} component={Language} />
+          <Route path={`/language`} component={LanguageContainer} />
           <Route component={NoMatch}></Route>
         </Switch>
       </Router>
