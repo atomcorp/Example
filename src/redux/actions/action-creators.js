@@ -11,6 +11,9 @@ import type {
   ModuleDoneType,
   AssessmentDoneType,
 } from '../../types.js';
+import {
+  downloadResourcesInPreferredLanguage,
+} from './resources-actions';
 
 export const setCourseStatus = ({
   status,
@@ -31,9 +34,28 @@ export const assessmentDone = (id: string): AssessmentDoneType => ({
   id,
 });
 
-export const chooseLanguage = (
+const chooseLanguage = (
   language: string
 ): {type: string, language: string} => ({
   type: CHOOSE_LANGUAGE,
   language,
 });
+
+const languageIsDifferent = (
+  lang: string,
+  state: {status: {language: string}}
+): boolean => {
+  if (lang !== state.status.language) {
+    return true;
+  }
+  return false;
+};
+
+export const changeLanguageIfNecessary = (lang: string): any => {
+  return (dispatch: any, getState: any) => {
+    if (languageIsDifferent(lang, getState())) {
+      dispatch(chooseLanguage(lang));
+      dispatch(downloadResourcesInPreferredLanguage());
+    }
+  };
+};

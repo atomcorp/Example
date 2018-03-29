@@ -3,22 +3,45 @@ import React, {Component} from 'react';
 import type {Node} from 'react';
 import {connect} from 'react-redux';
 import Page from '../../containers/page/page';
-import {chooseLanguage} from '../../redux/actions/action-creators';
+import {changeLanguageIfNecessary} from '../../redux/actions/action-creators';
 
 type PropsType = {
   language: string,
   changeLanguage: string => void
 };
+
 type StateType = {
   currentLang: string
 };
 
 class Language extends Component<PropsType, StateType> {
+  languages: Array<{
+    lang: string,
+    iso: string
+  }>
   constructor(props: PropsType) {
     super(props);
     this.state = {
       currentLang: this.props.language,
     };
+    this.languages = [
+      {
+        lang: 'English',
+        iso: 'en',
+      },
+      {
+        lang: 'French',
+        iso: 'fr',
+      },
+      {
+        lang: 'Spanish',
+        iso: 'es',
+      },
+      {
+        lang: 'German',
+        iso: 'de',
+      },
+    ];
   }
   handleClick() {
     this.props.changeLanguage(this.state.currentLang);
@@ -35,10 +58,19 @@ class Language extends Component<PropsType, StateType> {
         <h3>Current page lang is {this.state.currentLang}</h3>
         <h4>Please choose a language: </h4>
         <ul>
-          <LanguageButton switchLanguage={this.switchLanguage} lang="English" iso="en" />
-          <LanguageButton switchLanguage={this.switchLanguage} lang="French" iso="fr" />
-          <LanguageButton switchLanguage={this.switchLanguage} lang="Spanish" iso="es" />
-          <LanguageButton switchLanguage={this.switchLanguage} lang="German" iso="de" />
+          {
+            this.languages.map(({
+                lang, iso,
+              }: {lang: string, iso: string},
+              i: number
+            ): Node => (
+                <LanguageButton
+                  key={i}
+                  switchLanguage={this.switchLanguage}
+                  lang={lang}
+                  iso={iso} />
+            ))
+          }
         </ul>
         <button onClick={(): void => this.handleClick()}>Confirm</button>
       </Page>
@@ -69,7 +101,7 @@ const mapStateToProps = (state: any): {language: string} => ({
 const mapDispatchToProps = (dispatch: any): any => ({
   changeLanguage: (
     language: string
-  ): void => dispatch(chooseLanguage(language)),
+  ): void => dispatch(changeLanguageIfNecessary(language)),
 });
 
 const LanguageContainer = connect(
