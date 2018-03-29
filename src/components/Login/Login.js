@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import Page from '../../containers/page/page.js';
+import translate from '../../config/text';
 
 type PropsType = {
   location: {
@@ -18,7 +19,8 @@ type PropsType = {
   status: {
     isLoggedIn: boolean,
     isLoggingIn: boolean,
-    error: string
+    error: string,
+    language: string
   }
 };
 
@@ -28,12 +30,14 @@ type StateType = {
 };
 
 class Login extends Component<PropsType, StateType> {
+  translate: (string) => string
   constructor(props: PropsType) {
     super(props);
     this.state = {
       email: '',
       pass: '',
     };
+    this.translate = translate(this.props.status.language);
   }
   handleSubmit = (event: Event) => {
     event.preventDefault();
@@ -55,7 +59,7 @@ class Login extends Component<PropsType, StateType> {
     }
     return (
       <Page>
-        <h1>Login</h1>
+        <h1>{this.translate('signIn')}</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -64,7 +68,7 @@ class Login extends Component<PropsType, StateType> {
               (e: {target: {value: string}}): void =>
                 this.handleInput('email', e)
               }
-            placeholder="Email" />
+            placeholder={this.translate('email')} />
           <input
             type="password"
             value={this.state.pass}
@@ -72,10 +76,10 @@ class Login extends Component<PropsType, StateType> {
               (e: {target: {value: string}}): void =>
                 this.handleInput('pass', e)
               }
-            placeholder="Password" />
+            placeholder={this.translate('password')} />
           <input type="submit" value="Login" />
         </form>
-        {this.props.status.isLoggingIn ? 'Logging in...' : ''}
+        {this.props.status.isLoggingIn ? this.translate('loggingIn') : ''}
         {this.props.status.error ? this.props.status.error : ''}
         <br />
         <div>

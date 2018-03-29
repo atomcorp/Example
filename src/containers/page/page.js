@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import style from './page.module.css';
 import HeaderContainer from '../../components/Header/Header';
+import {Link} from 'react-router-dom';
 // Add header links
 
 class Page extends Component {
@@ -21,7 +22,7 @@ class Page extends Component {
           }
           {this.props.children}
         </div>
-        {/* <div> Footer </div> */}
+        <div><Link to={'/language'}>Change the language</Link></div>
         <br/>
       </div>
     );
