@@ -80,15 +80,20 @@ type CoursesType = {
 // coursesStatuses is mapped from state by the CoursesContainer
 // gets the latest version
 export const Courses = ({
-  courses,
   coursesStatuses,
   onClick,
+  loaded,
+  resources,
+  ...props
 }: CoursesType): Node => {
+  if (!resources.loaded) {
+    return <div>Loading courses</div>;
+  }
   return (
     <Page title={'Choose a course'}>
       <div>
         <CourseList
-          courses={courses}
+          courses={resources.data.courses}
           coursesStatuses={coursesStatuses}
           onClick={onClick} />
       </div>

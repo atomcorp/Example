@@ -6,8 +6,16 @@ const getCourseStatuses = (coursesStatuses) => {
   return coursesStatuses;
 };
 
+const getResources = ({status, data}) => {
+  return {
+    loaded: status === 'loaded' ? true : false,
+    data: data,
+  };
+};
+
 const mapStateToProps = (state) => ({
   coursesStatuses: getCourseStatuses(state.coursesStatuses),
+  resources: getResources(state.resources),
 });
 
 const mapDispatchToProps = (dispatch) => ({

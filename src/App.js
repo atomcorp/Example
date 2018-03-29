@@ -6,7 +6,6 @@
 import React, {Component} from 'react';
 import type {Node} from 'react';
 import Routes from './router/routes.js';
-import {resources} from './api.js';
 import configureStore from './redux/store/configureStore.js';
 import {database} from './firebase/';
 import type {
@@ -18,7 +17,6 @@ import type {
 import {LOGIN} from './redux/actions/action-types';
 import {
   getFromLocalStorage,
-  addToLocalStorage,
 } from './utility/utility';
 
 type ResourcesType = {
@@ -45,40 +43,29 @@ class App extends Component<void, StateType> {
   }
 
   componentDidMount() {
-    // if no language set default to English
-    if (!getFromLocalStorage('lang')) {
-      addToLocalStorage('lang', '');
+    const userIdIfLoggedInAtLoad = getFromLocalStorage(LOGIN.SUCCESS);
+    if (userIdIfLoggedInAtLoad) {
+      this.loadUser(userIdIfLoggedInAtLoad);
+    } else {
+      this.noUser();
     }
-    resources(getFromLocalStorage('lang')).then(
-      ({
-        courses,
-        components,
-        modules,
-      }: ResourcesType) => {
-        this.resources = {
-          courses,
-          components,
-          modules,
-        };
-      }
-    ).then(() => {
-      // check if user is logged in with our localStorage reference
-      const userIdIfLoggedInAtLoad = getFromLocalStorage(LOGIN.SUCCESS);
-      if (userIdIfLoggedInAtLoad) {
-        return database.ref('/users/' + userIdIfLoggedInAtLoad)
-          .once('value')
-          .then((res: {val: any} ): {} => res.val())
-          .then((state: any) => {
-            this.setState({
-              preLoadedState: state,
-            });
-          });
-      }
-      return;
-    }).then(() => {
-      this.setState({
-        loaded: true,
+  }
+
+  loadUser(userId: string) {
+    database.ref('/users/' + userId)
+      .once('value')
+      .then((res: {val: any}): {} => res.val())
+      .then((state: any) => {
+        this.setState({
+          preLoadedState: state,
+          loaded: true,
+        });
       });
+  }
+
+  noUser() {
+    this.setState({
+      loaded: true,
     });
   }
 

@@ -9,6 +9,7 @@ import {
   REGISTER,
   IMPORT_STATE,
   CHOOSE_LANGUAGE,
+  DOWNLOAD_RESOURCES,
 } from '../actions/action-types.js';
 import type {
   CourseType,
@@ -145,11 +146,35 @@ export const status = (
   }
 };
 
+const resources = (state: any = {
+  data: {},
+  status: 'not-loaded',
+}, action: any): any => {
+  switch (action.type) {
+    case DOWNLOAD_RESOURCES.REQUEST:
+      return Object.assign({}, state, {
+        status: 'loading',
+      });
+    case DOWNLOAD_RESOURCES.SUCCESS:
+      return Object.assign({}, state, {
+        data: action.data,
+        lang: action.lang,
+        status: 'loaded',
+      });
+    case DOWNLOAD_RESOURCES.FAILURE:
+      console.error(action.message); // eslint-disable-line no-console, no-undef
+      return state;
+    default:
+      return state;
+  }
+};
+
 const learnApp = combineReducers({
   coursesStatuses,
   moduleProgression,
   assessmentStatuses,
   status,
+  resources,
 });
 
 // https://stackoverflow.com/a/35641992/2368141

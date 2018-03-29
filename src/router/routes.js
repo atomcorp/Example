@@ -18,6 +18,10 @@ import {
   Language,
 } from '../components/index.js';
 import {loginSuccess} from '../redux/actions/login-actions';
+import {
+  downloadResourcesInPreferredLanguage,
+} from '../redux/actions/resources-actions';
+
 
 const NoMatch = () => <div>404</div>;
 
@@ -69,6 +73,7 @@ const Routes = ({resources, store}) => {
       email: state.status.email,
       id: state.status.id,
     }));
+    store.dispatch(downloadResourcesInPreferredLanguage());
   }
   return (
     <Provider store={store}>
@@ -77,7 +82,8 @@ const Routes = ({resources, store}) => {
           <PriveRouteContainer
             path={`/courses`}
             exact component={() => (
-              <CoursesContainer courses={resources.courses} />
+              <CoursesContainer />
+              // courses={resources.courses}
             )} />
           <PriveRouteContainer
             path={`/course/:courseId/assessment`}

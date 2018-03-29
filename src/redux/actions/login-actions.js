@@ -4,6 +4,7 @@ import {
   LOGOUT,
   IMPORT_STATE,
 } from './action-types.js';
+import {downloadResourcesInPreferredLanguage} from './resources-actions';
 import {
   addToLocalStorage,
   clearFromLocalStorage,
