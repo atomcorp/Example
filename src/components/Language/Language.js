@@ -23,9 +23,9 @@ class Language extends Component<PropsType, StateType> {
   handleClick() {
     this.props.changeLanguage(this.state.currentLang);
   }
-  switchLanguage = (iso) => {
+  switchLanguage = (iso: string) => {
     this.setState({
-      currentLang: iso
+      currentLang: iso,
     });
   }
   render(): * {
@@ -40,7 +40,7 @@ class Language extends Component<PropsType, StateType> {
           <LanguageButton switchLanguage={this.switchLanguage} lang="Spanish" iso="es" />
           <LanguageButton switchLanguage={this.switchLanguage} lang="German" iso="de" />
         </ul>
-        <button onClick={() => this.handleClick()}>Confirm</button>
+        <button onClick={(): void => this.handleClick()}>Confirm</button>
       </Page>
     );
   }
