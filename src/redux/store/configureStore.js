@@ -21,8 +21,23 @@ const loggerMiddleware = createLogger();
 
 const logStateToDatabaseIfSignedIn = (state) => {
   if (state.status.isLoggedIn) {
-    return database.ref('users/' + state.status.id).set(state);
+    return database.ref('users/' + state.status.id)
+      .set(cleanseSavedState(state));
   }
+};
+
+const cleanseSavedState = ({
+  status,
+  assessmentStatuses,
+  coursesStatuses,
+  moduleProgression,
+}) => {
+  return Object.assign({}, {
+    status,
+    assessmentStatuses,
+    coursesStatuses,
+    moduleProgression,
+  });
 };
 
 const configureStore = (preloadedState) => {

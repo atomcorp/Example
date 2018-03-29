@@ -10,11 +10,13 @@ export const baseApi = `https://learn-54603.firebaseio.com/`;
 // };
 
 const apiEndpoints = (baseApi) => {
-  return (lang = '') => ({
-    courses: `${baseApi}${lang}/courses.json`,
-    modules: `${baseApi}${lang}/modules.json`,
-    components: `${baseApi}${lang}/components.json`,
-  });
+  return (lang = '') => {
+    return {
+      courses: `${baseApi}${lang}/courses.json`,
+      modules: `${baseApi}${lang}/modules.json`,
+      components: `${baseApi}${lang}/components.json`,
+    }
+  };
 };
 
 export const localisedApiEndpoints = apiEndpoints(baseApi);

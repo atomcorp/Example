@@ -11,6 +11,7 @@ const fetchEndpoint = (url, key) => fetch(url).then((res) =>
       [key]: json,
     };
   });
+
 const fetchEverything = (language) => Promise.all(
   Object.keys(localisedApiEndpoints(language)).map((key) =>
     fetchEndpoint(localisedApiEndpoints(language)[key], key))

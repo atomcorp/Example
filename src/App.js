@@ -88,7 +88,7 @@ class App extends Component<void, StateType> {
     }
     return (
       <Routes
-        resources={{}}
+        resources={this.resources}
         store={configureStore(this.state.preLoadedState)} />
     );
   }
