@@ -63,6 +63,7 @@ const login = ({email, pass}) => {
               email: user.email,
             }));
             addToLocalStorage(LOGIN.SUCCESS, user.uid);
+            dispatch(downloadResourcesInPreferredLanguage());
           });
       })
       .catch((err) => dispatch(loginFailure(err.message)));
