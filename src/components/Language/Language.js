@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, {Component} from 'react';
 import type {Node} from 'react';
 import {connect} from 'react-redux';
 import Page from '../../containers/page/page';
@@ -9,33 +9,55 @@ type PropsType = {
   language: string,
   changeLanguage: string => void
 };
+type StateType = {
+  currentLang: string
+};
 
-const Language = ({language, changeLanguage}: PropsType): Node => (
-  <Page>
-    <h2>Current language is {language}</h2>
-    <h4>Please choose a language: </h4>
-    <ul>
-      <LanguageButton changeLanguage={changeLanguage} lang="English" iso="en" />
-      <LanguageButton changeLanguage={changeLanguage} lang="French" iso="fr" />
-      <LanguageButton changeLanguage={changeLanguage} lang="Spanish" iso="es" />
-      <LanguageButton changeLanguage={changeLanguage} lang="German" iso="de" />
-    </ul>
-    <button>Confirm</button>
-  </Page>
-);
+class Language extends Component<PropsType, StateType> {
+  constructor(props: PropsType) {
+    super(props);
+    this.state = {
+      currentLang: this.props.language,
+    };
+  }
+  handleClick() {
+    this.props.changeLanguage(this.state.currentLang);
+  }
+  switchLanguage = (iso) => {
+    this.setState({
+      currentLang: iso
+    });
+  }
+  render(): * {
+    return (
+      <Page>
+        <h2>Current site language is {this.props.language}</h2>
+        <h3>Current page lang is {this.state.currentLang}</h3>
+        <h4>Please choose a language: </h4>
+        <ul>
+          <LanguageButton switchLanguage={this.switchLanguage} lang="English" iso="en" />
+          <LanguageButton switchLanguage={this.switchLanguage} lang="French" iso="fr" />
+          <LanguageButton switchLanguage={this.switchLanguage} lang="Spanish" iso="es" />
+          <LanguageButton switchLanguage={this.switchLanguage} lang="German" iso="de" />
+        </ul>
+        <button onClick={() => this.handleClick()}>Confirm</button>
+      </Page>
+    );
+  }
+}
 
 type LanguageButtonType = {
   lang: string,
   iso: string,
-  changeLanguage: string => void
+  switchLanguage: string => void
 };
 
 const LanguageButton = ({
   lang,
   iso,
-  changeLanguage,
+  switchLanguage,
 }: LanguageButtonType): Node => (
-  <li onClick={(e: Event): void => changeLanguage(iso)}>
+  <li onClick={(e: Event): void => switchLanguage(iso)}>
     {lang}
   </li>
 );
