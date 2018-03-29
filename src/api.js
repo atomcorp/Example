@@ -7,7 +7,6 @@ import {
 
 const fetchEndpoint = (url, key) => fetch(url).then((res) =>
   res.json()).then((json) => {
-    console.log(url)
     return {
       [key]: json,
     };

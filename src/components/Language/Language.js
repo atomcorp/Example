@@ -2,7 +2,6 @@ import React from 'react';
 import {addToLocalStorage} from '../../utility/utility';
 
 const handleClick = (iso) => {
-  console.log(iso)
   addToLocalStorage('lang', iso);
 };
 
