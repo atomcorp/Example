@@ -127,9 +127,11 @@ const Progress = ({
   complete,
   total,
 }: {complete: number, total: number}): Node => {
-  return <div className={style.progress}>
-    {parseInt((complete / total) * 100, 10)}% Complete
-  </div>;
+  return (
+    <div className={style.progress}>
+      {parseInt((complete / total) * 100, 10)}% Complete
+    </div>
+  );
 };
 
 export const CourseHeader = ({

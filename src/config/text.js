@@ -139,6 +139,8 @@ const translate = (lang) => {
   }
 };
 
-const isString = (string) => text[string] ? text[string] : text['txtErr'];
+const isString = (string) => text[string]
+  ? text[string]
+  : text['txtErr'];
 
 export default translate;

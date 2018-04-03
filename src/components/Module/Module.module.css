@@ -2,6 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 25px;
+}
+
+@media (min-width: 72em) {
+  .header {
+    padding: 0;
+  }
 }
 
 .status {

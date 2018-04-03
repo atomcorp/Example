@@ -125,7 +125,6 @@ export const Course = ({
   if (courseDone && coursesStatuses[courseId] !== 'COMPLETED') {
     updateCourseStatus('COMPLETED', courseId);
   }
-
   return (
     <Page>
       <CourseHeader

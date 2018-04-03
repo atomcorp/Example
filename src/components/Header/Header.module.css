@@ -1,5 +1,5 @@
 .header {
-  padding: 30px 0;
+  padding: 30px 25px;
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -9,6 +9,7 @@
 @media (min-width: 72em) {
   .header {
     width: calc(100% - 12.5em);
+    padding: 30px 0;
   }
 }
 

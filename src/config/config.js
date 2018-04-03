@@ -2,7 +2,7 @@ export const baseUrl = 'http://localhost/dylan';
 const lang = '/gbr/en/';
 export const formattedURL = (url) => `${baseUrl}${lang}${url}?_format=json`;
 export const formattedLocalURL = (url) => `${lang}${url}?_format=json`;
-export const baseApi = `https://learn-54603.firebaseio.com/`;
+export const baseApi = `https://www.cambridgeaudio.com/gbr/`;
 // export const apiEndpoints = {
 //   courses: `${baseApi}/courses.json`,
 //   modules: `${baseApi}/modules.json`,
@@ -12,9 +12,9 @@ export const baseApi = `https://learn-54603.firebaseio.com/`;
 const apiEndpoints = (baseApi) => {
   return (lang = '') => {
     return {
-      courses: `${baseApi}/courses.json`,
-      modules: `${baseApi}/modules.json`,
-      components: `${baseApi}/components.json`,
+      courses: `${baseApi}${lang}/api/learning/courses`,
+      modules: `${baseApi}${lang}/api/learning/modules`,
+      components: `${baseApi}${lang}/api/learning/components`,
     };
   };
 };
