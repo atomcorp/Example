@@ -13,7 +13,16 @@
   padding: 12.5px;
   background: #fff;
   margin: 12.5px;
-  width: calc(50% - 25px);
+  width: 100%;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 72em) {
+  .choice {
+    width: calc(50% - 25px);
+  }
 }
 
 .choices .icon {
@@ -21,5 +30,10 @@
 }
 
 .choicesChosen .icon {
-  display: inline;
+  display: block;
+}
+
+.answer {
+  flex: 1;
+  padding: 10px;
 }

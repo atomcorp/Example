@@ -51,7 +51,8 @@ const CourseModuleElement = ({
 
 type CoursePresentationType = {
   title: Array<{value: string}>,
-  field_introduction: Array<{value: string}>
+  field_introduction: Array<{value: string}>,
+  t: (string) => string
 };
 
 export const CoursePresentation = ({

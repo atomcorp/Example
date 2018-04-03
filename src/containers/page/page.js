@@ -22,7 +22,7 @@ class Page extends Component {
           }
           {this.props.children}
         </div>
-        <div><Link to={'/language'}>Change the language</Link></div>
+        <div className={style.footer}><Link to={'/language'}>Change the language</Link></div>
         <br/>
       </div>
     );

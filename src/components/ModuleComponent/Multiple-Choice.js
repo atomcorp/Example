@@ -180,7 +180,6 @@ class Choice extends Component<ChoiceType, {domIndex: string}> {
       });
     }
   }
-
   render(): * {
     return (
       <div
@@ -191,11 +190,15 @@ class Choice extends Component<ChoiceType, {domIndex: string}> {
         className={styles.choice}
         onClick={(): void => this.props.handleClick(this.props.isCorrect)}
       >
-        {this.state.domIndex}
-        {this.props.text}
-        <span className={styles.icon}>
+        <div className={styles.index}>
+          {this.state.domIndex}
+        </div>
+        <div className={styles.answer}>
+          {this.props.text}
+        </div>
+        <div className={styles.icon}>
           {this.props.isCorrect ? '✅' : '❎'}
-        </span>
+        </div>
       </div>
     );
   }
