@@ -49,6 +49,10 @@ const text = {
     'Complete',
     'Komplett',
   ],
+  checkAnswers: [
+    'Check answers',
+    'Antworten kontrollieren',
+  ],
   resources: [
     'Resource',
     'Ressource',
@@ -88,6 +92,34 @@ const text = {
   languageHelp: [
     'Press confirm to save your changes',
     'Drücken Sie bestätigen, um Ihre Änderungen zu speichern',
+  ],
+  assessment: [
+    'Assessment',
+    'Bewertung',
+  ],
+  passMinimum: [
+    'Pass minimum',
+    'Pass minimum',
+  ],
+  passed: [
+    'Passed',
+    'Bestanden',
+  ],
+  failed: [
+    'Failed',
+    'Gescheitert',
+  ],
+  answerAll: [
+    'You must answer every question',
+    'Sie müssen jede Frage beantworten',
+  ],
+  missing: [
+    'Missing',
+    'Vermisst',
+  ],
+  tryAgain: [
+    'Try again',
+    'Versuch es noch einmal',
   ],
   txtErr: [
     'Error! Text not found',

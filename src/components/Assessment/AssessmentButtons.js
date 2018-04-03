@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import type {Node} from 'react';
+import type {TranslateType} from '../../types.js';
 
 type StateType = {
   completed: boolean,
@@ -18,23 +19,26 @@ type MethodsType = {
 const AssessmentButtons = ({
   state,
   methods,
-}: {state: StateType, methods: MethodsType}): Node => (
+  t,
+}: {state: StateType, methods: MethodsType, t: TranslateType}): Node => (
   <div>
       {
         !state.submitted
         && <button onClick={(): void => methods.handleSubmit()}>
-          Check answers
-            </button>
+          {t('checkAnswers')}
+        </button>
       }
       {
         state.submitted && !state.passed
-        && <button onClick={(): void => methods.reset()}>Try again</button>
+        && <button onClick={(): void => methods.reset()}>
+          {t('tryAgain')}
+        </button>
       }
       {
         state.submitted && state.passed
         && <button onClick={(): void => methods.completeAssessmentButton()}>
-          Complete assessment
-            </button>
+          {t('complete')}
+        </button>
       }
   </div>
 );

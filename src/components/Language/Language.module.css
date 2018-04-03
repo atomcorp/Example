@@ -27,6 +27,6 @@
 }
 
 .current {
-  background: yellow;
+  text-decoration: underline;
 }
 

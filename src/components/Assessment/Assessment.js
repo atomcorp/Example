@@ -7,15 +7,23 @@
 import React, {Component} from 'react';
 import type {Node} from 'react';
 import {Redirect} from 'react-router-dom';
-import type {ResourcesType, CourseFieldsType} from '../../types.js';
+import type {
+  ResourcesType,
+  CourseFieldsType,
+  TranslateType,
+} from '../../types.js';
 import Page from '../../containers/page/page.js';
 import {MultiChoiceAssessment}
   from '../AssessmentComponents/MultiChoiceAssessment.js';
 import AssessmentButtons from './AssessmentButtons.js';
+import translate from '../../config/text';
 
-const TitleElement = ({title}: { title: Array<{value: string}> }): Node => {
+const TitleElement = ({
+  title,
+  t,
+}: {title: Array<{value: string}>, t: TranslateType }): Node => {
   return (
-    <h1>{title[0].value} Assessment</h1>
+    <h1>{title[0].value} {t('assessment')}</h1>
   );
 };
 
@@ -32,7 +40,8 @@ type PropsType = {
   },
   done: string => void,
   resources: ResourcesType,
-  loaded: boolean
+  loaded: boolean,
+  language: string
 };
 
 type StateType = {
@@ -55,16 +64,13 @@ export const AssessmentLoader = (props: PropsType): Node => {
 };
 
 export class Assessment extends Component<PropsType, StateType> {
-  courseId: string;
-  courseData: CourseFieldsType;
+  courseId: string
+  courseData: CourseFieldsType
   testsStatuses: Array<AssessmentTestsType>
-  score: number;
-  target: number;
-  completeAssessment: () => void;
-  /**
-   * constructor
-   * @param {PropsType} props
-   */
+  score: number
+  target: number
+  t: TranslateType
+  completeAssessment: () => void
   constructor(props: PropsType) {
     super(props);
     this.courseId = this.props.route.match.params.courseId;
@@ -82,6 +88,7 @@ export class Assessment extends Component<PropsType, StateType> {
     this.target = Math.ceil(
       this.courseData.field_course_assessment.length * 0.8
     );
+    this.t = translate(this.props.language);
     this.state = {
       completed: false,
       submitted: false,
@@ -129,9 +136,8 @@ export class Assessment extends Component<PropsType, StateType> {
       return acc + 1;
     }, 0);
     this.setState({
-      error: `
-        You must answer every question. \n
-        ${notInputtedCount} missing.`,
+      error: `${this.t('answerAll')}. \n
+        ${notInputtedCount} ${this.t('missing')}.`,
     });
   }
   handleClick = ({id, isCorrect}: {id: string, isCorrect: boolean}) => {
@@ -159,24 +165,24 @@ export class Assessment extends Component<PropsType, StateType> {
     }
     return (
       <Page>
-        <TitleElement title={this.courseData.title} />
+        <TitleElement t={this.t} title={this.courseData.title} />
         <div>
           {this.state.error}
           <br/>
           {
             this.state.submitted && (
               this.state.passed
-                ? `Passed: ${this.score} / ${
+                ? `${this.t('passed')}: ${this.score} / ${
                   this.courseData.field_course_assessment.length
                 }`
-                : `Failed: ${this.score} / ${
+                : `${this.t('failed')}: ${this.score} / ${
                   this.courseData.field_course_assessment.length
                 }`
             )
           }
           <br/>
           {
-            this.state.submitted && `Pass minimum: ${this.target}`
+            this.state.submitted && `${this.t('passMinimum')}: ${this.target}`
           }
         </div>
 
@@ -202,7 +208,8 @@ export class Assessment extends Component<PropsType, StateType> {
             handleSubmit: this.handleSubmit,
             reset: this.reset,
             completeAssessmentButton: this.completeAssessmentButton,
-          }} />
+          }}
+          t={this.t} />
         {
           // If you hit the complete module button
           this.state.completed && <Redirect to={`/course/${this.courseId}`} />

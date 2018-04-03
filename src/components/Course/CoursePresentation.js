@@ -11,6 +11,7 @@ import type {
   // LessonFieldsType,
   CourseFieldsType,
   ModuleStatusesType,
+  TranslateType,
 } from '../../types.js';
 
 type CourseModuleElementType = {
@@ -52,7 +53,7 @@ const CourseModuleElement = ({
 type CoursePresentationType = {
   title: Array<{value: string}>,
   field_introduction: Array<{value: string}>,
-  t: (string) => string
+  t: TranslateType
 };
 
 export const CoursePresentation = ({
@@ -104,16 +105,18 @@ export const CourseModulesPresentation = ({
 type CourseAssessmentType = {
   courseId: string,
   completed: boolean,
-  courseTitle: string
+  courseTitle: string,
+  t: TranslateType
 };
 
 export const CourseAssessment = ({
   courseId,
   completed,
   courseTitle,
+  t,
 }: CourseAssessmentType): Node => (
   <Link className={style.assessment} to={`/course/${courseId}/assessment`}>
-    <div className={style.assessmentTitle}>?. Assessment</div>
+    <div className={style.assessmentTitle}>{courseTitle} {t('assessment')}</div>
     <div>{completed ? '✔' : '✗'}</div>
   </Link>
 );

@@ -141,7 +141,8 @@ export const Course = ({
           <CourseAssessment
             courseId={courseId}
             completed={assessmentStatuses[courseId]}
-            courseTitle={courseData.title[0].value} />
+            courseTitle={courseData.title[0].value}
+            t={t} />
           <h4>{t('resources')}</h4>
           <ul>
             <li><a href="/">resource 1</a></li>
