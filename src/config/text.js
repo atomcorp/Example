@@ -81,6 +81,14 @@ const text = {
     'German',
     'Deutsche',
   ],
+  confirm: [
+    'Confirm',
+    'Bestätigen',
+  ],
+  languageHelp: [
+    'Press confirm to save your changes',
+    'Drücken Sie bestätigen, um Ihre Änderungen zu speichern',
+  ],
   txtErr: [
     'Error! Text not found',
     'Error! Text not found',

@@ -6,6 +6,7 @@ import Page from '../../containers/page/page';
 import {changeLanguageIfNecessary} from '../../redux/actions/action-creators';
 import translate from '../../config/text';
 import type {TranslateType} from '../../types';
+import styles from './Language.module.css';
 
 type PropsType = {
   language: string,
@@ -58,29 +59,45 @@ class Language extends Component<PropsType, StateType> {
   render(): * {
     return (
       <Page>
-        <h2>
-          {
-            translate(this.state.currentLang)('changeLanguage')
-          } {this.props.language}
-        </h2>
-        <h4>{translate(this.state.currentLang)('chooseLanguage')}:</h4>
-        <ul>
-          {
-            this.languages.map(({
+        <div className={styles.header}>
+          <h2>
+            {
+              this.t('changeLanguage')
+            }
+          </h2>
+        </div>
+        <div className={styles.content}>
+          <h4>{translate(this.state.currentLang)('chooseLanguage')}:</h4>
+          <div className={styles.languages}>
+            {
+              this.languages.map(({
                 lang, iso,
               }: {lang: string, iso: string},
-              i: number
-            ): Node => (
-              <LanguageButton
-                key={i}
-                switchLanguage={this.switchLanguage}
-                lang={lang}
-                iso={iso}
-                t={translate(this.state.currentLang)} />
-            ))
-          }
-        </ul>
-        <button onClick={(): void => this.handleClick()}>Confirm</button>
+                i: number
+              ): Node => (
+                <LanguageButton
+                  key={i}
+                  switchLanguage={this.switchLanguage}
+                  lang={lang}
+                  currentLang={this.state.currentLang}
+                  iso={iso}
+                  t={translate(this.state.currentLang)} />
+              ))
+            }
+          </div>
+          <div className={styles.confirm}>
+            {
+              this.state.currentLang !== this.props.language
+              ? <div className={styles.help}>{
+                translate(this.state.currentLang)('languageHelp')
+                }</div>
+              : ''
+            }
+            <button onClick={(): void => this.handleClick()}>
+              {translate(this.state.currentLang)('confirm')}
+            </button>
+          </div>
+        </div>
       </Page>
     );
   }
@@ -90,7 +107,8 @@ type LanguageButtonType = {
   lang: string,
   iso: string,
   switchLanguage: string => void,
-  t: TranslateType
+  t: TranslateType,
+  currentLang: string
 };
 
 const LanguageButton = ({
@@ -98,10 +116,13 @@ const LanguageButton = ({
   iso,
   switchLanguage,
   t,
+  currentLang,
 }: LanguageButtonType): Node => (
-  <li onClick={(e: Event): void => switchLanguage(iso)}>
+  <button
+    className={styles[iso === currentLang ? 'current' : 'notCurrent']}
+    onClick={(e: Event): void => switchLanguage(iso)}>
     {t(lang)}
-  </li>
+  </button>
 );
 
 const mapStateToProps = (state: any): {language: string} => ({
