@@ -49,9 +49,37 @@ const text = {
     'Complete',
     'Komplett',
   ],
-  resource: [
+  resources: [
     'Resource',
     'Ressource',
+  ],
+  previous: [
+    'Previous',
+    'Bisherige',
+  ],
+  next: [
+    'Next',
+    'Nächster',
+  ],
+  selectAnswer: [
+    'Select an answer',
+    'Wählen Sie eine Antwort aus',
+  ],
+  changeLanguage: [
+    'Change language',
+    'Sprache ändern',
+  ],
+  chooseLanguage: [
+    'Please choose a language',
+    'Bitte wähle eine Sprache',
+  ],
+  english: [
+    'English',
+    'Englisch',
+  ],
+  german: [
+    'German',
+    'Deutsche',
   ],
   txtErr: [
     'Error! Text not found',

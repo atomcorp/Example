@@ -7,7 +7,10 @@
 
 import React from 'react';
 import type {Node} from 'react';
-import type {ModuleComponentType} from '../../types.js';
+import type {
+  ModuleComponentType,
+  TranslateType,
+} from '../../types.js';
 import {
   ModuleComponent,
   ModuleComponentVisibility,
@@ -18,13 +21,15 @@ type ModuleComponentsType = {
     target_id: string
   }>,
   allModuleComponents: ModuleComponentType,
-  visibleModuleComponentId: number
+  visibleModuleComponentId: number,
+  t: TranslateType
 };
 
 const ModuleComponents = ({
   modulesComponents,
   allModuleComponents,
   visibleModuleComponentId,
+  t,
 }: ModuleComponentsType): Array<Node> => (
   modulesComponents.map((
     moduleComponent: {
@@ -41,7 +46,8 @@ const ModuleComponents = ({
         <ModuleComponent
           moduleComponent={
             allModuleComponents[moduleComponent.target_id]
-          } />
+          }
+          t={t} />
       </ModuleComponentVisibility>
     )
   )

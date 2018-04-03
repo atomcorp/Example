@@ -5,6 +5,7 @@ import {moduleDone} from '../../redux/actions/action-creators.js';
 const mapStateToProps = (state) => ({
   resources: state.resources.data,
   loaded: state.resources.status === 'loaded' ? true : false,
+  language: state.status.language,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -6,6 +6,8 @@ import {Redirect} from 'react-router-dom';
 import Page from '../../containers/page/page';
 import {register} from '../../redux/actions/register-actions';
 import styles from './Register.module.css';
+import translate from '../../config/text';
+import type {TranslateType} from '../../types';
 
 type PropsType = {
   registrationError: string,
@@ -21,7 +23,8 @@ type PropsType = {
         pathname: string
       }
     }
-  }
+  },
+  language: string
 };
 
 type StateType = {
@@ -33,6 +36,7 @@ type StateType = {
 };
 
 class Register extends Component<PropsType, StateType> {
+  t: TranslateType
   constructor(props: PropsType) {
     super(props);
     this.state = {
@@ -42,6 +46,7 @@ class Register extends Component<PropsType, StateType> {
       passwordsMatch: false,
       confirmPasswordsIsDirty: false,
     };
+    this.t = translate(this.props.language);
   }
   handleInput = (type: string, event: Event) => {
     if (typeof event.target.value === 'string') {
@@ -85,13 +90,14 @@ class Register extends Component<PropsType, StateType> {
     return (
       <Page>
         <div>
-          <h1>Register</h1>
+          <h1>{ this.t('register') }</h1>
           {this.state.passwordsMatch ? '' : 'Passwords do not match'}
           {this.props.registrationError}
           <RegistrationForm
             handleSubmit={this.handleSubmit}
             handleInput={this.handleInput}
-            state={this.state} />
+            state={this.state}
+            t={this.t} />
           {this.props.isLoggingIn ? 'Registering you...' : ''}
         </div>
       </Page >
@@ -99,11 +105,7 @@ class Register extends Component<PropsType, StateType> {
   }
 }
 
-const RegistrationForm = ({
-  handleSubmit,
-  handleInput,
-  state,
-}: {
+type RegistrationFormType = {
   handleSubmit: (Event) => void,
   handleInput: (string, Event) => void,
   state: {
@@ -112,25 +114,33 @@ const RegistrationForm = ({
     confirmPass: string,
     passwordsMatch: boolean,
     confirmPasswordsIsDirty: boolean
-  }
-}): Node => (
+  },
+  t: TranslateType
+};
+
+const RegistrationForm = ({
+  handleSubmit,
+  handleInput,
+  state,
+  t,
+}: RegistrationFormType): Node => (
   <form onSubmit={handleSubmit}>
     <InputWithLabel
-      label={'Email'}
+      label={t('email')}
       inputType={'email'}
       value={state.email}
       type={'text'}
       placeholder={''}
       handleInput={handleInput} />
     <InputWithLabel
-      label={'Password'}
+      label={t('password')}
       inputType={'pass'}
       value={state.pass}
       type={'password'}
       placeholder={''}
       handleInput={handleInput} />
     <InputWithLabel
-      label={'Confirm password'}
+      label={t('confirmPassword')}
       inputType={'confirmPass'}
       value={state.confirmPass}
       type={'password'}

@@ -6,18 +6,24 @@
 import React from 'react';
 import type {Node} from 'react';
 import {Lesson} from './Lesson.js';
-import {MultipleChoice} from './Multiple-Choice.js';
+import {
+  MultipleChoice,
+} from './Multiple-Choice.js';
 import type {
   MultiChoiceFieldsType,
   LessonFieldsType,
+  TranslateType,
 } from '../../types.js';
 
 type ModuleComponentContainerType = {
-  moduleComponent: MultiChoiceFieldsType | LessonFieldsType
+  moduleComponent: MultiChoiceFieldsType | LessonFieldsType,
+  t: TranslateType
 };
 
-export const ModuleComponent = (
-  {moduleComponent}: ModuleComponentContainerType
+export const ModuleComponent = ({
+  moduleComponent,
+  t,
+}: ModuleComponentContainerType
 ): Node => {
   // TODO: transitions
   // $FlowFixMe
@@ -29,7 +35,7 @@ export const ModuleComponent = (
     case 'question':
       return (
         // $FlowFixMe
-        <MultipleChoice {...moduleComponent} />
+        <MultipleChoice t={t} {...moduleComponent} />
       );
     default:
       return <div>Error - Check ModuleComponent Types</div>;

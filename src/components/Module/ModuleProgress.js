@@ -4,6 +4,7 @@ import React from 'react';
 import type {Node} from 'react';
 // import {Link} from 'react-router-dom';
 import styles from './Module.module.css';
+import type {TranslateType} from '../../types';
 
 type ModuleProgressType = {
   state: {
@@ -16,24 +17,26 @@ type ModuleProgressType = {
     increment: () => void,
     complete: () => void
   },
-  courseId: string
+  courseId: string,
+  t: TranslateType
 };
 
 export const ModuleProgress = ({
   state,
   moduleComponentLength,
   update,
+  t,
   // courseId,
 }: ModuleProgressType): Node => (
     <div className={styles.progress}>
       <ProgressButton
-        label="Prev"
+        label={t('previous')}
         update={update.decrement}
         visibility={
           state.visibleModuleComponent > 1 ? 'block' : 'none'
         } />
       <ProgressButton
-        label="Next"
+        label={t('next')}
         update={update.increment}
         visibility={
           state.visibleModuleComponent < moduleComponentLength
@@ -43,7 +46,7 @@ export const ModuleProgress = ({
         className={styles.progressRight}
         disabled={state.nextButtonDisabled} />
       <ProgressButton
-        label="Complete module"
+        label={t('complete')}
         update={update.complete}
         visibility={
           state.visibleModuleComponent === moduleComponentLength

@@ -25,8 +25,10 @@ import type {
   ResourcesType,
   ModuleFieldsType,
   ModuleComponentType,
+  TranslateType,
 } from '../../types.js';
 import styles from './Module.module.css';
+import translate from '../../config/text';
 
 type PropsType = {
   resources: ResourcesType,
@@ -39,7 +41,8 @@ type PropsType = {
       }
     }
   },
-  done: string => void
+  done: string => void,
+  language: string
 };
 
 type StateType = {
@@ -63,7 +66,7 @@ export class Module extends Component<PropsType, StateType> {
   moduleData: ModuleFieldsType;
   moduleComponentLength: number;
   completeModule: () => void;
-
+  t: TranslateType
   constructor(props: PropsType) {
     super(props);
     const {route, resources} = props;
@@ -85,6 +88,7 @@ export class Module extends Component<PropsType, StateType> {
       nextButtonDisabled: false,
       completed: false,
     };
+    this.t = translate(this.props.language);
   }
   incrementVisible = () => {
     /* @flow weak */
@@ -138,7 +142,8 @@ export class Module extends Component<PropsType, StateType> {
             <ModuleComponents
               modulesComponents={this.moduleData.field_add_components}
               allModuleComponents={this.resources.components}
-              visibleModuleComponentId={this.state.visibleModuleComponent} />
+              visibleModuleComponentId={this.state.visibleModuleComponent}
+              t={this.t} />
             <ModuleProgress
               state={this.state}
               moduleComponentLength={this.moduleComponentLength}
@@ -147,7 +152,8 @@ export class Module extends Component<PropsType, StateType> {
                 increment: this.incrementVisible,
                 complete: this.completeModuleButton,
               }}
-              courseId={this.courseId} />
+              courseId={this.courseId}
+              t={this.t} />
           </div>
           <div className={styles.sidebar}>
             <Sidebar

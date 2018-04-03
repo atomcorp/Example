@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import Page from '../../containers/page/page.js';
 import translate from '../../config/text';
-
+import type {TranslateType} from '../../types';
 type PropsType = {
   location: {
     state: {
@@ -30,7 +30,7 @@ type StateType = {
 };
 
 class Login extends Component<PropsType, StateType> {
-  translate: (string) => string
+  translate: TranslateType
   constructor(props: PropsType) {
     super(props);
     this.state = {
@@ -77,7 +77,7 @@ class Login extends Component<PropsType, StateType> {
                 this.handleInput('pass', e)
               }
             placeholder={this.translate('password')} />
-          <input type="submit" value="Login" />
+          <input type="submit" value={this.translate('signIn')} />
         </form>
         {this.props.status.isLoggingIn ? this.translate('loggingIn') : ''}
         {this.props.status.error ? this.props.status.error : ''}

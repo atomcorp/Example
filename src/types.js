@@ -171,3 +171,5 @@ export type AssessmentDoneType = {
   type: ASSESSMENT_DONE,
   id: string
 };
+
+export type TranslateType = (string) => string;

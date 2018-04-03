@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import type {Node} from 'react';
 import {once as myOnce, shuffle} from '../../utility/utility.js';
 import styles from './Multiple-Choice.module.css';
+import type {TranslateType} from '../../types';
 
 type PropsType = {
   field_question: Array<{
@@ -17,7 +18,8 @@ type PropsType = {
   }>,
   field_incorrect_choices: Array<{
     value: string
-  }>
+  }>,
+  t: TranslateType
 };
 
 type StateType = {
@@ -62,7 +64,8 @@ export class MultipleChoice extends Component<PropsType, StateType> {
         field_incorrect_choices={this.props.field_incorrect_choices}
         handleClick={this.handleClick}
         state={this.state}
-        shuffleOnce={this.shuffleOnce} />
+        shuffleOnce={this.shuffleOnce}
+        t={this.props.t} />
     );
   }
 }
@@ -79,7 +82,8 @@ type MultipleChoicePresentationType = {
   }>,
   handleClick: boolean => void,
   state: StateType,
-  shuffleOnce: (Array<Node>) => Array<Node>
+  shuffleOnce: (Array<Node>) => Array<Node>,
+  t: TranslateType
 };
 
 const MultipleChoicePresentation = ({
@@ -89,12 +93,13 @@ const MultipleChoicePresentation = ({
   handleClick,
   state,
   shuffleOnce,
+  t,
 }: MultipleChoicePresentationType): Node => (
   <div className="multiple-question">
     <div className="question">
       <h3>{field_question[0].value}</h3>
     </div>
-    <div>Select an answer: </div>
+    <div>{t('selectAnswer')}</div>
     <div className={
       `${styles.choices} ${state.clicked ? styles.choicesChosen : ''}`
       }>

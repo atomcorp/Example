@@ -5,56 +5,75 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {logout} from '../../redux/actions/login-actions';
 import styles from './Header.module.css';
+import translate from '../../config/text';
+import type {TranslateType} from '../../types';
 
 type StatusType = {
   isLoggedIn: boolean,
-  email: string
+  email: string,
+  language: string
 };
 
 const Header = ({
   status,
   logout,
 }: {status: StatusType, logout: () => void}): Node => {
+  const t = translate(status.language);
   return (
     <div className={styles.header}>
-      <Link className={styles.logo} to="/courses">Cambridge Audio | Learn</Link>
+      <Link
+        className={styles.logo}
+        to="/courses"
+      >
+        Cambridge Audio | {t('title')}
+      </Link>
       <User
         isLoggedIn={status.isLoggedIn}
         email={status.email}
-        logout={logout} />
+        logout={logout}
+        t={t} />
     </div>
   );
+};
+
+type UserType = {
+  isLoggedIn: boolean,
+  email: string,
+  logout: () => void,
+  t: TranslateType
 };
 
 const User = ({
   isLoggedIn,
   email,
   logout,
-}: {isLoggedIn: boolean, email: string, logout: () => void}): Node => (
+  t,
+}: UserType): Node => (
   <div className={styles.user}>
     {
       isLoggedIn
-        ? <LoggedIn email={email} logout={logout} />
-        : <LoggedOut />
+        ? <LoggedIn t={t} email={email} logout={logout} />
+        : <LoggedOut t={t} />
     }
   </div>
 );
 
-const LoggedOut = (): Node => (
+const LoggedOut = ({t}: {t: TranslateType}): Node => (
   <div>
-    <Link className={styles.link} to="/register">Register</Link>
-    <Link className={styles.link} to="/login">Login</Link>
+    <Link className={styles.link} to="/register">{t('register')}</Link>
+    <Link className={styles.link} to="/login">{t('signIn')}</Link>
   </div>
 );
 
 const LoggedIn = ({
   logout,
   email,
-}: {logout: () => void, email: string}): Node => (
+  t,
+}: {logout: () => void, email: string, t: TranslateType}): Node => (
   <div className={styles.loggedIn}>
     <div>{email}</div>
     <button className={styles.logout} onClick={(): void => logout()}>
-      Sign out
+      { t('signOut') }
     </button>
   </div>
 );
