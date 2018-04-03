@@ -15,6 +15,7 @@ import {
   CourseAssessment,
   CourseHeader,
 } from './CoursePresentation.js';
+import CourseCertificate from './CourseCertificate';
 import type {
   ResourcesType,
   ModuleStatusesType,
@@ -82,7 +83,8 @@ type CourseType = {
   coursesStatuses: CoursesStatusesType,
   assessmentStatuses: AssessmentStatusesType,
   updateCourseStatus: (string, string) => void,
-  language: string
+  language: string,
+  email: string
 };
 
 export const Course = ({
@@ -93,6 +95,7 @@ export const Course = ({
   updateCourseStatus,
   assessmentStatuses,
   language,
+  email,
 }: CourseType): Node => {
   if (!resources.loaded) {
     return <div>Loading Course...</div>;
@@ -142,6 +145,16 @@ export const Course = ({
             completed={assessmentStatuses[courseId]}
             courseTitle={courseData.title[0].value}
             t={t} />
+          {
+            courseProgress.total === courseProgress.complete
+              ? <CourseCertificate
+                courseProgress={courseProgress}
+                t={t}
+                email={email}
+                courseId={courseId}
+                language={language} />
+              : null
+          }
           <h4>{t('resources')}</h4>
           <ul>
             <li><a href="/">resource 1</a></li>

@@ -121,6 +121,18 @@ const text = {
     'Try again',
     'Versuch es noch einmal',
   ],
+  congratulationsCompletingCourse: [
+    'Congratulations on completing the course!',
+    'Congratulations on completing the course!',
+  ],
+  certificate: [
+    'Certificate',
+    'Certificate de',
+  ],
+  emailTo: [
+    'Email certificate to',
+    'Email certificate to',
+  ],
   txtErr: [
     'Error! Text not found',
     'Error! Text not found',

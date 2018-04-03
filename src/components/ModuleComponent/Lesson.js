@@ -28,7 +28,7 @@ export const Lesson = ({
   <div className="lesson">
     <h3>{field_headline[0].value}</h3>
     {
-        field_image && <img
+        field_image.length && <img
           className={styles.img}
           src={field_image[0].url}
           alt={field_image[0].alt} />
