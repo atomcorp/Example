@@ -30,7 +30,11 @@ type PropsType = {
 
 type StateType = {
   email: string,
-  pass: string
+  pass: string,
+  firstName: string,
+  lastName: string,
+  company: string,
+  country: string
 };
 
 class Register extends Component<PropsType, StateType> {
@@ -40,6 +44,10 @@ class Register extends Component<PropsType, StateType> {
     this.state = {
       email: '',
       pass: '',
+      firstName: '',
+      lastName: '',
+      company: '',
+      country: '',
     };
     this.t = translate(this.props.language);
   }
@@ -55,6 +63,10 @@ class Register extends Component<PropsType, StateType> {
     this.props.attemptToRegister({
       email: this.state.email,
       pass: this.state.pass,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      country: this.state.country,
+      company: this.state.company,
     });
   }
   render(): Node {
@@ -82,10 +94,7 @@ class Register extends Component<PropsType, StateType> {
 type RegistrationFormType = {
   handleSubmit: (Event) => void,
   handleInput: (string, Event) => void,
-  state: {
-    email: string,
-    pass: string
-  },
+  state: StateType,
   errors: string,
   t: TranslateType
 };
@@ -108,6 +117,34 @@ const RegistrationForm = ({
       label={t('email')}
       inputType={'email'}
       value={state.email}
+      type={'email'}
+      placeholder={''}
+      handleInput={handleInput} />
+    <InputWithLabel
+      label={t('firstName')}
+      inputType={'firstName'}
+      value={state.firstName}
+      type={'text'}
+      placeholder={''}
+      handleInput={handleInput} />
+    <InputWithLabel
+      label={t('lastName')}
+      inputType={'lastName'}
+      value={state.lastName}
+      type={'text'}
+      placeholder={''}
+      handleInput={handleInput} />
+    <InputWithLabel
+      label={t('company')}
+      inputType={'company'}
+      value={state.company}
+      type={'text'}
+      placeholder={''}
+      handleInput={handleInput} />
+    <InputWithLabel
+      label={t('country')}
+      inputType={'country'}
+      value={state.country}
       type={'text'}
       placeholder={''}
       handleInput={handleInput} />
@@ -142,7 +179,9 @@ const InputWithLabel = ({
   confirmPasswordsIsDirty?: boolean
 }): Node => (
   <label className={formStyle.label}>
-    {label}:&nbsp;
+    <div className={formStyle.heading}>
+        {label}*
+    </div>
     {
       // @FlowFixMe
       inputType === 'confirmPass'
@@ -158,13 +197,18 @@ const InputWithLabel = ({
       className={formStyle.input}
       value={value}
       type={type}
-      placeholder={placeholder} />
+      placeholder={placeholder}
+      required />
   </label>
 );
 
 type LoginDataType = {
   email: string,
-  pass: string
+  pass: string,
+  firstName: string,
+  lastName: string,
+  country: string,
+  company: string
 };
 
 const mapStateToProps = (state: {status: ?{}}): ?{} => state.status;

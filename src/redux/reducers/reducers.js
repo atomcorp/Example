@@ -10,6 +10,7 @@ import {
   IMPORT_STATE,
   CHOOSE_LANGUAGE,
   DOWNLOAD_RESOURCES,
+  CHANGE_USER_DETAILS,
 } from '../actions/action-types.js';
 import type {
   CourseType,
@@ -79,7 +80,11 @@ type UserStatusActionType = {
   email?: string,
   error?: string,
   registrationError?: string,
-  language?: string
+  language?: string,
+  firstName?: string,
+  lastName?: string,
+  country?: string,
+  company?: string
 };
 
 export const status = (
@@ -91,6 +96,10 @@ export const status = (
     registrationError: '',
     uploadingState: false,
     language: 'en',
+    firstName: '',
+    lastName: '',
+    country: '',
+    company: '',
   },
   action: UserStatusActionType
 ): UserStatusType => {
@@ -135,12 +144,18 @@ export const status = (
     case REGISTER.SUCCESS:
       return Object.assign({}, state, {
         id: action.id,
-        email: action.id,
+        email: action.email,
+        firstName: action.firstName,
+        lastName: action.lastName,
+        country: action.country,
+        company: action.company,
       });
     case CHOOSE_LANGUAGE:
       return Object.assign({}, state, {
         language: action.language,
       });
+    case CHANGE_USER_DETAILS:
+      return state;
     default:
       return state;
   }

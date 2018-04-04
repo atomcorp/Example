@@ -20,6 +20,7 @@ import {database} from '../../firebase';
 const loggerMiddleware = createLogger();
 
 const logStateToDatabaseIfSignedIn = (state) => {
+  console.log(state);
   if (state.status.isLoggedIn) {
     return database.ref('users/' + state.status.id)
       .set(cleanseSavedState(state));

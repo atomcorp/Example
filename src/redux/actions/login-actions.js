@@ -32,7 +32,10 @@ const loginRequest = () => ({
   type: LOGIN.REQUEST,
 });
 
-export const loginSuccess = ({id, email}) => ({
+export const loginSuccess = ({
+  id,
+  email,
+}) => ({
   type: LOGIN.SUCCESS,
   id,
   email,

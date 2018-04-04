@@ -1,7 +1,10 @@
 .label {
-  display: flex;
-  align-items: center;
   margin: 0 0 10px;
+  display: block;
+}
+
+.heading {
+  margin: 0 0 5px;
 }
 
 .input {

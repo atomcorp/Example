@@ -2,7 +2,7 @@
   "name": "react-elearning",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://learn-54603.firebaseapp.com/",
+  "homepage": "http://learn.cambridgeaudio.com/",
   "proxy": "http://localhost:3000",
   "dependencies": {
     "custom-react-scripts": "^0.2.1",

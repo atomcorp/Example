@@ -6,10 +6,21 @@ const registerRequest = () => ({
   type: REGISTER.REQUEST,
 });
 
-const registerSuccess = ({id, email}) => ({
+const registerSuccess = ({
+  id,
+  email,
+  firstName,
+  lastName,
+  country,
+  company,
+}) => ({
   type: REGISTER.SUCCESS,
   id,
   email,
+  firstName,
+  lastName,
+  country,
+  company,
 });
 
 const registerFailure = (registrationError) => ({
@@ -17,7 +28,14 @@ const registerFailure = (registrationError) => ({
   registrationError,
 });
 
-export const register = ({email, pass}) => {
+export const register = ({
+  email,
+  pass,
+  firstName = '',
+  lastName = '',
+  country = '',
+  company = '',
+}) => {
   return (dispatch, getState) => {
     dispatch(registerRequest());
     return auth
@@ -26,6 +44,10 @@ export const register = ({email, pass}) => {
         dispatch(registerSuccess({
           id: user.uid,
           email: user.email,
+          firstName,
+          lastName,
+          country,
+          company,
         }));
         return user;
       })

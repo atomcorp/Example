@@ -145,6 +145,22 @@ const text = {
     'Home page',
     'Home page',
   ],
+  firstName: [
+    'First Name',
+    'First Name',
+  ],
+  lastName: [
+    'Last Name',
+    'Last Name',
+  ],
+  company: [
+    'Company',
+    'Company',
+  ],
+  country: [
+    'Country',
+    'Country',
+  ],
   txtErr: [
     'Error! Text not found',
     'Error! Text not found',

@@ -4,6 +4,7 @@ import {
   SET_COURSE_STATUS,
   MODULE_DONE,
   ASSESSMENT_DONE,
+  CHANGE_USER_DETAILS,
 } from './redux/actions/action-types.js';
 
 export type MultiChoiceType = {
@@ -167,6 +168,12 @@ export type ModuleDoneType = {
   id: string
 };
 
+export type ChangeUserDetailsType = {
+  type: CHANGE_USER_DETAILS,
+  key: string,
+  value: string
+};
+
 export type AssessmentDoneType = {
   type: ASSESSMENT_DONE,
   id: string
@@ -182,5 +189,9 @@ export type ReduxStatusType = {
   isLoggingIn: boolean,
   language: string,
   registrationError: string,
-  uploadingState: boolean
+  uploadingState: boolean,
+  firstName: string,
+  lastName: string,
+  country: string,
+  company: string
 };

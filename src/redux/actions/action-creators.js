@@ -4,12 +4,14 @@ import {
   MODULE_DONE,
   ASSESSMENT_DONE,
   CHOOSE_LANGUAGE,
+  CHANGE_USER_DETAILS,
 } from './action-types.js';
 import type {
   SetCourseStatusType,
   SetCourseStatusReturnType,
   ModuleDoneType,
   AssessmentDoneType,
+  ChangeUserDetailsType,
 } from '../../types.js';
 import {
   downloadResourcesInPreferredLanguage,
@@ -33,6 +35,17 @@ export const assessmentDone = (id: string): AssessmentDoneType => ({
   type: ASSESSMENT_DONE,
   id,
 });
+
+export const changeUserDetails = (
+  key: string,
+  value: string
+): ChangeUserDetailsType => ({
+  type: CHANGE_USER_DETAILS,
+  key,
+  value,
+});
+
+// changeLoginParams - seperate thing
 
 const chooseLanguage = (
   language: string
@@ -59,3 +72,5 @@ export const changeLanguageIfNecessary = (lang: string): any => {
     }
   };
 };
+
+
