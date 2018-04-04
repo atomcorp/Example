@@ -84,7 +84,9 @@ type UserStatusActionType = {
   firstName?: string,
   lastName?: string,
   country?: string,
-  company?: string
+  company?: string,
+  value: string,
+  key: string
 };
 
 export const status = (
@@ -155,7 +157,9 @@ export const status = (
         language: action.language,
       });
     case CHANGE_USER_DETAILS:
-      return state;
+      return Object.assign({}, state, {
+        [action.key]: [action.value],
+      });
     default:
       return state;
   }

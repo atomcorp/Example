@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import Page from '../../containers/page/page';
 import type {ReduxStatusType} from '../../types';
 import defaultStyles from '../../styles/default.module.css';
+import {changeUserDetails} from '../../redux/actions/action-creators';
 
 type StateType = {
   firstName: string,
@@ -14,7 +15,8 @@ type StateType = {
 };
 
 type PropsType = {
-  status: ReduxStatusType
+  status: ReduxStatusType,
+  confirmUserEdit: (string, string) => void
 };
 
 class Profile extends Component<PropsType, StateType> {
@@ -34,6 +36,9 @@ class Profile extends Component<PropsType, StateType> {
       });
     }
   }
+  handleSubmit = (key: string) => {
+    this.props.confirmUserEdit(key, this.state[key]);
+  }
   render(): * {
     return (
       <Page title={'Profile'}>
@@ -43,25 +48,29 @@ class Profile extends Component<PropsType, StateType> {
             stateKey={'firstName'}
             value={this.props.status.firstName}
             editedValue={this.state.firstName}
-            handleUserEdit={this.handleUserEdit} />
+            handleUserEdit={this.handleUserEdit}
+            handleUserSubmission={this.handleSubmit} />
           <EditUserField
             label={'Last name'}
             stateKey={'lastName'}
             value={this.props.status.lastName}
             editedValue={this.state.lastName}
-            handleUserEdit={this.handleUserEdit} />
+            handleUserEdit={this.handleUserEdit}
+            handleUserSubmission={this.handleSubmit} />
           <EditUserField
             label={'Company'}
             stateKey={'company'}
             value={this.props.status.company}
             editedValue={this.state.company}
-            handleUserEdit={this.handleUserEdit} />
+            handleUserEdit={this.handleUserEdit}
+            handleUserSubmission={this.handleSubmit} />
           <EditUserField
             label={'Country'}
             stateKey={'country'}
             value={this.props.status.country}
             editedValue={this.state.country}
-            handleUserEdit={this.handleUserEdit} />
+            handleUserEdit={this.handleUserEdit}
+            handleUserSubmission={this.handleSubmit} />
           <br />
           <EditLoginField />
         </div>
@@ -75,7 +84,8 @@ type EditFieldType = {
   value?: string,
   editedValue: string,
   stateKey: string,
-  handleUserEdit: (string, Event) => void
+  handleUserEdit: (string, Event) => void,
+  handleUserSubmission: (string) => void
 };
 
 const EditUserField = ({
@@ -84,13 +94,17 @@ const EditUserField = ({
   editedValue,
   stateKey,
   handleUserEdit,
+  handleUserSubmission,
 }: EditFieldType): Node => {
   return (
     <div>
       {label} <br/>
       {value && value} <br/>
       edit <br/>
-      <form>
+      <form onSubmit={(e: Event) => {
+        e.preventDefault();
+        handleUserSubmission(stateKey);
+      }}>
         <input
           onChange={(e: Event): void => handleUserEdit(stateKey, e)}
           type="text"
@@ -111,8 +125,9 @@ const mapStateToProps = (state: any): {status: ReduxStatusType} => ({
   status: state.status,
 });
 
-const mapDispatchToProps = (dispatch: any): {somethingLater: string} => ({
-  somethingLater: 'here',
+const mapDispatchToProps = (dispatch: any): {confirmUserEdit: any} => ({
+  confirmUserEdit: (key: string, value: string): any =>
+    dispatch(changeUserDetails(key, value)),
 });
 
 const ProfileContainer = connect(
