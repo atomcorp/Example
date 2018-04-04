@@ -11,7 +11,7 @@ import logo from '../../assets/CA_anniversary_logo.svg';
 
 type StatusType = {
   isLoggedIn: boolean,
-  email: string,
+  firstName: string,
   language: string
 };
 
@@ -28,7 +28,7 @@ const Header = ({
       </Link>
       <User
         isLoggedIn={status.isLoggedIn}
-        email={status.email}
+        firstName={status.firstName}
         logout={logout}
         t={t} />
     </div>
@@ -37,21 +37,21 @@ const Header = ({
 
 type UserType = {
   isLoggedIn: boolean,
-  email: string,
+  firstName: string,
   logout: () => void,
   t: TranslateType
 };
 
 const User = ({
   isLoggedIn,
-  email,
+  firstName,
   logout,
   t,
 }: UserType): Node => (
   <div className={styles.user}>
     {
       isLoggedIn
-        ? <LoggedIn t={t} email={email} logout={logout} />
+        ? <LoggedIn t={t} firstName={firstName} logout={logout} />
         : <LoggedOut t={t} />
     }
   </div>
@@ -66,11 +66,11 @@ const LoggedOut = ({t}: {t: TranslateType}): Node => (
 
 const LoggedIn = ({
   logout,
-  email,
+  firstName,
   t,
-}: {logout: () => void, email: string, t: TranslateType}): Node => (
+}: {logout: () => void, firstName: string, t: TranslateType}): Node => (
   <div className={styles.loggedIn}>
-    <Link to="/profile">Profile</Link>
+    <Link to="/profile">{firstName}&#39;s Profile</Link>
     <button className={styles.logout} onClick={(): void => logout()}>
       { t('signOut') }
     </button>
