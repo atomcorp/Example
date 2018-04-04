@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://learn-54603.firebaseapp.com/",
-  "proxy": "http://localhost/dylan",
+  "proxy": "http://localhost:3000",
   "dependencies": {
     "custom-react-scripts": "^0.2.1",
     "firebase": "^4.11.0",

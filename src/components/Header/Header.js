@@ -7,6 +7,7 @@ import {logout} from '../../redux/actions/login-actions';
 import styles from './Header.module.css';
 import translate from '../../config/text';
 import type {TranslateType} from '../../types';
+import logo from '../../assets/CA_anniversary_logo.svg';
 
 type StatusType = {
   isLoggedIn: boolean,
@@ -21,11 +22,8 @@ const Header = ({
   const t = translate(status.language);
   return (
     <div className={styles.header}>
-      <Link
-        className={styles.logo}
-        to="/courses"
-      >
-        Cambridge Audio | {t('title')}
+      <Link to="/courses" className={styles.logo}>
+        <img src={logo} alt={`Cambridge audio ${t('title')}`} />&nbsp;{t('title')}
       </Link>
       <User
         isLoggedIn={status.isLoggedIn}

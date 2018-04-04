@@ -42,3 +42,15 @@
 .logout {
   margin: 0 0 0 15px;
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #c0a880;
+}
+
+.logo img {
+  width: 157px;
+  height: 35px;
+}
