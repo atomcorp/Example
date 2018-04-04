@@ -13,7 +13,6 @@ import {
   ModuleContainer,
   AssessmentContainer,
   LoginContainer,
-  Home,
   RegisterContainer,
   LanguageContainer,
 } from '../components/index.js';
@@ -98,7 +97,9 @@ const Routes = ({resources, store}) => {
             component={(route) => (
               <CourseContainer route={route} />
             )} />
-          <Route exact path={`/`} component={Home} />
+          <Route exact path={`/`} component={() => {
+            return <Redirect to='/courses' />;
+          }} />
           <Route exact path={`/register`} component={RegisterContainer} />
           <Route path={`/login`} component={LoginContainer} />
           <Route path={`/language`} component={LanguageContainer} />

@@ -23,7 +23,8 @@ const Header = ({
   return (
     <div className={styles.header}>
       <Link to="/courses" className={styles.logo}>
-        <img src={logo} alt={`Cambridge audio ${t('title')}`} />&nbsp;{t('title')}
+        <img src={logo} alt={`Cambridge audio ${t('title')}`} />
+        &nbsp;{t('title')}
       </Link>
       <User
         isLoggedIn={status.isLoggedIn}
