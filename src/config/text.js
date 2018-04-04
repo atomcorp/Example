@@ -2,7 +2,7 @@
 // 2. de
 const text = {
   title: [
-    'Learn',
+    'Learning',
     'Lernen',
   ],
   chooseCourse: [

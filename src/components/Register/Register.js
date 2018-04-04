@@ -98,12 +98,12 @@ const RegistrationForm = ({
   t,
 }: RegistrationFormType): Node => (
   <form className={formStyle.form} onSubmit={handleSubmit}>
-      {
-        errors &&
-        <div className={formStyle.errors}>
-          {errors}
-        </div>
-      }
+    {
+      errors &&
+      <div className={formStyle.errors}>
+        {errors}
+      </div>
+    }
     <InputWithLabel
       label={t('email')}
       inputType={'email'}
