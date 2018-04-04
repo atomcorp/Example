@@ -17,13 +17,12 @@ import {
   RegisterContainer,
   LanguageContainer,
 } from '../components/index.js';
+import NoMatchContainer from './NoMatch';
 import {loginSuccess} from '../redux/actions/login-actions';
 import {
   downloadResourcesInPreferredLanguage,
 } from '../redux/actions/resources-actions';
 
-
-const NoMatch = () => <div>404</div>;
 
 const ValidateModulePath = ({route, resources}) => {
   // courseId is irrelevant to rendering Module, so we check
@@ -103,7 +102,7 @@ const Routes = ({resources, store}) => {
           <Route exact path={`/register`} component={RegisterContainer} />
           <Route path={`/login`} component={LoginContainer} />
           <Route path={`/language`} component={LanguageContainer} />
-          <Route component={NoMatch}></Route>
+          <Route component={NoMatchContainer}></Route>
         </Switch>
       </Router>
     </Provider>

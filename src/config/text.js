@@ -133,6 +133,18 @@ const text = {
     'Email certificate to',
     'Email certificate to',
   ],
+  title404: [
+    '404: Page not found',
+    '404: Page not found (DE)',
+  ],
+  followToHome: [
+    'Follow the link to return to the home page',
+    'Follow the link to return to the home page (DE)',
+  ],
+  homePage: [
+    'Home page',
+    'Home page',
+  ],
   txtErr: [
     'Error! Text not found',
     'Error! Text not found',
