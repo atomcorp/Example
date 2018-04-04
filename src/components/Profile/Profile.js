@@ -1,47 +1,102 @@
 // @flow
-import React from 'react';
+import React, {Component} from 'react';
 import type {Node} from 'react';
 import {connect} from 'react-redux';
 import Page from '../../containers/page/page';
 import type {ReduxStatusType} from '../../types';
+import defaultStyles from '../../styles/default.module.css';
 
-const Profile = ({status}: {status: ReduxStatusType}): Node => {
-  return (
-    <Page title={'Profile'}>
-      <EditUserField
-        label={'First name'}
-        value={status.firstName} />
-      <EditUserField
-        label={'Last name'}
-        value={status.lastName} />
-      <EditUserField
-        label={'Company'}
-        value={status.company} />
-      <EditUserField
-        label={'Country'}
-        value={status.country} />
-      <br/>
-      <EditLoginField />
-    </Page>
-  );
+type StateType = {
+  firstName: string,
+  lastName: string,
+  company: string,
+  country: string
 };
+
+type PropsType = {
+  status: ReduxStatusType
+};
+
+class Profile extends Component<PropsType, StateType> {
+  constructor(props: PropsType) {
+    super(props);
+    this.state = {
+      firstName: this.props.status.firstName,
+      lastName: this.props.status.lastName,
+      company: this.props.status.company,
+      country: this.props.status.country,
+    };
+  }
+  handleUserEdit = (key: string, event: Event) => {
+    if (typeof event.target.value === 'string') {
+      this.setState({
+        [key]: event.target.value,
+      });
+    }
+  }
+  render(): * {
+    return (
+      <Page title={'Profile'}>
+        <div className={defaultStyles.content}>
+          <EditUserField
+            label={'First name'}
+            stateKey={'firstName'}
+            value={this.props.status.firstName}
+            editedValue={this.state.firstName}
+            handleUserEdit={this.handleUserEdit} />
+          <EditUserField
+            label={'Last name'}
+            stateKey={'lastName'}
+            value={this.props.status.lastName}
+            editedValue={this.state.lastName}
+            handleUserEdit={this.handleUserEdit} />
+          <EditUserField
+            label={'Company'}
+            stateKey={'company'}
+            value={this.props.status.company}
+            editedValue={this.state.company}
+            handleUserEdit={this.handleUserEdit} />
+          <EditUserField
+            label={'Country'}
+            stateKey={'country'}
+            value={this.props.status.country}
+            editedValue={this.state.country}
+            handleUserEdit={this.handleUserEdit} />
+          <br />
+          <EditLoginField />
+        </div>
+      </Page>
+    );
+  }
+}
 
 type EditFieldType = {
   label: string,
-  value?: string
+  value?: string,
+  editedValue: string,
+  stateKey: string,
+  handleUserEdit: (string, Event) => void
 };
 
 const EditUserField = ({
   label,
   value,
+  editedValue,
+  stateKey,
+  handleUserEdit,
 }: EditFieldType): Node => {
   return (
     <div>
       {label} <br/>
       {value && value} <br/>
       edit <br/>
-      <input type="text" placeholder="Field to edit" />
-      <input type="submit" value="Confirm" />
+      <form>
+        <input
+          onChange={(e: Event): void => handleUserEdit(stateKey, e)}
+          type="text"
+          value={editedValue} />
+        <input type="submit" value="Confirm" />
+      </form>
     </div>
   );
 };
