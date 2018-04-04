@@ -58,14 +58,7 @@ class Language extends Component<PropsType, StateType> {
   }
   render(): * {
     return (
-      <Page>
-        <div className={styles.header}>
-          <h2>
-            {
-              this.t('changeLanguage')
-            }
-          </h2>
-        </div>
+      <Page title={this.t('changeLanguage')}>
         <div className={styles.content}>
           <h4>{translate(this.state.currentLang)('chooseLanguage')}:</h4>
           <div className={styles.languages}>

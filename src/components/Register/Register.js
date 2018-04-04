@@ -5,7 +5,8 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import Page from '../../containers/page/page';
 import {register} from '../../redux/actions/register-actions';
-import styles from './Register.module.css';
+import defaultStyle from '../../styles/default.module.css';
+import formStyle from '../../styles/form.module.css';
 import translate from '../../config/text';
 import type {TranslateType} from '../../types';
 
@@ -29,10 +30,7 @@ type PropsType = {
 
 type StateType = {
   email: string,
-  pass: string,
-  confirmPass: string,
-  passwordsMatch: boolean,
-  confirmPasswordsIsDirty: boolean
+  pass: string
 };
 
 class Register extends Component<PropsType, StateType> {
@@ -42,9 +40,6 @@ class Register extends Component<PropsType, StateType> {
     this.state = {
       email: '',
       pass: '',
-      confirmPass: '',
-      passwordsMatch: false,
-      confirmPasswordsIsDirty: false,
     };
     this.t = translate(this.props.language);
   }
@@ -52,34 +47,15 @@ class Register extends Component<PropsType, StateType> {
     if (typeof event.target.value === 'string') {
       this.setState({
         [type]: event.target.value,
-        // confirmPasswordsIsDirty: !prevState.confirmPasswordsIsDirty
-        // && type === 'confirmPass' ? true : false,
-        passwordsMatch: this.handleIfPasswordsMatch(),
       });
     }
   }
   handleSubmit = (event: Event) => {
     event.preventDefault();
-    if (this.state.pass !== this.state.confirmPass) {
-      this.setState({
-        confirmPasswordsIsDirty: true,
-      });
-      return;
-    }
     this.props.attemptToRegister({
       email: this.state.email,
       pass: this.state.pass,
     });
-  }
-  handleIfPasswordsMatch(): boolean {
-    const {
-      pass,
-      confirmPass,
-    } = this.state;
-    if (pass === confirmPass) {
-      return true;
-    }
-    return false;
   }
   render(): Node {
     const {from} = this.props.location.state
@@ -88,15 +64,13 @@ class Register extends Component<PropsType, StateType> {
       return <Redirect to={from} />;
     }
     return (
-      <Page>
-        <div>
-          <h1>{ this.t('register') }</h1>
-          {this.state.passwordsMatch ? '' : 'Passwords do not match'}
-          {this.props.registrationError}
+      <Page title={this.t('register')}>
+        <div className={defaultStyle.content}>
           <RegistrationForm
             handleSubmit={this.handleSubmit}
             handleInput={this.handleInput}
             state={this.state}
+            errors={this.props.registrationError}
             t={this.t} />
           {this.props.isLoggingIn ? 'Registering you...' : ''}
         </div>
@@ -110,11 +84,9 @@ type RegistrationFormType = {
   handleInput: (string, Event) => void,
   state: {
     email: string,
-    pass: string,
-    confirmPass: string,
-    passwordsMatch: boolean,
-    confirmPasswordsIsDirty: boolean
+    pass: string
   },
+  errors: string,
   t: TranslateType
 };
 
@@ -122,9 +94,16 @@ const RegistrationForm = ({
   handleSubmit,
   handleInput,
   state,
+  errors,
   t,
 }: RegistrationFormType): Node => (
-  <form onSubmit={handleSubmit}>
+  <form className={formStyle.form} onSubmit={handleSubmit}>
+      {
+        errors &&
+        <div className={formStyle.errors}>
+          {errors}
+        </div>
+      }
     <InputWithLabel
       label={t('email')}
       inputType={'email'}
@@ -139,16 +118,7 @@ const RegistrationForm = ({
       type={'password'}
       placeholder={''}
       handleInput={handleInput} />
-    <InputWithLabel
-      label={t('confirmPassword')}
-      inputType={'confirmPass'}
-      value={state.confirmPass}
-      type={'password'}
-      placeholder={''}
-      handleInput={handleInput}
-      passwordsMatch={state.passwordsMatch}
-      confirmPasswordsIsDirty={state.confirmPasswordsIsDirty} />
-    <input type="submit" value="Register" />
+    <input className={formStyle.button} type="submit" value={t('register')} />
   </form>
 );
 
@@ -171,7 +141,7 @@ const InputWithLabel = ({
   passwordsMatch?: boolean,
   confirmPasswordsIsDirty?: boolean
 }): Node => (
-  <label className={styles.inputBlock}>
+  <label className={formStyle.label}>
     {label}:&nbsp;
     {
       // @FlowFixMe
@@ -185,6 +155,7 @@ const InputWithLabel = ({
       onInput={(e: Event): void =>
         handleInput(inputType, e)
       }
+      className={formStyle.input}
       value={value}
       type={type}
       placeholder={placeholder} />

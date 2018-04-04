@@ -1,13 +1,3 @@
-.header {
-  padding: 0 25px;
-}
-
-@media (min-width: 72em) {
-  .header {
-    padding: 0;
-  }
-}
-
 .page {
   background: #fff;
   flex: 1 0 auto;

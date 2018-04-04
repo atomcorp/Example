@@ -4,6 +4,9 @@ import {Redirect} from 'react-router-dom';
 import Page from '../../containers/page/page.js';
 import translate from '../../config/text';
 import type {TranslateType} from '../../types';
+import defaultStyle from '../../styles/default.module.css';
+import formStyle from '../../styles/form.module.css';
+
 type PropsType = {
   location: {
     state: {
@@ -58,33 +61,44 @@ class Login extends Component<PropsType, StateType> {
       return <Redirect to={from} />;
     }
     return (
-      <Page>
-        <h1>{this.translate('signIn')}</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.email}
-            onInput={
-              (e: {target: {value: string}}): void =>
-                this.handleInput('email', e)
-              }
-            placeholder={this.translate('email')} />
-          <input
-            type="password"
-            value={this.state.pass}
-            onInput={
-              (e: {target: {value: string}}): void =>
-                this.handleInput('pass', e)
-              }
-            placeholder={this.translate('password')} />
-          <input type="submit" value={this.translate('signIn')} />
-        </form>
-        {this.props.status.isLoggingIn ? this.translate('loggingIn') : ''}
-        {this.props.status.error ? this.props.status.error : ''}
-        <br />
-        <div>
-          User: tmsisatwork+1@gmail.com <br />
-          Password: password
+      <Page title={this.translate('signIn')}>
+        <div className={defaultStyle.content}>
+          <form className={formStyle.form} onSubmit={this.handleSubmit}>
+            {
+              this.props.status.error
+                ? <div className={formStyle.errors}>
+                    {this.props.status.error}
+                  </div>
+                : ''
+            }
+            <label className={formStyle.label}>
+              {this.translate('email')}:&nbsp;
+              <input
+                type="text"
+                value={this.state.email}
+                className={formStyle.input}
+                onInput={
+                  (e: {target: {value: string}}): void =>
+                    this.handleInput('email', e)
+                } />
+            </label>
+            <label className={formStyle.label}>
+              {this.translate('password')}:&nbsp;
+              <input
+                type="password"
+                value={this.state.pass}
+                className={formStyle.input}
+                onInput={
+                  (e: {target: {value: string}}): void =>
+                    this.handleInput('pass', e)
+                } />
+            </label>
+            <input
+              className={formStyle.button}
+              type="submit"
+              value={this.translate('signIn')} />
+          </form>
+          {this.props.status.isLoggingIn ? this.translate('loggingIn') : ''}
         </div>
       </Page>
     );
