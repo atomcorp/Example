@@ -15,6 +15,7 @@ import {
   LoginContainer,
   RegisterContainer,
   LanguageContainer,
+  ProfileContainer,
 } from '../components/index.js';
 import NoMatchContainer from './NoMatch';
 import {loginSuccess} from '../redux/actions/login-actions';
@@ -96,6 +97,11 @@ const Routes = ({resources, store}) => {
             path={`/course/:courseId`}
             component={(route) => (
               <CourseContainer route={route} />
+            )} />
+          <PrivateRouteContainer
+            path={`/profile`}
+            component={(route) => (
+              <ProfileContainer route={route} />
             )} />
           <Route exact path={`/`} component={() => {
             return <Redirect to='/courses' />;

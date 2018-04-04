@@ -70,7 +70,7 @@ const LoggedIn = ({
   t,
 }: {logout: () => void, email: string, t: TranslateType}): Node => (
   <div className={styles.loggedIn}>
-    <div>{email}</div>
+    <Link to="/profile">Profile</Link>
     <button className={styles.logout} onClick={(): void => logout()}>
       { t('signOut') }
     </button>

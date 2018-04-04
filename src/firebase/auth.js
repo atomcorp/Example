@@ -14,11 +14,19 @@ export const signIn = (email, password) =>
 export const signOut = () =>
   firebaseAuth.signOut();
 
+// forgotten
+// https://firebase.google.com/docs/reference/js/firebase.auth.Auth#sendPasswordResetEmail
 export const passwordReset = (email) =>
   firebaseAuth.sendPasswordResetEmail(email);
 
+  // change to new password
+// https://firebase.google.com/docs/reference/js/firebase.User.html#updatePassword
 export const passwordUpdate = (password) =>
   firebaseAuth.currentUser.updatePassword(password);
+
+// https://firebase.google.com/docs/reference/js/firebase.User.html#updateEmail
+export const emailUpdate = (email) =>
+  firebaseAuth.currentUser.updateEmail(email);
 
 export const getCurrentUser = () =>
   firebaseAuth.currentUser;

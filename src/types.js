@@ -173,3 +173,14 @@ export type AssessmentDoneType = {
 };
 
 export type TranslateType = (string) => string;
+
+export type ReduxStatusType = {
+  email: string,
+  error: string,
+  id: string,
+  isLoggedIn: boolean,
+  isLoggingIn: boolean,
+  language: string,
+  registrationError: string,
+  uploadingState: boolean
+};
