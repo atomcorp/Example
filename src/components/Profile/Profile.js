@@ -17,15 +17,15 @@ type StateType = {
     firstName: boolean,
     lastName: boolean,
     company: boolean,
-    country: boolean
-  }
+    country: boolean,
+  },
 };
 
 type KeyType = 'firstName' | 'lastName' | 'company' | 'country';
 
 type PropsType = {
   status: ReduxStatusType,
-  confirmUserEdit: (string, string) => void
+  confirmUserEdit: (string, string) => void,
 };
 
 class Profile extends Component<PropsType, StateType> {
@@ -148,7 +148,7 @@ type InputForUserType = {
   type: string,
   handleUserEdit: (KeyType, string) => void,
   stateKey: KeyType,
-  value: string
+  value: string,
 };
 
 const InputForUser = ({
@@ -168,7 +168,7 @@ const InputForUser = ({
 type SelectCountryForUserType = {
   handleUserEdit: (KeyType, string) => void,
   stateKey: KeyType,
-  value: string
+  value: string,
 };
 
 const SelectCountryForUser = ({
@@ -201,7 +201,7 @@ type EditFieldType = {
   handleUserEditIsVisible: (
     KeyType
   ) => void,
-  editType: () => Node
+  editType: () => Node,
 };
 
 const EditUserField = ({

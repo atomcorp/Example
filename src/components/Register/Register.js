@@ -9,23 +9,24 @@ import defaultStyle from '../../styles/default.module.css';
 import formStyle from '../../styles/form.module.css';
 import translate from '../../config/text';
 import type {TranslateType} from '../../types';
+import countryJson from '../../utility/countries.json';
 
 type PropsType = {
   registrationError: string,
   attemptToRegister: ({
     email: string,
-    pass: string
+    pass: string,
   }) => void,
   isLoggingIn: string,
   isLoggedIn: true,
   location: {
     state: {
       from: {
-        pathname: string
-      }
-    }
+        pathname: string,
+      },
+    },
   },
-  language: string
+  language: string,
 };
 
 type StateType = {
@@ -34,7 +35,7 @@ type StateType = {
   firstName: string,
   lastName: string,
   company: string,
-  country: string
+  country: string,
 };
 
 class Register extends Component<PropsType, StateType> {
@@ -51,10 +52,10 @@ class Register extends Component<PropsType, StateType> {
     };
     this.t = translate(this.props.language);
   }
-  handleInput = (type: string, event: Event) => {
-    if (typeof event.target.value === 'string') {
+  handleInput = (type: string, value: string) => {
+    if (value) {
       this.setState({
-        [type]: event.target.value,
+        [type]: value,
       });
     }
   }
@@ -96,7 +97,7 @@ type RegistrationFormType = {
   handleInput: (string, Event) => void,
   state: StateType,
   errors: string,
-  t: TranslateType
+  t: TranslateType,
 };
 
 const RegistrationForm = ({
@@ -141,11 +142,10 @@ const RegistrationForm = ({
       type={'text'}
       placeholder={''}
       handleInput={handleInput} />
-    <InputWithLabel
+    <SelectWithLabel
       label={t('country')}
       inputType={'country'}
       value={state.country}
-      type={'text'}
       placeholder={''}
       handleInput={handleInput} />
     <InputWithLabel
@@ -159,6 +159,16 @@ const RegistrationForm = ({
   </form>
 );
 
+type LabelFormsType = {
+  label: string,
+  inputType: string,
+  value: string,
+  type: string,
+  placeholder: string,
+  handleInput: (string, Event) => void,
+  props?: any,
+};
+
 const InputWithLabel = ({
   label,
   inputType,
@@ -167,32 +177,14 @@ const InputWithLabel = ({
   placeholder,
   handleInput,
   ...props
-}: {
-  label: string,
-  inputType: string,
-  value: string,
-  type: string,
-  placeholder: string,
-  handleInput: (string, Event) => void,
-  props?: any,
-  passwordsMatch?: boolean,
-  confirmPasswordsIsDirty?: boolean
-}): Node => (
+}: LabelFormsType): Node => (
   <label className={formStyle.label}>
     <div className={formStyle.heading}>
         {label}*
     </div>
-    {
-      // @FlowFixMe
-      inputType === 'confirmPass'
-      && props.confirmPasswordsIsDirty
-      && !props.passwordsMatch
-        ? 'Passwords do not match'
-        : ''
-    }
     <input
       onInput={(e: Event): void =>
-        handleInput(inputType, e)
+        handleInput(inputType, e.target.value)
       }
       className={formStyle.input}
       value={value}
@@ -202,13 +194,45 @@ const InputWithLabel = ({
   </label>
 );
 
+const SelectWithLabel = ({
+  label,
+  inputType,
+  value,
+  type,
+  placeholder,
+  handleInput,
+  ...props
+}: LabelFormsType): Node => (
+  <label className={formStyle.label}>
+    <div className={formStyle.heading}>
+      {label}*
+    </div>
+    <select
+      onChange={(e: Event): void =>// $FlowFixMe
+        handleInput(inputType, e.target.value)
+      }
+      defaultValue={value ? value : 'GB'}
+      className={formStyle.select}
+      required
+    >
+      {
+        Object.keys(countryJson).map((iso: string): Node => (
+          <option key={iso} value={iso}>
+            {countryJson[iso]}
+          </option>
+        ))
+      }
+    </select>
+  </label>
+);
+
 type LoginDataType = {
   email: string,
   pass: string,
   firstName: string,
   lastName: string,
   country: string,
-  company: string
+  company: string,
 };
 
 const mapStateToProps = (state: {status: ?{}}): ?{} => state.status;

@@ -12,6 +12,11 @@
   width: 100%;
 }
 
+.select {
+  padding: 8px 12px;
+  width: 100%;
+}
+
 .form {
   max-width: 460px;
 }
