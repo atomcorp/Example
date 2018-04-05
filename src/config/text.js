@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // 1. en,
 // 2. de
 const text = {
@@ -160,6 +162,10 @@ const text = {
   country: [
     'Country',
     'Country',
+  ],
+  resetSuccess: [
+    'Success! We have sent you an email with further instructions.',
+    '(DE) Success! We have sent you an email with further instructions.',
   ],
   txtErr: [
     'Error! Text not found',

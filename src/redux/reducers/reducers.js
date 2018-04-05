@@ -11,6 +11,7 @@ import {
   CHOOSE_LANGUAGE,
   DOWNLOAD_RESOURCES,
   CHANGE_USER_DETAILS,
+  RESET_PASSWORD,
 } from '../actions/action-types.js';
 import type {
   CourseType,
@@ -71,7 +72,7 @@ export const assessmentStatuses = (
 
 type UserStatusType = {
   id: string,
-  isLoggedIn: boolean
+  isLoggedIn: boolean,
 };
 
 type UserStatusActionType = {
@@ -86,12 +87,14 @@ type UserStatusActionType = {
   country?: string,
   company?: string,
   value: string,
-  key: string
+  key: string,
+  success: string,
 };
 
 export const status = (
   state: UserStatusType = {
     error: '',
+    success: '',
     isLoggedIn: false,
     email: '',
     id: '',
@@ -159,6 +162,14 @@ export const status = (
     case CHANGE_USER_DETAILS:
       return Object.assign({}, state, {
         [action.key]: action.value,
+      });
+    case RESET_PASSWORD.FAILURE:
+      return Object.assign({}, state, {
+        error: action.error,
+      });
+    case RESET_PASSWORD.SUCCESS:
+      return Object.assign({}, state, {
+        error: '',
       });
     default:
       return state;

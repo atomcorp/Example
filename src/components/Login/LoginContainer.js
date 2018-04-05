@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import Login from './Login';
 import {loginIfNecessary} from '../../redux/actions/login-actions';
+import {resetPassword} from '../../redux/actions/action-creators';
 
 const mapStateToProps = (state) => ({
   status: state.status,
@@ -8,6 +9,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   attemptLogin: (loginParams) => dispatch(loginIfNecessary(loginParams)),
+  resetPassword: (email) => dispatch(resetPassword(email)),
 });
 
 const LoginContainer = connect(

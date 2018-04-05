@@ -19,7 +19,7 @@ export const signOut = () =>
 export const passwordReset = (email) =>
   firebaseAuth.sendPasswordResetEmail(email);
 
-  // change to new password
+// change to new password
 // https://firebase.google.com/docs/reference/js/firebase.User.html#updatePassword
 export const passwordUpdate = (password) =>
   firebaseAuth.currentUser.updatePassword(password);

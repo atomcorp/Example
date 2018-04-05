@@ -5,6 +5,7 @@ import {
   ASSESSMENT_DONE,
   CHOOSE_LANGUAGE,
   CHANGE_USER_DETAILS,
+  RESET_PASSWORD,
 } from './action-types.js';
 import type {
   SetCourseStatusType,
@@ -16,6 +17,7 @@ import type {
 import {
   downloadResourcesInPreferredLanguage,
 } from './resources-actions';
+import {auth} from '../../firebase';
 
 export const setCourseStatus = ({
   status,
@@ -73,4 +75,31 @@ export const changeLanguageIfNecessary = (lang: string): any => {
   };
 };
 
+const resetRequest = {
+  type: RESET_PASSWORD.REQUEST,
+};
 
+const resetSuccess = {
+  type: RESET_PASSWORD.SUCCESS,
+};
+
+const resetFailure = (error: string): {
+  type: string,
+  error: string,
+} => ({
+  type: RESET_PASSWORD.FAILURE,
+  error,
+});
+
+export const resetPassword = (email: string): boolean => {
+  return (dispatch: any): boolean => {
+    dispatch(resetRequest);
+    return auth.passwordReset(email).then((): boolean => {
+      dispatch(resetSuccess);
+      return true;
+    }).catch((err: any): boolean => {
+      dispatch(resetFailure(err.message));
+      return false;
+    });
+  };
+};
