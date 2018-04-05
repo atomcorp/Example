@@ -1,8 +1,21 @@
 /* eslint-disable */
 
+
 // 1. en,
 // 2. de
 const text = {
+  // 'getCurrLangSpesh' is an escape hatch to get current chosen language
+  'getCurrLang!': [
+    'en',
+    'de',
+  ],
+  // if key not found defaults to this
+  txtErr: [
+    'Error! Text not found',
+    'Error! Text not found',
+    'Error! Text not found',
+    'Error! Text not found',
+  ],
   title: [
     'Learning',
     'Lernen',
@@ -167,26 +180,27 @@ const text = {
     'Success! We have sent you an email with further instructions.',
     '(DE) Success! We have sent you an email with further instructions.',
   ],
-  txtErr: [
-    'Error! Text not found',
-    'Error! Text not found',
-    'Error! Text not found',
-    'Error! Text not found',
-  ],
+  confirmTsAndCs: [
+    'Tick to confirm you have read and agree to the Ts & Cs',
+    '(DE) Please confirm you have read and agreed to the Ts & Cs',
+  ]
 };
 
 const translate = (lang) => {
   switch (lang) {
     case 'de':
-      return (string) => isString(string)[1];
+      return (string) => validateTranslation(string, 1)[1];
     case 'en':
     default:
-      return (string) => isString(string)[0];
+      return (string) => validateTranslation(string, 0)[0];
   }
 };
 
-const isString = (string) => text[string]
-  ? text[string]
-  : text['txtErr'];
+const validateTranslation = (string, length) => {
+  console.log(text[string].length, length);
+  return text[string] && length <= (text[string].length - 1)
+    ? text[string]
+    : text['txtErr']
+};
 
 export default translate;

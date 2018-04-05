@@ -19,6 +19,7 @@
 
 .form {
   max-width: 460px;
+  margin: 0 auto;
 }
 
 .button {
@@ -39,4 +40,13 @@
   color: #79ab67;
   padding: 8px 12px;
   margin: 0 0 10px;
+}
+
+.checkbox {
+  display: flex;
+  margin: 0 0 10px;
+}
+
+.checkbox input {
+  margin: 0 10px 0 0;
 }

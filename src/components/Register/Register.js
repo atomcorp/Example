@@ -155,6 +155,14 @@ const RegistrationForm = ({
       type={'password'}
       placeholder={''}
       handleInput={handleInput} />
+    <div className={formStyle.checkbox}>
+      <input required type="checkbox" id="tsncs" />
+      <label htmlFor="tsncs">
+        {t('confirmTsAndCs')}. <a href={
+        `https://www.cambridgeaudio.com/gbr/${t('getCurrLang!')}/legal/terms-and-conditions`
+      }>View Ts & Cs</a>
+      </label><br/>
+    </div>
     <input className={formStyle.button} type="submit" value={t('register')} />
   </form>
 );
