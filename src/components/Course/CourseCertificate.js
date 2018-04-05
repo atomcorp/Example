@@ -7,7 +7,9 @@ type CourseCertificateType = {
   email: string,
   t: (string) => string,
   courseId: string,
-  language: string
+  language: string,
+  firstName: string,
+  lastName: string
 };
 
 const CourseCertificate = ({
@@ -15,12 +17,16 @@ const CourseCertificate = ({
   t,
   courseId,
   language,
+  firstName,
+  lastName,
 }: CourseCertificateType): Node => {
   const handleClick = () => {
     postCertificateRequest({
       email,
       courseId,
       language,
+      firstName,
+      lastName,
     });
   };
   return (
@@ -39,19 +45,23 @@ const CourseCertificate = ({
 type PostCertificateRequestType = {
   email: string,
   courseId: string,
-  language: string
+  language: string,
+  firstName: string,
+  lastName: string
 };
 
 const postCertificateRequest = ({
   email,
   courseId,
   language,
+  firstName,
+  lastName,
 }: PostCertificateRequestType) => {
   const body = {
     email: email,
     name: {
-      first_name: 'Povilas',
-      last_name: 'Uogintas',
+      first_name: firstName,
+      last_name: lastName,
     },
     course: {
       nid: courseId,
@@ -60,9 +70,8 @@ const postCertificateRequest = ({
     country: 'gb',
   };
   const url = localisedCertificateEndpoint(language);
-  console.log(url);
   req(url, body).then((res) => {
-    console.log(res);
+    // do something
   }).catch((err) => console.error(err));
 };
 

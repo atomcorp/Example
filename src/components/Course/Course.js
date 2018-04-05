@@ -21,6 +21,7 @@ import type {
   ModuleStatusesType,
   CoursesStatusesType,
   AssessmentStatusesType,
+  ReduxStatusType,
 } from '../../types.js';
 import style from './Course.module.css';
 import translate from '../../config/text';
@@ -44,6 +45,8 @@ const testCourseComplete = (
     ? true : false;
 };
 
+type CalcType = {complete: number, total: number};
+
 const calculateCourseCompletetion = (
   courseId: string,
   courseModules: Array<{
@@ -51,11 +54,11 @@ const calculateCourseCompletetion = (
   }>,
   moduleStatuses: ModuleStatusesType,
   assessmentStatuses: AssessmentStatusesType
-): {complete: number, total: number} => {
+): CalcType => {
   return courseModules.reduce((
     acc: {complete: number, total: number},
     module: {target_id: string}
-  ): {complete: number, total: number} => {
+  ): CalcType => {
     let {total, complete} = acc;
     return {
       total: ++total,
@@ -83,8 +86,7 @@ type CourseType = {
   coursesStatuses: CoursesStatusesType,
   assessmentStatuses: AssessmentStatusesType,
   updateCourseStatus: (string, string) => void,
-  language: string,
-  email: string
+  status: ReduxStatusType
 };
 
 export const Course = ({
@@ -94,13 +96,12 @@ export const Course = ({
   coursesStatuses,
   updateCourseStatus,
   assessmentStatuses,
-  language,
-  email,
+  status,
 }: CourseType): Node => {
   if (!resources.loaded) {
     return <div>Loading Course...</div>;
   }
-  const t = translate(language);
+  const t = translate(status.language);
   const courseId = route.match.params.courseId;
   const courseData = resources.data.courses[courseId];
   const courseDone = testCourseComplete(
@@ -150,9 +151,11 @@ export const Course = ({
               ? <CourseCertificate
                 courseProgress={courseProgress}
                 t={t}
-                email={email}
+                email={status.email}
                 courseId={courseId}
-                language={language} />
+                firstName={status.firstName}
+                lastName={status.lastName}
+                language={status.language} />
               : null
           }
           <h4>{t('resources')}</h4>

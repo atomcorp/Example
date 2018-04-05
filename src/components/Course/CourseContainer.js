@@ -14,8 +14,7 @@ const mapStateToProps = (state) => ({
   coursesStatuses: state.coursesStatuses,
   assessmentStatuses: state.assessmentStatuses,
   resources: getResources(state.resources),
-  language: state.status.language,
-  email: state.status.email,
+  status: state.status,
 });
 
 const mapDispatchToProps = (dispatch) => ({
