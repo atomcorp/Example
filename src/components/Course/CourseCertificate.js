@@ -1,9 +1,8 @@
 // @flow
-import React from 'react';
-import type {Node} from 'react';
+import React, {Component} from 'react';
 import {localisedCertificateEndpoint} from '../../config/config';
 
-type CourseCertificateType = {
+type PropsType = {
   email: string,
   t: (string) => string,
   courseId: string,
@@ -12,35 +11,53 @@ type CourseCertificateType = {
   lastName: string
 };
 
-const CourseCertificate = ({
-  email,
-  t,
-  courseId,
-  language,
-  firstName,
-  lastName,
-}: CourseCertificateType): Node => {
-  const handleClick = () => {
-    postCertificateRequest({
-      email,
-      courseId,
-      language,
-      firstName,
-      lastName,
+class CourseCertificate extends Component<PropsType, {}> {
+  constructor(props: PropsType) {
+    super(props);
+    this.state ={
+      certificateIsSent: false,
+      error: '',
+    };
+  }
+  handleSentCertificate = () => {
+    this.setState({
+      certificateIsSent: true,
     });
-  };
-  return (
-    <div>
-      <h4>{t('certificate')}</h4>
-      <p>
-        {t('congratulationsCompletingCourse')}
-      </p>
-      <button onClick={(): void => handleClick()}>
-        {t('emailTo')} {email}
-      </button>
-    </div>
-  );
-};
+  }
+  handleError = () => {
+    this.setState({
+      certificateIsSent: false,
+      error: `Sorry, something went wrong. Either try again, 
+        or if the problem persists contact us.`,
+    });
+  }
+  handleClick = () => {
+    postCertificateRequest(this.props).then((res: boolean): void => {
+      if (res) {
+        return this.handleSentCertificate();
+      }
+    });
+  }
+  render(): * {
+    return (
+      <div>
+        <h4>{this.props.t('certificate')}</h4>
+        <p>
+          {this.props.t('congratulationsCompletingCourse')}
+        </p>
+        {
+          this.state.certificateIsSent
+            ? <div>Sent!</div>
+            : (
+              <button onClick={(): void => this.handleClick()}>
+                {this.props.t('emailTo')} {this.props.email}
+              </button>
+            )
+        }
+      </div>
+    );
+  }
+}
 
 type PostCertificateRequestType = {
   email: string,
@@ -56,7 +73,7 @@ const postCertificateRequest = ({
   language,
   firstName,
   lastName,
-}: PostCertificateRequestType) => {
+}: PostCertificateRequestType): Promise => {
   const body = {
     email: email,
     name: {
@@ -70,9 +87,9 @@ const postCertificateRequest = ({
     country: 'gb',
   };
   const url = localisedCertificateEndpoint(language);
-  req(url, body).then((res) => {
-    // do something
-  }).catch((err) => console.error(err));
+  return req(url, body).then((res: any): boolean => {
+    return true;
+  }).catch((err: any): boolean => false);
 };
 
 type BodyType = {
