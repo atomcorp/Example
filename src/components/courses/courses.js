@@ -11,7 +11,7 @@ type CourseButtonType = {
   title: string,
   id: string,
   status: string,
-  onClick: () => void
+  onClick: () => void,
 };
 
 export const CourseButton = ({
@@ -42,9 +42,9 @@ export const CourseButton = ({
 type CourseListType = {
   courses: CourseType,
   coursesStatuses: {
-    [id: string]: StatusType
+    [id: string]: StatusType,
   },
-  onClick: (string, string) => void
+  onClick: (string, string) => void,
 };
 
 const CourseList = ({
@@ -72,15 +72,15 @@ const CourseList = ({
 
 type CoursesType = {
   coursesStatuses: {
-    [id: string]: StatusType
+    [id: string]: StatusType,
   },
   onClick: () => void,
   resources: {
     data: {
-      courses: CourseType
+      courses: CourseType,
     },
-    loaded: boolean
-  }
+    loaded: boolean,
+  },
 };
 
 // coursesStatuses is mapped from state by the CoursesContainer
