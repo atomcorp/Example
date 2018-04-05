@@ -158,7 +158,7 @@ export const status = (
       });
     case CHANGE_USER_DETAILS:
       return Object.assign({}, state, {
-        [action.key]: [action.value],
+        [action.key]: action.value,
       });
     default:
       return state;

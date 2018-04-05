@@ -6,6 +6,7 @@ import Page from '../../containers/page/page';
 import type {ReduxStatusType} from '../../types';
 import defaultStyles from '../../styles/default.module.css';
 import {changeUserDetails} from '../../redux/actions/action-creators';
+import countryJson from '../../utility/countries.json';
 
 type StateType = {
   firstName: string,
@@ -43,10 +44,10 @@ class Profile extends Component<PropsType, StateType> {
       },
     };
   }
-  handleUserEdit = (key: KeyType, event: Event) => {
-    if (typeof event.target.value === 'string') {
+  handleUserEdit = (key: KeyType, value: string) => {
+    if (typeof value === 'string') {
       this.setState({
-        [key]: event.target.value,
+        [key]: value,
       });
     }
   }
@@ -61,9 +62,9 @@ class Profile extends Component<PropsType, StateType> {
   ) => {
     this.setState((prevState: StateType): StateType => (
       Object.assign({}, prevState, {
-        userEditIsVisible: {
+        userEditIsVisible: Object.assign({}, prevState.userEditIsVisible, {
           [key]: !prevState.userEditIsVisible[key],
-        },
+        }),
       })
     ));
   }
@@ -75,38 +76,66 @@ class Profile extends Component<PropsType, StateType> {
             label={'First name'}
             stateKey={'firstName'}
             value={this.props.status.firstName}
-            editedValue={this.state.firstName}
             handleUserEdit={this.handleUserEdit}
             handleUserSubmission={this.handleSubmit}
             userEditIsVisible={this.state.userEditIsVisible.firstName}
-            handleUserEditIsVisible={this.handleUserEditIsVisible} />
+            handleUserEditIsVisible={this.handleUserEditIsVisible}
+            editType={
+              (): Node =>
+                <InputForUser
+                  type={'text'}
+                  value={this.state.firstName}
+                  handleUserEdit={this.handleUserEdit}
+                  stateKey={'firstName'} />
+            } />
           <EditUserField
             label={'Last name'}
             stateKey={'lastName'}
             value={this.props.status.lastName}
-            editedValue={this.state.lastName}
             handleUserEdit={this.handleUserEdit}
             handleUserSubmission={this.handleSubmit}
             userEditIsVisible={this.state.userEditIsVisible.lastName}
-            handleUserEditIsVisible={this.handleUserEditIsVisible} />
+            handleUserEditIsVisible={this.handleUserEditIsVisible}
+            editType={
+              (): Node =>
+                <InputForUser
+                  type={'text'}
+                  value={this.state.lastName}
+                  handleUserEdit={this.handleUserEdit}
+                  stateKey={'lastName'} />
+            }/>
           <EditUserField
             label={'Company'}
             stateKey={'company'}
             value={this.props.status.company}
-            editedValue={this.state.company}
             handleUserEdit={this.handleUserEdit}
             handleUserSubmission={this.handleSubmit}
             userEditIsVisible={this.state.userEditIsVisible.company}
-            handleUserEditIsVisible={this.handleUserEditIsVisible} />
+            handleUserEditIsVisible={this.handleUserEditIsVisible}
+            editType={
+              (): Node =>
+                <InputForUser
+                  type={'text'}
+                  value={this.state.company}
+                  handleUserEdit={this.handleUserEdit}
+                  stateKey={'company'} />
+            } />
           <EditUserField
             label={'Country'}
             stateKey={'country'}
-            value={this.props.status.country}
+            value={countryJson[this.props.status.country]}
             editedValue={this.state.country}
             handleUserEdit={this.handleUserEdit}
             handleUserSubmission={this.handleSubmit}
             userEditIsVisible={this.state.userEditIsVisible.country}
-            handleUserEditIsVisible={this.handleUserEditIsVisible} />
+            handleUserEditIsVisible={this.handleUserEditIsVisible}
+            editType={
+              (): Node =>
+                <SelectCountryForUser
+                  value={this.state.country}
+                  handleUserEdit={this.handleUserEdit}
+                  stateKey={'country'} />
+            } />
           <br />
           <EditLoginField />
         </div>
@@ -115,28 +144,74 @@ class Profile extends Component<PropsType, StateType> {
   }
 }
 
+type InputForUserType = {
+  type: string,
+  handleUserEdit: (KeyType, string) => void,
+  stateKey: KeyType,
+  value: string
+};
+
+const InputForUser = ({
+  type,
+  handleUserEdit,
+  stateKey,
+  value,
+}: InputForUserType): Node => (
+  <input
+    // $FlowFixMe
+    onChange={(e: Event): void => handleUserEdit(stateKey, e.target.value)}
+    type={type}
+    value={value}
+    required />
+);
+
+type SelectCountryForUserType = {
+  handleUserEdit: (KeyType, string) => void,
+  stateKey: KeyType,
+  value: string
+};
+
+const SelectCountryForUser = ({
+  handleUserEdit,
+  stateKey,
+  value,
+}: SelectCountryForUserType): Node => (
+    <select
+      onChange={(e: Event): void =>// $FlowFixMe
+        handleUserEdit(stateKey, e.target.value)
+      }
+      defaultValue={value}
+    >
+    {
+      Object.keys(countryJson).map((iso: string): Node => (
+        <option key={iso} value={iso}>
+          {countryJson[iso]}
+        </option>
+      ))
+    }
+  </select>
+);
+
 type EditFieldType = {
   label: string,
   value?: string,
-  editedValue: string,
   stateKey: KeyType,
-  handleUserEdit: (KeyType, Event) => void,
   handleUserSubmission: (KeyType) => void,
   userEditIsVisible: boolean,
   handleUserEditIsVisible: (
     KeyType
-  ) => void
+  ) => void,
+  editType: () => Node
 };
 
 const EditUserField = ({
   label,
   value,
-  editedValue,
   stateKey,
-  handleUserEdit,
   handleUserSubmission,
   userEditIsVisible,
   handleUserEditIsVisible,
+  editType,
 }: EditFieldType): Node => {
   return (
     <div>
@@ -151,11 +226,9 @@ const EditUserField = ({
             e.preventDefault();
             handleUserSubmission(stateKey);
           }}>
-            <input
-              onChange={(e: Event): void => handleUserEdit(stateKey, e)}
-              type="text"
-              value={editedValue}
-              required />
+            {
+              editType()
+            }
             <input type="submit" value="Confirm" />
           </form>
         )
@@ -163,6 +236,10 @@ const EditUserField = ({
     </div>
   );
 };
+
+// const EditUserSelect = () => {
+
+// };
 
 const EditLoginField = (): Node => (
   <div>
