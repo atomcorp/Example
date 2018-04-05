@@ -8,6 +8,7 @@ import Home from './Home/Home.js';
 import RegisterContainer from './Register/Register';
 import LanguageContainer from './Language/Language';
 import ProfileContainer from './Profile/Profile';
+import Loading from './Loading/Loading';
 
 export {
   CoursesContainer,
@@ -19,4 +20,5 @@ export {
   RegisterContainer,
   LanguageContainer,
   ProfileContainer,
+  Loading,
 };

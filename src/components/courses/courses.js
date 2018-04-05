@@ -5,6 +5,7 @@ import {CourseStatuses} from '../../redux/actions/action-types.js';
 import Page from '../../containers/page/page.js';
 import {Link} from 'react-router-dom';
 import type {StatusType, CourseType} from '../../types.js';
+import {Loading} from '../';
 
 type CourseButtonType = {
   title: string,
@@ -90,7 +91,7 @@ export const Courses = ({
   resources,
 }: CoursesType): Node => {
   if (!resources.loaded) {
-    return <div>Loading courses</div>;
+    return <Loading text={'Loading courses'} />;
   }
   return (
     <Page title={'Choose a course'}>

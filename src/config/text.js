@@ -197,7 +197,6 @@ const translate = (lang) => {
 };
 
 const validateTranslation = (string, length) => {
-  console.log(text[string].length, length);
   return text[string] && length <= (text[string].length - 1)
     ? text[string]
     : text['txtErr']

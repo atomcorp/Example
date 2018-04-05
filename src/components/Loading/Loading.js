@@ -11,7 +11,7 @@ const Loading = ({text}: {text: string}): Node => (
         <img src={logo} alt={'Logo spinning'} />
       </div>
       <div className={styles.text}>
-        {text}
+        <h2>{text}</h2>
       </div>
     </div>
   </div>

@@ -18,17 +18,18 @@ import {LOGIN} from './redux/actions/action-types';
 import {
   getFromLocalStorage,
 } from './utility/utility';
+import {Loading} from './components';
 
 type ResourcesType = {
   assessments: {} | MultiChoiceType,
   courses: {} | CourseType,
   components: {} | LessonType | MultiChoiceType,
-  modules: {} | ModuleType
+  modules: {} | ModuleType,
 };
 
 type StateType = {
   loaded: boolean,
-  preLoadedState: ?{} | typeof undefined
+  preLoadedState: ?{} | typeof undefined,
 };
 
 class App extends Component<void, StateType> {
@@ -71,7 +72,7 @@ class App extends Component<void, StateType> {
 
   render(): Node {
     if (!this.state.loaded) {
-      return <div>Loading Cambridge Audio | Learn</div>;
+      return <Loading text={'Loading Cambridge Audio | Learn'} />;
     }
     return (
       <Routes
