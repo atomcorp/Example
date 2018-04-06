@@ -12,6 +12,7 @@ import {
   DOWNLOAD_RESOURCES,
   CHANGE_USER_DETAILS,
   RESET_PASSWORD,
+  CHANGE_EMAIL,
 } from '../actions/action-types.js';
 import type {
   CourseType,
@@ -170,6 +171,15 @@ export const status = (
     case RESET_PASSWORD.SUCCESS:
       return Object.assign({}, state, {
         error: '',
+      });
+    case CHANGE_EMAIL.FAILURE:
+      return Object.assign({}, state, {
+        error: action.error,
+      });
+    case CHANGE_EMAIL.SUCCESS:
+      return Object.assign({}, state, {
+        error: '',
+        email: action.email,
       });
     default:
       return state;

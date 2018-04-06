@@ -139,7 +139,11 @@ class Login extends Component<PropsType, StateType> {
               type="submit"
               value={this.translate('signIn')} />
           </form>
-          {this.props.status.isLoggingIn ? <Loading text={this.translate('loggingIn')} /> : ''}
+          {
+            this.props.status.isLoggingIn
+              ? <Loading text={this.translate('loggingIn')} />
+              : ''
+          }
           <ResetPassword
             // $FlowFixMe
             state={this.state}

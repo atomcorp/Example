@@ -6,6 +6,7 @@ import {
   CHOOSE_LANGUAGE,
   CHANGE_USER_DETAILS,
   RESET_PASSWORD,
+  CHANGE_EMAIL,
 } from './action-types.js';
 import type {
   SetCourseStatusType,
@@ -100,6 +101,39 @@ export const resetPassword = (email: string): any => {
     }).catch((err: any): any => {
       dispatch(resetFailure(err.message));
       return false;
+    });
+  };
+};
+
+const changeEmailRequest = (): {
+  type: string,
+} => ({
+  type: CHANGE_EMAIL.REQUEST,
+});
+
+const changeEmailSuccess = (email: string): {
+  type: string,
+  email: string,
+} => ({
+  type: CHANGE_EMAIL.SUCCESS,
+  email,
+});
+
+const changeEmailFailure = (error: string): {
+  type: string,
+  error: string,
+} => ({
+  type: CHANGE_EMAIL.FAILURE,
+  error,
+});
+
+export const changeEmail = (email: string): any => {
+  return (dispatch: any): void => {
+    dispatch(changeEmailRequest);
+    return auth.emailUpdate(email).then(() => {
+      dispatch(changeEmailSuccess(email));
+    }).catch((err: {message: string}) => {
+      dispatch(changeEmailFailure(err.message));
     });
   };
 };

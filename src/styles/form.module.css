@@ -34,7 +34,8 @@
   border: 1px solid;
   color: #d9534f;
   padding: 8px 12px;
-  margin: 0 0 10px;
+  margin: 0 auto 10px;
+  max-width: 460px;
 }
 
 .success {
@@ -42,7 +43,8 @@
   border: 1px solid;
   color: #79ab67;
   padding: 8px 12px;
-  margin: 0 0 10px;
+  margin: 0 auto 10px;
+  max-width: 460px;
 }
 
 .checkbox {

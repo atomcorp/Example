@@ -24,6 +24,7 @@ export const passwordReset = (email) =>
 export const passwordUpdate = (password) =>
   firebaseAuth.currentUser.updatePassword(password);
 
+// Change email
 // https://firebase.google.com/docs/reference/js/firebase.User.html#updateEmail
 export const emailUpdate = (email) =>
   firebaseAuth.currentUser.updateEmail(email);
