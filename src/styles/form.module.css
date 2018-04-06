@@ -53,3 +53,12 @@
 .checkbox input {
   margin: 0 10px 0 0;
 }
+
+.inline {
+  display: flex;
+}
+
+.inline .button {
+  margin: 0;
+  flex: 1 0 auto;
+}

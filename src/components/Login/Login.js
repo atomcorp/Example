@@ -159,8 +159,8 @@ class Login extends Component<PropsType, StateType> {
             >
               {
                 this.state.passReset
-                  ? 'Cancel'
-                  : 'Reset password'
+                  ? this.translate('cancel')
+                  : this.translate('resetPass')
               }
             </button>
           </div>

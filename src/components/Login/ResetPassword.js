@@ -30,12 +30,18 @@ const ResetPassword = ({
     `}
   >
     {translate('resetPassword')}:<br />
-    <input
-      onInput={(e: Event): void => handleInput('email', e)}
-      type="text"
-      value={state.email}
-    />
-    <input type="submit" value={'reset'}/>
+    <div className={formStyles.inline}>
+      <input
+        className={formStyles.input}
+        onInput={(e: Event): void => handleInput('email', e)}
+        type="text"
+        value={state.email}
+      />
+      <input
+        className={formStyles.button}
+        type="submit"
+        value={translate('confirm')} />
+    </div>
   </form>
 );
 

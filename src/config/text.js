@@ -195,7 +195,15 @@ const text = {
   confirmTsAndCs: [
     'Tick to confirm you have read and agree to the Ts & Cs',
     '(DE) Please confirm you have read and agreed to the Ts & Cs',
-  ]
+  ],
+  cancel: [
+    'Cancel',
+    '(DE) Cancel',
+  ],
+  resetPass: [
+    'Reset password',
+    '(DE) Reset password',
+  ],
 };
 
 const translate = (lang) => {

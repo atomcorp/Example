@@ -9,6 +9,7 @@
   background: transparent;
   color: #0074D9;
   text-decoration: underline;
+  text-decoration-skip-ink: auto;
   font-size: 1.2rem;
   font-weight: 400;
   cursor: pointer;
