@@ -123,6 +123,7 @@ export class Assessment extends Component<PropsType, StateType> {
     this.setState({
       submitted: true,
       passed: hasPassed,
+      error: '',
     });
   }
   invalidSubmission() {

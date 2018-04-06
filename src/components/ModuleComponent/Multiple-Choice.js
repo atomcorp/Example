@@ -7,6 +7,7 @@ import React, {Component} from 'react';
 import type {Node} from 'react';
 import {once as myOnce, shuffle} from '../../utility/utility.js';
 import styles from './Multiple-Choice.module.css';
+import defaultStyles from '../../styles/default.module.css';
 import type {TranslateType} from '../../types';
 
 type PropsType = {
@@ -99,7 +100,6 @@ const MultipleChoicePresentation = ({
     <div className="question">
       <h3>{field_question[0].value}</h3>
     </div>
-    <div>{t('selectAnswer')}</div>
     <div className={
       `${styles.choices} ${state.clicked ? styles.choicesChosen : ''}`
       }>
@@ -113,7 +113,15 @@ const MultipleChoicePresentation = ({
     </div>
     <div className="choice">
       {
-        state.clicked && state.isCorrectChoice
+        state.clicked && (
+            <div className={
+              state.isCorrectChoice === 'Correct'
+                ? defaultStyles.success
+                : defaultStyles.errors
+            }>
+              {state.isCorrectChoice} – {field_correct_choice[0].value}
+          </div>
+        )
       }
     </div>
   </div>

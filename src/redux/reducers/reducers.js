@@ -176,6 +176,7 @@ export const status = (
     case CHANGE_EMAIL.FAILURE:
       return Object.assign({}, state, {
         error: action.error,
+        success: '',
       });
     case CHANGE_EMAIL.SUCCESS:
       return Object.assign({}, state, {

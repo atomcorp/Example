@@ -5,6 +5,7 @@ import defaultStyles from '../../styles/default.module.css';
 import formStyles from '../../styles/form.module.css';
 import styles from './Profile.module.css';
 import type {KeyType} from './Profile';
+import type {TranslateType} from '../../types';
 type PropsType = {
   email: string,
   editValue: () => Node,
@@ -13,6 +14,7 @@ type PropsType = {
   handleUserEditIsVisible: (
     KeyType
   ) => void,
+  t: TranslateType,
 };
 
 const ChangeEmail = (props: PropsType): Node => (
@@ -23,7 +25,7 @@ const ChangeEmail = (props: PropsType): Node => (
         className={`${defaultStyles.link} ${styles.edit}`}
         onClick={(): void => props.handleUserEditIsVisible('email')}
       >
-          edit
+          {props.t('edit')}
       </button>
     </div>
     <div className={styles.value}>
@@ -40,7 +42,7 @@ const ChangeEmail = (props: PropsType): Node => (
           <input
             className={formStyles.button}
             type="submit"
-            value={'Confirm'}
+            value={props.t('confirm')}
           />
         </div>
       </form>

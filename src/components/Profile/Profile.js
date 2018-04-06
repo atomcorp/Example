@@ -96,7 +96,7 @@ class Profile extends Component<PropsType, StateType> {
   }
   render(): * {
     return (
-      <Page title={'Profile'}>
+      <Page title={this.t('profile')}>
         <div className={defaultStyles.content}>
           {
             this.props.status.error
@@ -113,13 +113,14 @@ class Profile extends Component<PropsType, StateType> {
               : ''
           }
           <EditUserField
-            label={'First name'}
+            label={this.t('firstName')}
             stateKey={'firstName'}
             value={this.props.status.firstName}
             handleUserEdit={this.handleUserEdit}
             handleUserSubmission={this.handleSubmit}
             userEditIsVisible={this.state.userEditIsVisible.firstName}
             handleUserEditIsVisible={this.handleUserEditIsVisible}
+            t={this.t}
             editType={
               (): Node =>
                 <InputForUser
@@ -129,13 +130,14 @@ class Profile extends Component<PropsType, StateType> {
                   stateKey={'firstName'} />
             } />
           <EditUserField
-            label={'Last name'}
+            label={this.t('lastName')}
             stateKey={'lastName'}
             value={this.props.status.lastName}
             handleUserEdit={this.handleUserEdit}
             handleUserSubmission={this.handleSubmit}
             userEditIsVisible={this.state.userEditIsVisible.lastName}
             handleUserEditIsVisible={this.handleUserEditIsVisible}
+            t={this.t}
             editType={
               (): Node =>
                 <InputForUser
@@ -145,13 +147,14 @@ class Profile extends Component<PropsType, StateType> {
                   stateKey={'lastName'} />
             }/>
           <EditUserField
-            label={'Company'}
+            label={this.t('company')}
             stateKey={'company'}
             value={this.props.status.company}
             handleUserEdit={this.handleUserEdit}
             handleUserSubmission={this.handleSubmit}
             userEditIsVisible={this.state.userEditIsVisible.company}
             handleUserEditIsVisible={this.handleUserEditIsVisible}
+            t={this.t}
             editType={
               (): Node =>
                 <InputForUser
@@ -161,7 +164,7 @@ class Profile extends Component<PropsType, StateType> {
                   stateKey={'company'} />
             } />
           <EditUserField
-            label={'Country'}
+            label={this.t('country')}
             stateKey={'country'}
             value={countryJson[this.props.status.country]}
             editedValue={this.state.country}
@@ -169,6 +172,7 @@ class Profile extends Component<PropsType, StateType> {
             handleUserSubmission={this.handleSubmit}
             userEditIsVisible={this.state.userEditIsVisible.country}
             handleUserEditIsVisible={this.handleUserEditIsVisible}
+            t={this.t}
             editType={
               (): Node =>
                 <SelectCountryForUser
@@ -177,6 +181,7 @@ class Profile extends Component<PropsType, StateType> {
                   stateKey={'country'} />
             } />
           <ChangeEmail {...{
+            t: this.t,
             email: this.props.status.email,
             editValue: (): Node =>
               <InputForUser
@@ -254,6 +259,7 @@ type EditFieldType = {
     KeyType
   ) => void,
   editType: () => Node,
+  t: TranslateType,
 };
 
 const EditUserField = ({
@@ -264,6 +270,7 @@ const EditUserField = ({
   userEditIsVisible,
   handleUserEditIsVisible,
   editType,
+  t,
 }: EditFieldType): Node => {
   return (
     <div className={styles.field}>
@@ -273,7 +280,7 @@ const EditUserField = ({
           className={`${defaultStyles.link} ${styles.edit}`}
           onClick={(): void => handleUserEditIsVisible(stateKey)}
         >
-          edit
+          {t('edit')}
       </button>
       </div>
       <div className={styles.value}>
@@ -292,7 +299,7 @@ const EditUserField = ({
               <input
                 className={formStyles.button}
                 type="submit"
-                value="Confirm"
+                value={t('confirm')}
               />
             </div>
           </form>

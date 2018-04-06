@@ -46,7 +46,7 @@ const text = {
   ],
   email: [
     'Email',
-    'Email',
+    '(DE) Email',
   ],
   password: [
     'Password',
@@ -162,19 +162,19 @@ const text = {
   ],
   firstName: [
     'First Name',
-    'First Name',
+    '(DE) First Name',
   ],
   lastName: [
     'Last Name',
-    'Last Name',
+    '(DE) Last Name',
   ],
   company: [
     'Company',
-    'Company',
+    '(DE) Company',
   ],
   country: [
     'Country',
-    'Country',
+    '(DE) Country',
   ],
   resetSuccess: [
     'Success! We have sent you an email with further instructions.',
@@ -212,6 +212,14 @@ const text = {
     'Email changed',
     '(DE) Email changed',
   ],
+  profile: [
+    'Profile',
+    '(DE) Profile',
+  ],
+  edit: [
+    'Edit',
+    '(DE) Edit',
+  ]
 };
 
 const translate = (lang) => {
