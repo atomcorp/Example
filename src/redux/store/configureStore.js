@@ -1,26 +1,13 @@
 import {createStore, applyMiddleware} from 'redux';
-import {createLogger} from 'redux-logger';
+// import {createLogger} from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import rootReducer from '../reducers/reducers.js';
 import {database} from '../../firebase';
 
-// Example Of Initial State {
-//   coursesStatuses: {},
-//   moduleProgression: {},
-//   assessmentStatuses: {},
-//   status: {
-//     id: '',
-//     isLoggedIn: false,
-//     email: '',
-//     error: '',
-//     isLoggingIn: false,
-//   },
-// };
-
-const loggerMiddleware = createLogger();
+// Logs Redux actions
+// const loggerMiddleware = createLogger();
 
 const logStateToDatabaseIfSignedIn = (state) => {
-  console.log(state);
   if (state.status.isLoggedIn) {
     return database.ref('users/' + state.status.id)
       .set(cleanseSavedState(state));
@@ -45,7 +32,7 @@ const configureStore = (preloadedState) => {
   const store = createStore(
     rootReducer,
     preloadedState,
-    applyMiddleware(thunkMiddleware, loggerMiddleware)
+    applyMiddleware(thunkMiddleware)
   );
   // see "Hot reloading reducers is now explicit":
   // https://github.com/reactjs/react-redux/releases/tag/v2.0.0
