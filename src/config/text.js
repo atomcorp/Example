@@ -204,6 +204,10 @@ const text = {
     'Reset password',
     '(DE) Reset password',
   ],
+  registering: [
+    'Registering you...',
+    '(DE) Registering you...',
+  ],
 };
 
 const translate = (lang) => {

@@ -10,6 +10,7 @@ import formStyle from '../../styles/form.module.css';
 import translate from '../../config/text';
 import type {TranslateType} from '../../types';
 import countryJson from '../../utility/countries.json';
+import {Loading} from '../';
 
 type PropsType = {
   registrationError: string,
@@ -86,7 +87,11 @@ class Register extends Component<PropsType, StateType> {
             state={this.state}
             errors={this.props.registrationError}
             t={this.t} />
-          {this.props.isLoggingIn ? 'Registering you...' : ''}
+          {
+            this.props.isLoggingIn
+              ? <Loading text={this.t('registering')} />
+              : ''
+          }
         </div>
       </Page >
     );

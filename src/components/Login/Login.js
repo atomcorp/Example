@@ -8,6 +8,7 @@ import type {TranslateType} from '../../types';
 import defaultStyle from '../../styles/default.module.css';
 import formStyle from '../../styles/form.module.css';
 import styles from './Login.module.css';
+import {Loading} from '../';
 
 type PropsType = {
   location: {
@@ -138,7 +139,7 @@ class Login extends Component<PropsType, StateType> {
               type="submit"
               value={this.translate('signIn')} />
           </form>
-          {this.props.status.isLoggingIn ? this.translate('loggingIn') : ''}
+          {this.props.status.isLoggingIn ? <Loading text={this.translate('loggingIn')} /> : ''}
           <ResetPassword
             // $FlowFixMe
             state={this.state}

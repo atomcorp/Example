@@ -30,11 +30,13 @@ export const CourseButton = ({
   return (
     status !== CourseStatuses.NOT_STARTED
       ? <Link className={styles.link} to={`/course/${id}`}>
-        <CourseLayout {...{title, status, t}} />
+          <CourseLayout {...{title, status, t}} />
         </Link>
       : <Link
-        to={`/course/${id}`}
-        onClick={onClick}>
+          className={styles.link}
+          to={`/course/${id}`}
+          onClick={onClick}
+        >
         <CourseLayout {...{title, status, t}} />
       </Link>
   );
