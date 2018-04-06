@@ -29,7 +29,7 @@ import translate from '../../config/text';
 const testCourseComplete = (
   courseId: string,
   modules: Array<{
-    target_id: string
+    target_id: string,
   }>,
   moduleStatuses: ModuleStatusesType,
   assessmentStatuses: AssessmentStatusesType
@@ -50,7 +50,7 @@ type CalcType = {complete: number, total: number};
 const calculateCourseCompletetion = (
   courseId: string,
   courseModules: Array<{
-    target_id: string
+    target_id: string,
   }>,
   moduleStatuses: ModuleStatusesType,
   assessmentStatuses: AssessmentStatusesType
@@ -73,20 +73,20 @@ const calculateCourseCompletetion = (
 type CourseType = {
   resources: {
     data: ResourcesType,
-    loaded: boolean
+    loaded: boolean,
   },
   route: {
     match: {
       params: {
-        courseId: string
-      }
-    }
+        courseId: string,
+      },
+    },
   },
   moduleStatuses: ModuleStatusesType,
   coursesStatuses: CoursesStatusesType,
   assessmentStatuses: AssessmentStatusesType,
   updateCourseStatus: (string, string) => void,
-  status: ReduxStatusType
+  status: ReduxStatusType,
 };
 
 export const Course = ({

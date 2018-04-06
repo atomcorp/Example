@@ -184,6 +184,14 @@ const text = {
     'Reset password',
     '(DE) Reset password',
   ],
+  takeCourse: [
+    'Take course',
+    '(DE) Take course',
+  ],
+  courseComplete: [
+    'Course complete',
+    '(DE) Course complete',
+  ],
   confirmTsAndCs: [
     'Tick to confirm you have read and agree to the Ts & Cs',
     '(DE) Please confirm you have read and agreed to the Ts & Cs',

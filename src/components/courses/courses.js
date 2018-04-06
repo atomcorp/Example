@@ -4,14 +4,18 @@ import type {Node} from 'react';
 import {CourseStatuses} from '../../redux/actions/action-types.js';
 import Page from '../../containers/page/page.js';
 import {Link} from 'react-router-dom';
-import type {StatusType, CourseType} from '../../types.js';
+import type {StatusType, CourseType, TranslateType} from '../../types.js';
 import {Loading} from '../';
+import courseImg from '../../assets/edge-course.jpg';
+import styles from './Courses.module.css';
+import translate from '../../config/text';
 
 type CourseButtonType = {
   title: string,
   id: string,
   status: string,
   onClick: () => void,
+  t: TranslateType,
 };
 
 export const CourseButton = ({
@@ -19,25 +23,45 @@ export const CourseButton = ({
   id,
   status,
   onClick,
+  t,
 }: CourseButtonType): Node => {
   // TODO: sucks, should have a HOF to encapsulate this issue
   // only add onClick if course hasn't been started
   return (
-    <h2>
-      {
-        status !== CourseStatuses.NOT_STARTED
-          ? <Link to={`/course/${id}`}>
-              {title} ({status})
-            </Link>
-          : <Link
-              to={`/course/${id}`}
-              onClick={onClick}>
-              {title} ({status})
-            </Link>
-      }
-    </h2>
+    status !== CourseStatuses.NOT_STARTED
+      ? <Link className={styles.link} to={`/course/${id}`}>
+        <CourseLayout {...{title, status, t}} />
+        </Link>
+      : <Link
+        to={`/course/${id}`}
+        onClick={onClick}>
+        <CourseLayout {...{title, status, t}} />
+      </Link>
   );
 };
+
+type CourseLayoutType = {
+  title: string,
+  status: string,
+  t: TranslateType,
+};
+
+const CourseLayout = (props: CourseLayoutType): Node => (
+  <div className={styles.course}>
+    <div
+      className={styles.image}
+      style={{backgroundImage: `url(${courseImg}`}}>
+    </div>
+    <div className={styles.content}>
+      <h2>{props.title}</h2>
+      {
+        props.status !== CourseStatuses.COMPLETED
+          ? <button>{props.t('takeCourse')}</button>
+          : props.t('courseComplete')
+      }
+    </div>
+  </div>
+);
 
 type CourseListType = {
   courses: CourseType,
@@ -45,12 +69,14 @@ type CourseListType = {
     [id: string]: StatusType,
   },
   onClick: (string, string) => void,
+  t: TranslateType,
 };
 
 const CourseList = ({
   courses,
   coursesStatuses,
   onClick,
+  t,
 }: CourseListType): Array<Node> => {
   return (
     Object.keys(courses).map((key: string, index: number): Node =>
@@ -65,7 +91,8 @@ const CourseList = ({
         }
         onClick={(): void => onClick(
           CourseStatuses.STARTED, courses[key].nid[0].value
-        )} />
+        )}
+        t={t} />
     )
   );
 };
@@ -81,6 +108,7 @@ type CoursesType = {
     },
     loaded: boolean,
   },
+  language: string,
 };
 
 // coursesStatuses is mapped from state by the CoursesContainer
@@ -89,17 +117,20 @@ export const Courses = ({
   coursesStatuses,
   onClick,
   resources,
+  language,
 }: CoursesType): Node => {
   if (!resources.loaded) {
     return <Loading text={'Loading courses'} />;
   }
+  const t = translate(language);
   return (
     <Page title={'Choose a course'}>
       <div>
         <CourseList
           courses={resources.data.courses}
           coursesStatuses={coursesStatuses}
-          onClick={onClick} />
+          onClick={onClick}
+          t={t} />
       </div>
     </Page>
   );

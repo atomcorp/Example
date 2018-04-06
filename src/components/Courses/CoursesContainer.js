@@ -16,6 +16,7 @@ const getResources = ({status, data}) => {
 const mapStateToProps = (state) => ({
   coursesStatuses: getCourseStatuses(state.coursesStatuses),
   resources: getResources(state.resources),
+  language: state.status.language,
 });
 
 const mapDispatchToProps = (dispatch) => ({

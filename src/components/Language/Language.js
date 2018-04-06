@@ -10,17 +10,17 @@ import styles from './Language.module.css';
 
 type PropsType = {
   language: string,
-  changeLanguage: string => void
+  changeLanguage: string => void,
 };
 
 type StateType = {
-  currentLang: string
+  currentLang: string,
 };
 
 class Language extends Component<PropsType, StateType> {
   languages: Array<{
     lang: string,
-    iso: string
+    iso: string,
   }>
   t: TranslateType
   constructor(props: PropsType) {
@@ -34,14 +34,6 @@ class Language extends Component<PropsType, StateType> {
         lang: 'english',
         iso: 'en',
       },
-      // {
-      //   lang: 'French',
-      //   iso: 'fr',
-      // },
-      // {
-      //   lang: 'Spanish',
-      //   iso: 'es',
-      // },
       {
         lang: 'german',
         iso: 'de',
@@ -50,6 +42,7 @@ class Language extends Component<PropsType, StateType> {
   }
   handleClick() {
     this.props.changeLanguage(this.state.currentLang);
+    this.t = translate(this.state.currentLang);
   }
   switchLanguage = (iso: string) => {
     this.setState({
@@ -101,7 +94,7 @@ type LanguageButtonType = {
   iso: string,
   switchLanguage: string => void,
   t: TranslateType,
-  currentLang: string
+  currentLang: string,
 };
 
 const LanguageButton = ({

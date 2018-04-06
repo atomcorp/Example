@@ -20,7 +20,7 @@ type CourseModuleElementType = {
   courseId: string,
   moduleComponents: Array<ModuleComponentType | {}>,
   moduleStatus: boolean,
-  number: number
+  number: number,
 };
 
 const CourseModuleElement = ({
@@ -53,7 +53,7 @@ const CourseModuleElement = ({
 type CoursePresentationType = {
   title: Array<{value: string}>,
   field_introduction: Array<{value: string}>,
-  t: TranslateType
+  t: TranslateType,
 };
 
 export const CoursePresentation = ({
@@ -72,7 +72,7 @@ export const CoursePresentation = ({
 type CourseModulesPresentationType = {
   courseData: CourseFieldsType,
   resources: ResourcesType,
-  moduleStatuses: ModuleStatusesType
+  moduleStatuses: ModuleStatusesType,
 };
 
 export const CourseModulesPresentation = ({
@@ -106,7 +106,7 @@ type CourseAssessmentType = {
   courseId: string,
   completed: boolean,
   courseTitle: string,
-  t: TranslateType
+  t: TranslateType,
 };
 
 export const CourseAssessment = ({
@@ -141,8 +141,8 @@ export const CourseHeader = ({
   title: string,
   progress: {
     total: number,
-    complete: number
-  }
+    complete: number,
+  },
 }): Node => (
   <div className={style.header}>
     <Title title={title} />
