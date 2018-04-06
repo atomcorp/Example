@@ -3,21 +3,22 @@ import React, {Component} from 'react';
 import type {Node} from 'react';
 import {once as myOnce, shuffle} from '../../utility/utility.js';
 import type {MultiChoiceFieldsType} from '../../types.js';
+import styles from './MultiChoiceAssessment.module.css';
 
 type PropsType = {
   assessment: MultiChoiceFieldsType,
   handleClick: ({id: string, isCorrect: boolean}) => void,
   id: string,
   submitted: boolean,
+  index: number,
 };
 
 export const MultiChoiceAssessment = (props: PropsType): Node => (
-  <div className="multiple-question">
-    <div className="question">
-      <h2>{props.assessment.field_question[0].value}</h2>
+  <div className={styles.component}>
+    <div className={styles.question}>
+      <h4>{props.index}. {props.assessment.field_question[0].value}</h4>
     </div>
-    <br />
-    <div className={'name'}>
+    <div className={styles.choices}>
       <MultipleChoiceList
         choices={
           [props.assessment.field_correct_choice[0],
@@ -134,8 +135,8 @@ const Choice = ({
         isCorrect,
         id,
       }, choiceRef)}
+      className={styles.choice}
       style={{
-        color: isCorrect ? 'green' : 'red',
         fontWeight: selectedId === choiceRef ? '700' : '400',
       }}>
       {text.value} <span style={{

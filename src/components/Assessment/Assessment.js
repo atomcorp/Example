@@ -29,31 +29,31 @@ const TitleElement = ({
 
 type PropsType = {
   assessmentStatuses: {
-    [id: string]: boolean
+    [id: string]: boolean,
   },
   route: {
     match: {
       params: {
-        courseId: string
-      }
-    }
+        courseId: string,
+      },
+    },
   },
   done: string => void,
   resources: ResourcesType,
   loaded: boolean,
-  language: string
+  language: string,
 };
 
 type StateType = {
   completed: boolean,
   submitted: boolean,
   passed: boolean,
-  error: string
+  error: string,
 };
 
 type AssessmentTestsType = {
   id: string,
-  status: 'not-started' | 'incorrect' | 'correct'
+  status: 'not-started' | 'incorrect' | 'correct',
 };
 
 export const AssessmentLoader = (props: PropsType): Node => {
@@ -198,7 +198,8 @@ export class Assessment extends Component<PropsType, StateType> {
                   this.props.resources.components[assessment.target_id]
                 }
                 handleClick={this.handleClick}
-                submitted={this.state.submitted} />
+                submitted={this.state.submitted}
+                index={i + 1} />
             )
           )
         }
@@ -249,7 +250,7 @@ const gradeAssessment = (target: number, score: number): boolean => {
 
 const resetTestStatuses = (
   assessment: Array<{
-    target_id: string
+    target_id: string,
   }>
 ): Array<AssessmentTestsType> => {
   return assessment.map(

@@ -11,20 +11,20 @@ import type {TranslateType} from '../../types';
 
 type PropsType = {
   field_question: Array<{
-    value: string
+    value: string,
   }>,
   field_correct_choice: Array<{
-    value: string
+    value: string,
   }>,
   field_incorrect_choices: Array<{
-    value: string
+    value: string,
   }>,
-  t: TranslateType
+  t: TranslateType,
 };
 
 type StateType = {
   clicked: boolean,
-  isCorrectChoice: string
+  isCorrectChoice: string,
 };
 
 /**
@@ -72,18 +72,18 @@ export class MultipleChoice extends Component<PropsType, StateType> {
 
 type MultipleChoicePresentationType = {
   field_question: Array<{
-    value: string
+    value: string,
   }>,
   field_correct_choice: Array<{
-    value: string
+    value: string,
   }>,
   field_incorrect_choices: Array<{
-    value: string
+    value: string,
   }>,
   handleClick: boolean => void,
   state: StateType,
   shuffleOnce: (Array<Node>) => Array<Node>,
-  t: TranslateType
+  t: TranslateType,
 };
 
 const MultipleChoicePresentation = ({
@@ -121,11 +121,11 @@ const MultipleChoicePresentation = ({
 
 type MultipleChoiceListType = {
   choices: Array<{
-    value: string
+    value: string,
   }>,
   handleClick: boolean => void,
   clicked: boolean,
-  shuffleOnce: (Array<Node>) => Array<Node>
+  shuffleOnce: (Array<Node>) => Array<Node>,
 };
 
 const MultipleChoiceList = ({
@@ -136,7 +136,7 @@ const MultipleChoiceList = ({
 }: MultipleChoiceListType ): Array<Node> => (
   shuffleOnce(choices.map((
     choice: {
-      value: string
+      value: string,
     },
     i: number
   ): Node => {
@@ -153,7 +153,7 @@ type ChoiceType = {
   text: string,
   isCorrect: boolean,
   handleClick: boolean => void,
-  clicked: boolean
+  clicked: boolean,
 };
 
 class Choice extends Component<ChoiceType, {domIndex: string}> {
