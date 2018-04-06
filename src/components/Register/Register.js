@@ -52,7 +52,7 @@ class Register extends Component<PropsType, StateType> {
       firstName: '',
       lastName: '',
       company: '',
-      country: '',
+      country: 'GB',
     };
     this.t = translate(this.props.language);
   }

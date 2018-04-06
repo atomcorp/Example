@@ -185,7 +185,7 @@ class Profile extends Component<PropsType, StateType> {
             email: this.props.status.email,
             editValue: (): Node =>
               <InputForUser
-                type={'text'}
+                type={'email'}
                 value={this.state.email}
                 handleUserEdit={this.handleUserEdit}
                 stateKey={'email'} />,
