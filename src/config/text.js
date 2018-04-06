@@ -208,6 +208,10 @@ const text = {
     'Registering you...',
     '(DE) Registering you...',
   ],
+  emailChanged: [
+    'Email changed',
+    '(DE) Email changed',
+  ],
 };
 
 const translate = (lang) => {

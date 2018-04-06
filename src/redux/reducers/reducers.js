@@ -13,6 +13,7 @@ import {
   CHANGE_USER_DETAILS,
   RESET_PASSWORD,
   CHANGE_EMAIL,
+  CANCEL_MESSAGES,
 } from '../actions/action-types.js';
 import type {
   CourseType,
@@ -180,6 +181,12 @@ export const status = (
       return Object.assign({}, state, {
         error: '',
         email: action.email,
+        success: 'emailChanged',
+      });
+    case CANCEL_MESSAGES:
+      return Object.assign({}, state, {
+        error: '',
+        success: '',
       });
     default:
       return state;

@@ -3,16 +3,21 @@ import React, {Component} from 'react';
 import type {Node} from 'react';
 import {connect} from 'react-redux';
 import Page from '../../containers/page/page';
-import type {ReduxStatusType} from '../../types';
+import type {
+  ReduxStatusType,
+  TranslateType,
+} from '../../types';
 import defaultStyles from '../../styles/default.module.css';
 import formStyles from '../../styles/form.module.css';
 import styles from './Profile.module.css';
 import {
   changeUserDetails,
   changeEmail,
+  removeMessages,
 } from '../../redux/actions/action-creators';
 import countryJson from '../../utility/countries.json';
 import ChangeEmail from './ChangeEmail';
+import translation from '../../config/text';
 
 type StateType = {
   firstName: string,
@@ -36,9 +41,11 @@ type PropsType = {
   status: ReduxStatusType,
   confirmUserEdit: (string, string) => void,
   changeEmail: (string) => void,
+  cancelMessages: () => void,
 };
 
 class Profile extends Component<PropsType, StateType> {
+  t: TranslateType
   constructor(props: PropsType) {
     super(props);
     this.state = {
@@ -55,6 +62,7 @@ class Profile extends Component<PropsType, StateType> {
         email: false,
       },
     };
+    this.t = translation(this.props.status.language);
   }
   handleUserEdit = (key: KeyType, value: string) => {
     if (typeof value === 'string') {
@@ -83,6 +91,9 @@ class Profile extends Component<PropsType, StateType> {
   handleEmailChange = () => {
     this.props.changeEmail(this.state.email);
   }
+  componentWillUnmount() {
+    this.props.cancelMessages();
+  }
   render(): * {
     return (
       <Page title={'Profile'}>
@@ -91,6 +102,13 @@ class Profile extends Component<PropsType, StateType> {
             this.props.status.error
               ? <div className={formStyles.errors}>
                 {this.props.status.error}
+              </div>
+              : ''
+          }
+          {
+            this.props.status.success
+              ? <div className={formStyles.success}>
+                {this.t(this.props.status.success)}
               </div>
               : ''
           }
@@ -294,6 +312,7 @@ const mapDispatchToProps = (dispatch: any): {confirmUserEdit: any} => ({
   changeEmail: (email: string) => {
     dispatch(changeEmail(email));
   },
+  cancelMessages: (): void => dispatch(removeMessages()),
 });
 
 const ProfileContainer = connect(

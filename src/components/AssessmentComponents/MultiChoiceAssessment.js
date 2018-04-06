@@ -8,7 +8,7 @@ type PropsType = {
   assessment: MultiChoiceFieldsType,
   handleClick: ({id: string, isCorrect: boolean}) => void,
   id: string,
-  submitted: boolean
+  submitted: boolean,
 };
 
 export const MultiChoiceAssessment = (props: PropsType): Node => (
@@ -44,15 +44,15 @@ export const MultiChoiceAssessment = (props: PropsType): Node => (
 type MultipleChoiceListType = {
   choices: Array<{
     choice: {value: string},
-    isCorrect: boolean
+    isCorrect: boolean,
   }>,
   handleClick: ({id: string, isCorrect: boolean}) => void,
   id: string,
-  submitted: boolean
+  submitted: boolean,
 };
 
 type StateMultipleChoiceListType = {
-  selectedId: string
+  selectedId: string,
 };
 
 class MultipleChoiceList extends Component<
@@ -117,7 +117,7 @@ type ChoiceType = {
   submitted: boolean,
   selectedId: string,
   handleChoice: ({id: string, isCorrect: boolean}, choiceRef: string) => void,
-  choiceRef: string
+  choiceRef: string,
 };
 
 const Choice = ({

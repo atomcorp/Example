@@ -7,6 +7,7 @@ import {
   CHANGE_USER_DETAILS,
   RESET_PASSWORD,
   CHANGE_EMAIL,
+  CANCEL_MESSAGES,
 } from './action-types.js';
 import type {
   SetCourseStatusType,
@@ -137,3 +138,7 @@ export const changeEmail = (email: string): any => {
     });
   };
 };
+
+export const removeMessages = (): {type: CANCEL_MESSAGES} => ({
+  type: CANCEL_MESSAGES,
+});

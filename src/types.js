@@ -8,91 +8,91 @@ import {
 } from './redux/actions/action-types.js';
 
 export type MultiChoiceType = {
-  [id: string]: MultiChoiceFieldsType
+  [id: string]: MultiChoiceFieldsType,
 };
 
 export type MultiChoiceFieldsType = {
   "field_correct_choice": Array<{
-    value: string
+    value: string,
   }>,
   "field_incorrect_choices": Array<{
-    value: string
+    value: string,
   }>,
   "field_question": Array<{
-    value: string
+    value: string,
   }>,
   "id": Array<{
-    value: string
+    value: string,
   }>,
   "type": Array<{
-    target_id: 'question'
-  }>
+    target_id: 'question',
+  }>,
 };
 
 export type LessonType = {
-  [id: string]: LessonFieldsType
+  [id: string]: LessonFieldsType,
 };
 
 export type LessonFieldsType = {
   "field_body": Array<{
-    value: string
+    value: string,
   }>,
   "field_headline": Array<{
-    value: string
+    value: string,
   }>,
   "field_youtube_id": Array<{
-    value: string
+    value: string,
   }> | void,
   "id": Array<{
-    value: string
+    value: string,
   }>,
   "type": Array<{
-    value: 'lesson'
+    value: 'lesson',
   }>,
   field_image: Array<{
     alt: string,
-    url: string
-  }>
+    url: string,
+  }>,
 };
 
 export type ModuleComponentType = MultiChoiceType | LessonType;
 
 export type CourseType = {
-  [id: string]: CourseFieldsType
+  [id: string]: CourseFieldsType,
 };
 
 export type CourseFieldsType = {
   "field_course_assessment": Array<{
-    target_id: string
+    target_id: string,
   }>,
   "field_introduction": Array<{
-    value: string
+    value: string,
   }>,
   "field_modules": Array<{
-    target_id: string
+    target_id: string,
   }>,
   "nid": Array<{
-    value: string
+    value: string,
   }>,
   "title": Array<{
-    value: string
-  }>
+    value: string,
+  }>,
 };
 
 export type ModuleType = {
-  [id: string]: ModuleFieldsType
+  [id: string]: ModuleFieldsType,
 };
 
 export type ModuleFieldsType = {
   "field_add_components": Array<{
-    target_id: string
+    target_id: string,
   }>,
   "nid": Array<{
-    value: string
+    value: string,
   }>,
   "title": Array<{
-    value: string
-  }>
+    value: string,
+  }>,
 };
 
 export type ResourcesType = {
@@ -100,7 +100,7 @@ export type ResourcesType = {
   courses: {} | CourseType,
   components: {} | LessonType | MultiChoiceType,
   modules: {} | ModuleType,
-  loaded: boolean
+  loaded: boolean,
 };
 
 export type StateType = {
@@ -108,7 +108,7 @@ export type StateType = {
   courses: {} | CourseType,
   moduleComponents: {} | LessonType | MultiChoiceType,
   modules: {} | ModuleType,
-  loaded: boolean
+  loaded: boolean,
 };
 
 export type ModuleStateType = {
@@ -119,7 +119,7 @@ export type ModuleStateType = {
   loaded: boolean,
   moduleComponentCount: ?number,
   visibleModuleComponent: ?number,
-  nextButtonDisabled: ?boolean
+  nextButtonDisabled: ?boolean,
 };
 
 export type InitalStateType = {
@@ -128,8 +128,8 @@ export type InitalStateType = {
     courses: {} | CourseType,
     moduleComponents: {} | LessonType | MultiChoiceType,
     modules: {} | ModuleType,
-    loaded: boolean
-  }
+    loaded: boolean,
+  },
 };
 
 export type StatusType =
@@ -138,15 +138,15 @@ export type StatusType =
   | CourseStatuses.COMPLETED;
 
 export type ModuleStatusesType = {
-  [id: string]: boolean
+  [id: string]: boolean,
 };
 
 export type CoursesStatusesType = {
-  [id: string]: boolean
+  [id: string]: boolean,
 };
 
 export type AssessmentStatusesType = {
-  [id: string]: boolean
+  [id: string]: boolean,
 };
 
 // Redux Types
@@ -154,29 +154,29 @@ export type SetCourseStatusType = {
   status: CourseStatuses.NOT_STARTED
   | CourseStatuses.STARTED
   | CourseStatuses.COMPLETED,
-  course: string
+  course: string,
 };
 
 export type SetCourseStatusReturnType = {
   type: SET_COURSE_STATUS,
   status: StatusType,
-  course: string
+  course: string,
 };
 
 export type ModuleDoneType = {
   type: MODULE_DONE,
-  id: string
+  id: string,
 };
 
 export type ChangeUserDetailsType = {
   type: CHANGE_USER_DETAILS,
   key: string,
-  value: string
+  value: string,
 };
 
 export type AssessmentDoneType = {
   type: ASSESSMENT_DONE,
-  id: string
+  id: string,
 };
 
 export type TranslateType = (string) => string;
@@ -193,5 +193,6 @@ export type ReduxStatusType = {
   firstName: string,
   lastName: string,
   country: string,
-  company: string
+  company: string,
+  success: string,
 };
