@@ -38,6 +38,9 @@ type StateType = {
   country: string,
 };
 
+type KeysType = 'email' | 'pass' | 'firstName'
+  | 'lastName' | 'company' | 'country';
+
 class Register extends Component<PropsType, StateType> {
   t: TranslateType
   constructor(props: PropsType) {
@@ -52,12 +55,10 @@ class Register extends Component<PropsType, StateType> {
     };
     this.t = translate(this.props.language);
   }
-  handleInput = (type: string, value: string) => {
-    if (value) {
-      this.setState({
-        [type]: value,
-      });
-    }
+  handleInput = (type: KeysType, value: string) => {
+    this.setState({
+      [type]: value,
+    });
   }
   handleSubmit = (event: Event) => {
     event.preventDefault();
@@ -94,7 +95,7 @@ class Register extends Component<PropsType, StateType> {
 
 type RegistrationFormType = {
   handleSubmit: (Event) => void,
-  handleInput: (string, Event) => void,
+  handleInput: (KeysType, string) => void,
   state: StateType,
   errors: string,
   t: TranslateType,
@@ -146,6 +147,7 @@ const RegistrationForm = ({
       label={t('country')}
       inputType={'country'}
       value={state.country}
+      type={'select'}
       placeholder={''}
       handleInput={handleInput} />
     <InputWithLabel
@@ -169,11 +171,11 @@ const RegistrationForm = ({
 
 type LabelFormsType = {
   label: string,
-  inputType: string,
+  inputType: KeysType,
   value: string,
   type: string,
   placeholder: string,
-  handleInput: (string, Event) => void,
+  handleInput: (KeysType, string) => void,
   props?: any,
 };
 
@@ -191,7 +193,7 @@ const InputWithLabel = ({
         {label}*
     </div>
     <input
-      onInput={(e: Event): void =>
+      onInput={(e: Event): void =>// $FlowFixMe
         handleInput(inputType, e.target.value)
       }
       className={formStyle.input}

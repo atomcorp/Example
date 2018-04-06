@@ -17,7 +17,7 @@ import type {
 
 type ModuleComponentContainerType = {
   moduleComponent: MultiChoiceFieldsType | LessonFieldsType,
-  t: TranslateType
+  t: TranslateType,
 };
 
 export const ModuleComponent = ({
@@ -45,9 +45,9 @@ export const ModuleComponent = ({
 type ModuleComponentVisibilityType = {
   isVisible: {
     thisId: number,
-    visibleId: number
+    visibleId: number,
   },
-  children: Node
+  children: Node,
 };
 
 export const ModuleComponentVisibility = ({

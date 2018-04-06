@@ -8,10 +8,15 @@ type PropsType = {
   courseId: string,
   language: string,
   firstName: string,
-  lastName: string
+  lastName: string,
 };
 
-class CourseCertificate extends Component<PropsType, {}> {
+type StateType = {
+  certificateIsSent: boolean,
+  error: string,
+};
+
+class CourseCertificate extends Component<PropsType, StateType> {
   constructor(props: PropsType) {
     super(props);
     this.state ={
@@ -64,7 +69,7 @@ type PostCertificateRequestType = {
   courseId: string,
   language: string,
   firstName: string,
-  lastName: string
+  lastName: string,
 };
 
 const postCertificateRequest = ({
@@ -73,7 +78,7 @@ const postCertificateRequest = ({
   language,
   firstName,
   lastName,
-}: PostCertificateRequestType): Promise => {
+}: PostCertificateRequestType): * => {
   const body = {
     email: email,
     name: {
@@ -96,13 +101,13 @@ type BodyType = {
   email: string,
   name: {
     first_name: string,
-    last_name: string
+    last_name: string,
   },
   course: {
-    nid: string
+    nid: string,
   },
   language: string,
-  country: 'gb'
+  country: 'gb',
 };
 
 const req = (url: string, body: BodyType): * => fetch(url, {

@@ -24,6 +24,9 @@
 
 .button {
   padding: 8px 12px;
+  display: block;
+  margin: 0 auto 10px;
+  min-width: 120px;
 }
 
 .errors {

@@ -10,19 +10,18 @@ import YouTube from 'react-youtube';
 
 type LessonFieldsType = {
   field_headline: Array<{
-    value: string
+    value: string,
   }>,
   field_body: Array<{
-    value: string
+    value: string,
   }>,
   field_image: Array<{
     alt: string,
-    url: string
+    url: string,
   }>,
   field_youtube_id: Array<{
-    alt: string,
-    url: string
-  }>
+    value: string,
+  }>,
 };
 
 export const Lesson = ({

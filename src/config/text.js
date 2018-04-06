@@ -180,6 +180,10 @@ const text = {
     'Success! We have sent you an email with further instructions.',
     '(DE) Success! We have sent you an email with further instructions.',
   ],
+  resetPassword: [
+    'Reset password',
+    '(DE) Reset password',
+  ],
   confirmTsAndCs: [
     'Tick to confirm you have read and agree to the Ts & Cs',
     '(DE) Please confirm you have read and agreed to the Ts & Cs',

@@ -2,12 +2,16 @@
 import React from 'react';
 import type {Node} from 'react';
 import styles from './Login.module.css';
+import formStyles from '../../styles/form.module.css';
 
 type ResetPasswordType = {
-  state: string,
+  state: {
+    email: string,
+    passReset: string,
+  },
   handleResetRequest: (string) => void,
-  translate: string,
-  handleInput: (Event, string) => void,
+  translate: (string) => string,
+  handleInput: ('email', Event) => void,
 };
 
 const ResetPassword = ({
@@ -21,8 +25,11 @@ const ResetPassword = ({
       e.preventDefault();
       handleResetRequest(state.email);
     }}
-    className={state.passReset ? styles.show : styles.hide}
+    className={`
+      ${formStyles.form} ${state.passReset ? styles.show : styles.hide}
+    `}
   >
+    {translate('resetPassword')}:<br />
     <input
       onInput={(e: Event): void => handleInput('email', e)}
       type="text"

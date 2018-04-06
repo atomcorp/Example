@@ -1,6 +1,6 @@
 // @flow
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 import Page from '../../containers/page/page.js';
 import ResetPassword from './ResetPassword';
 import translate from '../../config/text';
@@ -36,6 +36,7 @@ type StateType = {
   email: string,
   pass: string,
   passReset: boolean,
+  resetSuccess: string,
 };
 
 class Login extends Component<PropsType, StateType> {
@@ -70,6 +71,7 @@ class Login extends Component<PropsType, StateType> {
     });
   }
   handleResetRequest = (email: string) => {
+    // $FlowFixMe
     this.props.resetPassword(email).then((res: boolean) => {
       if (res) {
         this.setState({
@@ -138,18 +140,30 @@ class Login extends Component<PropsType, StateType> {
           </form>
           {this.props.status.isLoggingIn ? this.translate('loggingIn') : ''}
           <ResetPassword
+            // $FlowFixMe
             state={this.state}
+            // $FlowFixMe
             handleInput={this.handleInput}
             translate={this.translate}
             handleResetRequest={this.handleResetRequest}
           />
-          <button onClick={(): void => this.toggleReset()}>
-            {
-              this.state.passReset
-                ? 'Cancel'
-                : 'Reset password'
-            }
-          </button>
+          <div className={styles.links}>
+            <Link to={'/register'} className={defaultStyle.link}>
+              {
+                !this.state.passReset && 'Register'
+              }
+            </Link>
+            <button
+              className={defaultStyle.link}
+              onClick={(): void => this.toggleReset()}
+            >
+              {
+                this.state.passReset
+                  ? 'Cancel'
+                  : 'Reset password'
+              }
+            </button>
+          </div>
         </div>
       </Page>
     );

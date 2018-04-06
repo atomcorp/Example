@@ -91,13 +91,13 @@ const resetFailure = (error: string): {
   error,
 });
 
-export const resetPassword = (email: string): boolean => {
-  return (dispatch: any): boolean => {
+export const resetPassword = (email: string): any => {
+  return (dispatch: any): any => {
     dispatch(resetRequest);
-    return auth.passwordReset(email).then((): boolean => {
+    return auth.passwordReset(email).then((): any => {
       dispatch(resetSuccess);
       return true;
-    }).catch((err: any): boolean => {
+    }).catch((err: any): any => {
       dispatch(resetFailure(err.message));
       return false;
     });
