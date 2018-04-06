@@ -17,6 +17,7 @@ import {MultiChoiceAssessment}
   from '../AssessmentComponents/MultiChoiceAssessment.js';
 import AssessmentButtons from './AssessmentButtons.js';
 import translate from '../../config/text';
+import defaultStyles from '../../styles/default.module.css';
 
 const TitleElement = ({
   title,
@@ -97,7 +98,6 @@ export class Assessment extends Component<PropsType, StateType> {
     };
   }
   completeAssessmentButton = () => {
-    this.completeAssessment();
     this.setState({
       completed: true,
     });
@@ -117,6 +117,9 @@ export class Assessment extends Component<PropsType, StateType> {
     }
   }
   succesfullySubmitted(hasPassed: boolean) {
+    if (hasPassed) {
+      this.completeAssessment();
+    }
     this.setState({
       submitted: true,
       passed: hasPassed,
@@ -166,26 +169,31 @@ export class Assessment extends Component<PropsType, StateType> {
     return (
       <Page>
         <TitleElement t={this.t} title={this.courseData.title} />
-        <div>
-          {this.state.error}
-          <br/>
-          {
-            this.state.submitted && (
-              this.state.passed
-                ? `${this.t('passed')}: ${this.score} / ${
-                  this.courseData.field_course_assessment.length
-                }`
-                : `${this.t('failed')}: ${this.score} / ${
-                  this.courseData.field_course_assessment.length
-                }`
-            )
-          }
-          <br/>
-          {
-            this.state.submitted && `${this.t('passMinimum')}: ${this.target}`
-          }
-        </div>
-
+        {
+          this.state.error
+            && <div className={defaultStyles.errors}>
+              {this.state.error}
+            </div>
+        }
+        {
+          this.state.submitted && (
+            <div className={
+              this.state.passed ? defaultStyles.success : defaultStyles.errors
+            }>
+              {
+                this.state.passed
+                  ? `${this.t('passed')}: ${this.score} / ${
+                    this.courseData.field_course_assessment.length
+                  }`
+                  : `${this.t('failed')}: ${this.score} / ${
+                    this.courseData.field_course_assessment.length
+                  }`
+              }
+              <br />
+              {this.t('passMinimum')}: {this.target}
+            </div>
+          )
+        }
         {
           this.courseData.field_course_assessment.map(
             (assessment: {target_id: string}, i: number): Node => (

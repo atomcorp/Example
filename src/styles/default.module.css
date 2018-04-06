@@ -15,3 +15,21 @@
   cursor: pointer;
   padding: 0;
 }
+
+.errors {
+  background: #fcf684;
+  color: #d9534f;
+  border: 1px solid;
+  padding: 16px 24px;
+  margin: 0 auto 20px;
+  width: 100%;
+}
+
+.success {
+  background: #b1fba6;
+  color: #79ab67;
+  border: 1px solid;
+  padding: 16px 24px;
+  margin: 0 auto 20px;
+  width: 100%;
+}
