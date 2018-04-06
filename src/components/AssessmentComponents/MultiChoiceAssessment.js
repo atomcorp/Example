@@ -138,6 +138,7 @@ const Choice = ({
       className={styles.choice}
       style={{
         fontWeight: selectedId === choiceRef ? '700' : '400',
+        outline: selectedId === choiceRef ? '3px solid' : '0',
       }}>
       {text.value} <span style={{
           display: submitted ? 'inline' : 'none',

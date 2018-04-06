@@ -5,7 +5,11 @@
 }
 
 .question {
-  padding: 0 20px;
+  padding: 0 10px;
+}
+
+.question h4 {
+  font-weight: 400;
 }
 
 .choices {
