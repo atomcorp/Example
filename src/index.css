@@ -35,6 +35,12 @@ body {
 
 button {
   padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid #adadad;
+}
+
+button:hover {
+  background: #dff4ff;
 }
 
 h1 {

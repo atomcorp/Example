@@ -28,5 +28,9 @@
 
 .current {
   text-decoration: underline;
+  margin: 0 10px 10px 0;
 }
 
+.notCurrent {
+  margin: 0 10px 10px 0;
+}

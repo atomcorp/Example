@@ -113,7 +113,9 @@ class Login extends Component<PropsType, StateType> {
             onSubmit={this.handleSubmit}
           >
             <label className={formStyle.label}>
-              {this.translate('email')}:&nbsp;
+              <div className={formStyle.heading}>
+                {this.translate('email')}:&nbsp;
+              </div>
               <input
                 type="text"
                 value={this.state.email}
@@ -124,7 +126,9 @@ class Login extends Component<PropsType, StateType> {
                 } />
             </label>
             <label className={formStyle.label}>
-              {this.translate('password')}:&nbsp;
+              <div className={formStyle.heading}>
+                {this.translate('password')}:&nbsp;
+              </div>
               <input
                 type="password"
                 value={this.state.pass}

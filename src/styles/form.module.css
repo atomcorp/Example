@@ -1,6 +1,7 @@
 .label {
   margin: 0 0 10px;
   display: block;
+  font-size: 1rem;
 }
 
 .heading {
@@ -10,11 +11,14 @@
 .input {
   padding: 8px 12px;
   width: 100%;
+  border: 1px solid #adadad;
+  font-size: 1rem;
 }
 
 .select {
   padding: 8px 12px;
   width: 100%;
+  font-size: 1rem;
 }
 
 .form {
@@ -27,6 +31,12 @@
   display: block;
   margin: 0 auto 10px;
   min-width: 120px;
+  border: 1px solid #adadad;
+  font-size: 1rem;
+}
+
+.button[type="submit"]:hover {
+  background: #dff4ff;
 }
 
 .errors {
@@ -63,4 +73,5 @@
 .inline .button {
   margin: 0;
   flex: 1 0 auto;
+  border-left: 0;
 }
