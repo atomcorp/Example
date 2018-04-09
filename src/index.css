@@ -3,6 +3,7 @@ html {
   box-sizing: border-box;
   height: 100%;
   font-size: 80%;
+  color: #333;
 }
 
 @media (min-width: 42em) {
@@ -57,4 +58,12 @@ h3 {
 
 p {
   font-size: 1.25rem;
+}
+
+a {
+  color: #0074D9;
+}
+
+a:visited {
+  color: #0074D9;
 }

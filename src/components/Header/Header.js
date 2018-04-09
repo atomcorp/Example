@@ -12,7 +12,7 @@ import logo from '../../assets/CA_anniversary_logo.svg';
 type StatusType = {
   isLoggedIn: boolean,
   firstName: string,
-  language: string
+  language: string,
 };
 
 const Header = ({
@@ -39,7 +39,7 @@ type UserType = {
   isLoggedIn: boolean,
   firstName: string,
   logout: () => void,
-  t: TranslateType
+  t: TranslateType,
 };
 
 const User = ({

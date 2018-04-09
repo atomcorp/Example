@@ -50,6 +50,12 @@
   align-items: flex-start;
   text-decoration: none;
   color: #c0a880;
+  font-size: 1.5rem;
+}
+
+
+.logo:visited {
+  color: #c0a880;  
 }
 
 @media (min-width: 72em) {
@@ -63,3 +69,12 @@
   width: 157px;
   height: 35px;
 }
+
+@media (min-width: 72em) {
+  .logo img {
+    width: 220px;
+    height: 49px;
+  }
+}
+
+

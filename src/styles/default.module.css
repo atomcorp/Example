@@ -16,6 +16,10 @@
   padding: 0;
 }
 
+.link:hover {
+  background: transparent;
+}
+
 .errors {
   background: #fcf684;
   color: #d9534f;
